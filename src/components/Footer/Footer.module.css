@@ -1,0 +1,10 @@
+.footer {
+  background-color: #F8F8FF;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.bottomBar p {
+  color: #333;
+}

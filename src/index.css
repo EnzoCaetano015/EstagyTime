@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    font-family: "Titillium Web", sans-serif;
+}
+
+html,
+body {
+    background-color: #F8F8FF;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    height: 95%;
+}
+
+  /* formatacao da barra de rolagem */
+  body::-webkit-scrollbar {
+    width: 12px;                /* largura da barra de rolagem */
+    background-color: #F8F8FF;
+}
+
+body::-webkit-scrollbar-track {
+    background: #F8F8FF;           /* cor de fundo da barra de rolagem */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #422680;  /* cor do scroll (thumb) da barra de rolagem */
+    border-radius: 20px;          /* arredondar o scroll (thumb) */
+    border: 3px solid #F8F8FF;     /* criar um espaco em volta do scroll */
+}

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Splash from "../pages/splash";
-import Login from "../pages/Login";
+import Splash from "../pages/SplashScreen";
+import Login from "../pages/LoginScreen";
+import Home from "../pages/Home/Home";
 
 function Rotas(){
     return(
@@ -8,6 +9,7 @@ function Rotas(){
         
         <Routes>
             <Route path="/" element = {<Splash/>}/>
+            <Route path="/Home" element = {<Home/>}/>
             <Route path="/Login" element = {<Login/>}/>
         </Routes>
         

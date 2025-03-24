@@ -1,0 +1,326 @@
+/* --- Hero Section --- */
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20%;
+  background-color: #f8f8ff;
+  margin-block: 6%;
+}
+
+.heroContent {
+  max-width: 50%;
+}
+
+.heroContent h1 {
+  font-size: 50px;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.heroContent strong:nth-child(1) {
+  color: #422680;
+}
+
+.heroContent p {
+  font-size: 15px;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  width: 120px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: opacity 0.3s ease;
+}
+
+.primaryBtn {
+  background-color: #422680;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.secondaryBtn {
+  background-color: #fff;
+  color: #422680;
+  border: 2px solid #422680;
+}
+
+.primaryBtn:hover,
+.secondaryBtn:hover {
+  opacity: 0.6;
+}
+
+
+/* Hero image / icon */
+.heroImage {
+  background-color: #8c69d834;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  animation: pulse 5s infinite ease-in-out;
+}
+
+
+@keyframes pulse{
+  0%,100%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+}
+
+.circleIcon {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #422680;
+  border-radius: 50%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Features Section --- */
+.featuresSection {
+  text-align: center;
+  padding: 3% 20%;
+  background-color: #fff;
+}
+
+.featuresSection h2 {
+  font-size: 25px;
+  margin-bottom: 4%;
+  color: #422680;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: #f8f8ff;
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-align: start;
+  animation: sobe-desce 4s infinite ease-in-out;
+}
+
+.featureCard:nth-child(2){
+animation-delay: 1s;
+}
+
+.featureCard:nth-child(3){
+animation-delay: 2s;
+}
+
+@keyframes sobe-desce {
+
+  0%,
+  100% {
+      transform: translateY(0px);
+  }
+
+  50% {
+      transform: translateY(15px);
+  }
+}
+
+.featureCard h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.featureCard p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.featureCard span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #8c69d834;
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- How It Works Section --- */
+
+
+.stagytimeSection {
+  padding: 4% 20%;
+  background-color: #f8f8ff;
+}
+
+.stagytimeTitle {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 4%;
+  color: #422680;
+}
+
+
+.stagytimeStepsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+}
+
+@media (min-width: 768px) {
+  .stagytimeStepsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stagytimeStep {
+  text-align: center;
+}
+
+.stepCircle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background-color: #422680;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.stepCircle:hover{
+  transform: scale(1.1);
+  }
+
+.stepCircle span {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .stagytimeStepsGrid > .stagytimeStep:nth-child(-n+3) .stepCircle:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #422680;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+  }
+
+  .stepCircle.noLine::after {
+    display: none;
+  }
+}
+
+
+.stepTitle{
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+
+.stepText {
+  color: #555;
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+
+/* --- CTA Section --- */
+.ctaSection {
+  background-color: #422680;
+  color: #fff;
+  padding: 4% 20%;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.ctaSection p {
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.ctaButtons{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.ctaButton {
+  width: 120px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: opacity 0.3s ease;
+  background-color: #fff;
+  color: #422680;
+  border: 2px solid #422680;
+}
+
+.ctaButton:hover{
+  opacity: 0.6;
+}
+
+.notes {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  margin-top: 15px;
+}
