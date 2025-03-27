@@ -2,6 +2,8 @@ import { BarChart3, CheckCircle, ChevronRight, Clock, Users } from "lucide-react
 import Container from "../../components/Container/Container_Comp"
 import styles from "./Home.module.css"
 import TickingClock from "../../Hook/TickingClock"
+import { motion } from "framer-motion";
+import { fadeJumpVariant, slideInVariant } from "../../components/Motion/Motion";
 
 function Home() {
 
@@ -13,109 +15,201 @@ function Home() {
                 <main className={styles.informationScreen}>
 
                     <section className={styles.heroSection}>
-
-                        <div className={styles.heroContent}>
-
-                            <h1><strong>Simplify Intern</strong> <strong>Time Tracking</strong></h1>
-
+                        {/* Animated text section: Slide from bottom to top */}
+                        <motion.div
+                            className={styles.heroContent}
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <h1>
+                                <strong>Simplify Intern</strong> <strong>Time Tracking</strong>
+                            </h1>
                             <p>
                                 StagyTime helps organizations efficiently track, manage, and optimize intern work hours with minimal effort.
                             </p>
-
-                            <div className={styles.heroButtons}>
-
-                                <button className={styles.primaryBtn}>Get Started<ChevronRight size={20} /></button>
+                            {/* Animated buttons: Fade in */}
+                            <motion.div
+                                className={styles.heroButtons}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.6, delay: 0.6 }} // Start after the text animation
+                            >
+                                <button className={styles.primaryBtn}>
+                                    Get Started<ChevronRight size={20} />
+                                </button>
                                 <button className={styles.secondaryBtn}>Learn More</button>
+                            </motion.div>
+                        </motion.div>
 
-                            </div>
-
-                        </div>
-
-                        <div className={styles.heroImage}>
-
-                            <div className={styles.circleIcon}>  <TickingClock intervalTime={1000} size={60} color="#fff" /></div>
-
-                        </div>
-
+                        {/* Animated hero image container: Fade in */}
+                        <motion.div
+                            className={styles.heroImage}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.3 }} // Slight delay for a smooth effect
+                        >
+                            {/* Animated circle icon: Fade in after heroImage */}
+                            <motion.div
+                                className={styles.circleIcon}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.6, delay: 0.9 }} // Starts after heroImage fades in
+                            >
+                                <TickingClock intervalTime={1000} size={60} color="#fff" />
+                            </motion.div>
+                        </motion.div>
                     </section>
 
                     {/* Features Section */}
                     <section className={styles.featuresSection}>
 
-                        <h2>What StagyTime Offers</h2>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
 
-                        <div className={styles.featuresGrid}>
+                        >What StagyTime Offers</motion.h2>
+
+                        <motion.div className={styles.featuresGrid}
+                            initial="hidden"
+                            animate="visible"
+                            variants={fadeJumpVariant}
+                        >
 
                             <div className={styles.featureCard}>
 
-                                <span>   <Clock color="#422680" /></span>
+                                <span><Clock color="#422680" /></span>
 
                                 <h3>Time Tracking</h3>
+
                                 <p>
                                     Simple clock-in/out system for interns to record their work hours accurately.
                                 </p>
+
                             </div>
 
                             <div className={styles.featureCard}>
 
-                                <span>   <BarChart3 color="#422680" /></span>
+                                <span><BarChart3 color="#422680" /></span>
+
                                 <h3>Reporting</h3>
+
                                 <p>
                                     Generate detailed reports on work hours, projects, and productivity metrics.
                                 </p>
+
                             </div>
 
                             <div className={styles.featureCard}>
 
-                                <span>   <Users color="#422680" /></span>
+                                <span> <Users color="#422680" /></span>
+
                                 <h3>Intern Management</h3>
+
                                 <p>
                                     Easily manage intern profiles, assignments, and performance tracking.
                                 </p>
+
                             </div>
-                        </div>
+
+                        </motion.div>
                     </section>
 
                     {/* How It Works Section */}
                     <section className={styles.stagytimeSection}>
 
-                        <h2 className={styles.stagytimeTitle}>How StagyTime Works</h2>
+                        <motion.h2
+                            className={styles.stagytimeTitle}
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            How StagyTime Works
+                        </motion.h2>
 
                         <div className={styles.stagytimeStepsGrid}>
                             {/* Passo 1 */}
                             <div className={styles.stagytimeStep}>
-                                <div className={styles.stepCircle}>
+
+                                <motion.div className={styles.stepCircle}
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={slideInVariant}
+                                >
                                     <span>1</span>
-                                </div>
-                                <h3 className={styles.stepTitle}>Register</h3>
-                                <p className={styles.stepText}>Create accounts for admins and interns</p>
+                                </motion.div>
+
+                                <motion.div
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={slideInVariant}>
+                                    <h3 className={styles.stepTitle}>Register</h3>
+                                    <p className={styles.stepText}>Create accounts for admins and interns</p>
+                                </motion.div>
                             </div>
 
                             {/* Passo 2 */}
                             <div className={styles.stagytimeStep}>
-                                <div className={styles.stepCircle}>
+
+                                <motion.div className={styles.stepCircle}
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={slideInVariant}
+                                >
                                     <span>2</span>
-                                </div>
-                                <h3 className={styles.stepTitle}>Track Time</h3>
-                                <p className={styles.stepText}>Interns log their work hours daily</p>
+                                </motion.div>
+
+                                <motion.div
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={slideInVariant}>
+                                    <h3 className={styles.stepTitle}>Track Time</h3>
+                                    <p className={styles.stepText}>Interns log their work hours daily</p>
+                                </motion.div>
+
                             </div>
 
                             {/* Passo 3 */}
                             <div className={styles.stagytimeStep}>
-                                <div className={styles.stepCircle}>
+
+                                <motion.div className={styles.stepCircle}
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={slideInVariant}
+                                >
                                     <span>3</span>
-                                </div>
-                                <h3 className={styles.stepTitle}>Monitor</h3>
-                                <p className={styles.stepText}>Supervisors review and approve hours</p>
+                                </motion.div>
+
+                                <motion.div
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={slideInVariant}>
+                                    <h3 className={styles.stepTitle}>Monitor</h3>
+                                    <p className={styles.stepText}>Supervisors review and approve hours</p>
+                                </motion.div>
+
                             </div>
 
                             {/* Passo 4 */}
                             <div className={styles.stagytimeStep}>
-                                <div className={styles.stepCircle}>
+                                <motion.div className={styles.stepCircle}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                >
                                     <span>4</span>
-                                </div>
-                                <h3 className={styles.stepTitle}>Report</h3>
-                                <p className={styles.stepText}>Generate insights and performance reports</p>
+                                </motion.div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, y: 50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <h3 className={styles.stepTitle}>Report</h3>
+                                    <p className={styles.stepText}>Generate insights and performance reports</p>
+                                </motion.div>
+
                             </div>
                         </div>
 
