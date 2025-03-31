@@ -1,13 +1,16 @@
-import { BarChart3, CheckCircle, ChevronRight, Clock, Users } from "lucide-react"
+import { BarChart3,CheckCircle,ChevronRight, Clock, Users } from "lucide-react"
 import Container from "../../components/Container/Container_Comp"
 import styles from "./Home.module.css"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
-import { fadeJumpVariant, slideInVariant } from "../../components/Motion/Motion";
+import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant } from "../../components/Motion/Motion";
+import Button from "../../components/Button/Button_Comp";
+import FooterLP from "../../components/FooterLP/FooterLP_Comp";
+import { useNavigate } from "react-router-dom";
 
-function Home() {
+export default function Home() {
 
-
+    const navigate = useNavigate()
 
     return (
         <>
@@ -18,9 +21,9 @@ function Home() {
                         {/* Animated text section: Slide from bottom to top */}
                         <motion.div
                             className={styles.heroContent}
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={fadeUpVariant}
                         >
                             <h1>
                                 <strong>Simplify Intern</strong> <strong>Time Tracking</strong>
@@ -28,33 +31,47 @@ function Home() {
                             <p>
                                 StagyTime helps organizations efficiently track, manage, and optimize intern work hours with minimal effort.
                             </p>
-                            {/* Animated buttons: Fade in */}
+
                             <motion.div
                                 className={styles.heroButtons}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.6, delay: 0.6 }} // Start after the text animation
+                                initial="hidden"
+                                whileInView="visible"
+                                variants={fadeInVariant}
+                                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                             >
-                                <button className={styles.primaryBtn}>
-                                    Get Started<ChevronRight size={20} />
-                                </button>
-                                <button className={styles.secondaryBtn}>Learn More</button>
+                                <Button
+                                    label="Get Started"
+                                    icon={<ChevronRight size={18} />}
+                                    onClick={() => alert('Get Started clicked!')}
+                                    height="35px"
+                                    width="120px"
+                                    styleVariant={1} // Purple background
+                                />
+                                <Button
+                                    label="Learn More"
+                                    onClick={() => navigate('/LearMore')}
+                                    height="35px"
+                                    width="120px"
+                                    styleVariant={2} // Purple background
+                                />
                             </motion.div>
                         </motion.div>
 
                         {/* Animated hero image container: Fade in */}
                         <motion.div
                             className={styles.heroImage}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.3 }} // Slight delay for a smooth effect
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={fadeInVariant}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
-                            {/* Animated circle icon: Fade in after heroImage */}
+
                             <motion.div
                                 className={styles.circleIcon}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.6, delay: 0.9 }} // Starts after heroImage fades in
+                                initial="hidden"
+                                whileInView="visible"
+                                variants={fadeInVariant}
+                                transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
                             >
                                 <TickingClock intervalTime={1000} size={60} color="#fff" />
                             </motion.div>
@@ -65,16 +82,16 @@ function Home() {
                     <section className={styles.featuresSection}>
 
                         <motion.h2
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={fadeJumpVariant}
 
                         >What StagyTime Offers</motion.h2>
 
                         <motion.div className={styles.featuresGrid}
                             initial="hidden"
-                            animate="visible"
-                            variants={fadeJumpVariant}
+                            whileInView="visible"
+                            variants={fadeUpVariant}
                         >
 
                             <div className={styles.featureCard}>
@@ -121,9 +138,9 @@ function Home() {
 
                         <motion.h2
                             className={styles.stagytimeTitle}
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={fadeUpVariant}
                         >
                             How StagyTime Works
                         </motion.h2>
@@ -134,7 +151,7 @@ function Home() {
 
                                 <motion.div className={styles.stepCircle}
                                     initial="hidden"
-                                    animate="visible"
+                                    whileInView="visible"
                                     variants={slideInVariant}
                                 >
                                     <span>1</span>
@@ -142,7 +159,7 @@ function Home() {
 
                                 <motion.div
                                     initial="hidden"
-                                    animate="visible"
+                                    whileInView="visible"
                                     variants={slideInVariant}>
                                     <h3 className={styles.stepTitle}>Register</h3>
                                     <p className={styles.stepText}>Create accounts for admins and interns</p>
@@ -154,7 +171,7 @@ function Home() {
 
                                 <motion.div className={styles.stepCircle}
                                     initial="hidden"
-                                    animate="visible"
+                                    whileInView="visible"
                                     variants={slideInVariant}
                                 >
                                     <span>2</span>
@@ -162,7 +179,7 @@ function Home() {
 
                                 <motion.div
                                     initial="hidden"
-                                    animate="visible"
+                                    whileInView="visible"
                                     variants={slideInVariant}>
                                     <h3 className={styles.stepTitle}>Track Time</h3>
                                     <p className={styles.stepText}>Interns log their work hours daily</p>
@@ -175,7 +192,7 @@ function Home() {
 
                                 <motion.div className={styles.stepCircle}
                                     initial="hidden"
-                                    animate="visible"
+                                    whileInView="visible"
                                     variants={slideInVariant}
                                 >
                                     <span>3</span>
@@ -183,7 +200,7 @@ function Home() {
 
                                 <motion.div
                                     initial="hidden"
-                                    animate="visible"
+                                    whileInView="visible"
                                     variants={slideInVariant}>
                                     <h3 className={styles.stepTitle}>Monitor</h3>
                                     <p className={styles.stepText}>Supervisors review and approve hours</p>
@@ -194,17 +211,17 @@ function Home() {
                             {/* Passo 4 */}
                             <div className={styles.stagytimeStep}>
                                 <motion.div className={styles.stepCircle}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6 }}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    variants={fadeUpVariant}
                                 >
                                     <span>4</span>
                                 </motion.div>
 
                                 <motion.div
-                                    initial={{ opacity: 0, y: 50 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6 }}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    variants={fadeUpVariant}
                                 >
                                     <h3 className={styles.stepTitle}>Report</h3>
                                     <p className={styles.stepText}>Generate insights and performance reports</p>
@@ -216,25 +233,14 @@ function Home() {
                     </section>
 
                     {/* Call To Action Section */}
-                    <section className={styles.ctaSection}>
-                        <h2>Ready to Streamline Your Intern Management?</h2>
-                        <p>
-                            Join organizations that trust StagyTime to manage
-                            their intern programs efficiently.
-                        </p>
-                        <div className={styles.ctaButtons}>
-                            <button className={styles.ctaButton}>Start Free Trial</button>
-                            <button className={styles.ctaButton}>Schedule Demo</button>
-                        </div>
-                        <div className={styles.notes}>
-                            <span><CheckCircle size={12} /> No credit card required</span>
-                            <span><CheckCircle size={12} /> 14-day free trial</span>
-                        </div>
-                    </section>
+                    <FooterLP 
+                    text={" No credit card required"} 
+                    icon={<CheckCircle size={12} />} 
+                    description={"Join organizations that trust StagyTime to managetheir intern programs efficiently."} title={"Ready to Streamline Your Intern Management?"} 
+                    text2={"14-day free trial"}/>
                 </main>
             </Container>
         </>
     )
 }
 
-export default Home

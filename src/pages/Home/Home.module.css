@@ -34,38 +34,6 @@
   gap: 15px;
 }
 
-.primaryBtn,
-.secondaryBtn {
-  width: 120px;
-  height: 35px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  border-radius: 4px;
-  font-size: 13px;
-  transition: opacity 0.3s ease;
-}
-
-.primaryBtn {
-  background-color: #422680;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.secondaryBtn {
-  background-color: #fff;
-  color: #422680;
-  border: 2px solid #422680;
-}
-
-.primaryBtn:hover,
-.secondaryBtn:hover {
-  opacity: 0.6;
-}
-
 
 /* Hero image / icon */
 .heroImage {
@@ -273,55 +241,3 @@ animation-delay: 2s;
 }
 
 
-/* --- CTA Section --- */
-.ctaSection {
-  background-color: #422680;
-  color: #fff;
-  padding: 4% 20%;
-  text-align: center;
-}
-
-.ctaSection h2 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.ctaSection p {
-  color: #fff;
-  margin-bottom: 2rem;
-}
-
-.ctaButtons{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-}
-
-.ctaButton {
-  width: 120px;
-  height: 35px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  border-radius: 4px;
-  font-size: 13px;
-  transition: opacity 0.3s ease;
-  background-color: #fff;
-  color: #422680;
-  border: 2px solid #422680;
-}
-
-.ctaButton:hover{
-  opacity: 0.6;
-}
-
-.notes {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  margin-top: 15px;
-}

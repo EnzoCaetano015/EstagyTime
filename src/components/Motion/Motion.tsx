@@ -1,7 +1,7 @@
 // variants.ts
 export const fadeInVariant = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: { opacity: 1, scale: 1 }
 };
 
 
@@ -19,3 +19,7 @@ export const fadeJumpVariant = {
     }
   };
   
+export const fadeUpVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible:{opacity: 1, y: 0, transition: {duration: 0.6,  ease: "easeOut"} }
+}
