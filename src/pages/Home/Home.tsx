@@ -1,9 +1,9 @@
-import { BarChart3,CheckCircle,ChevronRight, Clock, Users } from "lucide-react"
+import { BarChart3, CheckCircle, ChevronRight, Clock, Users } from "lucide-react"
 import Container from "../../components/Container/Container_Comp"
 import styles from "./Home.module.css"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
-import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant } from "../../components/Motion/Motion";
+import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
 import Button from "../../components/Button/Button_Comp";
 import FooterLP from "../../components/FooterLP/FooterLP_Comp";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +49,7 @@ export default function Home() {
                                 />
                                 <Button
                                     label="Learn More"
-                                    onClick={() => navigate('/LearMore')}
+                                    onClick={() => navigate('/LearnMore')}
                                     height="35px"
                                     width="120px"
                                     styleVariant={2} // Purple background
@@ -233,11 +233,11 @@ export default function Home() {
                     </section>
 
                     {/* Call To Action Section */}
-                    <FooterLP 
-                    text={" No credit card required"} 
-                    icon={<CheckCircle size={12} />} 
-                    description={"Join organizations that trust StagyTime to managetheir intern programs efficiently."} title={"Ready to Streamline Your Intern Management?"} 
-                    text2={"14-day free trial"}/>
+                    <FooterLP
+                        text={" No credit card required"}
+                        icon={<CheckCircle size={12} />}
+                        description={"Join organizations that trust StagyTime to managetheir intern programs efficiently."} title={"Ready to Streamline Your Intern Management?"}
+                        text2={"14-day free trial"} />
                 </main>
             </Container>
         </>

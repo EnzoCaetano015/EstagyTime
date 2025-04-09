@@ -1,7 +1,7 @@
 import styles from "./Loading.module.css";
 import TickingClock from "../../Hook/TickingClock";
 import { motion } from "framer-motion";
-import { fadeInVariant } from "../Motion/Motion";
+import { fadeInVariant } from "../../Hook/Motion/Motion";
 
 function Loading({ text }: { text: string }) {
 
@@ -11,7 +11,7 @@ function Loading({ text }: { text: string }) {
         initial="hidden"
         whileInView="visible"
         variants={fadeInVariant}
-        transition={{ duration: 0.6,  ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.div className={styles.logoContainer}
           initial="hidden"

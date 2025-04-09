@@ -3,6 +3,7 @@ import Splash from "../pages/SplashScreen";
 import Login from "../pages/LoginScreen";
 import Home from "../pages/Home/Home";
 import LearnMore from "../pages/LearnMoreScreen/LearnMore";
+import Demo from "../pages/Demo/Demo";
 
 function Rotas(){
     return(
@@ -11,7 +12,8 @@ function Rotas(){
         <Routes>
             <Route path="/" element = {<Splash/>}/>
             <Route path="/Home" element = {<Home/>}/>
-            <Route path="/LearMore" element = {<LearnMore/>}/>
+            <Route path="/LearnMore" element = {<LearnMore/>}/>
+            <Route path="/Demo" element = {<Demo/>}/>
             <Route path="/Login" element = {<Login/>}/>
         </Routes>
         

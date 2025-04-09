@@ -19,14 +19,14 @@ import { motion } from "framer-motion";
 import styles from "./LearnMore.module.css";
 import FooterLP from "../../components/FooterLP/FooterLP_Comp";
 import Header from "../../components/Header/Header_Comp";
-import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../components/Motion/Motion";
+import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
 
 
 export default function LearnMore() {
   return (
     <div className={styles.learnMore}>
 
-      <Header></Header>
+      <Header />
 
       {/* Hero Section */}
       <section className={styles.heroSection}>

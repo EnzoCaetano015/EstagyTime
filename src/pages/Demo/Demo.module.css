@@ -1,0 +1,2293 @@
+/* Overall Page */
+.demoPage {
+    min-height: 100vh;
+    background-color: #F8F8FF;
+}
+
+/* Container */
+.container {
+    max-width: 55%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Demo Title Section */
+.demoTitleSection {
+    display: flex;
+    max-width: 100%;
+    padding: 2.5rem 1rem;
+    background: #F8F8FF
+}
+
+.demoTitle {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #422680;
+    margin-bottom: 1rem;
+}
+
+.demoSubtitle {
+    font-size: 16px;
+    color: #4B5563;
+    text-align: center;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+/* Demo Content Section */
+.demoContentSection {
+    padding: 2rem 1rem;
+}
+
+/* Tabs */
+.tabs {
+    width: 100%;
+}
+
+.tabsList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.tabsTrigger {
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+
+
+/* Card Styles */
+.card {
+    border: 1px solid rgba(66, 38, 128, 0.2);
+    background-color: #fff;
+}
+
+.cardHeader {
+    padding: 20px 1.5rem 1.5rem;
+    line-height: 18px;
+}
+
+.cardTitle {
+    font-size: 20px;
+    color: #422680;
+}
+
+.cardDescription {
+    font-size: 1rem;
+    color: #6B7280;
+}
+
+.cardContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cardFooter {
+    padding: 1.5rem;
+}
+
+.saveButton {
+    color: #422680 !important;
+}
+
+.buttonIcon {
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Field Groups */
+.fieldGroup {
+    margin-bottom: 1rem;
+}
+
+.fieldHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fieldLabel {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.dateDisplay {
+    width: 10%;
+    color: #6B7280;
+}
+
+
+
+
+
+/* Daily Hours Box */
+.hoursBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hoursTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hoursInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.hoursLabel {
+    font-size: 12px;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+    font-weight: normal;
+}
+
+.hoursValue {
+    font-size: 25px;
+    font-weight: bold;
+    color: #422680;
+}
+
+.hoursIconBox {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgba(66, 38, 128, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hoursIcon {
+    width: 2rem;
+    height: 2rem;
+    color: #422680;
+}
+
+.progressSection {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.progressContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+.progressBar {
+    flex: 1;
+    height: 6px !important;
+    background-color: rgba(66, 38, 128, 0.1) !important;
+}
+
+.progressLabel {
+    font-size: 12px;
+    color: #6B7280;
+    margin-bottom: 1rem;
+    font-weight: normal;
+
+}
+
+.progressPercentage {
+    font-size: 0.875rem;
+    font-weight: 500;
+    width: 4rem;
+}
+
+.progressBar .MuiLinearProgress-bar {
+    background-color: #000 !important;
+    /* Cor da parte preenchida */
+}
+
+
+
+/* Task Selection Box */
+.taskBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.selectTrigger {
+    width: 20%;
+}
+
+.taskSubFields {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+
+.subFieldLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.5rem !important;
+}
+
+
+
+/* Time Spent Box */
+.timeSpentBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.timeFormatSection {
+    margin-bottom: 1rem;
+}
+
+.radioGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+.radioItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.radioLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+/* Time Input Grid */
+.timeInputGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.dateInputWrapper {
+    position: relative;
+}
+
+.inputIconWrapper {
+    position: relative;
+}
+
+.inputIcon {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.625rem;
+    width: 1rem;
+    height: 1rem;
+    color: #6B7280;
+}
+
+
+/* Hours Control */
+
+/* Two Column Grid */
+.twoColumnGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Monthly Progress Box */
+.monthlyProgressBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.monthlyProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.monthlyProgressSubtitle {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.monthlyProgressContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selectTriggerSmall{
+    height: 30px !important;
+}
+
+.progressCircleWrapper {
+    position: relative;
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: 1.5rem;
+}
+
+.progressCircle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(66, 38, 128, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progressCircleContent {
+    text-align: center;
+}
+
+.progressValue {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.progressSvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.monthlyProgressStats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.statBox {
+    text-align: center;
+}
+
+.statLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+/* Daily Breakdown Box */
+.dailyBreakdownBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.sectionTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.dailyBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dailyBreakdownItem {
+    display: flex;
+    align-items: center;
+}
+
+.dailyBreakdownDay {
+    width: 6rem;
+    flex-shrink: 0;
+}
+
+.dailyBreakdownDayName {
+    font-weight: 500;
+}
+
+.dailyBreakdownDayDate {
+    font-size: 0.75rem;
+    color: #6B7280;
+}
+
+.dailyBreakdownProgress {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.progressBarBackground {
+    width: 200px;
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.progressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+.green {
+    background-color: #22c55e !important;
+}
+
+.yellow {
+    background-color: #eab308 !important;
+}
+
+.red {
+    background-color: #ef4444 !important;
+}
+
+.blue {
+    background-color: rgb(0, 174, 255) !important;
+}
+
+.purple {
+    background-color: rgb(214, 14, 214) !important;
+}
+
+.indigo {
+    background-color: rgb(139, 32, 216) !important;
+}
+
+/* Weekly Summary */
+.weeklySummary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weeklySummaryTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.weeklySummaryContent {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.weeklySummaryStat {
+    font-weight: bold;
+}
+
+.weeklySummaryTarget {
+    color: #422680;
+    font-weight: 500;
+}
+
+/* Monthly Projection Box */
+.monthlyProjectionBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.projectionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projectionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.projectionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: start !important;
+    padding: 1rem;
+    background-color: rgba(66, 38, 128, 0.05);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.projectionLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.projectionValue {
+    font-size: 1.5rem;
+    font-weight: bold !important;
+    color: #422680;
+}
+
+.projectionStatus {
+    margin-top: 0.5rem;
+}
+
+.completionStatus {
+    color: #22c55e;
+    font-weight: 500 !important;
+}
+
+.averageStatus {
+    color: #6B7280;
+}
+
+.shortStatus, .completionStatus, .averageStatus{
+    font-size: 12px !important;
+}
+
+.shortStatus {
+    color: #eab308;
+    font-weight: 500 !important;
+}
+
+.onTargetStatus {
+    color: #22c55e;
+    font-weight: 500 !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.projectionProgress {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.projectionProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.projectionProgressTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.projectionProgressValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.projectionProgressBar {
+    height: 0.5rem;
+}
+
+
+
+
+/* Performance Dashboard Section */
+
+
+.performanceHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .performanceHeader {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.performanceTitleContainer {
+    flex: 1;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.metricCard {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 13px !important;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.metricValue {
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: #422680;
+}
+
+.metricChange {
+    font-size: 0.95rem !important;
+    color: #22c55e;
+    margin-top: 0.25rem;
+}
+
+/* Chart Box */
+.chartBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 0rem !important;
+}
+
+.chartContainer {
+    height: 20rem;
+}
+
+/* Task Breakdown Box */
+.taskBreakdownBox {
+    display: flex ;
+    flex-direction: row !important;
+    gap: 2rem !important;
+    margin-top: 2rem;
+}
+
+.taskBreakdownLeft, .taskBreakdownRight{
+    width: 50% !important;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.taskBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.taskBreakdownItem {
+    margin-bottom: 1rem;
+}
+
+.taskBreakdownHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.taskName {
+    font-weight: 500;
+}
+
+.taskHours {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.taskProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.taskProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Productivity by Day */
+.dailyProductivityList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dailyProductivityItem {
+    margin-bottom: 1rem;
+}
+
+.dailyProductivityHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.productivityDay {
+    font-weight: 500;
+}
+
+.productivityInfo {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.dailyProductivityProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.dailyProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Weekly Summary (Productivity) */
+.weeklySummary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weeklySummaryLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.weeklySummaryValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+/* Monthly Projection Box */
+.monthlyProjectionBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.projectionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projectionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.projectionCard {
+    padding: 1rem;
+    background-color: rgba(66, 38, 128, 0.05);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.projectionLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.projectionValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.projectionStatus {
+    margin-top: 0.5rem;
+}
+
+.shortStatus {
+    color: #eab308 !important;
+    font-weight: 500;
+}
+
+.onTargetStatus {
+    color: #22c55e !important;
+    font-weight: 500;
+}
+
+.averageStatus {
+    color: #6B7280;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.completionStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.projectionProgress {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.projectionProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.projectionProgressTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.projectionProgressValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.projectionProgressBar {
+    height: 0.5rem;
+}
+
+/* Performance Dashboard Section */
+.performanceHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .performanceHeader {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.performanceTitleContainer {
+    flex: 1;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.metricCard {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.metricValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.metricChange {
+    font-size: 0.75rem;
+    color: #22c55e;
+    margin-top: 0.25rem;
+}
+
+/* Chart Box */
+.chartBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.chartContainer {
+    padding-top: 10px !important;
+    height: 20rem;
+}
+
+/* Task Breakdown Box */
+.taskBreakdownBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.taskBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.taskBreakdownItem {
+    margin-bottom: 1rem;
+}
+
+.taskBreakdownHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.taskName {
+    font-weight: 500;
+}
+
+.taskHours {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.taskProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.taskProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Productivity by Day */
+.dailyProductivityList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dailyProductivityItem {
+    margin-bottom: 1rem;
+}
+
+.dailyProductivityHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.productivityDay {
+    font-weight: 500;
+}
+
+.productivityInfo {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.dailyProductivityProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.dailyProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Weekly Summary (Productivity) */
+.weeklySummary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weeklySummaryLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.weeklySummaryValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+/* Monthly Projection Box */
+.monthlyProjectionBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.projectionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projectionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.projectionCard {
+    padding: 1rem;
+    background-color: rgba(66, 38, 128, 0.05);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.projectionLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.projectionValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.projectionStatus {
+    margin-top: 0.5rem;
+}
+
+.shortStatus {
+    color: #eab308;
+    font-weight: 500;
+}
+
+.onTargetStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.averageStatus {
+    color: #6B7280;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.completionStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.projectionProgress {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.projectionProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.projectionProgressTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.projectionProgressValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.projectionProgressBar {
+    height: 0.5rem;
+}
+
+/* Performance Dashboard Section */
+.performanceHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .performanceHeader {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.performanceTitleContainer {
+    flex: 1;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.metricCard {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.metricValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.metricChange {
+    font-size: 0.75rem;
+    color: #22c55e;
+    margin-top: 0.25rem;
+}
+
+/* Chart Box */
+.chartBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.chartContainer {
+    height: 20rem;
+}
+
+/* Task Breakdown Box */
+.taskBreakdownBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.taskBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.taskBreakdownItem {
+    margin-bottom: 1rem;
+}
+
+.taskBreakdownHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.taskName {
+    font-weight: 500;
+}
+
+.taskHours {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.taskProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.taskProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Productivity by Day */
+.dailyProductivityList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dailyProductivityItem {
+    margin-bottom: 1rem;
+}
+
+.dailyProductivityHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.productivityDay {
+    font-weight: 500;
+}
+
+.productivityInfo {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.dailyProductivityProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.dailyProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Weekly Summary (Productivity) */
+.weeklySummary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weeklySummaryLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.weeklySummaryValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+/* Monthly Projection Box */
+.monthlyProjectionBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.projectionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projectionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.projectionCard {
+    padding: 1rem;
+    background-color: rgba(66, 38, 128, 0.05);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.projectionLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.projectionValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.projectionStatus {
+    margin-top: 0.5rem;
+}
+
+.shortStatus {
+    color: #eab308;
+    font-weight: 500;
+}
+
+.onTargetStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.averageStatus {
+    color: #6B7280;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.completionStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.projectionProgress {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.projectionProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.projectionProgressTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.projectionProgressValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.projectionProgressBar {
+    height: 0.5rem;
+}
+
+/* Performance Dashboard Section */
+.performanceHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .performanceHeader {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.performanceTitleContainer {
+    flex: 1;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.metricCard {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.metricValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.metricChange {
+    font-size: 0.75rem;
+    color: #22c55e;
+    margin-top: 0.25rem;
+}
+
+/* Chart Box */
+.chartBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.chartContainer {
+    height: 20rem;
+}
+
+/* Task Breakdown Box */
+.taskBreakdownBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.taskBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.taskBreakdownItem {
+    margin-bottom: 1rem;
+}
+
+.taskBreakdownHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.taskName {
+    font-weight: 500;
+}
+
+.taskHours {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.taskProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.taskProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Productivity by Day */
+.dailyProductivityList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dailyProductivityItem {
+    margin-bottom: 1rem;
+}
+
+.dailyProductivityHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.productivityDay {
+    font-weight: 500;
+}
+
+.productivityInfo {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.dailyProductivityProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.dailyProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Weekly Summary (Productivity) */
+.weeklySummary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weeklySummaryLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.weeklySummaryValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+/* Monthly Projection Box */
+.monthlyProjectionBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.projectionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projectionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.projectionCard {
+    padding: 1rem;
+    background-color: rgba(66, 38, 128, 0.05);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.projectionLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.projectionValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.projectionStatus {
+    margin-top: 0.5rem;
+}
+
+.shortStatus {
+    color: #eab308;
+    font-weight: 500;
+}
+
+.onTargetStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.averageStatus {
+    color: #6B7280;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.completionStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.projectionProgress {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.projectionProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.projectionProgressTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.projectionProgressValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.projectionProgressBar {
+    height: 0.5rem;
+}
+
+/* Performance Dashboard Section */
+.performanceHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .performanceHeader {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.performanceTitleContainer {
+    flex: 1;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.metricCard {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.metricValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.metricChange {
+    font-size: 0.75rem;
+    color: #22c55e;
+    margin-top: 0.25rem;
+}
+
+/* Chart Box */
+.chartBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.chartContainer {
+    height: 20rem;
+}
+
+/* Task Breakdown Box */
+.taskBreakdownBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.taskBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.taskBreakdownItem {
+    margin-bottom: 1rem;
+}
+
+.taskBreakdownHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.taskName {
+    font-weight: 500;
+}
+
+.taskHours {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.taskProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.taskProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Productivity by Day */
+.dailyProductivityList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dailyProductivityItem {
+    margin-bottom: 1rem;
+}
+
+.dailyProductivityHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.productivityDay {
+    font-weight: 500;
+}
+
+.productivityInfo {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.dailyProductivityProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.dailyProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Weekly Summary (Productivity) */
+.weeklySummary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weeklySummaryLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.weeklySummaryValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+/* Monthly Projection Box */
+.monthlyProjectionBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.projectionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projectionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.projectionCard {
+    padding: 1rem;
+    background-color: rgba(66, 38, 128, 0.05);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.projectionLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.projectionValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.projectionStatus {
+    margin-top: 0.5rem;
+}
+
+.shortStatus {
+    color: #eab308;
+    font-weight: 500;
+}
+
+.onTargetStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.averageStatus {
+    color: #6B7280;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.completionStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.projectionProgress {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.projectionProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.projectionProgressTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.projectionProgressValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.projectionProgressBar {
+    height: 0.5rem;
+}
+
+/* Performance Dashboard Section */
+.performanceTitleContainer {
+    flex: 1;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.metricCard {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.metricValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.metricChange {
+    font-size: 0.75rem;
+    color: #22c55e;
+    margin-top: 0.25rem;
+}
+
+/* Chart Box */
+.chartBox {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.chartContainer {
+    height: 20rem;
+}
+
+/* Task Breakdown Box */
+.taskBreakdownBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.taskBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.taskBreakdownItem {
+    margin-bottom: 1rem;
+}
+
+.taskBreakdownHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.taskName {
+    font-weight: 500;
+}
+
+.taskHours {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.taskProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.taskProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Productivity by Day */
+.dailyProductivityList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dailyProductivityItem {
+    margin-bottom: 1rem;
+}
+
+.dailyProductivityHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.productivityDay {
+    font-weight: 500;
+}
+
+.productivityInfo {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.dailyProductivityProgress {
+    height: 0.5rem;
+    background-color: #f3f4f6;
+    border-radius: 9999px;
+}
+
+.dailyProgressBar {
+    height: 100%;
+    border-radius: 9999px;
+}
+
+/* Weekly Summary (Productivity) */
+.weeklySummary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weeklySummaryLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.weeklySummaryValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+/* Monthly Projection Box */
+.projectionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projectionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.projectionCard {
+    padding: 1rem;
+    background-color: rgba(66, 38, 128, 0.05);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.projectionLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.projectionValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.projectionStatus {
+    margin-top: 0.5rem;
+}
+
+.shortStatus {
+    color: #eab308;
+    font-weight: 500;
+}
+
+.onTargetStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.averageStatus {
+    color: #6B7280;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.completionStatus {
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.projectionProgress {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.projectionProgressHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.projectionProgressTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.projectionProgressValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #422680;
+}
+
+.projectionProgressBar {
+    height: 0.5rem;
+}
+
+/* Performance Dashboard Section */
+.performanceHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .performanceHeader {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.performanceTitleContainer {
+    flex: 1;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.metricCard {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.metricLabel {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.metricValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #422680;
+}
+
+.metricChange {
+    font-size: large;
+}

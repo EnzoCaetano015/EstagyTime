@@ -1,7 +1,8 @@
-import { fadeInVariant } from "../Motion/Motion";
+import { fadeInVariant } from "../../Hook/Motion/Motion";
 import Button from "../Button/Button_Comp";
 import { motion } from "framer-motion";
 import styles from "./FooterLP.module.css"
+import { useNavigate } from "react-router-dom";
 
 interface FooterLPProps {
     title: string;
@@ -12,6 +13,9 @@ interface FooterLPProps {
 }
 
 function FooterLP({ title, description, text, text2, icon }: FooterLPProps) {
+
+    const navigate = useNavigate()
+
     return (
         <section className={styles.ctaSection}>
             <motion.div
@@ -40,7 +44,7 @@ function FooterLP({ title, description, text, text2, icon }: FooterLPProps) {
                     />
                     <Button
                         label="Schedule Demo"
-                        onClick={() => alert('Schedule Demo clicked!')}
+                        onClick={() => navigate('/Demo')}
                         height="40px"
                         width="120px"
                         styleVariant={2} // Purple background
