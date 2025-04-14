@@ -42,7 +42,7 @@ export default function Home() {
                                 <Button
                                     label="Get Started"
                                     icon={<ChevronRight size={18} />}
-                                    onClick={() => alert('Get Started clicked!')}
+                                    onClick={() => navigate('/Auth')}
                                     height="35px"
                                     width="120px"
                                     styleVariant={1} // Purple background
@@ -243,4 +243,3 @@ export default function Home() {
         </>
     )
 }
-

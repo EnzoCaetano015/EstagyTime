@@ -9,16 +9,18 @@ export const useCustomSelectStyles = () => ({
     '& .MuiTabs-indicator': {
         backgroundColor: '#422680',
     },
-    // Override the text color for selected tabs
     '& .MuiTab-root.Mui-selected': {
         color: '#422680',
     },
     '& .MuiRadio-root': {
         '&.Mui-checked': {
-            color: '#422680', // color for selected radios
+            color: '#422680',
         },
         '&.Mui-focusVisible': {
-            backgroundColor: 'rgba(0, 128, 0, 0.1)', // optional focus background effect
+            backgroundColor: 'rgba(0, 128, 0, 0.1)',
         },
+    },
+    '&.Mui-checked': {
+        color: '#422680',
     },
 })
