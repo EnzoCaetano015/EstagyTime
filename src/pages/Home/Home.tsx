@@ -21,9 +21,8 @@ export default function Home() {
                         {/* Animated text section: Slide from bottom to top */}
                         <motion.div
                             className={styles.heroContent}
-                            initial="hidden"
-                            whileInView="visible"
-                            variants={fadeUpVariant}
+                            initial={fadeUpVariant.hidden}
+                            whileInView={fadeUpVariant.visible}
                         >
                             <h1>
                                 <strong>Simplify Intern</strong> <strong>Time Tracking</strong>
@@ -34,9 +33,8 @@ export default function Home() {
 
                             <motion.div
                                 className={styles.heroButtons}
-                                initial="hidden"
-                                whileInView="visible"
-                                variants={fadeInVariant}
+                                initial={fadeInVariant.hidden}
+                                whileInView={fadeInVariant.visible}
                                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                             >
                                 <Button
@@ -60,17 +58,15 @@ export default function Home() {
                         {/* Animated hero image container: Fade in */}
                         <motion.div
                             className={styles.heroImage}
-                            initial="hidden"
-                            whileInView="visible"
-                            variants={fadeInVariant}
+                            initial={fadeInVariant.hidden}
+                            whileInView={fadeInVariant.visible}
                             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
 
                             <motion.div
                                 className={styles.circleIcon}
-                                initial="hidden"
-                                whileInView="visible"
-                                variants={fadeInVariant}
+                                initial={fadeInVariant.hidden}
+                                whileInView={fadeInVariant.visible}
                                 transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
                             >
                                 <TickingClock intervalTime={1000} size={60} color="#fff" />
@@ -82,16 +78,15 @@ export default function Home() {
                     <section className={styles.featuresSection}>
 
                         <motion.h2
-                            initial="hidden"
-                            whileInView="visible"
-                            variants={fadeJumpVariant}
+                            initial={fadeJumpVariant.hidden}
+                            whileInView={fadeJumpVariant.visible}
 
                         >What StagyTime Offers</motion.h2>
 
-                        <motion.div className={styles.featuresGrid}
-                            initial="hidden"
-                            whileInView="visible"
-                            variants={fadeUpVariant}
+                        <motion.div
+                            className={styles.featuresGrid}
+                            initial={fadeUpVariant.hidden}
+                            whileInView={fadeUpVariant.visible}
                         >
 
                             <div className={styles.featureCard}>
@@ -138,9 +133,8 @@ export default function Home() {
 
                         <motion.h2
                             className={styles.stagytimeTitle}
-                            initial="hidden"
-                            whileInView="visible"
-                            variants={fadeUpVariant}
+                            initial={fadeUpVariant.hidden}
+                            whileInView={fadeUpVariant.visible}
                         >
                             How StagyTime Works
                         </motion.h2>
@@ -149,18 +143,18 @@ export default function Home() {
                             {/* Passo 1 */}
                             <div className={styles.stagytimeStep}>
 
-                                <motion.div className={styles.stepCircle}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={slideInVariant}
+                                <motion.div
+                                    className={styles.stepCircle}
+                                    initial={slideInVariant.hidden}
+                                    whileInView={slideInVariant.visible}
                                 >
                                     <span>1</span>
                                 </motion.div>
 
                                 <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={slideInVariant}>
+                                    initial={slideInVariant.hidden}
+                                    whileInView={slideInVariant.visible}
+                                >
                                     <h3 className={styles.stepTitle}>Register</h3>
                                     <p className={styles.stepText}>Create accounts for admins and interns</p>
                                 </motion.div>
@@ -169,18 +163,18 @@ export default function Home() {
                             {/* Passo 2 */}
                             <div className={styles.stagytimeStep}>
 
-                                <motion.div className={styles.stepCircle}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={slideInVariant}
+                                <motion.div
+                                    className={styles.stepCircle}
+                                    initial={slideInVariant.hidden}
+                                    whileInView={slideInVariant.visible}
                                 >
                                     <span>2</span>
                                 </motion.div>
 
                                 <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={slideInVariant}>
+                                    initial={slideInVariant.hidden}
+                                    whileInView={slideInVariant.visible}
+                                >
                                     <h3 className={styles.stepTitle}>Track Time</h3>
                                     <p className={styles.stepText}>Interns log their work hours daily</p>
                                 </motion.div>
@@ -190,18 +184,19 @@ export default function Home() {
                             {/* Passo 3 */}
                             <div className={styles.stagytimeStep}>
 
-                                <motion.div className={styles.stepCircle}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={slideInVariant}
+                                <motion.div
+                                    className={styles.stepCircle}
+                                    initial={slideInVariant.hidden}
+                                    whileInView={slideInVariant.visible}
                                 >
                                     <span>3</span>
                                 </motion.div>
 
                                 <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={slideInVariant}>
+                                    initial={slideInVariant.hidden}
+                                    whileInView={slideInVariant.visible}
+
+                                >
                                     <h3 className={styles.stepTitle}>Monitor</h3>
                                     <p className={styles.stepText}>Supervisors review and approve hours</p>
                                 </motion.div>
@@ -210,18 +205,17 @@ export default function Home() {
 
                             {/* Passo 4 */}
                             <div className={styles.stagytimeStep}>
-                                <motion.div className={styles.stepCircle}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={fadeUpVariant}
+                                <motion.div
+                                    className={styles.stepCircle}
+                                    initial={fadeUpVariant.hidden}
+                                    whileInView={fadeUpVariant.visible}
                                 >
                                     <span>4</span>
                                 </motion.div>
 
                                 <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    variants={fadeUpVariant}
+                                    initial={slideInVariant.hidden}
+                                    whileInView={slideInVariant.visible}
                                 >
                                     <h3 className={styles.stepTitle}>Report</h3>
                                     <p className={styles.stepText}>Generate insights and performance reports</p>

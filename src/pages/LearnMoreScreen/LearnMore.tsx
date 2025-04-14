@@ -10,16 +10,14 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import { motion } from "framer-motion";
+import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
 
 import styles from "./LearnMore.module.css";
 import FooterLP from "../../components/FooterLP/FooterLP_Comp";
 import Header from "../../components/Header/Header_Comp";
-import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
+import Acordion from "../../components/Acordion";
+import {Stack } from "@mui/material";
 
 
 export default function LearnMore() {
@@ -32,20 +30,17 @@ export default function LearnMore() {
       <section className={styles.heroSection}>
         <motion.div
           className={styles.heroContainer}
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeUpVariant}
+          initial={fadeUpVariant.hidden}
+          whileInView={fadeUpVariant.visible}
         >
           <h1 className={styles.heroTitle}>Discover StagyTime</h1>
           <p className={styles.heroSubtitle}>
             A comprehensive platform designed specifically for managing intern work hours, productivity, and performance in organizations of all sizes.
           </p>
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={slideInVariant}
+            initial={slideInVariant.hidden}
+            whileInView={slideInVariant.visible}
             className={styles.heroDivider}
-
           />
         </motion.div>
       </section>
@@ -54,9 +49,8 @@ export default function LearnMore() {
       <section className={styles.featuresSection}>
         <motion.div
           className={styles.featuresContainer}
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeUpVariant}
+          initial={fadeUpVariant.hidden}
+          whileInView={fadeUpVariant.visible}
         >
           <h2 className={styles.featuresTitle}>Comprehensive Features</h2>
           <div className={styles.featuresGrid}>
@@ -196,9 +190,8 @@ export default function LearnMore() {
       {/* Benefits Section */}
       <section className={styles.benefitsSection}>
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeUpVariant}
+          initial={fadeUpVariant.hidden}
+          whileInView={fadeUpVariant.visible}
           className={styles.benefitsContainer}
         >
           <h2 className={styles.benefitsTitle}>Why Choose StagyTime</h2>
@@ -248,9 +241,8 @@ export default function LearnMore() {
           <h2 className={styles.useCasesTitle}>StagyTime in Action</h2>
           <div className={styles.useCasesGrid}>
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeInVariant}
+              initial={fadeInVariant.hidden}
+              whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className={styles.useCaseCard}
             >
@@ -282,9 +274,8 @@ export default function LearnMore() {
             </motion.div >
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeInVariant}
+              initial={fadeInVariant.hidden}
+              whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className={styles.useCaseCard}
             >
@@ -312,9 +303,8 @@ export default function LearnMore() {
             </motion.div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeInVariant}
+              initial={fadeInVariant.hidden}
+              whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               className={styles.useCaseCard}
             >
@@ -342,9 +332,8 @@ export default function LearnMore() {
             </motion.div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeInVariant}
+              initial={fadeInVariant.hidden}
+              whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
               className={styles.useCaseCard}
             >
@@ -378,133 +367,73 @@ export default function LearnMore() {
       <section className={styles.faqSection}>
         <div className={styles.faqContainer}>
           <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeUpVariant}
+            initial={fadeUpVariant.hidden}
+            whileInView={fadeUpVariant.visible}
             className={styles.faqTitle}
           >
             Frequently Asked Questions
           </motion.h2>
 
+          <Stack gap={1}>
+            <motion.div
+              initial={slideInVariant.hidden}
+              whileInView={slideInVariant.visible}
+            >
+              <Acordion
+                icon={<ChevronDown size={15} color="black" />}
+                title={"How does StagyTime handle remote interns?"}
+                text={"StagyTime is designed for both on-site and remote interns. For remote workers, the platform offers IP-based location verification, screenshot capabilities (optional), and integration with virtual collaboration tools to ensure productivity tracking without compromising privacy."}
+              />
+            </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={slideInVariant}
-          >
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ChevronDown size={15} color="black" />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <Typography component="span">How does StagyTime handle remote interns?</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  StagyTime is designed for both on-site and remote interns. For remote workers, the platform offers
-                  IP-based location verification, screenshot capabilities (optional), and integration with virtual
-                  collaboration tools to ensure productivity tracking without compromising privacy.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </motion.div>
+            <motion.div
+              initial={slideInVariant.hidden}
+              whileInView={slideInVariant.visible}
+            >
+              <Acordion
+                icon={<ChevronDown size={15} color="black" />}
+                title={"Can StagyTime integrate with our existing HR software?"}
+                text={"Yes, StagyTime offers API integration with popular HR and payroll systems. Our platform can sync data with your existing software to avoid duplicate entries and ensure consistent record-keeping across your"}
+              />
+            </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={slideInVariant}
-          >
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ChevronDown size={15} color="black" />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <Typography component="span">Can StagyTime integrate with our existing HR software?</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Yes, StagyTime offers API integration with popular HR and payroll systems. Our platform can sync data
-                  with your existing software to avoid duplicate entries and ensure consistent record-keeping across your
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </motion.div>
+            <motion.div
+              initial={slideInVariant.hidden}
+              whileInView={slideInVariant.visible}
+            >
+              <Acordion
+                icon={<ChevronDown size={15} color="black" />}
+                title={"What makes StagyTime different from general time tracking tools?"}
+                text={"Unlike general time tracking tools, StagyTime is specifically designed for intern management. It includes features tailored to educational requirements, skill development tracking, performance evaluation, and internship-specific reporting that general time tracking solutions don't offer."}
+              />
+            </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={slideInVariant}
-          >
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ChevronDown size={15} color="black" />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <Typography component="span">What makes StagyTime different from general time tracking tools?</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Unlike general time tracking tools, StagyTime is specifically designed for intern management. It
-                  includes features tailored to educational requirements, skill development tracking, performance
-                  evaluation, and internship-specific reporting that general time tracking solutions don't offer.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </motion.div>
+            <motion.div
+              initial={slideInVariant.hidden}
+              whileInView={slideInVariant.visible}
+            >
+              <Acordion
+                icon={<ChevronDown size={15} color="black" />}
+                title={"How secure is the data stored in StagyTime?"}
+                text={"StagyTime employs industry-standard security measures including end-to-end encryption, secure authentication protocols, regular security audits, and compliance with data protection regulations. All data is stored in SOC 2 compliant cloud infrastructure with regular backups"}
+              />
+            </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={slideInVariant}
-          >
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ChevronDown size={15} color="black" />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <Typography component="span">How secure is the data stored in StagyTime?</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  StagyTime employs industry-standard security measures including end-to-end encryption, secure
-                  authentication protocols, regular security audits, and compliance with data protection regulations. All
-                  data is stored in SOC 2 compliant cloud infrastructure with regular backups
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={slideInVariant}
-          >
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ChevronDown size={15} color="black" />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <Typography component="span">Can interns access their own data after the internship ends?</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Yes, StagyTime offers an archive feature that allows organizations to provide interns with a permanent
-                  record of their internship, including hours worked, projects completed, skills acquired, and performance
-                  evaluations. This serves as valuable documentation for their professional portfolios.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </motion.div>
+            <motion.div
+              initial={slideInVariant.hidden}
+              whileInView={slideInVariant.visible}
+            >
+              <Acordion
+                icon={<ChevronDown size={15} color="black" />}
+                title={"Can interns access their own data after the internship ends?"}
+                text={"Yes, StagyTime offers an archive feature that allows organizations to provide interns with a permanent record of their internship, including hours worked, projects completed, skills acquired, and performance evaluations. This serves as valuable documentation for their professional portfolios."}
+              />
+            </motion.div>
+          </Stack>
 
         </div>
       </section>
 
-      {/* CTA Section */}
       <FooterLP
         text={""}
         icon={undefined}
