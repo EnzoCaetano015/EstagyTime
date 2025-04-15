@@ -40,7 +40,7 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
                         >
                             <Button
                                 label="Start Free Trial"
-                                onClick={() => alert('Start Free Trial clicked!')}
+                                onClick={() => navigate('/Auth')}
                                 height="40px"
                                 width="120px"
                                 styleVariant={2} // Purple background

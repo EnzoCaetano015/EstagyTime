@@ -16,6 +16,8 @@ import {
 import styles from "./AuthPage.module.css";
 import Header from "../../components/Header/Header_Comp";
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui";
+import { fadeUpVariant } from "../../Hook/Motion/Motion";
+import { motion } from "framer-motion";
 import Login from "./Login";
 import Cadastro from "./Cadastro";
 
@@ -49,15 +51,27 @@ export default function AuthPage() {
         <Box className={styles.authPage}>
             <Header />
             <Box className={styles.mainContent}>
+
                 <Box className={styles.formContainer}>
-                    <Box textAlign="center" mb={4}>
-                        <Typography variant="h4" className={styles.formTitle} fontSize={30} fontWeight="bold" mb={0.5}>
-                            Welcome to StagyTime
-                        </Typography>
-                        <Typography variant="body2" className={styles.formSubtitle} fontSize={13}>
-                            Sign in to your account or create a new one
-                        </Typography>
-                    </Box>
+
+                    <motion.div
+                        className={styles.heroContent}
+                        initial={fadeUpVariant.hidden}
+                        whileInView={fadeUpVariant.visible}
+                        viewport={{ once: true }}
+                    >
+                        <Box textAlign="center" mb={4}>
+
+                            <Typography variant="h4" className={styles.formTitle} fontSize={30} fontWeight="bold" mb={0.5}>
+                                Welcome to StagyTime
+                            </Typography>
+
+                            <Typography variant="body2" className={styles.formSubtitle} fontSize={13}>
+                                Sign in to your account or create a new one
+                            </Typography>
+
+                        </Box>
+                    </motion.div>
 
                     {/* Tabs for Login / Register */}
                     <Card className={styles.card}>
@@ -78,15 +92,23 @@ export default function AuthPage() {
                             className={styles.cardHeader}
                         />
                         <Divider />
-                        <CardContent className={styles.cardContent}>
-                            <TabPanel value={activeTab} index="register">
-                                <Cadastro />
-                            </TabPanel>
+                        <motion.div
+                            initial={fadeUpVariant.hidden}
+                            whileInView={fadeUpVariant.visible}
+                            viewport={{ once: true }}
+                        >
+                            <CardContent className={styles.cardContent}>
 
-                            <TabPanel value={activeTab} index="login">
-                                <Login />
-                            </TabPanel>
-                        </CardContent>
+                                <TabPanel value={activeTab} index="register">
+                                    <Cadastro />
+                                </TabPanel>
+
+                                <TabPanel value={activeTab} index="login">
+                                    <Login />
+                                </TabPanel>
+
+                            </CardContent>
+                        </motion.div>
                     </Card>
 
                     <Box mt={2} textAlign="center">
@@ -95,7 +117,7 @@ export default function AuthPage() {
                         </Typography>
                     </Box>
                 </Box>
-            </Box>
-        </Box>
+            </Box >
+        </Box >
     );
 }
