@@ -25,6 +25,7 @@ export default function Home() {
                             className={styles.heroContent}
                             initial={fadeUpVariant.hidden}
                             whileInView={fadeUpVariant.visible}
+                            viewport={{ once: true }}
                         >
                             <Typography
                                 variant="h1"
@@ -51,6 +52,7 @@ export default function Home() {
                                 className={styles.heroButtons}
                                 initial={fadeInVariant.hidden}
                                 whileInView={fadeInVariant.visible}
+                                viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                             >
                                 <Button
@@ -75,6 +77,7 @@ export default function Home() {
                             className={styles.heroImage}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
+                            viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
 
@@ -82,6 +85,7 @@ export default function Home() {
                                 className={styles.circleIcon}
                                 initial={fadeInVariant.hidden}
                                 whileInView={fadeInVariant.visible}
+                                viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
                             >
                                 <TickingClock intervalTime={1000} size={60} color="#fff" />
@@ -95,6 +99,7 @@ export default function Home() {
                         <motion.h2
                             initial={fadeJumpVariant.hidden}
                             whileInView={fadeJumpVariant.visible}
+                            viewport={{ once: true }}
 
                         >What StagyTime Offers</motion.h2>
 
@@ -102,11 +107,13 @@ export default function Home() {
                             className={styles.featuresGrid}
                             initial={fadeUpVariant.hidden}
                             whileInView={fadeUpVariant.visible}
+                            viewport={{ once: true }}
                         >
 
                             <motion.div
                                 initial={sobeDesceVariant.initial}
                                 animate={sobeDesceVariant.animate}
+                                viewport={{ once: true }}
 
                             >
                                 <Card icon={<Clock color="#422680" />} title={"Time Tracking"} text={"Simple clock-in/out system for interns to record their work hours accurately."} isList={false} textlist={""} listTopic={[]} />
@@ -122,6 +129,7 @@ export default function Home() {
                                         delay: 1,
                                     },
                                 }}
+                                viewport={{ once: true }}
 
                             >
                                 <Card icon={<BarChart3 color="#422680" />} title={"Reporting"} text={"Generate detailed reports on work hours, projects, and productivity metrics."} isList={false} textlist={""} listTopic={[]} />
@@ -131,6 +139,7 @@ export default function Home() {
                             <motion.div
                                 initial={sobeDesceVariant.initial}
                                 animate={sobeDesceVariant.animate}
+                                viewport={{ once: true }}
 
                             >
                                 <Card icon={<Users color="#422680" />} title={"Intern Management"} text={"Easily manage intern profiles, assignments, and performance tracking."} isList={false} textlist={""} listTopic={[]} />
@@ -147,6 +156,7 @@ export default function Home() {
                             className={styles.stagytimeTitle}
                             initial={fadeUpVariant.hidden}
                             whileInView={fadeUpVariant.visible}
+                            viewport={{ once: true }}
                         >
                             How StagyTime Works
                         </motion.h2>
@@ -159,6 +169,7 @@ export default function Home() {
                                     className={styles.stepCircle}
                                     initial={slideInVariant.hidden}
                                     whileInView={slideInVariant.visible}
+                                    viewport={{ once: true }}
                                 >
                                     <span>1</span>
                                 </motion.div>
@@ -166,6 +177,7 @@ export default function Home() {
                                 <motion.div
                                     initial={slideInVariant.hidden}
                                     whileInView={slideInVariant.visible}
+                                    viewport={{ once: true }}
                                 >
                                     <h3 className={styles.stepTitle}>Register</h3>
                                     <p className={styles.stepText}>Create accounts for admins and interns</p>
@@ -179,6 +191,7 @@ export default function Home() {
                                     className={styles.stepCircle}
                                     initial={slideInVariant.hidden}
                                     whileInView={slideInVariant.visible}
+                                    viewport={{ once: true }}
                                 >
                                     <span>2</span>
                                 </motion.div>
@@ -186,6 +199,7 @@ export default function Home() {
                                 <motion.div
                                     initial={slideInVariant.hidden}
                                     whileInView={slideInVariant.visible}
+                                    viewport={{ once: true }}
                                 >
                                     <h3 className={styles.stepTitle}>Track Time</h3>
                                     <p className={styles.stepText}>Interns log their work hours daily</p>
@@ -200,6 +214,7 @@ export default function Home() {
                                     className={styles.stepCircle}
                                     initial={slideInVariant.hidden}
                                     whileInView={slideInVariant.visible}
+                                    viewport={{ once: true }}
                                 >
                                     <span>3</span>
                                 </motion.div>
@@ -207,6 +222,7 @@ export default function Home() {
                                 <motion.div
                                     initial={slideInVariant.hidden}
                                     whileInView={slideInVariant.visible}
+                                    viewport={{ once: true }}
 
                                 >
                                     <h3 className={styles.stepTitle}>Monitor</h3>
@@ -221,6 +237,7 @@ export default function Home() {
                                     className={styles.stepCircle}
                                     initial={fadeUpVariant.hidden}
                                     whileInView={fadeUpVariant.visible}
+                                    viewport={{ once: true }}
                                 >
                                     <span>4</span>
                                 </motion.div>
@@ -228,6 +245,7 @@ export default function Home() {
                                 <motion.div
                                     initial={slideInVariant.hidden}
                                     whileInView={slideInVariant.visible}
+                                    viewport={{ once: true }}
                                 >
                                     <h3 className={styles.stepTitle}>Report</h3>
                                     <p className={styles.stepText}>Generate insights and performance reports</p>

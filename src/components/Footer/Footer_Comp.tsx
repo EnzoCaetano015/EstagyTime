@@ -24,6 +24,7 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
                     <motion.div
                         initial={fadeInVariant.hidden}
                         whileInView={fadeInVariant.visible}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         <h2>{title}</h2>
@@ -34,6 +35,7 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
                             className={styles.ctaButtons}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
+                            viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                         >
                             <Button

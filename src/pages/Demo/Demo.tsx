@@ -46,6 +46,7 @@ export default function DemoPage() {
                     className={styles.container}
                     initial={fadeUpVariant.hidden}
                     whileInView={fadeUpVariant.visible}
+                    viewport={{ once: true }}
                 >
 
                     <h1 className={styles.demoTitle}>
@@ -74,6 +75,7 @@ export default function DemoPage() {
                     initial={fadeInVariant.hidden}
                     whileInView={fadeInVariant.visible}
                     transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true }}
                 >
 
                     <Tabs

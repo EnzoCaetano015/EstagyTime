@@ -33,6 +33,7 @@ export default function LearnMore() {
           className={styles.heroContainer}
           initial={fadeUpVariant.hidden}
           whileInView={fadeUpVariant.visible}
+          viewport={{ once: true }}
         >
           <h1 className={styles.heroTitle}>
             Discover StagyTime
@@ -46,6 +47,7 @@ export default function LearnMore() {
             initial={slideInVariant.hidden}
             whileInView={slideInVariant.visible}
             className={styles.heroDivider}
+            viewport={{ once: true }}
           />
         </motion.div>
 
@@ -57,6 +59,7 @@ export default function LearnMore() {
           className={styles.featuresContainer}
           initial={fadeUpVariant.hidden}
           whileInView={fadeUpVariant.visible}
+          viewport={{ once: true }}
         >
           <h2 className={styles.featuresTitle}>
             Comprehensive Features
@@ -130,6 +133,7 @@ export default function LearnMore() {
           initial={fadeUpVariant.hidden}
           whileInView={fadeUpVariant.visible}
           className={styles.benefitsContainer}
+          viewport={{ once: true }}
         >
           <h2 className={styles.benefitsTitle}>
             Why Choose StagyTime
@@ -214,6 +218,7 @@ export default function LearnMore() {
               initial={fadeInVariant.hidden}
               whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
 
             >
 
@@ -237,6 +242,7 @@ export default function LearnMore() {
               initial={fadeInVariant.hidden}
               whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
 
             >
 
@@ -260,6 +266,7 @@ export default function LearnMore() {
               initial={fadeInVariant.hidden}
               whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
 
             >
 
@@ -283,6 +290,7 @@ export default function LearnMore() {
               initial={fadeInVariant.hidden}
               whileInView={fadeInVariant.visible}
               transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
 
             >
 
@@ -313,6 +321,7 @@ export default function LearnMore() {
             initial={fadeUpVariant.hidden}
             whileInView={fadeUpVariant.visible}
             className={styles.faqTitle}
+            viewport={{ once: true }}
           >
             Frequently Asked Questions
           </motion.h2>
@@ -321,6 +330,7 @@ export default function LearnMore() {
             <motion.div
               initial={slideInVariant.hidden}
               whileInView={slideInVariant.visible}
+              viewport={{ once: true }}
             >
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
@@ -332,6 +342,7 @@ export default function LearnMore() {
             <motion.div
               initial={slideInVariant.hidden}
               whileInView={slideInVariant.visible}
+              viewport={{ once: true }}
             >
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
@@ -343,6 +354,7 @@ export default function LearnMore() {
             <motion.div
               initial={slideInVariant.hidden}
               whileInView={slideInVariant.visible}
+              viewport={{ once: true }}
             >
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
@@ -354,6 +366,7 @@ export default function LearnMore() {
             <motion.div
               initial={slideInVariant.hidden}
               whileInView={slideInVariant.visible}
+              viewport={{ once: true }}
             >
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
@@ -365,6 +378,7 @@ export default function LearnMore() {
             <motion.div
               initial={slideInVariant.hidden}
               whileInView={slideInVariant.visible}
+              viewport={{ once: true }}
             >
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}

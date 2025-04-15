@@ -15,6 +15,7 @@ export default function Header() {
         className={styles.headerContainer}
         initial={slideInVariant.hidden}
         whileInView={slideInVariant.visible}
+        viewport={{ once: true }}
       >
         <div className={styles.logoContainer}>
           <div className={styles.logoIcon}>
