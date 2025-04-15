@@ -11,21 +11,19 @@ interface AccordionProps {
 
 export default function Acordion({ icon, title, text }: AccordionProps) {
     return (
-        <>
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={icon}
-                    aria-controls="panel1-content"
-                    id="panel1-header"
-                >
-                    <Typography component="span">{title}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        {text}
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </>
+        <Accordion>
+            <AccordionSummary
+                expandIcon={icon}
+                aria-controls="panel1-content"
+                id="panel1-header"
+            >
+                <Typography component="span">{title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    {text}
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
     )
 }

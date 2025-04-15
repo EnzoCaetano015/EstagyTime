@@ -12,7 +12,7 @@ interface CardProps {
   listTopic: string[];
 }
 
-export default function Card({ icon, title, text, isList, textlist, listTopic  }: CardProps) {
+export default function Card({ icon, title, text, isList, textlist, listTopic }: CardProps) {
 
   return (
 
@@ -64,7 +64,6 @@ export default function Card({ icon, title, text, isList, textlist, listTopic  }
       )}
 
     </Stack>
-
 
   );
 }
