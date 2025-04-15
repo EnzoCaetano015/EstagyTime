@@ -13,11 +13,11 @@ import { motion } from "framer-motion";
 import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
 
 import styles from "./LearnMore.module.css";
-import FooterLP from "../../components/FooterLP/FooterLP_Comp";
 import Header from "../../components/Header/Header_Comp";
 import Acordion from "../../components/Acordion";
 import { Stack } from "@mui/material";
 import Card from "../../components/Card";
+import Footer from "../../components/Footer/Footer_Comp";
 
 
 export default function LearnMore() {
@@ -377,12 +377,14 @@ export default function LearnMore() {
         </div>
       </section>
 
-      <FooterLP
+      <Footer
         text={""}
         icon={undefined}
         description={"Join hundreds of organizations that have streamlined their intern programs with"}
         title={"Transform Your Intern Management Today"}
-        text2={""} />
+        text2={""}
+        simple={false}
+      />
     </div>
   );
 }

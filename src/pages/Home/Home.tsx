@@ -5,10 +5,10 @@ import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
 import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../Hook/Motion/Motion";
 import Button from "../../components/Button/Button_Comp";
-import FooterLP from "../../components/FooterLP/FooterLP_Comp";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
 import { Typography } from "@mui/material";
+import Footer from "../../components/Footer/Footer_Comp";
 
 export default function Home() {
 
@@ -239,11 +239,13 @@ export default function Home() {
                     </section>
 
                     {/* Call To Action Section */}
-                    <FooterLP
+                    <Footer
                         text={" No credit card required"}
                         icon={<CheckCircle size={12} />}
                         description={"Join organizations that trust StagyTime to managetheir intern programs efficiently."} title={"Ready to Streamline Your Intern Management?"}
-                        text2={"14-day free trial"} />
+                        text2={"14-day free trial"}
+                        simple={false}
+                    />
                 </main>
             </Container>
         </>
