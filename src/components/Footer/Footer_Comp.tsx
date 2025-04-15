@@ -43,14 +43,14 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
                                 onClick={() => navigate('/Auth')}
                                 height="40px"
                                 width="120px"
-                                styleVariant={2} // Purple background
+                                styleVariant={2} 
                             />
                             <Button
                                 label="Schedule Demo"
                                 onClick={() => navigate('/Demo')}
                                 height="40px"
                                 width="120px"
-                                styleVariant={2} // Purple background
+                                styleVariant={2} 
                             />
                         </motion.div>
                         <div className={styles.notes}>
