@@ -23,6 +23,9 @@ import Select from "@mui/material/Select";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
 import Timer from "../../../components/Timer/Timer_Comp";
 
+import { motion } from "framer-motion";
+import { fadeInVariant, slideInVariant } from "../../../Hook/Motion/Motion";
+
 
 export default function TimeTracking() {
     const customStyles = useCustomSelectStyles();
@@ -41,36 +44,72 @@ export default function TimeTracking() {
     return (
         <>
             <Card className={styles.card}>
-                <div className={styles.cardHeader}>
+
+                <motion.div
+                    className={styles.cardHeader}
+                    initial={slideInVariant.hidden}
+                    whileInView={slideInVariant.visible}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+
+                >
                     <h1 className={styles.cardTitle}>
                         Time Tracking Demo
                     </h1>
                     <p className={styles.cardDescription}>
                         Track your work hours and assign time to specific tasks.
                     </p>
-                </div>
+                </motion.div>
+
                 <CardContent className={styles.cardContent}>
-                    {/* Timer Field */}
+
                     <div className={styles.fieldGroup}>
+
                         <div className={styles.fieldHeader}>
-                            <h1 className={styles.fieldLabel}>
+
+                            <motion.h1
+                                className={styles.fieldLabel}
+                                initial={slideInVariant.hidden}
+                                animate={slideInVariant.visible}
+                            >
                                 Work Timer
-                            </h1>
+                            </motion.h1>
+
                             <Typography variant="body2" className={styles.dateDisplay}>
                                 {new Date().toLocaleDateString()}
                             </Typography>
+
                         </div>
-                        <Timer></Timer>
+                        <motion.div
+                            initial={fadeInVariant.hidden}
+                            whileInView={fadeInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        >
+                            <Timer />
+                        </motion.div>
                     </div>
 
-                    {/* Daily Hours Field */}
                     <div className={styles.fieldGroup}>
-                        <h1 className={styles.fieldLabel}>
-                            Daily Hours
-                        </h1>
 
-                        <div className={styles.hoursBox}>
-                            {/* Topo com as infos e o ícone */}
+                        <motion.h1
+                            className={styles.fieldLabel}
+                            initial={slideInVariant.hidden}
+                            whileInView={slideInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        >
+                            Daily Hours
+                        </motion.h1 >
+
+                        <motion.div
+                            className={styles.hoursBox}
+                            initial={fadeInVariant.hidden}
+                            whileInView={fadeInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        >
+
                             <div className={styles.hoursTop}>
                                 <div className={styles.hoursInfo}>
                                     <h2 className={styles.hoursLabel}>
@@ -86,7 +125,6 @@ export default function TimeTracking() {
                                 </div>
                             </div>
 
-                            {/* Seção de progresso */}
                             <div className={styles.progressSection}>
                                 <p className={styles.progressLabel}>
                                     Daily progress (8 hours target)
@@ -108,16 +146,30 @@ export default function TimeTracking() {
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div >
                     </div>
 
-                    {/* Task Selection Field */}
                     <div className={styles.fieldGroup}>
-                        <h1 className={styles.fieldLabel}>
+
+                        <motion.h1
+                            className={styles.fieldLabel}
+                            initial={slideInVariant.hidden}
+                            whileInView={slideInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        >
                             Task Selection
-                        </h1>
-                        <div className={styles.taskBox}>
+                        </motion.h1 >
+
+                        <motion.div
+                            className={styles.taskBox}
+                            initial={fadeInVariant.hidden}
+                            whileInView={fadeInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        >
                             <FormControl fullWidth>
+
                                 <Select
                                     sx={customStyles}
                                     value={selectedTask}
@@ -135,7 +187,9 @@ export default function TimeTracking() {
                                     <MenuItem value="meeting">Team Meetings</MenuItem>
                                     <MenuItem value="training">Training</MenuItem>
                                 </Select>
+
                             </FormControl>
+
                             <div className={styles.taskSubFields}>
                                 <div className={styles.taskSubField}>
                                     <Typography variant="body2" className={styles.subFieldLabel}>
@@ -168,20 +222,36 @@ export default function TimeTracking() {
                                     </FormControl>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
 
 
-                    {/* Time Spent Field */}
                     <div className={styles.fieldGroup}>
-                        <h1 className={styles.fieldLabel}>
+
+                        <motion.h1
+                            className={styles.fieldLabel}
+                            initial={slideInVariant.hidden}
+                            whileInView={slideInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        >
                             Time Spent
-                        </h1>
-                        <div className={styles.timeSpentBox}>
+                        </motion.h1>
+
+                        <motion.div
+                            className={styles.timeSpentBox}
+                            initial={fadeInVariant.hidden}
+                            whileInView={fadeInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        >
+
                             <div className={styles.timeFormatSection}>
+
                                 <Typography variant="body2" className={styles.subFieldLabel}>
                                     Time Format
                                 </Typography>
+
                                 <RadioGroup
                                     sx={customStyles}
                                     row
@@ -192,38 +262,57 @@ export default function TimeTracking() {
                                     <FormControlLabel value="hours" control={<Radio />} label="Hours" />
                                     <FormControlLabel value="days" control={<Radio />} label="Days" />
                                     <FormControlLabel value="dates" control={<Radio />} label="Date Range" />
+
                                 </RadioGroup>
+
                             </div>
+
                             {timeFormat === "hours" && (
+
                                 <div className={styles.timeInputGrid}>
                                     <TextField sx={customStyles} id="hours-spent" type="number" defaultValue="3" InputProps={{ inputProps: { min: 0, step: 0.5 } }} />
                                     <TextField sx={customStyles} id="minutes-spent" type="number" defaultValue="45" InputProps={{ inputProps: { min: 0, max: 59 } }} />
                                 </div>
                             )}
+
                             {timeFormat === "days" && (
+
                                 <div className={styles.timeInputGrid}>
                                     <TextField sx={customStyles} id="days-spent" type="number" defaultValue="0" InputProps={{ inputProps: { min: 0, step: 0.5 } }} />
                                     <TextField sx={customStyles} id="hours-in-day" type="number" defaultValue="8" InputProps={{ inputProps: { min: 1, max: 24 } }} />
                                 </div>
                             )}
+
                             {timeFormat === "dates" && (
+
                                 <div className={styles.timeInputGrid}>
+
                                     <div className={styles.dateInputWrapper}>
+
                                         <Typography variant="body2" className={styles.subFieldLabel}>Start Date</Typography>
+
                                         <div className={styles.inputIconWrapper}>
                                             <TextField sx={customStyles} fullWidth id="start-date" type="date" />
                                         </div>
+
                                     </div>
+
                                     <div className={styles.dateInputWrapper}>
+
                                         <Typography variant="body2" className={styles.subFieldLabel}>End Date</Typography>
+
                                         <div className={styles.inputIconWrapper}>
                                             <TextField sx={customStyles} fullWidth id="end-date" type="date" />
                                         </div>
+
                                     </div>
+
                                 </div>
                             )}
-                        </div>
+                        </motion.div>
+
                     </div>
+
                 </CardContent>
                 <CardActions className={styles.cardFooter}>
                     <Button className={styles.saveButton}>

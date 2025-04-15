@@ -19,9 +19,8 @@ function FooterLP({ title, description, text, text2, icon }: FooterLPProps) {
     return (
         <section className={styles.ctaSection}>
             <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInVariant}
+                initial={fadeInVariant.hidden}
+                whileInView={fadeInVariant.visible}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
                 <h2>{title}</h2>
@@ -30,9 +29,8 @@ function FooterLP({ title, description, text, text2, icon }: FooterLPProps) {
                 </p>
                 <motion.div
                     className={styles.ctaButtons}
-                    initial="hidden"
-                    whileInView="visible"
-                    variants={fadeInVariant}
+                    initial={fadeInVariant.hidden}
+                    whileInView={fadeInVariant.visible}
                     transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 >
                     <Button

@@ -13,9 +13,8 @@ export default function Header() {
     <header className={styles.header}>
       <motion.div
         className={styles.headerContainer}
-        initial="hidden"
-        whileInView="visible"
-        variants={slideInVariant}
+        initial={slideInVariant.hidden}
+        whileInView={slideInVariant.visible}
       >
         <div className={styles.logoContainer}>
           <div className={styles.logoIcon}>

@@ -3,10 +3,12 @@ import Container from "../../components/Container/Container_Comp"
 import styles from "./Home.module.css"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
-import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
+import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../Hook/Motion/Motion";
 import Button from "../../components/Button/Button_Comp";
 import FooterLP from "../../components/FooterLP/FooterLP_Comp";
 import { useNavigate } from "react-router-dom";
+import Card from "../../components/Card";
+import { Typography } from "@mui/material";
 
 export default function Home() {
 
@@ -24,12 +26,26 @@ export default function Home() {
                             initial={fadeUpVariant.hidden}
                             whileInView={fadeUpVariant.visible}
                         >
-                            <h1>
+                            <Typography
+                                variant="h1"
+                                sx={{
+                                    fontSize: 50,
+                                    lineHeight: "55px",
+                                    mb: "16px"
+                                }}
+                            >
                                 <strong>Simplify Intern</strong> <strong>Time Tracking</strong>
-                            </h1>
-                            <p>
+                            </Typography>
+
+                            <Typography
+                                sx={{
+                                    fontSize: 15,
+                                    mb: "1.5rem",
+                                    color: "#666"
+                                }}
+                            >
                                 StagyTime helps organizations efficiently track, manage, and optimize intern work hours with minimal effort.
-                            </p>
+                            </Typography>
 
                             <motion.div
                                 className={styles.heroButtons}
@@ -43,19 +59,18 @@ export default function Home() {
                                     onClick={() => navigate('/Auth')}
                                     height="35px"
                                     width="120px"
-                                    styleVariant={1} // Purple background
+                                    styleVariant={1}
                                 />
                                 <Button
                                     label="Learn More"
                                     onClick={() => navigate('/LearnMore')}
                                     height="35px"
                                     width="120px"
-                                    styleVariant={2} // Purple background
+                                    styleVariant={2}
                                 />
                             </motion.div>
                         </motion.div>
 
-                        {/* Animated hero image container: Fade in */}
                         <motion.div
                             className={styles.heroImage}
                             initial={fadeInVariant.hidden}
@@ -89,41 +104,38 @@ export default function Home() {
                             whileInView={fadeUpVariant.visible}
                         >
 
-                            <div className={styles.featureCard}>
+                            <motion.div
+                                initial={sobeDesceVariant.initial}
+                                animate={sobeDesceVariant.animate}
 
-                                <span><Clock color="#422680" /></span>
+                            >
+                                <Card icon={<Clock color="#422680" />} title={"Time Tracking"} text={"Simple clock-in/out system for interns to record their work hours accurately."} isList={false} textlist={""} listTopic={[]} />
 
-                                <h3>Time Tracking</h3>
+                            </motion.div>
 
-                                <p>
-                                    Simple clock-in/out system for interns to record their work hours accurately.
-                                </p>
+                            <motion.div
+                                initial={sobeDesceVariant.initial}
+                                animate={{
+                                    ...sobeDesceVariant.animate,
+                                    transition: {
+                                        ...sobeDesceVariant.animate.transition,
+                                        delay: 1,
+                                    },
+                                }}
 
-                            </div>
+                            >
+                                <Card icon={<BarChart3 color="#422680" />} title={"Reporting"} text={"Generate detailed reports on work hours, projects, and productivity metrics."} isList={false} textlist={""} listTopic={[]} />
 
-                            <div className={styles.featureCard}>
+                            </motion.div>
 
-                                <span><BarChart3 color="#422680" /></span>
+                            <motion.div
+                                initial={sobeDesceVariant.initial}
+                                animate={sobeDesceVariant.animate}
 
-                                <h3>Reporting</h3>
+                            >
+                                <Card icon={<Users color="#422680" />} title={"Intern Management"} text={"Easily manage intern profiles, assignments, and performance tracking."} isList={false} textlist={""} listTopic={[]} />
 
-                                <p>
-                                    Generate detailed reports on work hours, projects, and productivity metrics.
-                                </p>
-
-                            </div>
-
-                            <div className={styles.featureCard}>
-
-                                <span> <Users color="#422680" /></span>
-
-                                <h3>Intern Management</h3>
-
-                                <p>
-                                    Easily manage intern profiles, assignments, and performance tracking.
-                                </p>
-
-                            </div>
+                            </motion.div>
 
                         </motion.div>
                     </section>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Splash from "../pages/SplashScreen";
 import Home from "../pages/Home/Home";
-import LearnMore from "../pages/LearnMoreScreen/LearnMore";
+import LearnMore from "../pages/LearnMore/LearnMore";
 import Demo from "../pages/Demo/Demo";
 import AuthPage from "../pages/Auth/AuthPage";
 import ScrollToTop from "../Hook/Scroll";
