@@ -1,15 +1,7 @@
-import { useState } from "react";
-
 // MUI Components
 import {
     Box,
     Typography,
-    Tabs,
-    Tab,
-    Card,
-    CardContent,
-    CardHeader,
-    Divider,
 } from "@mui/material";
 
 // Our CSS Module
@@ -20,32 +12,12 @@ import { fadeUpVariant } from "../../Hook/Motion/Motion";
 import { motion } from "framer-motion";
 import Login from "./Login";
 import Cadastro from "./Cadastro";
+import CustomTabs from "../../components/Tab/TabComp";
 
-interface TabPanelProps {
-    value: string;
-    index: string;
-    children: React.ReactNode;
-}
-
-function TabPanel(props: TabPanelProps) {
-    const { value, index, children, ...other } = props;
-    return (
-        <div role="tabpanel" hidden={value !== index} {...other}>
-            {value === index && children}
-        </div>
-    );
-}
 
 export default function AuthPage() {
+
     const customStyles = useCustomSelectStyles();
-
-    const [activeTab, setActiveTab] = useState("register");
-
-
-    // Handle tab change (login/register)
-    const handleTabChange = (_event: React.SyntheticEvent, newValue: string) => {
-        setActiveTab(newValue);
-    };
 
     return (
         <Box className={styles.authPage}>
@@ -74,48 +46,35 @@ export default function AuthPage() {
                     </motion.div>
 
                     {/* Tabs for Login / Register */}
-                    <Card className={styles.card}>
-                        <CardHeader
-                            title={
-                                <Tabs
-                                    value={activeTab}
-                                    onChange={handleTabChange}
-                                    variant="fullWidth"
-                                    className={styles.tabs}
-                                    sx={customStyles}
-                                >
-                                    <Tab label="Register" value="register" sx={{ fontWeight: "bold" }} />
-                                    <Tab label="Login" value="login" sx={{ fontWeight: "bold" }} />
 
-                                </Tabs>
-                            }
-                            className={styles.cardHeader}
-                        />
-                        <Divider />
+                    <Box
+                        sx={{
+                            bgcolor: "#fff",
+                            border: "1px solid #e5e7eb",
+                            borderRadius: 1.5,
+                            width: "100%",
+                            maxWidth: 430,
+                            boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05);",
+                            p: "5px 16px 16px 16px",
+
+                        }}
+                    >
                         <motion.div
                             initial={fadeUpVariant.hidden}
                             whileInView={fadeUpVariant.visible}
-                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <CardContent className={styles.cardContent}>
-
-                                <TabPanel value={activeTab} index="register">
-                                    <Cadastro />
-                                </TabPanel>
-
-                                <TabPanel value={activeTab} index="login">
-                                    <Login />
-                                </TabPanel>
-
-                            </CardContent>
+                            <CustomTabs
+                                tabs={[
+                                    { value: "register", label: "Register", content: <Cadastro /> },
+                                    { value: "login", label: "Login", content: <Login /> },
+                                ]}
+                                customStyles={{ ...customStyles, mb: 3 }}
+                            />
                         </motion.div>
-                    </Card>
 
-                    <Box mt={2} textAlign="center">
-                        <Typography variant="caption" color="text.secondary">
-
-                        </Typography>
                     </Box>
+
                 </Box>
             </Box >
         </Box >
