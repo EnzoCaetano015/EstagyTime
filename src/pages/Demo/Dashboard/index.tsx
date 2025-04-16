@@ -14,7 +14,7 @@ import styles from "../Demo.module.css";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
 
 import { motion } from "framer-motion";
-import { fadeInVariant, slideInVariant } from "../../../Hook/Motion/Motion";
+import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
 
 const performanceData = [
     { name: "Week 1", tasks: 5, hours: 35, efficiency: 85 },

@@ -3,7 +3,7 @@ import Container from "../../components/Container/Container_Comp"
 import styles from "./Home.module.css"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
-import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../Hook/Motion/Motion";
+import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../utils/Motion";
 import Button from "../../components/Button/Button_Comp";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";

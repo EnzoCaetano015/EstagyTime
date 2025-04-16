@@ -17,7 +17,7 @@ export default function Acordion({ icon, title, text }: AccordionProps) {
                 aria-controls="panel1-content"
                 id="panel1-header"
             >
-                <Typography component="span">{title}</Typography>
+                <Typography component="span" fontWeight={"bold"}>{title}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <Typography>

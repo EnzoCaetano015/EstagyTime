@@ -13,7 +13,7 @@ import styles from "../Demo.module.css";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
 
 import { motion } from "framer-motion";
-import { fadeInVariant, slideInVariant } from "../../../Hook/Motion/Motion";
+import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
 
 
 export default function HoursControl() {

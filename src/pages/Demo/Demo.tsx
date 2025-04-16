@@ -8,7 +8,7 @@ import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui"
 import TimeTracking from "./TimeTracking/index";
 import HoursControl from "./HoursControl/index";
 import Dashboard from "./Dashboard/index";
-import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
+import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion";
 import CustomTabs from "../../components/Tab/TabComp";
 
 export default function DemoPage() {

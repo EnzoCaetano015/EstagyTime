@@ -5,8 +5,8 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Isso reposiciona o scroll para o topo da página
-  }, [pathname]); // O efeito é acionado sempre que o pathname muda
+    window.scrollTo(0, 0); 
+  }, [pathname]); 
 
   return null;
 }

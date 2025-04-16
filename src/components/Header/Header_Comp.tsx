@@ -3,7 +3,7 @@ import styles from "./Header.module.css"
 import { useNavigate } from "react-router-dom"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
-import { slideInVariant } from "../../Hook/Motion/Motion";
+import { slideInVariant } from "../../utils/Motion";
 
 export default function Header() {
 

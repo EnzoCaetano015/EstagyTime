@@ -24,7 +24,7 @@ import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
 import Timer from "../../../components/Timer/Timer_Comp";
 
 import { motion } from "framer-motion";
-import { fadeInVariant, slideInVariant } from "../../../Hook/Motion/Motion";
+import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
 
 
 export default function TimeTracking() {

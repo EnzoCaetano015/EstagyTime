@@ -1,7 +1,7 @@
 import styles from "./Loading.module.css";
 import TickingClock from "../../Hook/TickingClock";
 import { motion } from "framer-motion";
-import { fadeInVariant } from "../../Hook/Motion/Motion";
+import { fadeInVariant } from "../../utils/Motion";
 
 function Loading({ text }: { text: string }) {
 

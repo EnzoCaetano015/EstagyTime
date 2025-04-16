@@ -8,7 +8,7 @@ import {
 import styles from "./AuthPage.module.css";
 import Header from "../../components/Header/Header_Comp";
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui";
-import { fadeUpVariant } from "../../Hook/Motion/Motion";
+import { fadeUpVariant } from "../../utils/Motion";
 import { motion } from "framer-motion";
 import Login from "./Login";
 import Cadastro from "./Cadastro";

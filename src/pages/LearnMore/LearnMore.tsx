@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { motion } from "framer-motion";
-import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../Hook/Motion/Motion";
+import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion";
 
 import styles from "./LearnMore.module.css";
 import Header from "../../components/Header/Header_Comp";
