@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styles from './Container.module.css';
+import * as Styled from "./container.styled"
 
 interface ContainerProps {
   children: ReactNode;
@@ -7,9 +7,9 @@ interface ContainerProps {
 
 function Container({ children }: ContainerProps) {
   return (
-    <section className={styles.container}>
+    <Styled.Container >
       {children}
-    </section>
+    </Styled.Container>
   );
 }
 

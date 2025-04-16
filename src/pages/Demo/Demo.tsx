@@ -2,21 +2,22 @@
 import { motion } from "framer-motion";
 
 import styles from "./Demo.module.css";
-import Header from "../../components/Header/Header_Comp";
+import Header from "../../components/Header";
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui"
 
 import TimeTracking from "./TimeTracking/index";
 import HoursControl from "./HoursControl/index";
 import Dashboard from "./Dashboard/index";
 import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion";
-import CustomTabs from "../../components/Tab/TabComp";
+import CustomTabs from "../../components/Tab";
+import Container from "../../components/Container";
 
 export default function DemoPage() {
 
     const customStyles = useCustomSelectStyles();
 
     return (
-        <div className={styles.demoPage}>
+        <Container>
 
             <Header />
 
@@ -71,6 +72,6 @@ export default function DemoPage() {
 
             </section>
 
-        </div>
+        </Container>
     );
 }

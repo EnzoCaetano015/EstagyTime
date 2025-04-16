@@ -13,16 +13,18 @@ import { motion } from "framer-motion";
 import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion";
 
 import styles from "./LearnMore.module.css";
-import Header from "../../components/Header/Header_Comp";
+import Header from "../../components/Header";
 import Acordion from "../../components/Acordion";
 import { Stack } from "@mui/material";
 import Card from "../../components/Card";
-import Footer from "../../components/Footer/Footer_Comp";
+import Footer from "../../components/Footer";
+import Container from "../../components/Container";
 
 
 export default function LearnMore() {
   return (
-    <div className={styles.learnMore}>
+
+    <Container>
 
       <Header />
 
@@ -399,6 +401,6 @@ export default function LearnMore() {
         text2={""}
         simple={false}
       />
-    </div>
+    </Container>
   );
 }

@@ -1,34 +1,40 @@
 import { ArrowLeft } from "lucide-react"
-import styles from "./Header.module.css"
 import { useNavigate } from "react-router-dom"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
 import { slideInVariant } from "../../utils/Motion";
+import * as Styled from "./header.styled"
+import { Box, Stack, Typography } from "@mui/material";
 
 export default function Header() {
 
   const navigate = useNavigate()
 
   return (
-    <header className={styles.header}>
+    <Styled.Header>
       <motion.div
-        className={styles.headerContainer}
+        className={"headerContainer"}
         initial={slideInVariant.hidden}
         whileInView={slideInVariant.visible}
         viewport={{ once: true }}
       >
-        <div className={styles.logoContainer}>
-          <div className={styles.logoIcon}>
+        <Stack className={"logoContainer"}>
+
+          <Box className={"logoIcon"}>
             <TickingClock intervalTime={1000} size={20} color="#fff" />
-          </div>
-          <h1 className={styles.headerTitle}>
-            Stagy<span>Time</span>
-          </h1>
-        </div>
-        <button className={styles.backButton} onClick={() => { navigate('/Home') }}>
+          </Box>
+
+          <Typography variant="h1" sx={{ fontSize: "25px", color: "#422680", fontWeight: "bold" }}>
+            Stagy<span style={{ color: "#000" }}>Time</span>
+          </Typography>
+
+        </Stack>
+
+        <button className={"backButton"} onClick={() => { navigate('/Home') }}>
           <ArrowLeft size={15} /> Back to Home
         </button>
+
       </motion.div >
-    </header>
+    </Styled.Header>
   )
 }

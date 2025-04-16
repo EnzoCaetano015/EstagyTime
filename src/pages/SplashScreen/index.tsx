@@ -1,8 +1,8 @@
 import { useEffect } from "react"
-import Container from "../../components/Container/Container_Comp"
-import Loading from "../../components/Loading/Loading_Comp"
+import Container from "../../components/Container"
+import Loading from "../../components/Loading"
 import { useNavigate } from "react-router-dom";
-import Footer from "../../components/Footer/Footer_Comp";
+import Footer from "../../components/Footer";
 
 export default function Splash() {
 

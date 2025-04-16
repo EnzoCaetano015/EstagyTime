@@ -21,7 +21,7 @@ import Radio from "@mui/material/Radio";
 import styles from "../Demo.module.css";
 import Select from "@mui/material/Select";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
-import Timer from "../../../components/Timer/Timer_Comp";
+import Timer from "../../../components/Timer";
 
 import { motion } from "framer-motion";
 import { fadeInVariant, slideInVariant } from "../../../utils/Motion";

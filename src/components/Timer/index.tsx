@@ -1,17 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import styles from "./Timer.module.css"; // adjust the path to your CSS module
 import {
     Play,
     Pause,
     Square,
 } from "lucide-react";
+import { Box, ButtonBase, Stack } from "@mui/material";
+import * as Styled from "./timer.styled"
 
 const Timer = () => {
-    const [timerState, setTimerState] = useState("idle"); // "idle", "running", or "paused"
-    const [time, setTime] = useState(0); // time in seconds
+
+    const [timerState, setTimerState] = useState("idle");
+    const [time, setTime] = useState(0);
     const intervalRef = useRef(0);
 
-    // Format seconds into "HH : MM : SS"
     const formatTime = (totalSeconds: number) => {
         const hours = Math.floor(totalSeconds / 3600);
         const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -20,22 +21,21 @@ const Timer = () => {
         return `${pad(hours)} : ${pad(minutes)} : ${pad(seconds)}`;
     };
 
-    // Effect to handle the running timer
     useEffect(() => {
-        // Start the timer if state is "running"
+
         if (timerState === "running") {
             intervalRef.current = setInterval(() => {
                 setTime((prevTime) => prevTime + 1);
             }, 1000);
         } else {
-            // Clear the timer when paused or idle
+
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
                 intervalRef.current = 0;
             }
         }
-        // Cleanup on unmount or state change
         return () => {
+
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
                 intervalRef.current = 0;
@@ -44,40 +44,55 @@ const Timer = () => {
     }, [timerState]);
 
     return (
-        <div className={styles.timerBox}>
-            <div className={styles.timerDisplay}>
+        <Styled.Timer >
+
+            <Box className={"timerDisplay"}>
                 {timerState === "idle" ? "00 : 00 : 00" : formatTime(time)}
-            </div>
-            <div className={styles.timerButtons}>
-                <button
-                    className={`${styles.timerButton} ${timerState === "running" ? styles.disabledButton : styles.startButton}`}
+            </Box>
+
+            <Stack sx={{ gap: 1, flexDirection: "row", justifyContent: "center" }}>
+
+                <ButtonBase
+                    className={"timerButton"}
                     onClick={() => setTimerState("running")}
                     disabled={timerState === "running"}
+                    sx={{
+                        bgcolor: timerState === "running" ? "#D1D5DB" : "#422680",
+                        color: timerState === "running" ? "#6B7280" : "#fff",
+                    }}
                 >
-                    <Play className={styles.buttonIcon} />
-                    Start
-                </button>
-                <button
-                    className={`${styles.timerButton} ${timerState === "paused" ? styles.disabledButton : styles.pauseButton}`}
+                    <Play size={15} /> Start
+                </ButtonBase>
+
+                <ButtonBase
+                    className={"timerButton"}
                     onClick={() => setTimerState("paused")}
                     disabled={timerState === "paused" || timerState === "idle"}
+                    sx={{
+                        bgcolor: timerState === "paused" ? "#D1D5DB" : "#F59E0B",
+                        color: timerState === "paused" ? "#6B7280" : "#fff",
+                    }}
                 >
-                    <Pause className={styles.buttonIcon} />
-                    Pause
-                </button>
-                <button
-                    className={`${styles.timerButton} ${styles.finishButton}`}
+                    <Pause size={15} /> Pause
+                </ButtonBase>
+
+                <ButtonBase
+                    className={"timerButton"}
                     onClick={() => {
                         setTimerState("idle");
                         setTime(0);
                     }}
                     disabled={timerState === "idle"}
+                    sx={{
+                        bgcolor: "#EF4444",
+                        color: "#fff",
+                    }}
                 >
-                    <Square className={styles.buttonIcon} />
-                    Finish
-                </button>
-            </div>
-        </div>
+                    <Square size={15} /> Finish
+                </ButtonBase>
+
+            </Stack>
+        </Styled.Timer>
     );
 };
 

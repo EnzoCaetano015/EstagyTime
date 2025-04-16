@@ -1,8 +1,9 @@
 import { fadeInVariant } from "../../utils/Motion";
-import Button from "../Button/Button_Comp";
+import Button from "../Button";
 import { motion } from "framer-motion";
-import styles from "./Footer.module.css"
 import { useNavigate } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import * as Styled from "./footer.styled"
 
 interface FooterLPProps {
     title: string;
@@ -20,52 +21,61 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
     return (
         <>
             {!simple ? (
-                <section className={styles.ctaSection}>
+                <Styled.Footer>
                     <motion.div
                         initial={fadeInVariant.hidden}
                         whileInView={fadeInVariant.visible}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        <h2>{title}</h2>
-                        <p>
+
+                        <Typography
+                            variant="h2"
+                            fontWeight={"bold"}
+                            fontSize={30}
+                            mb={"10px"}
+                        >
+                            {title}
+                        </Typography>
+
+                        <Typography color="#fff" mb={"2rem"}>
                             {description}
-                        </p>
+                        </Typography>
+
                         <motion.div
-                            className={styles.ctaButtons}
+                            className={"FooterButtons"}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                         >
                             <Button
-                                label="Start Free Trial"
-                                onClick={() => navigate('/Auth')}
-                                height="40px"
-                                width="120px"
-                                styleVariant={2}
+                                label={"Start Free Trial"}
+                                onClick={() => navigate("/Auth")}
+                                buttonStyle="White"
+                                sx={{ width: 120, height: 35 }}
                             />
                             <Button
-                                label="Schedule Demo"
-                                onClick={() => navigate('/Demo')}
-                                height="40px"
-                                width="120px"
-                                styleVariant={2}
+                                label={"Schedule Demo"}
+                                onClick={() => navigate("/Demo")}
+                                buttonStyle="White"
+                                sx={{ width: 120, height: 35 }}
                             />
                         </motion.div>
-                        <div className={styles.notes}>
+                        <Box className={"notes"}>
                             <span>{icon}{text}</span>
                             <span>{icon}{text2}</span>
-                        </div>
+                        </Box>
                     </motion.div>
-                </section>
+                </Styled.Footer>
             ) : (
-                <footer className={styles.footer}>
+                <Styled.SimpleFooter className={"footer"}>
 
-                    <div className={styles.bottomBar}>
-                        <p>© {new Date().getFullYear()} StagyTime</p>
+                    <div className={"bottomBar"}>
+                        <Typography color="#333">© {new Date().getFullYear()} StagyTime</Typography>
                     </div>
-                </footer>
+
+                </Styled.SimpleFooter>
             )}
 
         </>

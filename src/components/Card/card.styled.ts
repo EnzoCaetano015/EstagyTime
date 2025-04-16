@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
 
-
 export const Span = styled('span')({
     display: 'flex',
     alignItems: 'center',

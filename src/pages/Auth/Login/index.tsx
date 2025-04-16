@@ -17,7 +17,7 @@ import {
 // Our CSS Module
 import styles from "../AuthPage.module.css";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
-import Button from "../../../components/Button/Button_Comp";
+import Button from "../../../components/Button";
 // import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -95,11 +95,10 @@ export default function Login() {
             </Box>
 
             <Button
-                label="Sign in"
+                label={"Sign in"}
                 onClick={() => alert("Sign in")}
-                height="35px"
-                width="100%"
-                styleVariant={1}
+                buttonStyle="Purple"
+                sx={{ width: "100%", height: 35 }}
             />
 
             <Box marginBlock={3} display="flex" justifyContent="center" alignItems="center">
@@ -111,26 +110,24 @@ export default function Login() {
             </Box>
 
             <Box display="flex" justifyContent="center" gap={2}>
+
                 <Button
-                    label="Google"
+                    label={"Google"}
                     onClick={() => alert("Google")}
-                    height="35px"
-                    width="31%"
-                    styleVariant={2}
+                    buttonStyle="White"
+                    sx={{ width: "31%", height: 35 }}
                 />
                 <Button
-                    label="Apple"
+                    label={"Apple"}
                     onClick={() => alert("Apple")}
-                    height="35px"
-                    width="31%"
-                    styleVariant={2}
+                    buttonStyle="White"
+                    sx={{ width: "31%", height: 35 }}
                 />
                 <Button
-                    label="Microsoft"
+                    label={"Microsoft"}
                     onClick={() => alert("Microsoft")}
-                    height="35px"
-                    width="31%"
-                    styleVariant={2}
+                    buttonStyle="White"
+                    sx={{ width: "31%", height: 35 }}
                 />
             </Box>
         </form>

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Splash from "../pages/SplashScreen";
-import Home from "../pages/Home/Home";
-import LearnMore from "../pages/LearnMore/LearnMore";
-import Demo from "../pages/Demo/Demo";
-import AuthPage from "../pages/Auth/AuthPage";
+import Splash from "../Pages/SplashScreen";
+import Home from "../Pages/Home/Home";
+import LearnMore from "../Pages/LearnMore/LearnMore";
+import Demo from "../Pages/Demo/Demo";
+import AuthPage from "../Pages/Auth/AuthPage";
 import ScrollToTop from "../Hook/Scroll";
 
 function Rotas() {

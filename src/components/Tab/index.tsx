@@ -14,10 +14,9 @@ interface CustomTabsProps {
 }
 
 export default function CustomTabs({ tabs, customStyles }: CustomTabsProps) {
-  // Inicializa a aba ativa como a primeira da lista
+  
   const [activeTab, setActiveTab] = useState<string>(tabs[0].value);
 
-  // Componente interno que renderiza o conteúdo da aba somente quando ativa
   const TabPanel = ({
     value,
     index,

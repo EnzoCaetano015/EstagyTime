@@ -1,14 +1,14 @@
 import { BarChart3, CheckCircle, ChevronRight, Clock, Users } from "lucide-react"
-import Container from "../../components/Container/Container_Comp"
+import Container from "../../components/Container"
 import styles from "./Home.module.css"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
 import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../utils/Motion";
-import Button from "../../components/Button/Button_Comp";
+import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
 import { Typography } from "@mui/material";
-import Footer from "../../components/Footer/Footer_Comp";
+import Footer from "../../components/Footer";
 
 export default function Home() {
 
@@ -56,19 +56,17 @@ export default function Home() {
                                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                             >
                                 <Button
-                                    label="Get Started"
-                                    icon={<ChevronRight size={18} />}
-                                    onClick={() => navigate('/Auth')}
-                                    height="35px"
-                                    width="120px"
-                                    styleVariant={1}
+                                    label={"Get Started"}
+                                    icon={<ChevronRight size={18}/>}
+                                    onClick={() => navigate("/Auth")}
+                                    buttonStyle="Purple"
+                                    sx={{ width: 120, height: 35 }}
                                 />
                                 <Button
-                                    label="Learn More"
-                                    onClick={() => navigate('/LearnMore')}
-                                    height="35px"
-                                    width="120px"
-                                    styleVariant={2}
+                                    label={"Learn More"}
+                                    onClick={() => navigate("/LearnMore")}
+                                    buttonStyle="White"
+                                    sx={{ width: 120, height: 35 }}
                                 />
                             </motion.div>
                         </motion.div>

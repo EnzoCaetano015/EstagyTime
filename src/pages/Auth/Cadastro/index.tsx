@@ -12,12 +12,13 @@ import {
     TextField,
     Checkbox,
     Divider,
+    Stack,
 } from "@mui/material";
 
 // Our CSS Module
 import styles from "../AuthPage.module.css";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
-import Button from "../../../components/Button/Button_Comp";
+import Button from "../../../components/Button";
 
 export default function Cadastro() {
 
@@ -186,15 +187,16 @@ export default function Cadastro() {
                 </Typography>
             </Box>
 
-            <Button
-                label="Create account"
-                onClick={() => alert("Sign in")}
-                height="35px"
-                width="100%"
-                styleVariant={1}
-            />
+            <Stack alignItems={"center"}>
+                <Button
+                    label={"Create account"}
+                    onClick={() => alert("Create account")}
+                    buttonStyle="Purple"
+                    sx={{ width: "100%", height: 35 }}
+                />
+            </Stack>
 
-            <Box marginBlock={3} display="flex" justifyContent="center" alignItems="center">
+            <Box marginBlock={2} display="flex" justifyContent="center" alignItems="center">
                 <Divider sx={{ flex: 1, marginRight: 2 }} />
                 <Typography variant="body2" fontSize={12}>
                     Or continue with
@@ -204,25 +206,22 @@ export default function Cadastro() {
 
             <Box display="flex" justifyContent="center" gap={2}>
                 <Button
-                    label="Google"
+                    label={"Google"}
                     onClick={() => alert("Google")}
-                    height="35px"
-                    width="31%"
-                    styleVariant={2}
+                    buttonStyle="White"
+                    sx={{ width: "31%", height: 35 }}
                 />
                 <Button
-                    label="Apple"
+                    label={"Apple"}
                     onClick={() => alert("Apple")}
-                    height="35px"
-                    width="31%"
-                    styleVariant={2}
+                    buttonStyle="White"
+                    sx={{ width: "31%", height: 35 }}
                 />
                 <Button
-                    label="Microsoft"
+                    label={"Microsoft"}
                     onClick={() => alert("Microsoft")}
-                    height="35px"
-                    width="31%"
-                    styleVariant={2}
+                    buttonStyle="White"
+                    sx={{ width: "31%", height: 35 }}
                 />
             </Box>
         </form>
