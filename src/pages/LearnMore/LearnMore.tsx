@@ -12,13 +12,14 @@ import {
 import { motion } from "framer-motion";
 import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion";
 
-import styles from "./LearnMore.module.css";
 import Header from "../../components/Header";
 import Acordion from "../../components/Acordion";
-import { Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 import Container from "../../components/Container";
+
+import * as Styled from "./learnMore.styled"
 
 
 export default function LearnMore() {
@@ -28,46 +29,46 @@ export default function LearnMore() {
 
       <Header />
 
-      {/* Hero Section */}
-      <section className={styles.heroSection}>
+      <Styled.Main sx={{ p: "48px 16px", background: "linear-gradient(to bottom, #fff, #F8F8FF)" }}>
 
-        <motion.div
-          className={styles.heroContainer}
+        <Box
+          component={motion.div}
           initial={fadeUpVariant.hidden}
           whileInView={fadeUpVariant.visible}
           viewport={{ once: true }}
+          sx={{ m: "0 auto", textAlign: "center" }}
         >
-          <h1 className={styles.heroTitle}>
+          <Typography variant="h1" sx={{ mb: 1, color: "#422680", fontSize: 35, fontWeight: "600" }}>
             Discover StagyTime
-          </h1>
+          </Typography>
 
-          <p className={styles.heroSubtitle}>
-            A comprehensive platform designed specifically for managing intern work hours, productivity, and performance in organizations of all sizes.
-          </p>
+          <Typography sx={{ maxWidth: 600, fontSize: 15, color: "#4B5563", m: "0 auto 2rem" }}>
+            A comTypographyrehensive platform designed specifically for managing intern work hours, productivity, and performance in organizations of all sizes.
+          </Typography>
 
           <motion.div
             initial={slideInVariant.hidden}
             whileInView={slideInVariant.visible}
-            className={styles.heroDivider}
+            className={"Divider"}
             viewport={{ once: true }}
           />
-        </motion.div>
+        </Box>
 
-      </section>
+      </Styled.Main>
 
-      {/* Detailed Features */}
-      <section className={styles.featuresSection}>
-        <motion.div
-          className={styles.featuresContainer}
+      <Styled.Features>
+        <Box
+          component={motion.div}
           initial={fadeUpVariant.hidden}
           whileInView={fadeUpVariant.visible}
           viewport={{ once: true }}
+          sx={{ maxWidth: "55%", m: "0 auto" }}
         >
-          <h2 className={styles.featuresTitle}>
+          <Typography variant="h2" className={"Title"}>
             Comprehensive Features
-          </h2>
+          </Typography>
 
-          <div className={styles.featuresGrid}>
+          <Box className={"Grid"}>
 
             <Card
               icon={<Clock color="#422680" />}
@@ -125,96 +126,94 @@ export default function LearnMore() {
               textlist={""}
             />
 
-          </div>
-        </motion.div>
-      </section>
+          </Box>
+        </Box>
+      </Styled.Features>
 
-      {/* Benefits Section */}
-      <section className={styles.benefitsSection}>
+      <Styled.Benefits >
         <motion.div
           initial={fadeUpVariant.hidden}
           whileInView={fadeUpVariant.visible}
-          className={styles.benefitsContainer}
+          className={"Container"}
           viewport={{ once: true }}
         >
-          <h2 className={styles.benefitsTitle}>
+          <Typography variant="h2" className={"Title"}>
             Why Choose StagyTime
-          </h2>
+          </Typography>
 
-          <div className={styles.benefitsGrid}>
+          <Box className={"Grid"} sx={{ p: "1.5rem" }}>
 
-            <div className={styles.benefitCard}>
+            <Box sx={{ p: "1.5rem" }}>
 
-              <div className={styles.benefitIconContainer}>
-                <Building className={styles.benefitIcon} />
-              </div>
+              <Box className={"Icon"}>
+                <Building size={25} color="white" />
+              </Box>
 
-              <h3 className={styles.benefitTitle}>
+              <Typography variant="h3" className={"benefitTitle"}>
                 For Organizations
-              </h3>
+              </Typography>
 
-              <p className={styles.benefitText}>
+              <Typography className={"benefitText"}>
                 Reduce administrative overhead, ensure compliance with labor
                 laws, and gain valuable insights into intern productivity and
                 performance.
-              </p>
+              </Typography>
 
-            </div>
+            </Box>
 
-            <div className={styles.benefitCard}>
+            <Box sx={{ p: "1.5rem" }}>
 
-              <div className={styles.benefitIconContainer}>
-                <GraduationCap className={styles.benefitIcon} />
-              </div>
+              <Box className={"Icon"}>
+                <GraduationCap size={25} color="white" />
+              </Box>
 
-              <h3 className={styles.benefitTitle}>
+              <Typography variant="h3" className={"benefitTitle"}>
                 For Interns
-              </h3>
+              </Typography>
 
-              <p className={styles.benefitText}>
+              <Typography className={"benefitText"}>
                 Easily track work hours, showcase achievements, receive
                 feedback, and build a comprehensive record of internship
                 experience.
-              </p>
+              </Typography>
 
-            </div>
+            </Box>
 
-            <div className={styles.benefitCard}>
+            <Box sx={{ p: "1.5rem" }}>
 
-              <div className={styles.benefitIconContainer}>
-                <Calendar className={styles.benefitIcon} />
-              </div>
+              <Box className={"Icon"}>
+                <Calendar size={25} color="white" />
+              </Box>
 
-              <h3 className={styles.benefitTitle}>
+              <Typography variant="h3" className={"benefitTitle"}>
                 For Supervisors
-              </h3>
+              </Typography>
 
-              <p className={styles.benefitText}>
+              <Typography className={"benefitText"}>
                 Monitor intern progress, provide timely feedback, manage
                 schedules efficiently, and generate comprehensive performance
                 reports.
-              </p>
+              </Typography>
 
-            </div>
+            </Box>
 
-          </div>
+          </Box>
 
 
         </motion.div>
 
-      </section>
+      </Styled.Benefits>
 
 
-      {/* Use Cases */}
-      <section className={styles.useCasesSection}>
+      <Styled.Cases>
 
-        <div className={styles.useCasesContainer}>
+        <Box className={"caseContainer"}>
 
-          <h2 className={styles.useCasesTitle}>
+          <Typography variant="h2" className={"caseTitle"}>
             StagyTime in Action
-          </h2>
+          </Typography>
 
-          <div className={styles.useCasesGrid}>
+          <Box className={"caseGrid"}>
 
             <motion.div
               initial={fadeInVariant.hidden}
@@ -312,17 +311,17 @@ export default function LearnMore() {
 
             </motion.div >
 
-          </div>
-        </div>
-      </section>
+          </Box>
+        </Box>
+      </Styled.Cases>
 
-      {/* FAQ Section */}
-      <section className={styles.faqSection}>
-        <div className={styles.faqContainer}>
+      <Styled.Questions>
+        <Box className={"questionContainer"}>
+
           <motion.h2
             initial={fadeUpVariant.hidden}
             whileInView={fadeUpVariant.visible}
-            className={styles.faqTitle}
+            className={"questionTitle"}
             viewport={{ once: true }}
           >
             Frequently Asked Questions
@@ -390,8 +389,8 @@ export default function LearnMore() {
             </motion.div>
           </Stack>
 
-        </div>
-      </section>
+        </Box>
+      </Styled.Questions>
 
       <Footer
         text={""}

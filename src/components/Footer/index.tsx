@@ -31,14 +31,14 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
 
                         <Typography
                             variant="h2"
-                            fontWeight={"bold"}
+                            fontWeight={"600"}
                             fontSize={30}
                             mb={"10px"}
                         >
                             {title}
                         </Typography>
 
-                        <Typography color="#fff" mb={"2rem"}>
+                        <Typography color="#fff" mb={"2rem"} fontSize={14}>
                             {description}
                         </Typography>
 

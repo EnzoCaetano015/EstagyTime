@@ -1,4 +1,3 @@
-// variants.ts
 export const fadeInVariant = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1 }
@@ -32,5 +31,30 @@ export const sobeDesceVariant = {
       ease: "easeInOut",
       repeat: Infinity,
     },
+  },
+};
+
+export const dotBounceVariant = {
+  hidden: {
+    scale: 0.8,
+    backgroundColor: "#ccc",
+  },
+  visible: (i: number) => ({
+    scale: [0.8, 1.2, 0.8],
+    backgroundColor: ["#ccc", "#422680", "#ccc"],
+    transition: {
+      duration: 1.2,
+      ease: "easeInOut",
+      times: [0, 0.4, 0.8],
+      repeat: Infinity,
+      delay: i * 0.2,
+    },
+  }),
+};
+
+export const dotsContainerVariant = {
+  hidden: {},
+  visible: {
+    transition: {},
   },
 };

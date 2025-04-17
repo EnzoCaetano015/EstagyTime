@@ -1,14 +1,4 @@
-import { keyframes, styled } from "@mui/material"
-
-const dotBounce = keyframes`
-  0%, 80%, 100% {
-    transform: scale(0.8);
-  }
-  40% {
-    transform: scale(1.2);
-    background-color: #422680;
-  }
-`;
+import {styled } from "@mui/material"
 
 export const SplashContainer = styled("div")(() => ({
     position: "absolute",
@@ -44,17 +34,6 @@ export const SplashContainer = styled("div")(() => ({
         height: "10px",
         backgroundColor: "#ccc",
         borderRadius: "50%",
-        animation: `${dotBounce} 1.2s infinite ease-in-out`,
-    },
-
-    ".dot:nth-child(1)": {
-        animationDelay: "0s",
-    },
-    ".dot:nth-child(2)": {
-        animationDelay: "0.2s",
-    },
-    ".dot:nth-child(3)": {
-        animationDelay: "0.4s",
     },
 
 }))

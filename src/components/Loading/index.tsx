@@ -1,8 +1,11 @@
 import TickingClock from "../../Hook/TickingClock";
 import { motion } from "framer-motion";
-import { fadeInVariant } from "../../utils/Motion";
+import { dotBounceVariant, fadeInVariant } from "../../utils/Motion";
 import { Stack, Typography } from "@mui/material";
 import * as Styled from "./loading.styled"
+import {
+  dotsContainerVariant,
+} from "../../utils/Motion";
 
 function Loading({ text }: { text: string }) {
 
@@ -32,8 +35,8 @@ function Loading({ text }: { text: string }) {
             sx={{
               margin: "0 0 8px 0",
               fontSize: "34px",
-              fontWeight:"bold",
-              color:"#422680"
+              fontWeight: "bold",
+              color: "#422680"
             }}>
             Stagy<span style={{ color: "#000" }}>Time</span>
 
@@ -53,10 +56,20 @@ function Loading({ text }: { text: string }) {
 
         </motion.div>
 
-        <Stack className={"dotsContainer"}>
-          <span className={"dot"} />
-          <span className={"dot"} />
-          <span className={"dot"} />
+        <Stack
+          component={motion.div}
+          className="dotsContainer"
+          initial={dotsContainerVariant.hidden}
+          animate={dotsContainerVariant.visible}
+        >
+          {[0, 1, 2].map((i) => (
+            <motion.span
+              className="dot"
+              key={i}
+              variants={dotBounceVariant}
+              custom={i}
+            />
+          ))}
         </Stack>
 
       </motion.div>
