@@ -20,7 +20,7 @@ import Footer from "../../components/Footer";
 import Container from "../../components/Container";
 
 import * as Styled from "./learnMore.styled"
-import { BigTitle} from "../../components/Text";
+import { BigTitle } from "../../components/Text";
 
 
 export default function LearnMore() {
@@ -339,8 +339,7 @@ export default function LearnMore() {
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
                 title={"How does StagyTime handle remote interns?"}
-                text={"StagyTime is designed for both on-site and remote interns. For remote workers, the platform offers IP-based location verification, screenshot capabilities (optional), and integration with virtual collaboration tools to ensure productivity tracking without compromising privacy."}
-              />
+                text={"StagyTime is designed for both on-site and remote interns. For remote workers, the platform offers IP-based location verification, screenshot capabilities (optional), and integration with virtual collaboration tools to ensure productivity tracking without compromising privacy."} children={""} />
             </motion.div>
 
             <motion.div
@@ -351,8 +350,7 @@ export default function LearnMore() {
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
                 title={"Can StagyTime integrate with our existing HR software?"}
-                text={"Yes, StagyTime offers API integration with popular HR and payroll systems. Our platform can sync data with your existing software to avoid duplicate entries and ensure consistent record-keeping across your"}
-              />
+                text={"Yes, StagyTime offers API integration with popular HR and payroll systems. Our platform can sync data with your existing software to avoid duplicate entries and ensure consistent record-keeping across your"} children={""} />
             </motion.div>
 
             <motion.div
@@ -363,8 +361,7 @@ export default function LearnMore() {
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
                 title={"What makes StagyTime different from general time tracking tools?"}
-                text={"Unlike general time tracking tools, StagyTime is specifically designed for intern management. It includes features tailored to educational requirements, skill development tracking, performance evaluation, and internship-specific reporting that general time tracking solutions don't offer."}
-              />
+                text={"Unlike general time tracking tools, StagyTime is specifically designed for intern management. It includes features tailored to educational requirements, skill development tracking, performance evaluation, and internship-specific reporting that general time tracking solutions don't offer."} children={""} />
             </motion.div>
 
             <motion.div
@@ -375,8 +372,7 @@ export default function LearnMore() {
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
                 title={"How secure is the data stored in StagyTime?"}
-                text={"StagyTime employs industry-standard security measures including end-to-end encryption, secure authentication protocols, regular security audits, and compliance with data protection regulations. All data is stored in SOC 2 compliant cloud infrastructure with regular backups"}
-              />
+                text={"StagyTime employs industry-standard security measures including end-to-end encryption, secure authentication protocols, regular security audits, and compliance with data protection regulations. All data is stored in SOC 2 compliant cloud infrastructure with regular backups"} children={""} />
             </motion.div>
 
             <motion.div
@@ -387,8 +383,7 @@ export default function LearnMore() {
               <Acordion
                 icon={<ChevronDown size={15} color="black" />}
                 title={"Can interns access their own data after the internship ends?"}
-                text={"Yes, StagyTime offers an archive feature that allows organizations to provide interns with a permanent record of their internship, including hours worked, projects completed, skills acquired, and performance evaluations. This serves as valuable documentation for their professional portfolios."}
-              />
+                text={"Yes, StagyTime offers an archive feature that allows organizations to provide interns with a permanent record of their internship, including hours worked, projects completed, skills acquired, and performance evaluations. This serves as valuable documentation for their professional portfolios."} children={""} />
             </motion.div>
           </Stack>
 
