@@ -9,6 +9,7 @@ import Card from "../../components/Card";
 import { Box, Stack, Typography } from "@mui/material";
 import Footer from "../../components/Footer";
 import * as Styled from "./home.styled"
+import { Title } from "../../components/Text";
 
 export default function Home() {
 
@@ -93,16 +94,13 @@ export default function Home() {
 
                 <Styled.Features>
 
-                    <Typography
-                        component={motion.h2}
+                    <Title
+                        color="purple"
+                        text="What StagyTime Offers"
                         initial={fadeJumpVariant.hidden}
                         whileInView={fadeJumpVariant.visible}
                         viewport={{ once: true }}
-                        sx={{ fontSize: 25, mb: "4%", color: "#422680", fontWeight: "600" }}
-
-                    >
-                        What StagyTime Offers
-                    </Typography>
+                    />
 
                     <motion.div
                         className={"Grid"}
@@ -152,14 +150,13 @@ export default function Home() {
 
                 <Styled.Information>
 
-                    <motion.h2
-                        className={"Title"}
-                        initial={fadeUpVariant.hidden}
-                        whileInView={fadeUpVariant.visible}
+                    <Title
+                        color="purple"
+                        text="How StagyTime Works"
+                        initial={fadeJumpVariant.hidden}
+                        whileInView={fadeJumpVariant.visible}
                         viewport={{ once: true }}
-                    >
-                        How StagyTime Works
-                    </motion.h2>
+                    />
 
                     <Box className={"StepsGrid"}>
 

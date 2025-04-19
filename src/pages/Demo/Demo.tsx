@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
 
-import styles from "./Demo.module.css";
 import Header from "../../components/Header";
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui"
 
@@ -11,6 +10,8 @@ import Dashboard from "./Dashboard/index";
 import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion";
 import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
+import { Typography } from "@mui/material";
+import * as Styled from "./demo.styled"
 
 export default function DemoPage() {
 
@@ -21,38 +22,35 @@ export default function DemoPage() {
 
             <Header />
 
-            <section className={styles.demoTitleSection}>
+            <Styled.Demo >
 
                 <motion.div
-                    className={styles.container}
                     initial={fadeUpVariant.hidden}
                     whileInView={fadeUpVariant.visible}
                     viewport={{ once: true }}
                 >
 
-                    <h1 className={styles.demoTitle}>
+                    <Typography variant="h1" className={"Title"}>
                         Interactive Demo
-                    </h1>
+                    </Typography>
 
-                    <p className={styles.demoSubtitle}>
+                    <Typography className={"Subtitle"}>
                         Experience the key features of StagyTime and see how it can transform your intern management process.
-                    </p>
+                    </Typography>
 
                     <motion.div
                         initial={slideInVariant.hidden}
                         whileInView={slideInVariant.visible}
-                        className={styles.heroDivider}
+                        className={"Divider"}
                     />
 
                 </motion.div>
 
-            </section>
+            </Styled.Demo>
 
-            {/* Demo Content Section */}
-            <section className={styles.demoContentSection}>
+            <Styled.Content>
 
                 <motion.div
-                    className={styles.container}
                     initial={fadeInVariant.hidden}
                     whileInView={fadeInVariant.visible}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -65,12 +63,12 @@ export default function DemoPage() {
                             { value: "hours-control", label: "Hours Control", content: <HoursControl /> },
                             { value: "performance", label: "Performance Dashboard", content: <Dashboard /> },
                         ]}
-                        customStyles={customStyles}
+                        customStyles={{ ...customStyles, fontSize: 13, fontWeight: "600", }}
                     />
 
                 </motion.div>
 
-            </section>
+            </Styled.Content>
 
         </Container>
     );

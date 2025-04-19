@@ -1,20 +1,14 @@
-import { useState } from "react";
-
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import MuiSelect from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-
-import styles from "../Demo.module.css";
-import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
-
 import { motion } from "framer-motion";
 import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
+import { DemoCard as StyledCard } from "../demo.styled"
+import * as Styled from "./dashboard.styled"
+import { Box, Card, Stack } from "@mui/material";
+import CustomSelect from "../../../components/Select";
+import InfoCard from "../../../components/InfoCard";
+import { SmallTitle } from "../../../components/Text";
+import ProgressBar from "../../../components/ProgressBar";
 
 const performanceData = [
     { name: "Week 1", tasks: 5, hours: 35, efficiency: 85 },
@@ -29,104 +23,98 @@ const performanceData = [
 
 export default function Dashboard() {
 
-    const customStyles = useCustomSelectStyles();
-
-    const [, setChartPeriod] = useState("week");
-
-
     return (
         <>
-            <Card className={styles.card}>
+            <StyledCard>
 
-                <motion.div
-                    className={styles.cardHeader}
+                <Box
+                    component={motion.div}
+                    className={"cardHeader"}
                     initial={slideInVariant.hidden}
                     whileInView={slideInVariant.visible}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
+                    sx={{ display: "flex", flexDirection: "row" }}
                 >
 
-                    <div className={styles.performanceHeader}>
+                    <Box sx={{ flex: 1 }}>
 
-                        <div className={styles.performanceTitleContainer}>
+                        <Typography variant="h1" className={"cardTitle"}>
+                            Performance Dashboard
+                        </Typography>
 
-                            <h1 className={styles.cardTitle}>
-                                Performance Dashboard
-                            </h1>
+                        <Typography className={"cardDescription"}>
+                            Track your productivity and efficiency over time.
+                        </Typography>
 
-                            <p className={styles.cardDescription}>
-                                Track your productivity and efficiency over time.
-                            </p>
+                    </Box>
 
-                        </div>
+                    <CustomSelect
+                        title={""}
+                        label={""}
+                        initialValue="week"
+                        options={[
+                            { value: "week", label: "Weekly" },
+                            { value: "month", label: "Monthly" },
+                            { value: "semester", label: "Semester" },
+                            { value: "year", label: "Yearly" },
+                        ]}
+                    />
 
-                        <FormControl className={styles.selectTrigger}>
+                </Box>
 
-                            <MuiSelect
-                                defaultValue="week"
-                                labelId="chart-period-label"
-                                sx={customStyles}
-                                onChange={(e) => setChartPeriod(e.target.value)}
-                            >
-                                <MenuItem value="week">Weekly</MenuItem>
-                                <MenuItem value="month">Monthly</MenuItem>
-                                <MenuItem value="semester">Semester</MenuItem>
-                                <MenuItem value="year">Yearly</MenuItem>
+                <Styled.Dashboard>
 
-                            </MuiSelect>
-
-                        </FormControl>
-
-                    </div>
-                </motion.div>
-
-                <CardContent className={styles.cardContent}>
-
-                    <div className={styles.metricsGrid}>
+                    <Box className={"metricsGrid"}>
 
                         <motion.div
-                            className={styles.metricCard}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
-                            <Typography variant="body2" className={styles.metricLabel}>Tasks Completed</Typography>
-                            <Typography variant="h5" className={styles.metricValue}>76</Typography>
-                            <Typography variant="caption" className={styles.metricChange}>↑ 12% from last period</Typography>
+                            <InfoCard
+                                title="Tasks Completed"
+                                info="76 Tasks"
+                                description="↑ 12% from last period"
+                                typeCard="completed"
+                            />
 
                         </motion.div>
 
                         <motion.div
-                            className={styles.metricCard}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
                         >
 
-                            <Typography variant="body2" className={styles.metricLabel}>Avg. Time per Task</Typography>
-                            <Typography variant="h5" className={styles.metricValue}>3.2 hrs</Typography>
-                            <Typography variant="caption" className={styles.metricChange}>↓ 8% from last period</Typography>
+                            <InfoCard
+                                title="Avg. Time per Task"
+                                info="3.2 hrs"
+                                description="↓ 8% from last period"
+                                typeCard="completed"
+                            />
 
                         </motion.div>
 
                         <motion.div
-                            className={styles.metricCard}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
                         >
 
-                            <Typography variant="body2" className={styles.metricLabel}>Efficiency Score</Typography>
-                            <Typography variant="h5" className={styles.metricValue}>87%</Typography>
-                            <Typography variant="caption" className={styles.metricChange}>↑ 5% from last period</Typography>
+                            <InfoCard
+                                title=">Efficiency Score"
+                                info="87%"
+                                description="↑ 5% from last period"
+                                typeCard="completed"
+                            />
 
                         </motion.div>
 
                         <motion.div
-                            className={styles.metricCard}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
@@ -134,30 +122,31 @@ export default function Dashboard() {
 
                         >
 
-                            <Typography variant="body2" className={styles.metricLabel}>On-time Completion</Typography>
-                            <Typography variant="h5" className={styles.metricValue}>92%</Typography>
-                            <Typography variant="caption" className={styles.metricChange}>↑ 3% from last period</Typography>
+                            <InfoCard
+                                title="On-time Completion"
+                                info="92%"
+                                description="↑ 3% from last period"
+                                typeCard="completed"
+                            />
 
                         </motion.div>
 
-                    </div>
+                    </Box>
 
-                    {/* Performance Chart */}
-                    <motion.div
-                        className={styles.chartBox}
+                    <Card
+                        component={motion.div}
                         initial={fadeInVariant.hidden}
                         whileInView={fadeInVariant.visible}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
+                        sx={{ p: "20px" }}
                     >
 
-                        <h1 className={styles.fieldLabel}>
-                            Performance Trends
-                        </h1>
+                        <SmallTitle color="black" text="Performance Trendss" bold={true} />
 
-                        <div className={styles.chartContainer}>
+                        <Box sx={{ height: 330, p: 2 }}>
 
-                            <ResponsiveContainer width="100%" height="100%">
+                            <ResponsiveContainer width="95%" height="100%">
 
                                 <LineChart data={performanceData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
 
@@ -174,131 +163,115 @@ export default function Dashboard() {
 
                             </ResponsiveContainer>
 
-                        </div>
+                        </Box>
 
-                    </motion.div>
+                    </Card>
 
-                    {/* Task Breakdown */}
-                    <div className={styles.taskBreakdownBox}>
+                    <Stack className={"taskBreakdownBox"}>
 
-                        <motion.div
-                            className={styles.taskBreakdownLeft}
+                        <Card
+                            component={motion.div}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
+                            sx={{ width: "100%", p: "20px" }}
 
                         >
+                            <SmallTitle color="black" text="Task Breakdown" bold={true} />
 
-                            <h1 className={styles.fieldLabel}>
-                                Task Breakdown
-                            </h1>
-
-                            <div className={styles.taskBreakdownList}>
+                            <Stack gap={3} mt={1}>
 
                                 {[
-                                    { name: "Web Development", hours: 45, percentage: 32, color: "blue" },
-                                    { name: "UI/UX Design", hours: 28, percentage: 20, color: "purple" },
-                                    { name: "Market Research", hours: 22, percentage: 15, color: "green" },
-                                    { name: "Content Creation", hours: 18, percentage: 13, color: "yellow" },
-                                    { name: "Team Meetings", hours: 15, percentage: 10, color: "red" },
-                                    { name: "Training", hours: 14, percentage: 10, color: "indigo" },
+                                    { name: "Web Development", hours: 45, percentage: 32, color: "rgb(0, 174, 255)" },
+                                    { name: "UI/UX Design", hours: 28, percentage: 20, color: "rgb(214, 14, 214)" },
+                                    { name: "Market Research", hours: 22, percentage: 15, color: "#22c55e" },
+                                    { name: "Content Creation", hours: 18, percentage: 13, color: "#eab308" },
+                                    { name: "Team Meetings", hours: 15, percentage: 10, color: "#ef444" },
+                                    { name: "Training", hours: 14, percentage: 10, color: "rgb(139, 32, 216)" },
 
                                 ].map((item, index) => (
 
-                                    <div key={index} className={styles.taskBreakdownItem}>
+                                    <Box key={index}>
 
-                                        <div className={styles.taskBreakdownHeader}>
-                                            <Typography variant="body2" className={styles.taskName}>
+                                        <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }}>
+
+                                            <Typography variant="body2">
                                                 {item.name}
                                             </Typography>
 
-                                            <Typography variant="caption" className={styles.taskHours}>
+                                            <Typography variant="caption">
                                                 {item.hours} hrs ({item.percentage}%)
                                             </Typography>
 
-                                        </div>
+                                        </Stack>
 
-                                        <div className={styles.taskProgress}>
+                                        <ProgressBar value={item.percentage} customize={true} sx={{ width: "100%" }} Barcolor={item.color} />
 
-                                            <div
-                                                className={`${styles.taskProgressBar} ${styles[item.color]}`}
-                                                style={{ width: `${item.percentage}%` }}
-                                            />
-                                        </div>
-
-                                    </div>
+                                    </Box>
                                 ))}
-                            </div>
+                            </Stack>
 
-                        </motion.div>
+                        </Card>
 
-                        <motion.div
-                            className={styles.taskBreakdownRight}
+                        <Card
+                            component={motion.div}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
+                            sx={{ width: "100%", p: "20px" }}
                         >
+                            <SmallTitle color="black" text="Productivity by Day" bold={true} />
 
-                            <h1 className={styles.fieldLabel}>
-                                Productivity by Day
-                            </h1>
-
-                            <div className={styles.dailyProductivityList}>
+                            <Stack gap={3} mt={1}>
 
                                 {[
-                                    { day: "Monday", efficiency: 92, hours: 8.5, color: "green" },
-                                    { day: "Tuesday", efficiency: 88, hours: 7.8, color: "green" },
-                                    { day: "Wednesday", efficiency: 85, hours: 8.2, color: "green" },
-                                    { day: "Thursday", efficiency: 78, hours: 6.5, color: "yellow" },
-                                    { day: "Friday", efficiency: 82, hours: 7.0, color: "green" },
+                                    { day: "Monday", efficiency: 92, hours: 8.5 },
+                                    { day: "Tuesday", efficiency: 88, hours: 7.8 },
+                                    { day: "Wednesday", efficiency: 85, hours: 8.2 },
+                                    { day: "Thursday", efficiency: 78, hours: 6.5 },
+                                    { day: "Friday", efficiency: 82, hours: 7.0 },
 
                                 ].map((item, index) => (
 
-                                    <div key={index} className={styles.dailyProductivityItem}>
+                                    <Box key={index}>
 
-                                        <div className={styles.dailyProductivityHeader}>
+                                        <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }}>
 
-                                            <Typography variant="body2" className={styles.productivityDay}>
+                                            <Typography variant="body2">
                                                 {item.day}
                                             </Typography>
 
-                                            <Typography variant="caption" className={styles.productivityInfo}>
+                                            <Typography variant="caption">
                                                 {item.efficiency}% efficiency · {item.hours} hrs
                                             </Typography>
 
-                                        </div>
+                                        </Stack>
 
-                                        <div className={styles.dailyProductivityProgress}>
-                                            <div
-                                                className={`${styles.dailyProgressBar} ${styles[item.color]}`}
-                                                style={{ width: `${item.efficiency}%` }}
-                                            />
-                                        </div>
+                                        <ProgressBar value={item.efficiency} sx={{ width: "100%" }} />
 
-                                    </div>
-
+                                    </Box>
                                 ))}
-                            </div>
+                            </Stack>
 
-                            <div className={styles.weeklySummary}>
+                            <Stack className={"weeklySummary"}>
 
-                                <Typography variant="body2" className={styles.weeklySummaryLabel}>
+                                <Typography variant="subtitle2" >
                                     Weekly Average
                                 </Typography>
 
-                                <Typography variant="body2" className={styles.weeklySummaryValue}>
+                                <Typography variant="body2" >
                                     85% efficiency
                                 </Typography>
 
-                            </div>
+                            </Stack>
 
-                        </motion.div>
+                        </Card>
 
-                    </div>
-                </CardContent>
-            </Card>
+                    </Stack>
+                </Styled.Dashboard>
+            </StyledCard>
         </>
     )
 }

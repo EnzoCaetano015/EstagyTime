@@ -1,9 +1,7 @@
 // button.styled.ts
 import { ButtonProps } from "./index";
 
-export const styles = (
-    buttonStyle?: ButtonProps["buttonStyle"]
-) => ({
+export const styles = (buttonStyle?: ButtonProps["buttonStyle"]) => ({
     backgroundColor: buttonStyle === "Purple" ? "#422680" : "#fff",
     color: buttonStyle === "Purple" ? "#fff" : "#422680",
     border: buttonStyle === "Purple" ? "none" : "2px solid #422680",

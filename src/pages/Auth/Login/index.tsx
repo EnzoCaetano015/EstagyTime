@@ -34,7 +34,7 @@ export default function Login() {
     };
 
     return (
-        <form className={styles.form}>
+        <form className={styles.form} style={{ marginTop: 25 }}>
             <Box sx={customStyles} mb={2}>
                 <Box display="flex" justifyContent="space-between">
                     <Typography variant="body2" component="label" fontSize={12} fontWeight="bold" mb={0.5}>

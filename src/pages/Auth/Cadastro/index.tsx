@@ -62,7 +62,7 @@ export default function Cadastro() {
 
 
     return (
-        <form className={styles.form}>
+        <form className={styles.form} style={{ marginTop: 25 }}>
             <Box display="grid" gridTemplateColumns="1fr 1fr" gap={2} mb={2}>
                 <Box>
                     <Typography variant="body2" component="label" fontSize={12} fontWeight="bold">

@@ -71,7 +71,7 @@ export default function AuthPage() {
                                         { value: "register", label: "Register", content: <Cadastro /> },
                                         { value: "login", label: "Login", content: <Login /> },
                                     ]}
-                                    customStyles={{ ...customStyles, mb: 3 }}
+                                    customStyles={{ ...customStyles,}}
                                 />
                             </motion.div>
 

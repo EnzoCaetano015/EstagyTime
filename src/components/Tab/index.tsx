@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
+import { useState } from "react";
+import { Tabs, Tab } from "@mui/material";
 
 export interface TabData {
   value: string;
@@ -14,7 +13,7 @@ interface CustomTabsProps {
 }
 
 export default function CustomTabs({ tabs, customStyles }: CustomTabsProps) {
-  
+
   const [activeTab, setActiveTab] = useState<string>(tabs[0].value);
 
   const TabPanel = ({
@@ -44,7 +43,7 @@ export default function CustomTabs({ tabs, customStyles }: CustomTabsProps) {
         variant="fullWidth"
       >
         {tabs.map((tab) => (
-          <Tab key={tab.value} label={tab.label} value={tab.value} />
+          <Tab key={tab.value} label={tab.label} value={tab.value} sx={customStyles} />
         ))}
       </Tabs>
       {tabs.map((tab) => (

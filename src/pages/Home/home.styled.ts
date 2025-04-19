@@ -1,4 +1,4 @@
-import { styled } from "@mui/material"
+import { Stack, styled } from "@mui/material"
 
 export const Main = styled("section")(() => ({
     display: "flex",
@@ -33,10 +33,12 @@ export const Main = styled("section")(() => ({
     }
 }))
 
-export const Features = styled("section")(() => ({
+export const Features = styled(Stack)(() => ({
     textAlign: "center",
     padding: "3% 20%",
     backgroundColor: "#fff",
+    gap: 35,
+
 
     ".Grid": {
         display: "grid",
@@ -50,14 +52,11 @@ export const Features = styled("section")(() => ({
 export const Information = styled("section")(({ theme }) => ({
     padding: "4% 20%",
     backgroundColor: "#f8f8ff",
-
-    ".Title": {
-        textAlign: "Center",
-        fontWeight: "600",
-        fontSize: "25px",
-        marginBottom: "4%",
-        color: "#422680",
-    },
+    justifyContent: "center",
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    gap: 35,
 
     ".StepsGrid": {
         display: "grid",

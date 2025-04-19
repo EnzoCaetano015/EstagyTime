@@ -1,19 +1,16 @@
 
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import MuiSelect from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-
-import LinearProgress from "@mui/material/LinearProgress";
-
-import styles from "../Demo.module.css";
-import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
-
 import { motion } from "framer-motion";
 import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
+import { DemoCard as StyledCard } from "../demo.styled"
+import * as Styled from "./hoursControl.styled"
+import { Box, Card, Stack } from "@mui/material";
+import CustomSelect from "../../../components/Select";
+import { SmallTitle, Subtitle, Title } from "../../../components/Text";
+import ProgressBar from "../../../components/ProgressBar/index";
+import InfoCard from "../../../components/InfoCard";
+
 
 
 export default function HoursControl() {
@@ -23,10 +20,10 @@ export default function HoursControl() {
         "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
     ];
 
-    const dataAtual = new Date();
-    const nomeDoMes = meses[dataAtual.getMonth()];
-
-    const customStyles = useCustomSelectStyles();
+    const monthOptions = meses.map(nome => ({
+        value: `${nome} ${new Date().getFullYear()}`,
+        label: `${nome} ${new Date().getFullYear()}`
+    }));
 
     // Demo values
     const hoursThisMonth = 142;
@@ -38,85 +35,66 @@ export default function HoursControl() {
 
     return (
         <>
-            <Card className={styles.card}>
+            <StyledCard>
 
                 <motion.div
-                    className={styles.cardHeader}
+                    className={"cardHeader"}
                     initial={slideInVariant.hidden}
                     whileInView={slideInVariant.visible}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                 >
 
-                    <h1 className={styles.cardTitle}>
+                    <Typography variant="h1" className={"cardTitle"}>
                         Monthly Hours Control
-                    </h1>
+                    </Typography>
 
-                    <p className={styles.cardDescription}>
+                    <Typography className={"cardDescription"}>
                         Track your progress towards your monthly hour target of 180 hours.
-                    </p>
+                    </Typography>
 
                 </motion.div>
 
-                <CardContent className={styles.cardContent}>
+                <CardContent className={"cardContent"}>
 
-                    <div className={styles.twoColumnGrid}>
-                        {/* Monthly Progress */}
-                        <motion.div
-                            className={styles.monthlyProgressBox}
+                    <Styled.GraficBox>
+
+                        <Card
+                            component={motion.div}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
+                            sx={{ p: "20px", gap: 4, display: "flex", flexDirection: "column" }}
+
                         >
 
-                            <div className={styles.monthlyProgressHeader}>
+                            <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }} >
 
-                                <div>
+                                <SmallTitle color="black" text="Monthly Progress" bold={true} />
 
-                                    <h1 className={styles.fieldLabel}>
-                                        Monthly Progress
-                                    </h1>
+                                <CustomSelect
+                                    title={""}
+                                    initialValue="Janeiro 2025"
+                                    label={monthOptions[0].value}
+                                    options={monthOptions}
+                                />
 
-                                    <Typography variant="body2" className={styles.monthlyProgressSubtitle}>
-                                        June 2023
-                                    </Typography>
+                            </Stack>
 
-                                </div>
+                            <Stack sx={{ alignItems: "center" }}>
 
-                                <FormControl>
+                                <Box className={"progressCircleWrapper"}>
 
-                                    <MuiSelect sx={customStyles} defaultValue="june" labelId="month-select-label" className={styles.selectTriggerSmall}>
-                                        <MenuItem value="may">{nomeDoMes} {dataAtual.getFullYear()}</MenuItem>
-                                        <MenuItem value="june">June 2023</MenuItem>
-                                        <MenuItem value="july">July 2023</MenuItem>
-                                    </MuiSelect>
+                                    <Stack className={"progressCircle"}>
 
-                                </FormControl>
+                                        <Title color="purple" text={`${Math.round(monthlyProgress)}%`} />
 
-                            </div>
+                                        <Subtitle color="grey" text="Completed" />
 
-                            <div className={styles.monthlyProgressContent}>
-                                {/* Progress Circle */}
-                                <div className={styles.progressCircleWrapper}>
+                                    </Stack>
 
-                                    <div className={styles.progressCircle}>
-
-                                        <div className={styles.progressCircleContent}>
-
-                                            <Typography variant="h3" className={styles.progressValue}>
-                                                {Math.round(monthlyProgress)}%
-                                            </Typography>
-
-                                            <Typography variant="body2" className={styles.progressLabel}>
-                                                Completed
-                                            </Typography>
-
-                                        </div>
-
-                                    </div>
-
-                                    <svg className={styles.progressSvg} viewBox="0 0 100 100">
+                                    <svg className={"progressSvg"} viewBox="0 0 100 100">
 
                                         <circle cx="50" cy="50" r="45" fill="none" stroke="#e6e6e6" strokeWidth="10" />
                                         <circle
@@ -133,38 +111,36 @@ export default function HoursControl() {
                                         />
 
                                     </svg>
-                                </div>
+                                </Box>
 
-                                <div className={styles.monthlyProgressStats}>
+                                <Stack className="progressStatus">
 
-                                    <div className={styles.statBox}>
-                                        <Typography variant="body2" className={styles.statLabel}>Hours Worked</Typography>
-                                        <Typography variant="h5" className={styles.statValue}>{hoursThisMonth}</Typography>
-                                    </div>
+                                    <Box sx={{ textAlign: "center" }}>
+                                        <Subtitle color="grey" text="Hours Worked" />
+                                        <SmallTitle color="purple" text={`${hoursThisMonth}`} />
+                                    </Box>
 
-                                    <div className={styles.statBox}>
-                                        <Typography variant="body2" className={styles.statLabel}>Hours Remaining</Typography>
-                                        <Typography variant="h5" className={styles.statValue}>{hoursRemaining}</Typography>
-                                    </div>
+                                    <Box sx={{ textAlign: "center" }}>
+                                        <Subtitle color="grey" text="Hours Remaining" />
+                                        <SmallTitle color="purple" text={`${hoursRemaining}`} />
+                                    </Box>
 
-                                </div>
-                            </div>
-                        </motion.div>
+                                </Stack>
+                            </Stack>
+                        </Card>
 
-                        {/* Daily Breakdown */}
-                        <motion.div
-                            className={styles.dailyBreakdownBox}
+                        <Card
+                            component={motion.div}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
+                            sx={{ p: "20px", }}
                         >
 
-                            <h1 className={styles.fieldLabel}>
-                                Daily Breakdown
-                            </h1>
+                            <SmallTitle color="black" text="Daily Breakdown" bold={true} />
 
-                            <div className={styles.dailyBreakdownList}>
+                            <Stack gap={1} mt={1}>
                                 {[
                                     { day: "Monday", date: "June 5", hours: 8.5, color: "green" },
                                     { day: "Tuesday", date: "June 6", hours: 7.75, color: "green" },
@@ -174,170 +150,136 @@ export default function HoursControl() {
 
                                 ].map((item, index) => (
 
-                                    <div key={index} className={styles.dailyBreakdownItem}>
+                                    <Stack key={index} sx={{ alignItems: "center", flexDirection: "row", gap: 5 }}>
 
-                                        <div className={styles.dailyBreakdownDay}>
+                                        <Box >
 
-                                            <Typography variant="body2" className={styles.dailyBreakdownDayName}>
+                                            <Typography variant="body2">
                                                 {item.day}
                                             </Typography>
 
-                                            <Typography variant="caption" className={styles.dailyBreakdownDayDate}>
+                                            <Typography variant="caption">
                                                 {item.date}
                                             </Typography>
 
-                                        </div>
+                                        </Box>
 
-                                        <div className={styles.dailyBreakdownProgress}>
+                                        <ProgressBar value={(item.hours / 8) * 90} sx={{ width: 200 }} />
 
-                                            <div className={styles.progressBarBackground}>
-                                                <div
-                                                    className={`${styles.progressBar} ${styles[item.color]}`}
-                                                    style={{ width: `${(item.hours / 8) * 90}%` }}
-                                                />
-                                            </div>
-
-                                        </div>
-
-                                        <Typography variant="body2" className={styles.dailyBreakdownHours}>
+                                        <Typography variant="body2">
                                             {item.hours} hrs
                                         </Typography>
-                                    </div>
+
+                                    </Stack>
 
                                 ))}
 
-                            </div>
+                            </Stack>
 
-                            <div className={styles.weeklySummary}>
+                            <Stack className={"weeklySummary"}>
 
-                                <Typography variant="subtitle2" className={styles.weeklySummaryTitle}>
+                                <Typography variant="subtitle2">
                                     Weekly Summary
                                 </Typography>
 
-                                <div className={styles.weeklySummaryContent}>
+                                <Stack className={"weeklySummaryContent"}>
 
                                     <Typography variant="body2">
-                                        <strong className={styles.weeklySummaryStat}>35 hrs</strong> / 40 hrs
+                                        <strong>35 hrs</strong> / 40 hrs
                                     </Typography>
 
-                                    <Typography variant="body2" className={styles.weeklySummaryTarget}>
+                                    <Typography variant="body2">
                                         87.5% of target
                                     </Typography>
 
-                                </div>
-                            </div>
+                                </Stack>
+                            </Stack>
 
-                        </motion.div>
-                    </div>
+                        </Card>
+                    </Styled.GraficBox>
 
-                    {/* Monthly Projection */}
-                    <motion.div
-                        className={styles.monthlyProjectionBox}
-                        initial={fadeInVariant.hidden}
-                        whileInView={fadeInVariant.visible}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
+                    <Styled.GraficBox sx={{ gridTemplateColumns: "none" }}>
+                        <Card
+                            component={motion.div}
+                            initial={fadeInVariant.hidden}
+                            whileInView={fadeInVariant.visible}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            sx={{ mt: 2, p: "20px", gap: 2, display: "flex", flexDirection: "column" }}
+                        >
 
-                        <h1 className={styles.fieldLabel}>
-                            Monthly Projection
-                        </h1>
+                            <SmallTitle color="black" text="Monthly Projection" bold={true} />
 
-                        <div className={styles.projectionGrid}>
+                            <Box className={"projectionGrid"}>
 
-                            <motion.div
-                                className={styles.projectionCard}
-                                initial={fadeInVariant.hidden}
-                                whileInView={fadeInVariant.visible}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                            >
+                                <motion.div
+                                    initial={fadeInVariant.hidden}
+                                    whileInView={fadeInVariant.visible}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                                >
+                                    <InfoCard
+                                        title="Current Pace"
+                                        info="178 hrs"
+                                        description={currentHours < targetHours ? "2 hrs short" : "On target"}
+                                        typeCard="current"
+                                    />
 
-                                <Typography variant="body2" className={styles.projectionLabel}>Current Pace</Typography>
-                                <Typography variant="h5" className={styles.projectionValue}>178 hrs</Typography>
+                                </motion.div>
 
-                                <div className={styles.projectionStatus}>
-                                    <Typography variant="body2" className={currentHours < targetHours ? styles.shortStatus : styles.onTargetStatus}>
-                                        {currentHours < targetHours ? "2 hrs short" : "On target"}
+                                <motion.div
+                                    initial={fadeInVariant.hidden}
+                                    whileInView={fadeInVariant.visible}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                                >
+                                    <InfoCard
+                                        title="Daily Average"
+                                        info="7.1 hrs"
+                                        description="Need 7.2 hrs/day"
+                                        typeCard="daily"
+                                    />
+
+                                </motion.div >
+
+                                <motion.div
+                                    initial={fadeInVariant.hidden}
+                                    whileInView={fadeInVariant.visible}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                                >
+                                    <InfoCard
+                                        title="Completion Date"
+                                        info="June 29"
+                                        description="1 day early"
+                                        typeCard="completed"
+                                    />
+
+                                </motion.div >
+
+                            </Box>
+
+                            <Stack sx={{ borderTop: "1px solid #e5e7eb;", paddingBlock: 2}}>
+
+                                <Stack className={"projectionProgressHeader"}>
+
+                                    <Typography variant="body2">
+                                        Required Daily Hours to Meet Target
                                     </Typography>
 
-                                </div>
-
-                            </motion.div>
-
-                            <motion.div
-                                className={styles.projectionCard}
-                                initial={fadeInVariant.hidden}
-                                whileInView={fadeInVariant.visible}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-                            >
-
-                                <Typography variant="body2" className={styles.projectionLabel}>Daily Average</Typography>
-                                <Typography variant="h5" className={styles.projectionValue}>7.1 hrs</Typography>
-
-                                <div className={styles.projectionStatus}>
-                                    <Typography variant="body2" className={styles.averageStatus}>
-                                        Need <span className={styles.bold}>7.2 hrs/day</span>
+                                    <Typography variant="body2" >
+                                        7.2 hrs/day
                                     </Typography>
-                                </div>
 
-                            </motion.div >
+                                </Stack>
 
-                            <motion.div
-                                className={styles.projectionCard}
-                                initial={fadeInVariant.hidden}
-                                whileInView={fadeInVariant.visible}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                            >
+                                <ProgressBar value={monthlyProgress} neutral={true} />
 
-                                <Typography variant="body2" className={styles.projectionLabel}>Completion Date</Typography>
-                                <Typography variant="h5" className={styles.projectionValue}>June 29</Typography>
-
-                                <div className={styles.projectionStatus}>
-                                    <Typography variant="body2" className={styles.completionStatus}>
-                                        1 day early
-                                    </Typography>
-                                </div>
-
-                            </motion.div >
-
-                        </div>
-
-                        <div className={styles.projectionProgress}>
-
-                            <div className={styles.projectionProgressHeader}>
-
-                                <Typography variant="body2" className={styles.projectionProgressTitle}>
-                                    Required Daily Hours to Meet Target
-                                </Typography>
-
-                                <Typography variant="body2" className={styles.projectionProgressValue}>
-                                    7.2 hrs/day
-                                </Typography>
-
-                            </div>
-
-                            <div className={styles.progressContainer}>
-
-                                <LinearProgress
-                                    value={monthlyProgress}
-                                    variant="determinate"
-                                    className={styles.progressBar}
-                                    sx={{
-                                        '& .MuiLinearProgress-bar': {
-                                            backgroundColor: '#000',
-                                        },
-                                    }}
-
-                                />
-
-                            </div>
-                        </div>
-                    </motion.div>
+                            </Stack>
+                        </Card>
+                    </Styled.GraficBox>
                 </CardContent>
-            </Card>
+            </StyledCard>
         </>
     )
 }
