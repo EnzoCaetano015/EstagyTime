@@ -20,6 +20,7 @@ import Footer from "../../components/Footer";
 import Container from "../../components/Container";
 
 import * as Styled from "./learnMore.styled"
+import { BigTitle} from "../../components/Text";
 
 
 export default function LearnMore() {
@@ -38,9 +39,11 @@ export default function LearnMore() {
           viewport={{ once: true }}
           sx={{ m: "0 auto", textAlign: "center" }}
         >
-          <Typography variant="h1" sx={{ mb: 1, color: "#422680", fontSize: 35, fontWeight: "600" }}>
-            Discover StagyTime
-          </Typography>
+
+          <BigTitle
+            color="purple"
+            text="Discover StagyTime"
+          />
 
           <Typography sx={{ maxWidth: 600, fontSize: 15, color: "#4B5563", m: "0 auto 2rem" }}>
             A comTypographyrehensive platform designed specifically for managing intern work hours, productivity, and performance in organizations of all sizes.

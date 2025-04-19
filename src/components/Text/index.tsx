@@ -26,15 +26,15 @@ export const Title = ({ text, color, ...rest }: TextProps) => {
 
 export const SmallTitle = ({ text, color, bold, ...rest }: TextProps) => {
     return (
-        <Styled.SamllTitle color={color} style={{ fontWeight: !bold ? "" : "600" }} {...rest}>
+        <Styled.SmallTitle color={color} style={{ fontWeight: !bold ? "none" : "600" }} {...rest}>
             {text}
-        </Styled.SamllTitle>
+        </Styled.SmallTitle>
     )
 }
 
 export const Subtitle = ({ text, color, bold, ...rest }: TextProps) => {
     return (
-        <Styled.SubTitle color={color} style={{ fontWeight: !bold ? "" : "600" }} {...rest}>
+        <Styled.SubTitle color={color} style={{ fontWeight: !bold ? "none" : "600" }} {...rest}>
             {text}
         </Styled.SubTitle>
     )

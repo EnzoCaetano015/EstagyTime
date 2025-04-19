@@ -2,7 +2,7 @@ import { BarChart3, CheckCircle, ChevronRight, Clock, Users } from "lucide-react
 import Container from "../../components/Container"
 import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
-import { fadeInVariant, fadeJumpVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../utils/Motion";
+import { fadeInVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../utils/Motion";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
@@ -97,8 +97,8 @@ export default function Home() {
                     <Title
                         color="purple"
                         text="What StagyTime Offers"
-                        initial={fadeJumpVariant.hidden}
-                        whileInView={fadeJumpVariant.visible}
+                        initial={fadeUpVariant.hidden}
+                        whileInView={fadeUpVariant.visible}
                         viewport={{ once: true }}
                     />
 
@@ -153,8 +153,8 @@ export default function Home() {
                     <Title
                         color="purple"
                         text="How StagyTime Works"
-                        initial={fadeJumpVariant.hidden}
-                        whileInView={fadeJumpVariant.visible}
+                        initial={fadeUpVariant.hidden}
+                        whileInView={fadeUpVariant.visible}
                         viewport={{ once: true }}
                     />
 
