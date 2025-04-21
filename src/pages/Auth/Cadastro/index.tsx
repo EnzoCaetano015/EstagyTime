@@ -7,7 +7,6 @@ import {
     Stack,
 } from "@mui/material";
 
-import styles from "../AuthPage.module.css";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
 import Button from "../../../components/Button";
 import PasswordField from "../../../components/Fields/PassWord";
@@ -69,7 +68,6 @@ export default function Cadastro() {
                     variant="body2"
                     component="label"
                     htmlFor="remember"
-                    className={styles.rememberMeLabel}
                 >
                     I agree to the <a href="" style={{ fontSize: 12 }} >Terms of Service</a> and <a href="" style={{ fontSize: 12 }}>Privacy Policy</a>
                 </Typography>
