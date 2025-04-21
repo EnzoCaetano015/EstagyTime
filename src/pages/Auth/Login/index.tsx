@@ -1,43 +1,25 @@
-import { useState } from "react";
-import {
-    Eye,
-    EyeOff,
-} from "lucide-react";
-
-// MUI Components
 import {
     Box,
     Typography,
-    IconButton,
     TextField,
     Checkbox,
     Divider,
+    Stack,
 } from "@mui/material";
 
-// Our CSS Module
-import styles from "../AuthPage.module.css";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
 import Button from "../../../components/Button";
-// import { useNavigate } from "react-router-dom";
+import PasswordField from "../../../components/Fields/PassWord";
 
 export default function Login() {
 
-    // const navigate = useNavigate()
-
     const customStyles = useCustomSelectStyles();
 
-    const [showPassword, setShowPassword] = useState(false);
-
-    // Toggle password visibility (login + register)
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-
     return (
-        <form className={styles.form} style={{ marginTop: 25 }}>
+        <Stack mt={2}>
             <Box sx={customStyles} mb={2}>
                 <Box display="flex" justifyContent="space-between">
-                    <Typography variant="body2" component="label" fontSize={12} fontWeight="bold" mb={0.5}>
+                    <Typography variant="body2" component="label" fontSize={12} fontWeight="600" mb={0.5}>
                         Email
                     </Typography>
 
@@ -53,45 +35,21 @@ export default function Login() {
                 </Box>
             </Box>
 
-            <Box sx={customStyles} mb={3}>
-                <Box display="flex" justifyContent="space-between">
-                    <Typography variant="body2" component="label" fontSize={12} fontWeight="bold" mb={0.5}>
-                        Password
-                    </Typography>
-                    <Typography variant="caption" fontSize={12} mb={0.5} className={styles.forgotLink}>
-                        Forgot password?
-                    </Typography>
-
-                </Box>
-                <Box position="relative">
-                    <TextField
-                        id="password"
-                        type={showPassword ? "text" : "password"}
-                        placeholder="••••••••"
-                        fullWidth
-                        size="small"
-                    />
-                    <IconButton
-                        size="small"
-                        onClick={togglePasswordVisibility}
-                        className={styles.eyeButton}
-                    >
-                        {showPassword ? <EyeOff /> : <Eye />}
-                    </IconButton>
-                </Box>
-            </Box>
+            <PasswordField eyeButton={true} forget={true} title={"Password"} />
 
             <Box display="flex" alignItems="center" justifyContent="start" mb={1}>
+
                 <Checkbox id="remember" size="small" sx={customStyles} />
+
                 <Typography
                     fontSize={12}
                     variant="body2"
                     component="label"
                     htmlFor="remember"
-                    className={styles.rememberMeLabel}
                 >
                     Remember me for 30 days
                 </Typography>
+
             </Box>
 
             <Button
@@ -102,11 +60,15 @@ export default function Login() {
             />
 
             <Box marginBlock={3} display="flex" justifyContent="center" alignItems="center">
+
                 <Divider sx={{ flex: 1, marginRight: 2 }} />
+
                 <Typography variant="body2" fontSize={12}>
                     Or continue with
                 </Typography>
+
                 <Divider sx={{ flex: 1, marginLeft: 2 }} />
+
             </Box>
 
             <Box display="flex" justifyContent="center" gap={2}>
@@ -130,6 +92,6 @@ export default function Login() {
                     sx={{ width: "31%", height: 35 }}
                 />
             </Box>
-        </form>
+        </Stack>
     )
 }

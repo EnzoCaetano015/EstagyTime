@@ -1,11 +1,10 @@
 // MUI Components
 import {
     Box,
+    Stack,
     Typography,
 } from "@mui/material";
 
-// Our CSS Module
-import styles from "./AuthPage.module.css";
 import Header from "../../components/Header";
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui";
 import { fadeUpVariant } from "../../utils/Motion";
@@ -14,6 +13,8 @@ import Login from "./Login";
 import Cadastro from "./Cadastro";
 import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
+import * as Styled from "./authPage.styled"
+import { BigTitle } from "../../components/Text";
 
 
 export default function AuthPage() {
@@ -22,34 +23,33 @@ export default function AuthPage() {
 
     return (
         <Container>
-            <Box className={styles.authPage}>
+            <Styled.AuthBox >
                 <Header />
-                <Box className={styles.mainContent}>
+                <Stack sx={{ alignItems: "center", p: "2rem 1rem" }}>
 
-                    <Box className={styles.formContainer}>
+                    <Stack sx={{ alignItems: "center", width: "100%" }}>
 
                         <motion.div
-                            className={styles.heroContent}
                             initial={fadeUpVariant.hidden}
                             whileInView={fadeUpVariant.visible}
                             viewport={{ once: true }}
                         >
                             <Box textAlign="center" mb={4}>
 
-                                <Typography variant="h4" className={styles.formTitle} fontSize={30} fontWeight="bold" mb={0.5}>
-                                    Welcome to StagyTime
-                                </Typography>
+                                <BigTitle color="purple" text="Welcome to StagyTime" />
 
-                                <Typography variant="body2" className={styles.formSubtitle} fontSize={13}>
+                                <Typography variant="body2" color="#6b7280" fontSize={13}>
                                     Sign in to your account or create a new one
                                 </Typography>
 
                             </Box>
                         </motion.div>
 
-                        {/* Tabs for Login / Register */}
-
                         <Box
+                            component={motion.div}
+                            initial={fadeUpVariant.hidden}
+                            whileInView={fadeUpVariant.visible}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
                             sx={{
                                 bgcolor: "#fff",
                                 border: "1px solid #e5e7eb",
@@ -61,25 +61,18 @@ export default function AuthPage() {
 
                             }}
                         >
-                            <motion.div
-                                initial={fadeUpVariant.hidden}
-                                whileInView={fadeUpVariant.visible}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
-                            >
-                                <CustomTabs
-                                    tabs={[
-                                        { value: "register", label: "Register", content: <Cadastro /> },
-                                        { value: "login", label: "Login", content: <Login /> },
-                                    ]}
-                                    customStyles={{ ...customStyles,}}
-                                />
-                            </motion.div>
+                            <CustomTabs
+                                tabs={[
+                                    { value: "register", label: "Register", content: <Cadastro /> },
+                                    { value: "login", label: "Login", content: <Login /> },
+                                ]}
+                                customStyles={{ ...customStyles, }}
+                            />
 
                         </Box>
-
-                    </Box>
-                </Box >
-            </Box >
+                    </Stack>
+                </Stack >
+            </Styled.AuthBox >
         </Container>
     );
 }
