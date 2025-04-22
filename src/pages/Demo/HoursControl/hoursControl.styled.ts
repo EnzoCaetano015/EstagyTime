@@ -2,8 +2,29 @@ import { Box, styled } from "@mui/material";
 
 export const GraficBox = styled(Box)(({ theme }) => ({
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
     gap: 16,
+
+    [theme.breakpoints.down('md')]: {
+
+        gridTemplateColumns: "1fr",
+
+        '& span': {
+            width: 380
+        },
+
+        '& h2':{
+            fontSize: "13px",
+        }
+    },
+
+    [theme.breakpoints.down('sm')]: {
+
+        gridTemplateColumns: "1fr",
+
+        '& span': {
+            width: 80
+        }
+    },
 
 
     ".progressCircleWrapper": {

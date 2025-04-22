@@ -19,11 +19,12 @@ export default function Home() {
         <>
             <Container>
                 <Styled.Main>
-                    <motion.div
-                        style={{ maxWidth: "50%" }}
+                    <Box
+                        component={motion.div}
                         initial={fadeUpVariant.hidden}
                         whileInView={fadeUpVariant.visible}
                         viewport={{ once: true }}
+                        sx={{ maxWidth: "50%" }}
                     >
                         <Typography
                             variant="h1"
@@ -54,7 +55,7 @@ export default function Home() {
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                            sx={{ flexDirection: "row", gap: 2 }}
+                            sx={{ flexDirection: "row", gap: 2,}}
                         >
                             <Button
                                 label={"Get Started"}
@@ -70,9 +71,10 @@ export default function Home() {
                                 sx={{ width: 120, height: 35 }}
                             />
                         </Stack>
-                    </motion.div>
+                    </Box>
 
-                    <motion.div
+                    <Box
+                        component={motion.div}
                         className={"Image"}
                         initial={fadeInVariant.hidden}
                         whileInView={fadeInVariant.visible}
@@ -80,16 +82,17 @@ export default function Home() {
                         transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                     >
 
-                        <motion.div
+                        <Box
+                            component={motion.div}
                             className={"Icon"}
                             initial={fadeInVariant.hidden}
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
                         >
-                            <TickingClock intervalTime={1000} size={60} color="#fff" />
-                        </motion.div>
-                    </motion.div>
+                            <TickingClock intervalTime={1000} size={50} color="#fff" />
+                        </Box>
+                    </Box>
                 </Styled.Main>
 
                 <Styled.Features>
@@ -102,7 +105,8 @@ export default function Home() {
                         viewport={{ once: true }}
                     />
 
-                    <motion.div
+                    <Box
+                        component={motion.div}
                         className={"Grid"}
                         initial={fadeUpVariant.hidden}
                         whileInView={fadeUpVariant.visible}
@@ -145,7 +149,7 @@ export default function Home() {
 
                         </motion.div>
 
-                    </motion.div>
+                    </Box>
                 </Styled.Features>
 
                 <Styled.Information>

@@ -57,7 +57,7 @@ export default function HoursControl() {
 
                 <CardContent className={"cardContent"}>
 
-                    <Styled.GraficBox>
+                    <Styled.GraficBox sx={{gridTemplateColumns: "1fr 1fr",}}>
 
                         <Card
                             component={motion.div}
@@ -150,7 +150,7 @@ export default function HoursControl() {
 
                                 ].map((item, index) => (
 
-                                    <Stack key={index} sx={{ alignItems: "center", flexDirection: "row", gap: 5 }}>
+                                    <Stack className="graficConatiner" key={index} sx={{ alignItems: "center", flexDirection: "row", gap: 5 }}>
 
                                         <Box >
 

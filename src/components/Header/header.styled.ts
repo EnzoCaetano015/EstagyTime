@@ -1,10 +1,10 @@
 import { styled } from "@mui/material"
 
-export const Header = styled("header")(() => ({
+export const Header = styled("header")(({ theme }) => ({
 
     backgroundColor: "#fff",
-    width:"100%",
-    paddingBlock:"5px",
+    width: "100%",
+    paddingBlock: "5px",
     borderBottom: "1px solid #e5e7eb",
     position: "sticky",
     top: 0,
@@ -49,6 +49,17 @@ export const Header = styled("header")(() => ({
         "&:hover": {
             opacity: 0.6
         }
+    },
+
+    [theme.breakpoints.down("sm")]: {
+        '& h1': {
+            fontSize: "0px"
+        },
+
+        ".headerContainer": {
+            maxWidth: "100%",
+
+        },
     }
 
 

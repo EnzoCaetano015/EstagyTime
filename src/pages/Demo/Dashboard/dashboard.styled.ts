@@ -4,17 +4,10 @@ export const Dashboard = styled(CardContent)(({ theme }) => ({
 
     ".metricsGrid": {
         display: "grid",
-        gridTemplateColumns: "1fr",
+        gridTemplateColumns: "repeat(4, 1fr)",
         gap: "1rem",
         paddingBottom: 30
 
-    },
-
-    [theme.breakpoints.up("sm")]: {
-
-        ".metricsGrid": {
-            gridTemplateColumns: "repeat(4, 1fr)",
-        }
     },
 
     ".taskBreakdownBox": {
@@ -33,5 +26,24 @@ export const Dashboard = styled(CardContent)(({ theme }) => ({
         justifyContent: "space-between",
         alignItems: "center",
     },
+
+    [theme.breakpoints.down("sm")]: {
+
+        ".metricsGrid": {
+            gridTemplateColumns: "1fr",
+        },
+
+        ".taskBreakdownBox": {
+            alignItems: "center",
+            flexDirection: "column",
+            paddingInline: "5%"
+        },
+
+        '& h2':{
+            fontSize: "13px",
+        }
+
+    },
+
 
 }))

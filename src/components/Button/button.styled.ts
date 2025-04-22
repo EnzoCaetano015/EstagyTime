@@ -16,6 +16,7 @@ export const styles = (buttonStyle?: ButtonProps["buttonStyle"]) => ({
     gap: '10px',
     "&:hover": {
         opacity: 0.6
-    }
+    },
+
 });
 

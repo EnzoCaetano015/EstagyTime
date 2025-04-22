@@ -1,7 +1,8 @@
 import { styled } from "@mui/material"
 
-export const Main = styled("div")(() => ({
-    p: "48px 16px",
+export const Main = styled("div")(({ theme }) => ({
+
+    padding: "3% 20%",
     background: "linear-gradient(to bottom, #fff, #F8F8FF)",
 
     ".Divider": {
@@ -10,11 +11,25 @@ export const Main = styled("div")(() => ({
         backgroundColor: "#422680",
         borderRadius: "9999px",
         margin: "0 auto",
+    },
+
+    [theme.breakpoints.down("md")]: {
+
+        padding: "3% 15%",
+
+        '& h2': {
+            fontSize: "25px",
+        },
+
+        '& P': {
+            fontSize: "13px",
+        }
+
     }
 }))
 
 export const Features = styled("section")(({ theme }) => ({
-    paddingBottom: "64px",
+    padding: "3% 20%",
 
     ".Title": {
         fontSize: "25px",
@@ -31,15 +46,27 @@ export const Features = styled("section")(({ theme }) => ({
         [theme.breakpoints.up("sm")]: {
             gridTemplateColumns: "repeat(2, 1fr)"
         }
+    },
+
+    [theme.breakpoints.down("md")]: {
+        padding: "3% 10%",
+
+        ".Title": {
+            fontSize: "20px",
+        },
+
+        '& h5': {
+            fontSize: "16px",
+        }
     }
+
 }))
 
 export const Benefits = styled("section")(({ theme }) => ({
-    padding: "2rem 1rem",
+    padding: "3% 20%",
     backgroundColor: "#fff",
 
     ".Container": {
-        maxWidth: "55%",
         margin: "0 auto",
         textAlign: "center",
     },
@@ -79,15 +106,30 @@ export const Benefits = styled("section")(({ theme }) => ({
     ".benefitText": {
         fontSize: "13px",
         color: "#4B5563",
+    },
+
+    [theme.breakpoints.down("md")]: {
+        padding: "3% 10%",
+
+        ".Title": {
+            fontSize: "20px",
+        },
+
+        '.benefitTitle': {
+            fontSize: "16px",
+        },
+
+        '.benefitText': {
+            fontSize: "11px",
+        }
     }
+
 }))
 
 export const Cases = styled("section")(({ theme }) => ({
-    padding: "4rem 1rem",
+    padding: "3% 20%",
 
     ".caseContainer": {
-        maxWidth: "55%",
-        margin: "0 auto",
         textAlign: "center",
     },
 
@@ -107,15 +149,25 @@ export const Cases = styled("section")(({ theme }) => ({
         }
     },
 
+    [theme.breakpoints.down("md")]: {
+        padding: "3% 10%",
+
+        ".caseTitle": {
+            fontSize: "20px",
+        },
+
+        ".caseContainer": {
+            maxWidth: "100%",
+        }
+    }
+
 }))
 
-export const Questions = styled("section")(() => ({
-    padding: "4rem 1rem",
+export const Questions = styled("section")(({theme}) => ({
+    padding: "3% 20%",
     backgroundColor: "#fff",
 
     ".questionContainer": {
-        maxWidth: "55%",
-        margin: "0 auto",
         textAlign: "center",
     },
 
@@ -125,4 +177,12 @@ export const Questions = styled("section")(() => ({
         marginBottom: "30px",
         fontWeight: "600",
     },
+
+    [theme.breakpoints.down("md")]: {
+        padding: "3% 10%",
+
+        ".questionTitle": {
+            fontSize: "20px",
+        },
+    }
 }))

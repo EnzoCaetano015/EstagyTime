@@ -30,7 +30,7 @@ export default function LearnMore() {
 
       <Header />
 
-      <Styled.Main sx={{ p: "48px 16px", background: "linear-gradient(to bottom, #fff, #F8F8FF)" }}>
+      <Styled.Main sx={{background: "linear-gradient(to bottom, #fff, #F8F8FF)" }}>
 
         <Box
           component={motion.div}
@@ -65,7 +65,6 @@ export default function LearnMore() {
           initial={fadeUpVariant.hidden}
           whileInView={fadeUpVariant.visible}
           viewport={{ once: true }}
-          sx={{ maxWidth: "55%", m: "0 auto" }}
         >
           <Typography variant="h2" className={"Title"}>
             Comprehensive Features

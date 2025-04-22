@@ -1,7 +1,7 @@
 import { styled } from "@mui/material"
 import { motion } from "framer-motion"
 
-export const Field = styled("div")(() => ({
+export const Field = styled("div")(({ theme }) => ({
 
     ".fieldHeader": {
         display: "flex",
@@ -13,12 +13,24 @@ export const Field = styled("div")(() => ({
         color: "black",
         fontSize: "16px",
         fontWeight: "600",
+
+        [theme.breakpoints.down('md')]: {
+            fontSize: "13px",
+        }
     },
 
     ".dateDisplay": {
         width: "10%",
         color: "#6B7280",
     },
+
+    [theme.breakpoints.down('sm')]: {
+
+        ".dateDisplay": {
+            width: "18%",
+        },
+
+    }
 }))
 
 export const TaskBox = styled(motion.div)(() => ({

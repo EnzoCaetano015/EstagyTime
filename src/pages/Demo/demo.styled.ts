@@ -1,6 +1,6 @@
 import { styled, Card } from "@mui/material"
 
-export const Demo = styled("section")(() => ({
+export const Demo = styled("section")(({ theme }) => ({
     display: "flex",
     maxWidth: "100%",
     padding: "2.5rem 1rem",
@@ -30,20 +30,40 @@ export const Demo = styled("section")(() => ({
         borderRadius: "9999px",
         margin: "15px auto",
     },
+
+    [theme.breakpoints.down('md')]: {
+        ".Title": {
+            fontSize: "25px",
+        },
+        ".Subtitle": {
+            fontSize: "13px",
+        }
+    }
 }))
 
-export const Content = styled("section")(() => ({
+export const Content = styled("section")(({ theme }) => ({
     maxWidth: "55%",
     margin: "0 auto",
+
+    [theme.breakpoints.down('md')]: {
+        maxWidth: "80%",
+
+    },
+    [theme.breakpoints.down('sm')]: {
+        maxWidth: "90%",
+        '& button': {
+            fontSize: "10px",
+        }
+    },
 }))
 
-export const DemoCard = styled(Card)(() => ({
+export const DemoCard = styled(Card)(({ theme }) => ({
     backgroundColor: "#fff",
     border: "1px solid rgba(66, 38, 128, 0.2)",
     marginBottom: "8px",
 
     ".cardHeader": {
-        padding:" 20px 1.5rem 0px",
+        padding: " 20px 1.5rem 0px",
         lineHeight: "3px",
     },
 
@@ -55,12 +75,22 @@ export const DemoCard = styled(Card)(() => ({
 
     ".cardDescription": {
         fontSize: "13px",
-        color:" #6B7280",
+        color: " #6B7280",
     },
 
     ".cardContent": {
         display: "flex",
         flexDirection: "column",
     },
+
+    [theme.breakpoints.down('md')]: {
+        ".cardTitle": {
+            fontSize: "20px",
+        },
+
+        ".cardDescription": {
+            fontSize: "12px",
+        },
+    }
 
 }))

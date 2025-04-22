@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-export const Footer = styled("section")(() => ({
+export const Footer = styled("section")(({ theme }) => ({
 
     backgroundColor: "#422680",
     color: "#fff",
@@ -8,7 +8,6 @@ export const Footer = styled("section")(() => ({
     textAlign: "center",
 
     ".FooterButtons": {
-
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
@@ -23,14 +22,30 @@ export const Footer = styled("section")(() => ({
         alignItems: "center",
         fontSize: "15px",
         marginTop: "15px",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+        padding: "4% 15%",
+
+        '.FooterButtons': {
+            flexDirection: "column",
+        },
+        '.notes': {
+            display: "none",
+        },
+
+        '& h2': {
+            fontSize: "25px",
+        }
     }
 
 }))
 
 export const SimpleFooter = styled("footer")(() => ({
-    
+
     backgroundColor: "#F8F8FF",
     fontSize: "14px",
     display: "flex",
     justifyContent: "center",
+
 }))
