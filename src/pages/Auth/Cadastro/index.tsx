@@ -10,10 +10,12 @@ import {
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
 import Button from "../../../components/Button";
 import PasswordField from "../../../components/Fields/PassWord";
+import { useNavigate } from "react-router-dom";
 
 export default function Cadastro() {
 
     const customStyles = useCustomSelectStyles();
+    const navigate = useNavigate()
 
     return (
         <Stack mt={2}>
@@ -77,7 +79,7 @@ export default function Cadastro() {
             <Stack alignItems={"center"}>
                 <Button
                     label={"Create account"}
-                    onClick={() => alert("Create account")}
+                    onClick={() => navigate("/CompanySelection")}
                     buttonStyle="Purple"
                     sx={{ width: "100%", height: 35 }}
                 />

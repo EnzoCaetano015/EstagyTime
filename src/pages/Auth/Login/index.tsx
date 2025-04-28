@@ -10,10 +10,12 @@ import {
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
 import Button from "../../../components/Button";
 import PasswordField from "../../../components/Fields/PassWord";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
     const customStyles = useCustomSelectStyles();
+    const navigate = useNavigate()
 
     return (
         <Stack mt={2}>
@@ -54,7 +56,7 @@ export default function Login() {
 
             <Button
                 label={"Sign in"}
-                onClick={() => alert("Sign in")}
+                onClick={() => navigate("/CompanySelection")}
                 buttonStyle="Purple"
                 sx={{ width: "100%", height: 35 }}
             />
