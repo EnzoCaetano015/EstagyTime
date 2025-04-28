@@ -52,13 +52,14 @@ export const Header = styled("header")(({ theme }) => ({
     },
 
     [theme.breakpoints.down("sm")]: {
-        '& h1': {
-            fontSize: "0px"
+        '.showTitle': {
+            display: "none",
         },
-
+        '.hideTitle': {
+            display: "block",
+        },
         ".headerContainer": {
             maxWidth: "100%",
-
         },
     }
 

@@ -6,7 +6,11 @@ import { slideInVariant } from "../../utils/Motion";
 import * as Styled from "./header.styled"
 import { Box, Stack, Typography } from "@mui/material";
 
-export default function Header() {
+export interface HeaderProps {
+  button?: boolean
+}
+
+export default function Header({ button = true }: HeaderProps) {
 
   const navigate = useNavigate()
 
@@ -24,16 +28,18 @@ export default function Header() {
             <TickingClock intervalTime={1000} size={20} color="#fff" />
           </Box>
 
-          <Typography variant="h1" sx={{ fontSize: "25px", color: "#422680", fontWeight: "bold" }}>
+          <Typography  className={button ? "showTitle" : "hideTitle"} variant="h1" sx={{ fontSize: "25px", color: "#422680", fontWeight: "bold" }}>
             Stagy<span style={{ color: "#000" }}>Time</span>
           </Typography>
 
         </Stack>
-
-        <button className={"backButton"} onClick={() => { navigate('/Home') }}>
-          <ArrowLeft size={15} /> Back to Home
-        </button>
-
+        {button ? (
+          <button className={"backButton"} onClick={() => { navigate('/Home') }}>
+            <ArrowLeft size={15} /> Back to Home
+          </button>
+        ) : (
+          <></>
+        )}
       </motion.div >
     </Styled.Header>
   )

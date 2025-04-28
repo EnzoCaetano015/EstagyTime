@@ -29,6 +29,7 @@ export default function Cadastro() {
                         placeholder="John"
                         fullWidth
                         size="small"
+                        sx={customStyles}
                     />
                 </Box>
                 <Box>
@@ -40,6 +41,7 @@ export default function Cadastro() {
                         placeholder="Doe"
                         fullWidth
                         size="small"
+                        sx={customStyles}
                     />
                 </Box>
             </Box>
@@ -54,6 +56,7 @@ export default function Cadastro() {
                     placeholder="name@company.com"
                     fullWidth
                     size="small"
+                    sx={customStyles}
                 />
             </Box>
 

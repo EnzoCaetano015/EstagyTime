@@ -11,6 +11,7 @@ import { Building, ChevronRight, Clock, Dot, Info, Plus, Users } from "lucide-re
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import { useState } from "react";
+import * as Styled from "./companySelection.styled"
 
 export default function CompanySelection() {
 
@@ -68,7 +69,7 @@ export default function CompanySelection() {
 
     return (
         <Container>
-            <Header />
+            <Header button={false} />
             <Stack sx={{ alignItems: "center", p: "2rem 1rem" }}>
 
                 <Stack sx={{ alignItems: "center", width: "100%" }}>
@@ -89,21 +90,10 @@ export default function CompanySelection() {
                         </Box>
                     </motion.div>
 
-                    <Box
-                        component={motion.div}
+                    <Styled.TabWrapper
                         initial={fadeUpVariant.hidden}
                         whileInView={fadeUpVariant.visible}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        sx={{
-                            bgcolor: "#fff",
-                            border: "1px solid #e5e7eb",
-                            borderRadius: 1.5,
-                            width: "45%",
-                            boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05);",
-                            p: 1,
-                            mb: "18px"
-
-                        }}
                     >
                         <CustomTabs
                             customStyles={{ ...customStyles }}
@@ -228,10 +218,8 @@ export default function CompanySelection() {
                             ]}
 
                         />
-                    </Box>
-                    <Box
-                        sx={{ width: "46%" }}
-                        component={motion.div}
+                    </Styled.TabWrapper>
+                    <Styled.TopicCard
                         initial={slideInVariant.hidden}
                         whileInView={slideInVariant.visible}
                     >
@@ -246,53 +234,7 @@ export default function CompanySelection() {
                             listTopic={listTopic}
                             sx={sx}
                         />
-                    </Box>
-                    {/* <Box sx={{ width: "46%" }}>
-                        <Card
-                            icon={""}
-                            title={""}
-                            text={""}
-                            isList={true}
-                            textlist={"Administrator Access"}
-                            iconList={<Building size={18} />}
-                            listIcon={<Dot size={20} strokeWidth={5} />}
-                            listTopic={[
-                                "View company-wide metrics and reports",
-                                "Manage all collaborators and their access",
-                                "Track time and performance across the organization",
-                                "Create and assign projects and tasks"
-                            ]}
-                            sx={{
-                                bgcolor: "#FAF5FF",
-                                border: "0.5px #A36CD9 solid",
-                                color: "#8D41D9"
-                            }}
-                        />
-                    </Box>
-                    <Box sx={{ width: "46%" }}>
-                        <Card
-                            icon={""}
-                            title={""}
-                            text={""}
-                            isList={true}
-                            textlist={"Create Your Own Company"}
-                            iconList={<Building size={18} />}
-                            listIcon={<Dot size={20} strokeWidth={5} />}
-                            listTopic={[
-                                "Set up your organization structure",
-                                "Invite and manage collaborators",
-                                "Create projects and assign tasks",
-                                "Track time and performance across your organization",
-                                "Generate reports and analytics"
-                            ]}
-                            sx={{
-                                bgcolor: "#F1FDF4",
-                                border: "0.5px #68A672 solid",
-                                color: "#3E8C49"
-                            }}
-
-                        />
-                    </Box> */}
+                    </Styled.TopicCard>
                 </Stack>
             </Stack >
         </Container>
