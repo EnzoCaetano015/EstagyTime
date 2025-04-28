@@ -2,10 +2,10 @@ import { Box, StackProps, Typography, } from "@mui/material";
 import * as Styled from "./infoCard.styled"
 
 interface InfoCardProps extends StackProps {
-    typeCard?: "current" | "daily" | "completed"
-    title?: string
-    info?: string
-    description?: string
+    typeCard: "current" | "daily" | "completed"
+    title: string
+    info: string
+    description: string
 }
 
 

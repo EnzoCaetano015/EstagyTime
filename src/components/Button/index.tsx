@@ -4,7 +4,7 @@ import { ButtonBase, SxProps } from '@mui/material';
 export interface ButtonProps {
     label: string;
     onClick: () => void;
-    buttonStyle?: "Purple" | "White";
+    buttonStyle: "Purple" | "White";
     icon?: React.ReactNode
     sx?: SxProps;
 }

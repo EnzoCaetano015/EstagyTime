@@ -24,13 +24,12 @@ export const List = styled('ul')({
 export const ListItem = styled('li')({
     display: 'flex',
     alignItems: 'flex-start',
-    gap: '0.5rem',
     marginBottom: '0.75rem',
 });
 
 export const ListIcon = styled('span')({
     width: '1.25rem',
     height: '1.25rem',
-    color: '#422680',
     marginRight: '0.5rem',
+    display: "flex", alignItems: "center",
 });

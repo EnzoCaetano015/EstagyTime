@@ -119,7 +119,7 @@ export default function Home() {
                             viewport={{ once: true }}
 
                         >
-                            <Card icon={<Clock color="#422680" />} title={"Time Tracking"} text={"Simple clock-in/out system for interns to record their work hours accurately."} isList={false} textlist={""} listTopic={[]} />
+                            <Card icon={<Clock color="#422680" />} title={"Time Tracking"} text={"Simple clock-in/out system for interns to record their work hours accurately."} isList={false} textlist={""} listTopic={[]} listIcon={undefined} />
 
                         </motion.div>
 
@@ -135,7 +135,7 @@ export default function Home() {
                             viewport={{ once: true }}
 
                         >
-                            <Card icon={<BarChart3 color="#422680" />} title={"Reporting"} text={"Generate detailed reports on work hours, projects, and productivity metrics."} isList={false} textlist={""} listTopic={[]} />
+                            <Card icon={<BarChart3 color="#422680" />} title={"Reporting"} text={"Generate detailed reports on work hours, projects, and productivity metrics."} isList={false} textlist={""} listTopic={[]} listIcon={undefined} />
 
                         </motion.div>
 
@@ -145,7 +145,7 @@ export default function Home() {
                             viewport={{ once: true }}
 
                         >
-                            <Card icon={<Users color="#422680" />} title={"Intern Management"} text={"Easily manage intern profiles, assignments, and performance tracking."} isList={false} textlist={""} listTopic={[]} />
+                            <Card icon={<Users color="#422680" />} title={"Intern Management"} text={"Easily manage intern profiles, assignments, and performance tracking."} isList={false} textlist={""} listTopic={[]} listIcon={undefined} />
 
                         </motion.div>
 

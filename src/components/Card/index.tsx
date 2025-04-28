@@ -1,29 +1,36 @@
 import React from 'react';
-import { Stack, Typography } from '@mui/material';
-import { CheckCircleIcon } from 'lucide-react';
+import { Stack, StackProps, Typography } from '@mui/material';
 import * as Styled from "./card.styled.ts"
 
-interface CardProps {
+interface CardProps extends StackProps {
   icon: React.ReactNode;
   title: string;
   text: string;
+
   textlist: string;
+  iconList?: React.ReactNode
   isList: boolean;
   listTopic: string[];
+  listIcon: React.ReactNode
 }
 
-export default function Card({ icon, title, text, isList, textlist, listTopic }: CardProps) {
+export default function Card({ icon, title, text, isList, textlist, iconList, listTopic, listIcon, sx, ...rest }: CardProps) {
 
   return (
 
     <Stack
-      bgcolor={!isList ? "#f8f8ff" : "#fff"}
-      alignItems="start"
-      gap={1.5}
-      p={!isList ? "22px" : "20px"}
-      borderRadius={"8px"}
-      boxShadow={"0 1px 4px rgba(0, 0, 0, 0.1);"
-      }>
+      {...rest}
+      sx={{
+        bgcolor: !isList ? "#f8f8ff" : "#fff",
+        alignItems: "start",
+        gap: 1.5,
+        p: !isList ? "22px" : "20px",
+        borderRadius: "8px",
+        boxShadow: "0 1px 4px rgba(0, 0, 0, 0.1);",
+        ...sx
+      }}
+
+    >
 
       {icon && <Styled.Span>{icon}</Styled.Span>}
 
@@ -37,8 +44,8 @@ export default function Card({ icon, title, text, isList, textlist, listTopic }:
 
       ) : (
         <>
-          <Typography sx={{ textAlign: 'start', fontSize: 14 }}>
-            {textlist}
+          <Typography sx={{ textAlign: 'start', fontSize: 14, display: "flex", alignItems: "center", gap: 1 }}>
+            {iconList} {textlist}
           </Typography>
 
           <Styled.List>
@@ -49,7 +56,7 @@ export default function Card({ icon, title, text, isList, textlist, listTopic }:
 
                 <Styled.ListIcon>
 
-                  <CheckCircleIcon size={"1.25rem"} />
+                  {listIcon}
 
                 </Styled.ListIcon>
 

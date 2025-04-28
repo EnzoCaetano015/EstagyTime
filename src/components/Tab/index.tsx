@@ -10,36 +10,43 @@ export interface TabData {
 interface CustomTabsProps {
   tabs: TabData[];
   customStyles?: object;
+  /** Aba atualmente selecionada (controlado) */
+  value?: string;
+  /** Callback disparado quando a aba muda (controlado) */
+  onChange?: (newValue: string) => void;
 }
 
-export default function CustomTabs({ tabs, customStyles }: CustomTabsProps) {
+export default function CustomTabs({ tabs, customStyles, value, onChange }: CustomTabsProps) {
+  // Estado interno se não for controlado externamente
+  const [internalTab, setInternalTab] = useState<string>(tabs[0].value);
+  // Se `value` for passado, torna-se componente controlado
+  const activeTab = value ?? internalTab;
 
-  const [activeTab, setActiveTab] = useState<string>(tabs[0].value);
+  const handleChange = (_: React.SyntheticEvent, newValue: string) => {
+    if (onChange) {
+      onChange(newValue);
+    } else {
+      setInternalTab(newValue);
+    }
+  };
 
-  const TabPanel = ({
-    value,
-    index,
-    children,
-    ...other
-  }: {
+  const TabPanel = ({ value, index, children, ...other }: {
     value: string;
     index: string;
     children: React.ReactNode;
     [key: string]: unknown;
-  }) => {
-    return (
-      <div role="tabpanel" hidden={value !== index} {...other}>
-        {value === index && children}
-      </div>
-    );
-  };
+  }) => (
+    <div role="tabpanel" hidden={value !== index} {...other}>
+      {value === index && children}
+    </div>
+  );
 
   return (
     <>
       <Tabs
         sx={customStyles}
         value={activeTab}
-        onChange={(_e, newValue) => setActiveTab(newValue)}
+        onChange={handleChange}
         variant="fullWidth"
       >
         {tabs.map((tab) => (

@@ -5,6 +5,7 @@ import LearnMore from "../Pages/LearnMore/LearnMore";
 import Demo from "../Pages/Demo/Demo";
 import AuthPage from "../Pages/Auth/AuthPage";
 import ScrollToTop from "../Hook/Scroll";
+import CompanySelection from "../Pages/CompanySelection/CompanySelection";
 
 function Rotas() {
     return (
@@ -16,6 +17,7 @@ function Rotas() {
                 <Route path="/LearnMore" element={<LearnMore />} />
                 <Route path="/Demo" element={<Demo />} />
                 <Route path="/Auth" element={<AuthPage />} />
+                <Route path="/CompanySelection" element={<CompanySelection />} />
             </Routes>
 
         </BrowserRouter>

@@ -7,6 +7,7 @@ import {
   Calendar,
   Shield,
   ChevronDown,
+  CheckCircleIcon,
 } from "lucide-react";
 
 import { motion } from "framer-motion";
@@ -30,7 +31,7 @@ export default function LearnMore() {
 
       <Header />
 
-      <Styled.Main sx={{background: "linear-gradient(to bottom, #fff, #F8F8FF)" }}>
+      <Styled.Main sx={{ background: "linear-gradient(to bottom, #fff, #F8F8FF)" }}>
 
         <Box
           component={motion.div}
@@ -77,6 +78,7 @@ export default function LearnMore() {
               title={"Advanced Time Tracking"}
               text={""}
               isList={true}
+              listIcon={<CheckCircleIcon color="#422680" />}
               listTopic={[
                 "Simple clock-in/out system with mobile and desktop access",
                 "Geolocation verification to ensure accurate on-site tracking",
@@ -91,6 +93,7 @@ export default function LearnMore() {
               title={"Insightful Reporting"}
               text={""}
               isList={true}
+              listIcon={<CheckCircleIcon color="#422680" />}
               listTopic={[
                 "Customizable dashboards for supervisors and administrators",
                 "Export reports in multiple formats (PDF, CSV, Excel)",
@@ -105,6 +108,7 @@ export default function LearnMore() {
               title={"Advanced Time Tracking"}
               text={""}
               isList={true}
+              listIcon={<CheckCircleIcon color="#422680" />}
               listTopic={[
                 "Comprehensive intern profiles with skills and objectives",
                 "Performance evaluation tools and feedback system",
@@ -119,6 +123,7 @@ export default function LearnMore() {
               title={"Security &amp; Compliance"}
               text={""}
               isList={true}
+              listIcon={<CheckCircleIcon color="#422680" />}
               listTopic={[
                 "Role-based access control for data protection",
                 "Compliance with labor regulations and standards",
@@ -231,12 +236,12 @@ export default function LearnMore() {
                 text={""}
                 isList={true}
                 textlist={"Large corporations use StagyTime to manage seasonal internship programs with dozens of interns across multiple departments."}
+                listIcon={<CheckCircleIcon color="#422680" />}
                 listTopic={[
                   "Centralized management of diverse intern roles",
                   "Departmental reporting and budget allocation",
                   "Integration with existing HR systems",
                 ]}
-
               />
 
             </motion.div >
@@ -255,12 +260,12 @@ export default function LearnMore() {
                 text={""}
                 isList={true}
                 textlist={"Universities and colleges use StagyTime to monitor student internships and ensure they meet academic requirements."}
+                listIcon={<CheckCircleIcon color="#422680" />}
                 listTopic={[
                   "Academic credit hour tracking",
                   "Learning objective alignment",
                   "Faculty supervisor dashboards",
                 ]}
-
               />
 
             </motion.div >
@@ -279,12 +284,12 @@ export default function LearnMore() {
                 text={""}
                 isList={true}
                 textlist={"Growing companies use StagyTime to efficiently manage interns and maximize their contribution to business growth."}
+                listIcon={<CheckCircleIcon color="#422680" />}
                 listTopic={[
                   "Cost-effective talent management",
                   "Project-based hour allocation",
                   "Simplified onboarding process",
                 ]}
-
               />
 
             </motion.div >
@@ -302,13 +307,13 @@ export default function LearnMore() {
                 title={"Non-Profit Organizations"}
                 text={""}
                 isList={true}
+                listIcon={<CheckCircleIcon color="#422680" />}
                 textlist={"Non-profits use StagyTime to coordinate volunteer interns and ensure efficient use of limited resources."}
                 listTopic={[
                   "Volunteer hour certification",
                   "Grant reporting and compliance",
                   "Impact measurement tools",
                 ]}
-
               />
 
             </motion.div >
@@ -391,7 +396,7 @@ export default function LearnMore() {
 
       <Footer
         text={""}
-        icon={undefined}
+        icon={<CheckCircleIcon color="#422680" />}
         description={"Join hundreds of organizations that have streamlined their intern programs with"}
         title={"Transform Your Intern Management Today"}
         text2={""}

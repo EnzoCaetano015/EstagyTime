@@ -23,4 +23,10 @@ export const useCustomSelectStyles = () => ({
     '&.Mui-checked': {
         color: '#422680',
     },
+    '& .MuiSwitch-switchBase.Mui-checked': {
+        color: '#422680',
+    },
+    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+        backgroundColor: '#422680',
+    },
 })
