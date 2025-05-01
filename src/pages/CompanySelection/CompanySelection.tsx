@@ -12,12 +12,9 @@ import Button from "../../components/Button";
 import Card from "../../components/Card";
 import { useState } from "react";
 import * as Styled from "./companySelection.styled"
+import { useNavigate } from "react-router-dom";
 
 export default function CompanySelection() {
-
-    const customStyles = useCustomSelectStyles();
-
-    const [activeTab, setActiveTab] = useState<string>("enter");
 
     const cardConfig: Record<
         typeof activeTab,
@@ -64,8 +61,13 @@ export default function CompanySelection() {
         },
     };
 
+    const [activeTab, setActiveTab] = useState<string>("enter");
+
     const { textlist, iconList, listTopic, sx } = cardConfig[activeTab];
 
+    const customStyles = useCustomSelectStyles();
+
+    const navigate = useNavigate()
 
     return (
         <Container>
@@ -124,7 +126,7 @@ export default function CompanySelection() {
                                             <Button
                                                 icon={<ChevronRight />}
                                                 label={"Continue"}
-                                                onClick={() => alert("click")}
+                                                onClick={() => navigate("/MyDashboard")}
                                                 buttonStyle={"Purple"}
                                                 sx={{ width: "100%", height: 35, mt: 2 }}
                                             />
@@ -162,7 +164,7 @@ export default function CompanySelection() {
                                             <Button
                                                 icon={<ChevronRight />}
                                                 label={"Access Company Dashboard"}
-                                                onClick={() => alert("click")}
+                                                onClick={() => navigate("/CompanyDashboard")}
                                                 buttonStyle={"Purple"}
                                                 sx={{ width: "100%", height: 35, mt: 2 }}
                                             />
