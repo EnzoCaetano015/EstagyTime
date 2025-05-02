@@ -101,7 +101,7 @@ export const DashboardContent = () => {
 
                         <Stack direction={"row"} justifyContent={"space-between"}>
                             <Typography variant="h4" sx={{ fontWeight: 600 }}>Top Performers</Typography>
-                            <Button label={"View All"} onClick={() => alert('oi')} buttonStyle="White" sx={{ paddingInline: 1 }} />
+                            <Button label={"View All"} onClick={() => alert('oi')} buttonStyle="Black" sx={{ paddingInline: 1 }} />
                         </Stack>
 
                         <Typography variant="subtitle1" color="text.secondary" mb={2}>Collaborators with highest efficiency</Typography>

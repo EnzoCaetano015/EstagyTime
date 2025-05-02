@@ -5,7 +5,9 @@ import {
     MenuItem,
     SelectChangeEvent,
     Box,
-    Typography
+    Typography,
+    SxProps, 
+    Theme
 } from "@mui/material";
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui";
 
@@ -14,16 +16,17 @@ interface Option {
     label: string
 }
 
-interface CustomSelectProps {
+interface CustomSelectProps{
     title: string
     label: string
     options: Option[]
     displayEmpty?: boolean
     initialValue?: string
     onChange?: (value: string) => void
+    sx?: SxProps<Theme>;
 }
 
-export default function CustomSelect({ title, label, options, displayEmpty = false, initialValue = "", onChange, }: CustomSelectProps) {
+export default function CustomSelect({ title, label, options, displayEmpty = false, initialValue = "", onChange, sx}: CustomSelectProps) {
 
     const [selected, setSelected] = useState<string>(initialValue);
     const labelId = `${label.replace(/\s+/g, "")}-label`;
@@ -49,7 +52,7 @@ export default function CustomSelect({ title, label, options, displayEmpty = fal
                     value={selected}
                     onChange={handleChange}
                     displayEmpty={displayEmpty}
-                    sx={customStyles}
+                    sx={{ ...customStyles, ...sx }}
                 >
                     {displayEmpty && (
                         <MenuItem value="">

@@ -3,6 +3,7 @@ import Container from "../../../components/Container";
 import { MenuDashboard, Sidebar } from "../../../components/MenuDashboard";
 import { useState } from "react";
 import { DashboardContent } from "../Options/DashboardOption";
+import { Collaborators } from "../Options/CollaboratorsOption";
 
 export default function AdminDashboard() {
 
@@ -55,11 +56,7 @@ export default function AdminDashboard() {
 }
 
 
-export const Collaborators = () => {
-    return (
-        <>helloo2</>
-    )
-}
+
 export const Projects = () => {
     return (
         <>helloo3</>
