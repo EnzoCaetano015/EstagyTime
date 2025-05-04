@@ -80,7 +80,7 @@ export const Collaborators = () => {
 
                         <Box>
                             <Typography variant="h4" fontWeight={600}>Collaborators</Typography>
-                            <Typography>Manage and monitor your team members</Typography>
+                            <Typography variant="subtitle1" color="text.secondary">Manage and monitor your team members</Typography>
                         </Box>
 
                         <Stack gap={1} >

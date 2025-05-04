@@ -4,6 +4,7 @@ import { MenuDashboard, Sidebar } from "../../../components/MenuDashboard";
 import { useState } from "react";
 import { DashboardContent } from "../Options/DashboardOption";
 import { Collaborators } from "../Options/CollaboratorsOption";
+import { Projects } from "../Options/ProjectsOption";
 
 export default function AdminDashboard() {
 
@@ -15,7 +16,7 @@ export default function AdminDashboard() {
         switch (currentScreen) {
             case "Dashboard": return <DashboardContent />;
             case "Collaborators": return <Collaborators />;
-            case "Projects": return <Projects />;
+            case "Projects": return <Projects open={open} />;
             case "Settings": return <Settings />;
             default: return <DashboardContent />;
         }
@@ -57,11 +58,7 @@ export default function AdminDashboard() {
 
 
 
-export const Projects = () => {
-    return (
-        <>helloo3</>
-    )
-}
+
 export const Settings = () => {
     return (
         <>helloo5</>
