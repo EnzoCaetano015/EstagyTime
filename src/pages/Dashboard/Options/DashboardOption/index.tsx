@@ -5,7 +5,8 @@ import { Avatar, Box, Card, CardContent, Stack, Typography } from "@mui/material
 import Button from "../../../../components/Button";
 import getRandomHexColor from "../../../../utils/Color";
 import ProgressBar from "../../../../components/ProgressBar";
-import { ChartNoAxesCombined, Clock, SquareChartGantt, Users } from "lucide-react";
+import { BriefcaseBusiness, ChartNoAxesCombined, Clock, SquareChartGantt, SquareCheckBig, Users } from "lucide-react";
+import CustomChip from "../../../../components/Chip";
 
 export const DashboardContent = () => {
 
@@ -160,3 +161,179 @@ export const DashboardContent = () => {
         </>
     )
 }
+
+export const DashboardUserContent = () => {
+
+    const tasks = [
+        { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
+        { color: "red", title: "Implement User Authentication", position: "Development ", date: "2023-07-10", status: "Completed" },
+        { color: "#10B981", title: "Database Schema Design", position: "Development ", date: "2023-07-20", status: "Not Started" },
+    ] as const;
+
+    return (
+        <>
+            <Styled.InfoCardsWrapper>
+
+                <InfoCard
+                    title="Total Hours This Week"
+                    icon={Clock}
+                    info="37.5"
+                    description="37.5 / 40 hours"
+                    typeCard="daily"
+                    sx={{ bgcolor: "#fff" }}
+                    children={<ProgressBar neutral={true} value={50} />}
+                />
+
+                <InfoCard
+                    title="Tasks Completed"
+                    icon={SquareCheckBig}
+                    info="35"
+                    description="35 / 60 total"
+                    typeCard="daily"
+                    sx={{ bgcolor: "#fff" }}
+                    children={<ProgressBar neutral={true} value={90} />}
+                />
+
+                <InfoCard
+                    title="Efficiency Score"
+                    icon={SquareChartGantt}
+                    info="87%"
+                    description="performance"
+                    typeCard="daily"
+                    sx={{ bgcolor: "#fff" }}
+                    children={<ProgressBar neutral={true} value={30} />}
+                />
+
+                <InfoCard
+                    title="Active Projects"
+                    icon={BriefcaseBusiness}
+                    info="3"
+                    description="3 active projects"
+                    typeCard="daily"
+                    sx={{ bgcolor: "#fff" }}
+                    children={""}
+                />
+
+            </Styled.InfoCardsWrapper>
+
+            <Styled.GraficWrapper sx={{ mt: 4 }}>
+
+                <CardGrafic
+                    label="Performance Overview"
+                    subtitle="Your task completion and efficiency over time"
+                    type="line"
+                    data={[
+                        { name: "Week 1", tasks: 12, hours: 35, efficiency: 85 },
+                        { name: "Week 2", tasks: 14, hours: 38, efficiency: 87 },
+                        { name: "Week 3", tasks: 11, hours: 34, efficiency: 82 },
+                        { name: "Week 4", tasks: 17, hours: 39, efficiency: 90 },
+                        { name: "Week 5", tasks: 18, hours: 37, efficiency: 95 },
+                        { name: "Week 6", tasks: 16, hours: 36, efficiency: 89 },
+                    ]}
+                />
+
+                <CardGrafic
+                    label="Task Distribution"
+                    subtitle="Current status of your tasks"
+                    type="pie"
+                    data={[
+                        { name: "Completed", value: 58 },
+                        { name: "In Progress", value: 25 },
+                        { name: "Not Started", value: 17 },
+                    ]}
+                />
+
+            </Styled.GraficWrapper>
+
+            <Styled.GraficWrapper sx={{ mt: 4 }}>
+
+                <Card sx={{ width: "100%" }}>
+
+                    <CardContent>
+
+                        <Typography variant="h4" sx={{ fontWeight: 600 }}>Recent Activity</Typography>
+                        <Typography variant="subtitle1" color="text.secondary" mb={2}>Your latest tasks and time entries</Typography>
+
+                        <Stack gap={1} mb={5}>
+
+                            <Typography variant="h5" sx={{ fontWeight: 600 }}>Recent Tasks</Typography>
+
+                            {tasks.map((task) => (
+
+                                <Stack
+                                    direction={"row"}
+                                    sx={{
+                                        height: 60,
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                        bgcolor: "#F9FAFB",
+                                        paddingInline: 2,
+                                        borderRadius: 2
+                                    }}
+                                >
+                                    <Stack direction={"row"} gap={2} alignItems={"center"}>
+                                        <Box sx={{ width: 8, height: 40, borderRadius: 8 }} bgcolor={task.color} />
+                                        <Box>
+                                            <Typography variant="h6" sx={{ fontWeight: 600 }}>{task.title}</Typography>
+                                            <Typography variant="subtitle1" color="text.secondary">{task.position}• Due {task.date}</Typography>
+                                        </Box>
+                                    </Stack>
+
+                                    <CustomChip type={task.status} />
+
+                                </Stack>
+
+                            ))}
+
+                        </Stack>
+
+                        <Stack gap={1}>
+
+                            <Typography variant="h5" sx={{ fontWeight: 600 }}>Recent Time Entries</Typography>
+
+                            {[
+
+                                { title: "Website Redesign", hours: 7.5, date: "2023-07-03", qtdTask: 3 },
+                                { title: "Website Redesign", hours: 8, date: "2023-07-14", qtdTask: 2 },
+                                { title: "Mobile App Development", hours: 6.5, date: "2023-07-05", qtdTask: 2 },
+
+
+                            ].map((task) => (
+
+                                <Stack
+                                    direction={"row"}
+                                    sx={{
+                                        height: 60,
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                        bgcolor: "#F9FAFB",
+                                        paddingInline: 2,
+                                        borderRadius: 2
+                                    }}
+                                >
+                                    <Box>
+                                        <Typography variant="h6" sx={{ fontWeight: 600 }}>{task.title}</Typography>
+                                        <Typography variant="subtitle1" color="text.secondary">{task.date} • {task.qtdTask} task</Typography>
+                                    </Box>
+
+                                    <Box>
+                                        <Typography variant="h6" sx={{ fontWeight: 600, textAlign: "end" }}>{task.hours} hrs</Typography>
+                                        <Typography variant="subtitle1" color="text.secondary">{8 - task.hours} hrs from target</Typography>
+                                    </Box>
+
+                                </Stack>
+
+                            ))}
+
+                        </Stack>
+
+                    </CardContent>
+
+                </Card>
+
+            </Styled.GraficWrapper>
+
+        </>
+    )
+}
+

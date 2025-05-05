@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import {
   IconButton,
   Menu,
   MenuItem,
   ListItemText,
-  Typography
+  Typography,
 } from "@mui/material";
 import { LucideIcon } from "lucide-react";
 
 interface OptionItem {
+  icon?: ReactNode;
   label: string;
   onClick: () => void;
-  isDanger?: boolean; 
+  isDanger?: boolean;
 }
 
 interface CustomIconButtonProps {
@@ -46,8 +47,8 @@ export default function CustomIconButton({ icon: Icon, options }: CustomIconButt
           <MenuItem key={index} onClick={() => handleOptionClick(option.onClick)}>
             <ListItemText
               primary={
-                <Typography color={option.isDanger ? "error" : "inherit"} fontWeight={option.isDanger ? "bold" : "normal"}>
-                  {option.label}
+                <Typography color={option.isDanger ? "error" : "inherit"} fontWeight={option.isDanger ? "bold" : "normal"} sx={{ alignItems: "center", display: "flex", gap: 1 }} >
+                  {option.icon} {option.label}
                 </Typography>
               }
             />

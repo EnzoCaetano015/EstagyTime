@@ -5,6 +5,7 @@ import { useState } from "react";
 import { DashboardContent } from "../Options/DashboardOption";
 import { Collaborators } from "../Options/CollaboratorsOption";
 import { Projects } from "../Options/ProjectsOption";
+import { Settings } from "../Options/SettingsOption";
 
 export default function AdminDashboard() {
 
@@ -58,9 +59,3 @@ export default function AdminDashboard() {
 
 
 
-
-export const Settings = () => {
-    return (
-        <>helloo5</>
-    )
-}

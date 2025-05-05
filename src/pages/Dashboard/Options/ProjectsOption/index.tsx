@@ -38,9 +38,9 @@ export const Projects = ({ open }: OptionsProps) => {
                             { title: "CRM Integration", tasks: 18, tasksCompleted: 5, percentage: 28 },
 
                         ].map((project) => (
-                            <Card sx={{ bgcolor: "#F9FAFB", maxWidth: 450, m: 2 }}>
+                            <Card sx={{ bgcolor: "#F9FAFB", maxWidth: 400, m: 2 }}>
 
-                                <CardContent sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                                <CardContent sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
 
                                     <Stack direction={"row"} justifyContent={"space-between"} >
 
@@ -64,7 +64,7 @@ export const Projects = ({ open }: OptionsProps) => {
 
                                     <ProgressBar neutral={true} value={project.percentage} />
 
-                                    <Stack direction={"row"} justifyContent={"end"} gap={1}>
+                                    <Stack direction={"row"} justifyContent={"end"} gap={1} mt={1}>
 
                                         <Button
                                             label={"View Details"}

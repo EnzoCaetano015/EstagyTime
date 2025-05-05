@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import Container from "../../../components/Container";
 import { MenuDashboard, Sidebar } from "../../../components/MenuDashboard";
 import { useState } from "react";
+import { DashboardUserContent } from "../Options/DashboardOption";
 
 
 export default function UserDashboard() {
@@ -12,13 +13,13 @@ export default function UserDashboard() {
 
     const renderContent = () => {
         switch (currentScreen) {
-            case "Dashboard": return <DashboardContent />;
+            case "Dashboard": return <DashboardUserContent />;
             case "Time Tracking": return <TimeTracking />;
             case "Tasks": return <Tasks />;
             case "website": return <Proj1 />;
             case "mobile": return <Proj2 />;
             case "crm": return <Proj3 />;
-            default: return <DashboardContent />;
+            default: return <DashboardUserContent />;
         }
     };
 
@@ -49,20 +50,15 @@ export default function UserDashboard() {
                 />
             </Box>
 
-            <Box>
+            <Box sx={{ marginInline: open ? 35 : 10, marginBlock: 3 }}>
                 {renderContent()}
             </Box>
-
         </Container>
     )
 }
 
 
-export const DashboardContent = () => {
-    return (
-        <>helloo1</>
-    )
-}
+
 export const TimeTracking = () => {
     return (
         <>helloo2</>
