@@ -12,7 +12,6 @@ import Radio from "@mui/material/Radio";
 
 
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
-import Timer from "../../../components/Timer";
 
 import { motion } from "framer-motion";
 import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
@@ -54,33 +53,6 @@ export default function TimeTracking() {
                 </motion.div>
 
                 <CardContent className={"cardContent"}>
-
-                    <Styled.Field>
-
-                        <Box className={"fieldHeader"}>
-
-                            <motion.h1
-                                className={"fieldLabel"}
-                                initial={slideInVariant.hidden}
-                                animate={slideInVariant.visible}
-                            >
-                                Work Timer
-                            </motion.h1>
-
-                            <Typography variant="body2" className={"dateDisplay"}>
-                                {new Date().toLocaleDateString()}
-                            </Typography>
-
-                        </Box>
-                        <motion.div
-                            initial={fadeInVariant.hidden}
-                            whileInView={fadeInVariant.visible}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                        >
-                            <Timer />
-                        </motion.div>
-                    </Styled.Field>
 
                     <Styled.Field>
 

@@ -6,7 +6,7 @@ import Button from "../../../../components/Button";
 import getRandomHexColor from "../../../../utils/Color";
 import ProgressBar from "../../../../components/ProgressBar";
 import { BriefcaseBusiness, ChartNoAxesCombined, Clock, SquareChartGantt, SquareCheckBig, Users } from "lucide-react";
-import CustomChip from "../../../../components/Chip";
+import { ActivityCard } from "../../../../components/ActivityCard";
 
 export const DashboardContent = () => {
 
@@ -260,28 +260,14 @@ export const DashboardUserContent = () => {
 
                             {tasks.map((task) => (
 
-                                <Stack
-                                    direction={"row"}
-                                    sx={{
-                                        height: 60,
-                                        justifyContent: "space-between",
-                                        alignItems: "center",
-                                        bgcolor: "#F9FAFB",
-                                        paddingInline: 2,
-                                        borderRadius: 2
-                                    }}
-                                >
-                                    <Stack direction={"row"} gap={2} alignItems={"center"}>
-                                        <Box sx={{ width: 8, height: 40, borderRadius: 8 }} bgcolor={task.color} />
-                                        <Box>
-                                            <Typography variant="h6" sx={{ fontWeight: 600 }}>{task.title}</Typography>
-                                            <Typography variant="subtitle1" color="text.secondary">{task.position}• Due {task.date}</Typography>
-                                        </Box>
-                                    </Stack>
-
-                                    <CustomChip type={task.status} />
-
-                                </Stack>
+                                <ActivityCard
+                                    title={task.title}
+                                    date={task.date}
+                                    type={"Task"}
+                                    color={task.color}
+                                    position={task.position}
+                                    status={task.status}
+                                />
 
                             ))}
 
@@ -300,28 +286,13 @@ export const DashboardUserContent = () => {
 
                             ].map((task) => (
 
-                                <Stack
-                                    direction={"row"}
-                                    sx={{
-                                        height: 60,
-                                        justifyContent: "space-between",
-                                        alignItems: "center",
-                                        bgcolor: "#F9FAFB",
-                                        paddingInline: 2,
-                                        borderRadius: 2
-                                    }}
-                                >
-                                    <Box>
-                                        <Typography variant="h6" sx={{ fontWeight: 600 }}>{task.title}</Typography>
-                                        <Typography variant="subtitle1" color="text.secondary">{task.date} • {task.qtdTask} task</Typography>
-                                    </Box>
-
-                                    <Box>
-                                        <Typography variant="h6" sx={{ fontWeight: 600, textAlign: "end" }}>{task.hours} hrs</Typography>
-                                        <Typography variant="subtitle1" color="text.secondary">{8 - task.hours} hrs from target</Typography>
-                                    </Box>
-
-                                </Stack>
+                                <ActivityCard
+                                    title={task.title}
+                                    date={task.date}
+                                    type={"Time"}
+                                    qtdTask={task.qtdTask}
+                                    hours={task.hours}
+                                />
 
                             ))}
 

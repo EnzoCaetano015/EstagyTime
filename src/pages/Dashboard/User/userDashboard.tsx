@@ -3,6 +3,7 @@ import Container from "../../../components/Container";
 import { MenuDashboard, Sidebar } from "../../../components/MenuDashboard";
 import { useState } from "react";
 import { DashboardUserContent } from "../Options/DashboardOption";
+import { TimeTracking } from "../Options/TimeTracking";
 
 
 export default function UserDashboard() {
@@ -14,7 +15,7 @@ export default function UserDashboard() {
     const renderContent = () => {
         switch (currentScreen) {
             case "Dashboard": return <DashboardUserContent />;
-            case "Time Tracking": return <TimeTracking />;
+            case "Time Tracking": return <TimeTracking open={open} />;
             case "Tasks": return <Tasks />;
             case "website": return <Proj1 />;
             case "mobile": return <Proj2 />;
@@ -59,11 +60,6 @@ export default function UserDashboard() {
 
 
 
-export const TimeTracking = () => {
-    return (
-        <>helloo2</>
-    )
-}
 export const Tasks = () => {
     return (
         <>helloo3</>

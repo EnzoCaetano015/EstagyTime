@@ -1,11 +1,9 @@
-import { styled } from "@mui/material"
+import { Stack, styled } from "@mui/material"
 
-export const Timer = styled("div")(() => ({
-    backgroundColor: "#fff",
+export const Timer = styled(Stack)(() => ({
+    backgroundColor: "transparent",
     padding: "1.5rem",
     borderRadius: "0.5rem",
-    border: "1px solid #cccdcf",
-    boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
 
     ".timerDisplay": {
         textAlign: "center",
@@ -20,13 +18,13 @@ export const Timer = styled("div")(() => ({
         display: "Flex",
         justifyContent: "center",
         alignItems: "center",
-        width: "120px",
+        width: "200px",
         height: "30px",
         border: "none",
         borderRadius: "4px",
         cursor: "pointer",
         fontSize: "14px",
-        gap: "5px",
+        gap: "8px",
     },
 
 }))

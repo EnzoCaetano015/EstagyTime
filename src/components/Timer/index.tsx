@@ -4,14 +4,16 @@ import {
     Pause,
     Square,
 } from "lucide-react";
-import { Box, ButtonBase, Stack } from "@mui/material";
+import { Box, ButtonBase, Stack, Typography } from "@mui/material";
 import * as Styled from "./timer.styled"
+import { getDataAtual } from "../../utils/Data";
 
 const Timer = () => {
 
     const [timerState, setTimerState] = useState("idle");
     const [time, setTime] = useState(0);
     const intervalRef = useRef(0);
+    const data = getDataAtual()
 
     const formatTime = (totalSeconds: number) => {
         const hours = Math.floor(totalSeconds / 3600);
@@ -48,9 +50,10 @@ const Timer = () => {
 
             <Box className={"timerDisplay"}>
                 {timerState === "idle" ? "00 : 00 : 00" : formatTime(time)}
+                <Typography>Today: {data} </Typography>
             </Box>
 
-            <Stack sx={{ gap: 1, flexDirection: "row", justifyContent: "center" }}>
+            <Stack sx={{ gap: 1.5, alignItems:"center", justifyContent: "center" }}>
 
                 <ButtonBase
                     className={"timerButton"}

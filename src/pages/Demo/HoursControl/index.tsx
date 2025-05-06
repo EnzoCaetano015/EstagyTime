@@ -25,12 +25,11 @@ export default function HoursControl() {
         label: `${nome} ${new Date().getFullYear()}`
     }));
 
-    // Demo values
     const hoursThisMonth = 142;
     const hoursRemaining = 38;
     const monthlyProgress = (hoursThisMonth / 180) * 100;
 
-    const currentHours = 178; // this could come from state, props, etc.
+    const currentHours = 178; 
     const targetHours = 180;
 
     return (
@@ -57,7 +56,7 @@ export default function HoursControl() {
 
                 <CardContent className={"cardContent"}>
 
-                    <Styled.GraficBox sx={{gridTemplateColumns: "1fr 1fr",}}>
+                    <Styled.GraficBox sx={{ gridTemplateColumns: "1fr 1fr", }}>
 
                         <Card
                             component={motion.div}
@@ -222,7 +221,7 @@ export default function HoursControl() {
                                         title="Current Pace"
                                         info="178 hrs"
                                         description={currentHours < targetHours ? "2 hrs short" : "On target"}
-                                        typeCard="current"
+                                        typeCard="current" children={undefined}
                                     />
 
                                 </motion.div>
@@ -237,7 +236,7 @@ export default function HoursControl() {
                                         title="Daily Average"
                                         info="7.1 hrs"
                                         description="Need 7.2 hrs/day"
-                                        typeCard="daily"
+                                        typeCard="daily" children={undefined}
                                     />
 
                                 </motion.div >
@@ -252,14 +251,14 @@ export default function HoursControl() {
                                         title="Completion Date"
                                         info="June 29"
                                         description="1 day early"
-                                        typeCard="completed"
+                                        typeCard="completed" children={undefined}
                                     />
 
                                 </motion.div >
 
                             </Box>
 
-                            <Stack sx={{ borderTop: "1px solid #e5e7eb;", paddingBlock: 2}}>
+                            <Stack sx={{ borderTop: "1px solid #e5e7eb;", paddingBlock: 2 }}>
 
                                 <Stack className={"projectionProgressHeader"}>
 
