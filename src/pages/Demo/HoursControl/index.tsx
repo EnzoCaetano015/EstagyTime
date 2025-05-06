@@ -77,6 +77,7 @@ export default function HoursControl() {
                                     initialValue="Janeiro 2025"
                                     label={monthOptions[0].value}
                                     options={monthOptions}
+                                    sx={{ height: 35 }}
                                 />
 
                             </Stack>

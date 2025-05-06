@@ -227,6 +227,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                         initialValue="Janeiro 2025"
                                         label={monthOptions[0].value}
                                         options={monthOptions}
+                                        sx={{ height: 35 }}
                                     />
 
                                 </Stack>
