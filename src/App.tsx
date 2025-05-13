@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Rotas from "./Routes/Routes";
+import Rotas from './Routes/Routes';
 
 const theme = createTheme({
   typography: {

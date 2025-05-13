@@ -9,7 +9,7 @@ interface InfoCardProps extends StackProps {
     title: string
     info: string
     description: string
-    children: ReactNode
+    children?: ReactNode
     icon?: LucideIcon
 }
 
