@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
-import Container from "../../../components/Container";
-import { MenuDashboard, Sidebar } from "../../../components/MenuDashboard";
+import Container from "../../components/Container";
+import { MenuDashboard, Sidebar } from "../../components/MenuDashboard";
 import { useState } from "react";
-import { DashboardContent } from "../Options/DashboardOption";
-import { Collaborators } from "../Options/CollaboratorsOption";
-import { Projects } from "../Options/ProjectsOption";
-import { Settings } from "../Options/SettingsOption";
+import { DashboardUserContent } from "./Options/DashboardOption";
+import { TimeTracking } from "./Options/TimeTracking";
+import { TaskOption } from "./Options/TaskOption";
+import { UserProjects } from "./Options/ProjectsOption";
 
-export default function AdminDashboard() {
+
+export default function UserDashboard() {
 
     const [open, setOpen] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,11 +16,13 @@ export default function AdminDashboard() {
 
     const renderContent = () => {
         switch (currentScreen) {
-            case "Dashboard": return <DashboardContent />;
-            case "Collaborators": return <Collaborators />;
-            case "Projects": return <Projects open={open} />;
-            case "Settings": return <Settings />;
-            default: return <DashboardContent />;
+            case "Dashboard": return <DashboardUserContent />;
+            case "Time Tracking": return <TimeTracking open={open} />;
+            case "Tasks": return <TaskOption />;
+            case "website": return <UserProjects />;
+            // case "mobile": return <Proj2 />;
+            // case "crm": return <Proj3 />;
+            default: return <DashboardUserContent />;
         }
     };
 
@@ -28,7 +31,7 @@ export default function AdminDashboard() {
 
             <Sidebar
                 open={open}
-                type={false}
+                type={true}
                 setCurrentScreen={setCurrentScreen}
                 mobileOpen={mobileOpen}
                 onCloseMobile={() => setMobileOpen(false)}
@@ -45,7 +48,7 @@ export default function AdminDashboard() {
             >
                 <MenuDashboard
                     setOpen={setOpen}
-                    type={false}
+                    type={true}
                     setMobileOpen={setMobileOpen}
                 />
             </Box>
@@ -58,4 +61,10 @@ export default function AdminDashboard() {
 }
 
 
+
+export const Proj1 = () => {
+    return (
+        <>helloo5</>
+    )
+}
 

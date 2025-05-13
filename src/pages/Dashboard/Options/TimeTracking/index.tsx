@@ -307,7 +307,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
                                             </Box>
 
-                                            <ProgressBar value={(item.hours / 8) * 90} sx={{ width: 200 }} />
+                                            <ProgressBar value={(item.hours / 8) * 90} sx={{ width: 350 }} />
 
                                             <Typography variant="body2">
                                                 {item.hours} hrs

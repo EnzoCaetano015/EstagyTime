@@ -1,12 +1,13 @@
 import { Box } from "@mui/material";
-import Container from "../../../components/Container";
-import { MenuDashboard, Sidebar } from "../../../components/MenuDashboard";
+import Container from "../../components/Container";
+import { MenuDashboard, Sidebar } from "../../components/MenuDashboard";
 import { useState } from "react";
-import { DashboardUserContent } from "../Options/DashboardOption";
-import { TimeTracking } from "../Options/TimeTracking";
+import { DashboardContent } from "./Options/DashboardOption";
+import { Collaborators } from "./Options/CollaboratorsOption";
+import { AdminProjects } from "./Options/ProjectsOption";
+import { Settings } from "./Options/SettingsOption";
 
-
-export default function UserDashboard() {
+export default function AdminDashboard() {
 
     const [open, setOpen] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -14,13 +15,11 @@ export default function UserDashboard() {
 
     const renderContent = () => {
         switch (currentScreen) {
-            case "Dashboard": return <DashboardUserContent />;
-            case "Time Tracking": return <TimeTracking open={open} />;
-            case "Tasks": return <Tasks />;
-            case "website": return <Proj1 />;
-            case "mobile": return <Proj2 />;
-            case "crm": return <Proj3 />;
-            default: return <DashboardUserContent />;
+            case "Dashboard": return <DashboardContent />;
+            case "Collaborators": return <Collaborators />;
+            case "Projects": return <AdminProjects open={open} />;
+            case "Settings": return <Settings />;
+            default: return <DashboardContent />;
         }
     };
 
@@ -29,7 +28,7 @@ export default function UserDashboard() {
 
             <Sidebar
                 open={open}
-                type={true}
+                type={false}
                 setCurrentScreen={setCurrentScreen}
                 mobileOpen={mobileOpen}
                 onCloseMobile={() => setMobileOpen(false)}
@@ -46,7 +45,7 @@ export default function UserDashboard() {
             >
                 <MenuDashboard
                     setOpen={setOpen}
-                    type={true}
+                    type={false}
                     setMobileOpen={setMobileOpen}
                 />
             </Box>
@@ -60,23 +59,3 @@ export default function UserDashboard() {
 
 
 
-export const Tasks = () => {
-    return (
-        <>helloo3</>
-    )
-}
-export const Proj1 = () => {
-    return (
-        <>helloo5</>
-    )
-}
-export const Proj2 = () => {
-    return (
-        <>helloo20</>
-    )
-}
-export const Proj3 = () => {
-    return (
-        <>helloo50</>
-    )
-}

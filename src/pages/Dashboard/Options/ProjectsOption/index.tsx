@@ -1,12 +1,15 @@
 import { CardContent, Stack, Typography, Box, Card, Chip } from "@mui/material"
 import * as Styled from "./projectOptions.styled"
 import Button from "../../../../components/Button"
-import { Plus } from "lucide-react"
+import { Ellipsis, Plus } from "lucide-react"
 import ProgressBar from "../../../../components/ProgressBar"
 import { OptionsProps } from "../interface"
+import InfoCard from "../../../../components/InfoCard"
+import { ActivityCard } from "../../../../components/ActivityCard"
+import CustomIconButton from "../../../../components/IconButton"
 
 
-export const Projects = ({ open }: OptionsProps) => {
+export const AdminProjects = ({ open }: OptionsProps) => {
     return (
         <>
             <Styled.ProjectWrapper>
@@ -97,6 +100,162 @@ export const Projects = ({ open }: OptionsProps) => {
                 </CardContent>
 
             </Styled.ProjectWrapper>
+        </>
+    )
+}
+
+export const UserProjects = () => {
+
+    const tasks = [
+        { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
+        { color: "red", title: "Implement User Authentication", position: "Development ", date: "2023-07-10", status: "Completed" },
+        { color: "#10B981", title: "Database Schema Design", position: "Development ", date: "2023-07-20", status: "Not Started" },
+    ] as const;
+
+    return (
+        <>
+            <Styled.UserProjectsWrapper sx={{ mb: 3 }}>
+                <CardContent>
+
+                    <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+
+                        <Box>
+
+                            <Typography variant="h4" sx={{ fontWeight: 600 }}>Nome do Projeto</Typography>
+                            <Typography variant="subtitle1" color="text.secondary" mb={2}>Project overview and progress</Typography>
+
+                        </Box>
+
+                        <Stack direction={"row"} gap={1}>
+                            <Button
+                                label={"Edit Project"}
+                                onClick={() => { }}
+                                buttonStyle={"Black"}
+                                sx={{ paddingInline: 3.5, height: 30 }}
+                            />
+
+                            <Button
+                                icon={<Plus size={15} />}
+                                iconPosition="right"
+                                label={"Add Task"}
+                                onClick={() => { }}
+                                buttonStyle={"Purple"}
+                                sx={{ paddingInline: 3, height: 30 }}
+                            />
+                        </Stack>
+                    </Stack>
+
+                    <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
+
+                        <InfoCard
+                            typeCard={"daily"}
+                            title={"Tasks"}
+                            info={"24"}
+                            description={"18 of 24 completed"}
+                            children={
+                                <ProgressBar
+                                    neutral={true}
+                                    value={24}
+                                    sx={{
+                                        '&.MuiLinearProgress-root': {
+                                            backgroundColor: "#fff"
+                                        },
+
+                                    }}
+                                />
+                            }
+                        />
+
+                        <InfoCard
+                            typeCard={"daily"}
+                            title={"Progress"}
+                            info={"75%"}
+                            description={"25% remaining"}
+                            children={
+                                <ProgressBar
+                                    neutral={true}
+                                    value={75}
+                                    sx={{
+                                        '&.MuiLinearProgress-root': {
+                                            backgroundColor: "#fff"
+                                        },
+
+                                    }}
+                                />
+                            }
+                        />
+
+                        <InfoCard
+                            typeCard={"daily"}
+                            title={"Time Spent"}
+                            info={"65 hrs"}
+                            description={"+5 hrs from estimate"}
+                            children={
+                                <ProgressBar
+                                    neutral={true}
+                                    value={30}
+                                    sx={{
+                                        '&.MuiLinearProgress-root': {
+                                            backgroundColor: "#fff"
+                                        },
+
+                                    }}
+                                />
+                            }
+                        />
+
+                    </Box>
+                </CardContent>
+            </Styled.UserProjectsWrapper>
+
+            <Styled.UserProjectsWrapper>
+
+                <CardContent>
+
+                    <Box>
+
+                        <Typography variant="h4" sx={{ fontWeight: 600 }}>Project Tasks</Typography>
+                        <Typography variant="subtitle1" color="text.secondary" mb={2}>Tasks for Project Name</Typography>
+
+                    </Box>
+
+                    <Stack gap={1}>
+
+                        {tasks.map((task) => (
+
+                            <Stack direction={"row"} bgcolor={"#F9FAFB"} gap={2}>
+
+                                <Box sx={{
+                                    width: "100%"
+                                }}>
+                                    <ActivityCard
+                                        title={task.title}
+                                        date={task.date}
+                                        type={"Task"}
+                                        color={task.color}
+                                        position={task.position}
+                                        status={task.status}
+                                    />
+                                </Box>
+
+                                <CustomIconButton
+                                    icon={Ellipsis}
+                                    options={[
+                                        { label: "Edit Task", onClick: () => alert('Edit') },
+                                        { label: "Change Status", onClick: () => alert('Change Statu') },
+                                        { label: "Delete Task", onClick: () => alert("delete"), isDanger: true }
+                                    ]}
+                                />
+
+                            </Stack>
+
+                        ))}
+
+                    </Stack>
+
+                </CardContent>
+
+            </Styled.UserProjectsWrapper>
         </>
     )
 }
