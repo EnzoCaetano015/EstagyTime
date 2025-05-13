@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Splash from "../Pages/SplashScreen";
-import Home from "../Pages/Home/Home";
-import LearnMore from "../Pages/LearnMore/LearnMore";
-import Demo from "../Pages/Demo/Demo";
-import AuthPage from "../Pages/Auth/AuthPage";
+import Splash from "../pages/SplashScreen";
+import Home from "../pages/Home/Home";
+import LearnMore from "../pages/LearnMore/LearnMore";
+import Demo from "../pages/Demo/Demo";
+import AuthPage from "../pages/Auth/AuthPage";
 import ScrollToTop from "../Hook/Scroll";
-import CompanySelection from "../Pages/CompanySelection/CompanySelection";
-import UserDashboard from "../Pages/Dashboard/userDashboard";
-import AdminDashboard from "../Pages/Dashboard/adminDashboard";
+import CompanySelection from "../pages/CompanySelection/CompanySelection";
+import UserDashboard from "../pages/Dashboard/userDashboard";
+import AdminDashboard from "../pages/Dashboard/adminDashboard";
 
 
 function Rotas() {
