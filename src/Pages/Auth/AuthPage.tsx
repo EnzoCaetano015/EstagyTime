@@ -13,7 +13,7 @@ import Login from "./Login";
 import Cadastro from "./Cadastro";
 import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
-import * as Styled from "./authPage.styled"
+import * as Styled from "./AuthPage.styled"
 import { BigTitle } from "../../components/Text";
 
 
