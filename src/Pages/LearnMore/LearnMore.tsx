@@ -20,7 +20,7 @@ import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 import Container from "../../components/Container";
 
-import * as Styled from "./learnMore.styled"
+import * as Styled from "./LearnMore.styled"
 import { BigTitle } from "../../components/Text";
 
 

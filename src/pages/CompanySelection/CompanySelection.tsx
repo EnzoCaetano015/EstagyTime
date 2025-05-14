@@ -11,7 +11,7 @@ import { Building, ChevronRight, Clock, Dot, Info, Plus, Users } from "lucide-re
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import { useState } from "react";
-import * as Styled from "./companySelection.styled"
+import * as Styled from "./CompanySelection.styled"
 import { useNavigate } from "react-router-dom";
 
 export default function CompanySelection() {

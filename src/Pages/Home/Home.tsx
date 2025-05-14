@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
 import { Box, Stack, Typography } from "@mui/material";
 import Footer from "../../components/Footer";
-import * as Styled from "./home.styled"
+import * as Styled from "./Home.styled"
 import { Title } from "../../components/Text";
 
 export default function Home() {

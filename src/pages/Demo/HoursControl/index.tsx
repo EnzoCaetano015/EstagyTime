@@ -3,7 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
-import { DemoCard as StyledCard } from "../demo.styled"
+import { DemoCard as StyledCard } from "../Demo.styled"
 import * as Styled from "./hoursControl.styled"
 import { Box, Card, Stack } from "@mui/material";
 import CustomSelect from "../../../components/Select";
@@ -29,7 +29,7 @@ export default function HoursControl() {
     const hoursRemaining = 38;
     const monthlyProgress = (hoursThisMonth / 180) * 100;
 
-    const currentHours = 178; 
+    const currentHours = 178;
     const targetHours = 180;
 
     return (

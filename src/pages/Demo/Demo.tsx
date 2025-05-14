@@ -11,7 +11,7 @@ import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion
 import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
 import { Typography } from "@mui/material";
-import * as Styled from "./demo.styled"
+import * as Styled from "./Demo.styled"
 
 export default function DemoPage() {
 

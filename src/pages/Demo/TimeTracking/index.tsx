@@ -16,7 +16,7 @@ import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
 import { motion } from "framer-motion";
 import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
 
-import { DemoCard as StyledCard } from "../demo.styled"
+import { DemoCard as StyledCard } from "../Demo.styled"
 import * as Styled from "./timeTrack.styled"
 import { Box, Stack } from "@mui/material";
 import CustomSelect from "../../../components/Select";

@@ -2,7 +2,7 @@ import Typography from "@mui/material/Typography";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { motion } from "framer-motion";
 import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
-import { DemoCard as StyledCard } from "../demo.styled"
+import { DemoCard as StyledCard } from "../Demo.styled"
 import * as Styled from "./dashboard.styled"
 import { Box, Card, Stack } from "@mui/material";
 import CustomSelect from "../../../components/Select";
