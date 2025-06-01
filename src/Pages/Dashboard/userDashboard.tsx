@@ -1,30 +1,32 @@
 import { Box } from "@mui/material";
 import Container from "../../components/Container";
 import { MenuDashboard, Sidebar } from "../../components/MenuDashboard";
-import { useState } from "react";
 import { DashboardUserContent } from "./Options/DashboardOption";
 import { TimeTracking } from "./Options/TimeTracking";
 import { TaskOption } from "./Options/TaskOption";
 import { UserProjects } from "./Options/ProjectsOption";
+import { useDashboard } from "./dahsboard.hook";
 
+type UserScreens = "Dashboard" | "Time Tracking" | "Tasks" | "website";
 
 export default function UserDashboard() {
 
-    const [open, setOpen] = useState(true);
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [currentScreen, setCurrentScreen] = useState("Dashboard");
-
-    const renderContent = () => {
-        switch (currentScreen) {
-            case "Dashboard": return <DashboardUserContent />;
-            case "Time Tracking": return <TimeTracking open={open} />;
-            case "Tasks": return <TaskOption />;
-            case "website": return <UserProjects />;
-            // case "mobile": return <Proj2 />;
-            // case "crm": return <Proj3 />;
-            default: return <DashboardUserContent />;
-        }
-    };
+    const {
+        open,
+        setOpen,
+        mobileOpen,
+        setMobileOpen,
+        setCurrentScreen,
+        renderContent,
+    } = useDashboard<UserScreens>({
+        initialScreen: "Dashboard",
+        renderMap: {
+            Dashboard: <DashboardUserContent />,
+            "Time Tracking": <TimeTracking open={true} />,
+            Tasks: <TaskOption />,
+            website: <UserProjects />,
+        },
+    });
 
     return (
         <Container>
@@ -59,12 +61,3 @@ export default function UserDashboard() {
         </Container>
     )
 }
-
-
-
-export const Proj1 = () => {
-    return (
-        <>helloo5</>
-    )
-}
-

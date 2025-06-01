@@ -1,4 +1,3 @@
-// MUI Components
 import {
     Box,
     Stack,
@@ -6,7 +5,6 @@ import {
 } from "@mui/material";
 
 import Header from "../../components/Header";
-import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui";
 import { fadeUpVariant } from "../../utils/Motion";
 import { motion } from "framer-motion";
 import Login from "./Login";
@@ -15,11 +13,12 @@ import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
 import * as Styled from "./AuthPage.styled"
 import { BigTitle } from "../../components/Text";
+import { useAuthPage } from "./AuthPage.hook";
 
 
 export default function AuthPage() {
 
-    const customStyles = useCustomSelectStyles();
+      const { customStyles } = useAuthPage();
 
     return (
         <Container>

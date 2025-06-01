@@ -1,27 +1,32 @@
 import { Box } from "@mui/material";
 import Container from "../../components/Container";
 import { MenuDashboard, Sidebar } from "../../components/MenuDashboard";
-import { useState } from "react";
+import { useDashboard } from "./dahsboard.hook";
 import { DashboardContent } from "./Options/DashboardOption";
 import { Collaborators } from "./Options/CollaboratorsOption";
 import { AdminProjects } from "./Options/ProjectsOption";
 import { Settings } from "./Options/SettingsOption";
 
+type AdminScreens = "Dashboard" | "Collaborators" | "Projects" | "Settings";
+
 export default function AdminDashboard() {
 
-    const [open, setOpen] = useState(true);
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [currentScreen, setCurrentScreen] = useState("Dashboard");
-
-    const renderContent = () => {
-        switch (currentScreen) {
-            case "Dashboard": return <DashboardContent />;
-            case "Collaborators": return <Collaborators />;
-            case "Projects": return <AdminProjects open={open} />;
-            case "Settings": return <Settings />;
-            default: return <DashboardContent />;
-        }
-    };
+    const {
+        open,
+        setOpen,
+        mobileOpen,
+        setMobileOpen,
+        setCurrentScreen,
+        renderContent,
+    } = useDashboard<AdminScreens>({
+        initialScreen: "Dashboard",
+        renderMap: {
+            Dashboard: <DashboardContent />,
+            Collaborators: <Collaborators />,
+            Projects: <AdminProjects open={true} />,
+            Settings: <Settings />,
+        },
+    });
 
     return (
         <Container>

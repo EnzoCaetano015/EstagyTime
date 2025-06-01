@@ -4,16 +4,16 @@ import TickingClock from "../../Hook/TickingClock"
 import { motion } from "framer-motion";
 import { fadeInVariant, fadeUpVariant, slideInVariant, sobeDesceVariant } from "../../utils/Motion";
 import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
 import { Box, Stack, Typography } from "@mui/material";
 import Footer from "../../components/Footer";
 import * as Styled from "./Home.styled"
 import { Title } from "../../components/Text";
+import { useHome } from "./Home.hook";
 
 export default function Home() {
 
-    const navigate = useNavigate()
+    const { navigate } = useHome()
 
     return (
         <>
@@ -55,7 +55,7 @@ export default function Home() {
                             whileInView={fadeInVariant.visible}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                            sx={{ flexDirection: "row", gap: 2,}}
+                            sx={{ flexDirection: "row", gap: 2, }}
                         >
                             <Button
                                 label={"Get Started"}

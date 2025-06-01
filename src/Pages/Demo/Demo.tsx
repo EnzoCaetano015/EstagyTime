@@ -1,9 +1,5 @@
-
 import { motion } from "framer-motion";
-
 import Header from "../../components/Header";
-import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui"
-
 import TimeTracking from "./TimeTracking/index";
 import HoursControl from "./HoursControl/index";
 import Dashboard from "./Dashboard/index";
@@ -12,11 +8,12 @@ import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
 import { Typography } from "@mui/material";
 import * as Styled from "./Demo.styled"
+import { useDemoPage } from "./Demo.hook";
 
 export default function DemoPage() {
 
-    const customStyles = useCustomSelectStyles();
-
+    const { customStyles } = useDemoPage();
+    
     return (
         <Container>
 

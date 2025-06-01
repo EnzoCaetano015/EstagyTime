@@ -1,23 +1,11 @@
-import { useEffect } from "react"
 import Container from "../../components/Container"
 import Loading from "../../components/Loading"
-import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
+import { useSplashRedirect } from "./splashscreen.hook";
 
 export default function Splash() {
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-
-    const timer = setTimeout(() => {
-      navigate("/Home");
-    }, 2000);
-
-
-    return () => clearTimeout(timer);
-  }, [navigate]);
-
+  useSplashRedirect();
 
   return (
     <>

@@ -7,15 +7,13 @@ import {
     Stack,
 } from "@mui/material";
 
-import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
 import Button from "../../../components/Button";
 import PasswordField from "../../../components/Fields/PassWord";
-import { useNavigate } from "react-router-dom";
+import { useLogin } from "./login.hook";
 
 export default function Login() {
 
-    const customStyles = useCustomSelectStyles();
-    const navigate = useNavigate()
+    const { navigate, customStyles } = useLogin()
 
     return (
         <Stack mt={2}>

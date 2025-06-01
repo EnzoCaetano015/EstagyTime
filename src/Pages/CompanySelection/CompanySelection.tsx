@@ -1,73 +1,28 @@
-import { Box, Stack, Switch, SxProps, TextField, Typography } from "@mui/material";
+import { Box, Stack, Switch, TextField, Typography } from "@mui/material";
 import { motion } from "framer-motion"
 import Container from "../../components/Container";
 import Header from "../../components/Header";
 import { fadeUpVariant, slideInVariant } from "../../utils/Motion";
 import { BigTitle } from "../../components/Text";
 import CustomTabs from "../../components/Tab";
-import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui";
 import CardCompanySelection from "./CardCompanySelection";
-import { Building, ChevronRight, Clock, Dot, Info, Plus, Users } from "lucide-react";
+import { Building, ChevronRight, Dot, Info, Plus, Users } from "lucide-react";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
-import { useState } from "react";
 import * as Styled from "./CompanySelection.styled"
-import { useNavigate } from "react-router-dom";
+import { useCompanySelection } from "./CompanySelection.hook";
 
 export default function CompanySelection() {
 
-    const cardConfig: Record<
-        typeof activeTab,
-        {
-            textlist: string;
-            iconList: React.ReactNode;
-            listTopic: string[];
-            sx: SxProps;
-        }
-    > = {
-        enter: {
-            textlist: "Collaborator Access",
-            iconList: <Clock size={18} />,
-            listTopic: [
-                "Track your work hours",
-                "Manage your assigned tasks",
-                "View your performance metrics",
-                "Access projects you're part of",
-            ],
-            sx: { bgcolor: "#EFF6FF", border: "0.5px #738CD9 solid", color: "#4E63D9", },
-        },
-        myCompany: {
-            textlist: "Administrator Access",
-            iconList: <Building size={18} />,
-            listTopic: [
-                "View company-wide metrics and reports",
-                "Manage all collaborators and their access",
-                "Track time and performance across the organization",
-                "Create and assign projects and tasks",
-            ],
-            sx: { bgcolor: "#FAF5FF", border: "0.5px #A36CD9 solid", color: "#8D41D9" },
-        },
-        create: {
-            textlist: "Create Your Own Company",
-            iconList: <Plus size={18} />,
-            listTopic: [
-                "Set up your organization structure",
-                "Invite and manage collaborators",
-                "Create projects and assign tasks",
-                "Track time and performance across your organization",
-                "Generate reports and analytics",
-            ],
-            sx: { bgcolor: "#F1FDF4", border: "0.5px #68A672 solid", color: "#3E8C49" },
-        },
-    };
-
-    const [activeTab, setActiveTab] = useState<string>("enter");
-
-    const { textlist, iconList, listTopic, sx } = cardConfig[activeTab];
-
-    const customStyles = useCustomSelectStyles();
-
-    const navigate = useNavigate()
+    const {
+        activeTab,
+        setActiveTab,
+        textlist,
+        listTopic,
+        sx,
+        customStyles,
+        navigate,
+    } = useCompanySelection();
 
     return (
         <Container>
@@ -231,7 +186,7 @@ export default function CompanySelection() {
                             text={""}
                             isList={true}
                             textlist={textlist}
-                            iconList={iconList}
+                            iconList={<></>}
                             listIcon={<Dot size={20} strokeWidth={5} />}
                             listTopic={listTopic}
                             sx={sx}

@@ -7,15 +7,13 @@ import {
     Stack,
 } from "@mui/material";
 
-import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
 import Button from "../../../components/Button";
 import PasswordField from "../../../components/Fields/PassWord";
-import { useNavigate } from "react-router-dom";
+import { useCadastro } from "./cadastro.hook";
 
 export default function Cadastro() {
 
-    const customStyles = useCustomSelectStyles();
-    const navigate = useNavigate()
+    const { navigate, customStyles } = useCadastro()
 
     return (
         <Stack mt={2}>
