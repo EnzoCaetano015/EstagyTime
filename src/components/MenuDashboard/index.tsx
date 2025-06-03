@@ -2,7 +2,7 @@ import { Stack, TextField, Typography, InputAdornment, Button, Box, Divider, Lis
 import { slideInVariant } from "../../utils/Motion"
 import * as Styled from "./menuDashboard.styled"
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui"
-import { Bell, PanelLeft, SearchIcon, Clock, ClipboardList, Folder, Building, BarChart3, Briefcase, Users, Settings, Ellipsis, LogOut, User } from "lucide-react"
+import { Bell, PanelLeft, SearchIcon, Clock, ClipboardList, Folder, Building, BarChart3, Briefcase, Users, Settings, Ellipsis, LogOut } from "lucide-react"
 import TickingClock from "../../Hook/TickingClock"
 import CustomIconButton from "../IconButton"
 import { useNavigate } from "react-router-dom"
@@ -161,7 +161,7 @@ export const Sidebar = ({ open, type, setCurrentScreen, mobileOpen, onCloseMobil
                     </>
                 )}
             </Box>
-            
+
             <Box sx={{ p: 2 }} className="footerSideBar">
 
                 <Divider />
@@ -184,12 +184,13 @@ export const Sidebar = ({ open, type, setCurrentScreen, mobileOpen, onCloseMobil
                         options={
                             type
                                 ? [
-                                    { icon: <User size={15} />, label: "Profile", onClick: () => alert('profile') },
                                     { icon: <Settings size={15} />, label: "Settings", onClick: () => alert('settings') },
                                     { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/CompanySelection"), isDanger: true }
                                 ]
                                 : [
-                                    { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/CompanySelection"), isDanger: true }
+                                    { icon: <Settings size={15} />, label: "Settings", onClick: () => alert('settings') },
+                                    { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/CompanySelection"), isDanger: true },
+
                                 ]
                         }
                     />

@@ -6,14 +6,15 @@ import { TimeTracking } from "./Options/TimeTracking";
 import { TaskOption } from "./Options/TaskOption";
 import { UserProjects } from "./Options/ProjectsOption";
 import { useDashboard } from "./dahsboard.hook";
+import { useState } from "react";
 
 type UserScreens = "Dashboard" | "Time Tracking" | "Tasks" | "website";
 
 export default function UserDashboard() {
 
+    const [open, setOpen] = useState(true);
+
     const {
-        open,
-        setOpen,
         mobileOpen,
         setMobileOpen,
         setCurrentScreen,
@@ -21,8 +22,8 @@ export default function UserDashboard() {
     } = useDashboard<UserScreens>({
         initialScreen: "Dashboard",
         renderMap: {
-            Dashboard: <DashboardUserContent />,
-            "Time Tracking": <TimeTracking open={true} />,
+            Dashboard: <DashboardUserContent open={open} />,
+            "Time Tracking": <TimeTracking open={open} />,
             Tasks: <TaskOption />,
             website: <UserProjects />,
         },
@@ -55,7 +56,7 @@ export default function UserDashboard() {
                 />
             </Box>
 
-            <Box sx={{ marginInline: open ? 35 : 10, marginBlock: 3 }}>
+            <Box sx={{ mr: 5, ml: open ? 35 : 5, marginBlock: 3, }}>
                 {renderContent()}
             </Box>
         </Container>

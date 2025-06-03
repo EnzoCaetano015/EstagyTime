@@ -5,8 +5,19 @@ import { Ellipsis, Filter, Plus } from "lucide-react"
 import CustomSelect from "../../../../components/Select"
 import { ActivityCard } from "../../../../components/ActivityCard"
 import CustomIconButton from "../../../../components/IconButton"
+import { TaskDrawer } from "./Drawer/drawer"
+import { useTaskDrawer } from "./Drawer/drawer.hook"
 
 export const TaskOption = () => {
+
+    const {
+        open,
+        modo,
+        openAdicionar,
+        openEditar,
+        handleClose,
+        handleSave,
+    } = useTaskDrawer();
 
     const tasks = [
         { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
@@ -49,7 +60,7 @@ export const TaskOption = () => {
                                 icon={<Plus size={15} />}
                                 iconPosition="right"
                                 label={"New Task"}
-                                onClick={() => { }}
+                                onClick={openAdicionar}
                                 buttonStyle={"Purple"}
                                 sx={{ paddingInline: 3, height: 30 }}
                             />
@@ -109,7 +120,7 @@ export const TaskOption = () => {
                 <CardContent>
 
                     <Stack gap={1}>
-                        
+
                         {tasks.map((task) => (
 
                             <Stack direction={"row"} bgcolor={"#F9FAFB"} gap={2}>
@@ -130,8 +141,7 @@ export const TaskOption = () => {
                                 <CustomIconButton
                                     icon={Ellipsis}
                                     options={[
-                                        { label: "Edit Task", onClick: () => alert('Edit') },
-                                        { label: "Change Status", onClick: () => alert('Change Statu') },
+                                        { label: "Edit Task", onClick: openEditar},
                                         { label: "Delete Task", onClick: () => alert("delete"), isDanger: true }
                                     ]}
                                 />
@@ -163,6 +173,12 @@ export const TaskOption = () => {
                 </CardContent>
 
             </Styled.TaskRWrapper>
+            <TaskDrawer
+                open={open}
+                modo={modo}
+                onClose={handleClose}
+                onSave={handleSave}
+            />
         </>
     )
 }

@@ -7,9 +7,20 @@ import { OptionsProps } from "../interface"
 import InfoCard from "../../../../components/InfoCard"
 import { ActivityCard } from "../../../../components/ActivityCard"
 import CustomIconButton from "../../../../components/IconButton"
+import { useProjetcsDrawer } from "./Drawer/drawer.hook"
+import { ProjetcsDrawer } from "./Drawer/drawer"
 
 
 export const AdminProjects = ({ open }: OptionsProps) => {
+    const {
+        openD,
+        modo,
+        openAdicionar,
+        openEditar,
+        handleClose,
+        handleSave,
+    } = useProjetcsDrawer();
+
     return (
         <>
             <Styled.ProjectWrapper>
@@ -27,14 +38,14 @@ export const AdminProjects = ({ open }: OptionsProps) => {
                             label={"Create Project"}
                             icon={<Plus size={15} />}
                             iconPosition="right"
-                            onClick={() => alert('create')}
+                            onClick={openAdicionar}
                             buttonStyle={"Purple"}
                             sx={{ paddingInline: 1, height: 30 }}
                         />
 
                     </Stack>
 
-                    <Box sx={{ display: "grid", gridTemplateColumns: open ? "repeat(2, 1fr);" : "repeat(3, 1fr);" }}>
+                    <Styled.ProjectsGrid open={open}>
                         {[
                             { title: "Website Redesign", tasks: 24, tasksCompleted: 18, percentage: 75 },
                             { title: "Mobile App Development", tasks: 36, tasksCompleted: 12, percentage: 33 },
@@ -83,7 +94,7 @@ export const AdminProjects = ({ open }: OptionsProps) => {
                                         />
                                         <Button
                                             label={"Edit Project"}
-                                            onClick={() => alert('edit')}
+                                            onClick={openEditar}
                                             buttonStyle={"Black"}
                                             sx={{ paddingInline: 1, height: 30 }}
                                         />
@@ -95,16 +106,31 @@ export const AdminProjects = ({ open }: OptionsProps) => {
                             </Card>
                         ))}
 
-                    </Box>
+                    </Styled.ProjectsGrid>
 
                 </CardContent>
 
             </Styled.ProjectWrapper>
+            <ProjetcsDrawer
+                openD={openD}
+                modo={modo}
+                onClose={handleClose}
+                onSave={handleSave}
+            />
         </>
     )
 }
 
 export const UserProjects = () => {
+
+    const {
+        openD,
+        modo,
+        openAdicionar,
+        openEditar,
+        handleClose,
+        handleSave,
+    } = useProjetcsDrawer();
 
     const tasks = [
         { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
@@ -126,23 +152,14 @@ export const UserProjects = () => {
 
                         </Box>
 
-                        <Stack direction={"row"} gap={1}>
-                            <Button
-                                label={"Edit Project"}
-                                onClick={() => { }}
-                                buttonStyle={"Black"}
-                                sx={{ paddingInline: 3.5, height: 30 }}
-                            />
-
-                            <Button
-                                icon={<Plus size={15} />}
-                                iconPosition="right"
-                                label={"Add Task"}
-                                onClick={() => { }}
-                                buttonStyle={"Purple"}
-                                sx={{ paddingInline: 3, height: 30 }}
-                            />
-                        </Stack>
+                        <Button
+                            icon={<Plus size={15} />}
+                            iconPosition="right"
+                            label={"Add Task"}
+                            onClick={openAdicionar}
+                            buttonStyle={"Purple"}
+                            sx={{ paddingInline: 3, height: 30 }}
+                        />
                     </Stack>
 
                     <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
@@ -241,8 +258,7 @@ export const UserProjects = () => {
                                 <CustomIconButton
                                     icon={Ellipsis}
                                     options={[
-                                        { label: "Edit Task", onClick: () => alert('Edit') },
-                                        { label: "Change Status", onClick: () => alert('Change Statu') },
+                                        { label: "Edit Task", onClick: openEditar },
                                         { label: "Delete Task", onClick: () => alert("delete"), isDanger: true }
                                     ]}
                                 />
@@ -256,6 +272,12 @@ export const UserProjects = () => {
                 </CardContent>
 
             </Styled.UserProjectsWrapper>
+            <ProjetcsDrawer
+                openD={openD}
+                modo={modo}
+                onClose={handleClose}
+                onSave={handleSave}
+            />
         </>
     )
 }

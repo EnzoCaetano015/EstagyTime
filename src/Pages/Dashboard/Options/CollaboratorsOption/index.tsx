@@ -4,6 +4,9 @@ import Button from "../../../../components/Button"
 import { Download, Ellipsis, Funnel, Plus } from "lucide-react"
 import CustomSelect from "../../../../components/Select"
 import CustomIconButton from "../../../../components/IconButton"
+import { useColaboratorDrawer } from "./Drawer/drawer.hook"
+import { ColaboratorDrawer } from "./Drawer/drawer"
+import { OptionsProps } from "../interface"
 
 const collaborators = [
     {
@@ -68,7 +71,16 @@ const collaborators = [
     }
 ];
 
-export const Collaborators = () => {
+export const Collaborators = ({ open }: OptionsProps) => {
+
+    const {
+        openD,
+        modo,
+        openAdicionar,
+        openEditar,
+        handleClose,
+        handleSave,
+    } = useColaboratorDrawer();
 
     return (
         <>
@@ -76,14 +88,14 @@ export const Collaborators = () => {
 
                 <CardContent>
 
-                    <Stack mb={2}>
+                    <Stack mb={2} direction={"row"}>
 
                         <Box>
                             <Typography variant="h4" fontWeight={600}>Collaborators</Typography>
                             <Typography variant="subtitle1" color="text.secondary">Manage and monitor your team members</Typography>
                         </Box>
 
-                        <Stack gap={1} >
+                        <Stack gap={1} direction={"row"}>
 
                             <Button
                                 label={"Filter"}
@@ -98,16 +110,16 @@ export const Collaborators = () => {
                                 label={"Add Collaborator"}
                                 icon={<Plus size={15} />}
                                 iconPosition="right"
-                                onClick={() => alert('add')}
+                                onClick={openAdicionar}
                                 buttonStyle={"Purple"}
-                                sx={{ paddingInline: 3, height: 30 }}
+                                sx={{ paddingInline: open ? 0.5 : 3, height: 30 }}
                             />
 
                         </Stack>
 
                     </Stack>
 
-                    <Stack gap={3} alignItems={"end"}>
+                    <Stack gap={3} alignItems={"end"} direction={"row"}>
 
                         <Stack gap={1}>
 
@@ -123,7 +135,7 @@ export const Collaborators = () => {
                                     { value: "QA", label: "QA" },
                                     { value: "management", label: "Management" },
                                 ]}
-                                sx={{ width: 250, height: 35 }}
+                                sx={{ width: open ? 150 : 250, height: 35 }}
                             />
 
                             <CustomSelect
@@ -136,14 +148,14 @@ export const Collaborators = () => {
                                     { value: "task", label: "Tasks Completed" },
                                     { value: "eficiency", label: "Eficiency" }
                                 ]}
-                                sx={{ width: 250, height: 35 }}
+                                sx={{ width: open ? 150 : 250, height: 35 }}
                             />
                         </Stack>
 
                         <Box>
                             <Typography sx={{ color: "#6B7280", fontSize: 10.5 }}>Export Data</Typography>
 
-                            <Stack gap={1}>
+                            <Stack gap={1} className="exportBox">
                                 <Button
                                     label={"CSV"}
                                     icon={<Download size={15} />}
@@ -170,7 +182,7 @@ export const Collaborators = () => {
 
             </Styled.FilterWrapper>
 
-            <Styled.Table>
+            <Styled.Table open={open}>
 
                 <Table>
 
@@ -253,8 +265,7 @@ export const Collaborators = () => {
                                     <CustomIconButton
                                         icon={Ellipsis}
                                         options={[
-                                            { label: "View Profile", onClick: () => alert("View Profile") },
-                                            { label: "Edit Collaborator", onClick: () => alert("Edit Collaborator") },
+                                            { label: "Edit Collaborator", onClick: openEditar },
                                             { label: "Deactivate", onClick: () => alert("Deactivate"), isDanger: true }
                                         ]}
                                     />
@@ -299,6 +310,12 @@ export const Collaborators = () => {
                 </Table>
 
             </Styled.Table>
+            <ColaboratorDrawer
+                open={openD}
+                modo={modo}
+                onClose={handleClose}
+                onSave={handleSave}
+            />
 
         </>
     )

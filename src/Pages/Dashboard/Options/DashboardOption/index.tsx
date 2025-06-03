@@ -7,12 +7,13 @@ import getRandomHexColor from "../../../../utils/Color";
 import ProgressBar from "../../../../components/ProgressBar";
 import { BriefcaseBusiness, ChartNoAxesCombined, Clock, SquareChartGantt, SquareCheckBig, Users } from "lucide-react";
 import { ActivityCard } from "../../../../components/ActivityCard";
+import { OptionsProps } from "../interface";
 
-export const DashboardContent = () => {
+export const DashboardContent = ({open}:OptionsProps) => {
 
     return (
         <>
-            <Styled.InfoCardsWrapper>
+            <Styled.InfoCardsWrapper open={open}>
 
                 <InfoCard
                     title="Total Hours This Week"
@@ -56,7 +57,7 @@ export const DashboardContent = () => {
 
             </Styled.InfoCardsWrapper>
 
-            <Styled.GraficWrapper sx={{ mt: 4 }}>
+            <Styled.GraficWrapper sx={{ mt: 4 }} open={open}>
 
                 <CardGrafic
                     label="Weekly Hours"
@@ -83,7 +84,7 @@ export const DashboardContent = () => {
                 />
             </Styled.GraficWrapper>
 
-            <Styled.GraficWrapper sx={{ mt: 4 }}>
+            <Styled.GraficWrapper sx={{ mt: 4 }} open={open}>
 
                 <CardGrafic
                     label="Department Distribution"
@@ -162,7 +163,7 @@ export const DashboardContent = () => {
     )
 }
 
-export const DashboardUserContent = () => {
+export const DashboardUserContent = ({open}:OptionsProps) => {
 
     const tasks = [
         { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
@@ -172,7 +173,7 @@ export const DashboardUserContent = () => {
 
     return (
         <>
-            <Styled.InfoCardsWrapper>
+            <Styled.InfoCardsWrapper open={open}>
 
                 <InfoCard
                     title="Total Hours This Week"
@@ -216,7 +217,7 @@ export const DashboardUserContent = () => {
 
             </Styled.InfoCardsWrapper>
 
-            <Styled.GraficWrapper sx={{ mt: 4 }}>
+            <Styled.GraficWrapper sx={{ mt: 4 }} open={open}>
 
                 <CardGrafic
                     label="Performance Overview"
@@ -245,7 +246,7 @@ export const DashboardUserContent = () => {
 
             </Styled.GraficWrapper>
 
-            <Styled.GraficWrapper sx={{ mt: 4 }}>
+            <Styled.GraficWrapper sx={{ mt: 4 }} open={open}>
 
                 <Card sx={{ width: "100%" }}>
 

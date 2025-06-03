@@ -6,15 +6,12 @@ export const useDashboard = <T extends string>(params: {
 }) => {
   const { initialScreen, renderMap } = params;
 
-  const [open, setOpen] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [currentScreen, setCurrentScreen] = useState<T>(initialScreen);
 
   const renderContent = () => renderMap[currentScreen] || null;
 
   return {
-    open,
-    setOpen,
     mobileOpen,
     setMobileOpen,
     currentScreen,

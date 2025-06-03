@@ -6,14 +6,15 @@ import { DashboardContent } from "./Options/DashboardOption";
 import { Collaborators } from "./Options/CollaboratorsOption";
 import { AdminProjects } from "./Options/ProjectsOption";
 import { Settings } from "./Options/SettingsOption";
+import { useState } from "react";
 
 type AdminScreens = "Dashboard" | "Collaborators" | "Projects" | "Settings";
 
 export default function AdminDashboard() {
 
+    const [open, setOpen] = useState(true);
+
     const {
-        open,
-        setOpen,
         mobileOpen,
         setMobileOpen,
         setCurrentScreen,
@@ -21,9 +22,9 @@ export default function AdminDashboard() {
     } = useDashboard<AdminScreens>({
         initialScreen: "Dashboard",
         renderMap: {
-            Dashboard: <DashboardContent />,
-            Collaborators: <Collaborators />,
-            Projects: <AdminProjects open={true} />,
+            Dashboard: <DashboardContent open={open} />,
+            Collaborators: <Collaborators open={open} />,
+            Projects: <AdminProjects open={open} />,
             Settings: <Settings />,
         },
     });
@@ -55,10 +56,16 @@ export default function AdminDashboard() {
                 />
             </Box>
 
-            <Box sx={{ marginInline: open ? 35 : 10, marginBlock: 3 }}>
+            <Box
+                sx={{
+                    mr: 5,
+                    ml: mobileOpen ? 5 : open ? 35 : 5,
+                    marginBlock: 3,
+                }}
+            >
                 {renderContent()}
             </Box>
-        </Container>
+        </Container >
     )
 }
 

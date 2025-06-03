@@ -1,14 +1,39 @@
 import { Card, styled } from "@mui/material";
 
-export const FilterWrapper = styled(Card)(() => ({
-    marginBottom: 30,
+interface ResponsiveProps {
+  open: boolean;
+}
 
-    '& div': {
-        flexDirection: "row",
-        justifyContent: "space-between"
-    }
-}))
+export const FilterWrapper = styled(Card)(({ theme }) => ({
+  marginBottom: 30,
 
-export const Table = styled(Card)(() => ({
+  "& div": {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 
-}))
+  ".exportBox": {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  [theme.breakpoints.down("md")]: {
+    ".exportBox": {
+      flexDirection: "column",
+      alignItems: "flex-start",
+    },
+  },
+}));
+
+export const Table = styled(Card, {
+  shouldForwardProp: (prop) => prop !== "open",
+})<ResponsiveProps>(({ theme, open }) => ({
+  overflow: "hidden",
+
+  ...(open && {
+    [theme.breakpoints.down("md")]: {
+      overflowX: "auto",
+      WebkitOverflowScrolling: "touch", 
+    },
+  }),
+}));

@@ -34,20 +34,20 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
     return (
         <>
-            <Styled.TimeTrackerWrapper>
+            <Styled.TimeTrackerWrapper open={open}>
 
                 <CardContent>
 
                     <Typography variant="h4" sx={{ fontWeight: 600 }}>Time Tracker</Typography>
                     <Typography variant="subtitle1" color="text.secondary" mb={2}>Track your work hours for tasks and projects</Typography>
 
-                    <Stack direction={"row"} gap={2}>
+                    <Stack className="timerWrapper" gap={2}>
 
-                        <Box sx={{ width: "45%", bgcolor: "#F9FAFB", borderRadius: 2 }}>
+                        <Box className="timerBox">
                             <Timer />
                         </Box>
 
-                        <Stack flex={1} gap={2}>
+                        <Stack flex={1} gap={2} >
                             <CustomSelect
                                 title={"Project"}
                                 label={""}
@@ -99,7 +99,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                         { value: "medium", label: "Medium" },
                                         { value: "high", label: "High" },
                                     ]}
-                                    sx={{ width: !open ? 350 : 250, height: 35, }}
+                                    sx={{ width: !open ? 300 : 200, height: 35, }}
                                 />
 
                                 <CustomSelect
@@ -112,7 +112,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                         { value: "marketing", label: "Marketing" },
                                         { value: "qa", label: "QA" },
                                     ]}
-                                    sx={{ width: !open ? 350 : 250, height: 35, }}
+                                    sx={{ width: !open ? 300 : 200, height: 35, }}
                                 />
 
                             </Stack>
@@ -205,7 +205,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
             </Styled.TimeLogsWrapper>
 
-            <Styled.TimeTrackerWrapper sx={{ mt: 3 }}>
+            <Styled.TimeTrackerWrapper sx={{ mt: 3 }} open={open}>
 
                 <CardContent>
 
