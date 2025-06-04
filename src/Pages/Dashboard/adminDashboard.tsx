@@ -57,11 +57,14 @@ export default function AdminDashboard() {
             </Box>
 
             <Box
-                sx={{
+                sx={(theme) => ({
                     mr: 5,
-                    ml: mobileOpen ? 5 : open ? 35 : 5,
+                    ml: open ? 35 : 5,
                     marginBlock: 3,
-                }}
+                    [theme.breakpoints.down("sm")]: {
+                        ml: 5,
+                    },
+                })}
             >
                 {renderContent()}
             </Box>

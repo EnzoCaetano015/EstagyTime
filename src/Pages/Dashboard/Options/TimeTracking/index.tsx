@@ -99,7 +99,16 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                         { value: "medium", label: "Medium" },
                                         { value: "high", label: "High" },
                                     ]}
-                                    sx={{ width: !open ? 300 : 200, height: 35, }}
+                                    sx={{
+                                        width: !open ? 300 : 200,
+                                        height: 35,
+                                        "@media (max-width:450px)": {
+                                            width: 150,
+                                        },
+                                        "@media (max-width:400px)": {
+                                            width: 100,
+                                        },
+                                    }}
                                 />
 
                                 <CustomSelect
@@ -112,7 +121,16 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                         { value: "marketing", label: "Marketing" },
                                         { value: "qa", label: "QA" },
                                     ]}
-                                    sx={{ width: !open ? 300 : 200, height: 35, }}
+                                    sx={{
+                                        width: !open ? 300 : 200,
+                                        height: 35,
+                                        "@media (max-width:450px)": {
+                                            width: 150,
+                                        },
+                                        "@media (max-width:400px)": {
+                                            width: 100,
+                                        },
+                                    }}
                                 />
 
                             </Stack>

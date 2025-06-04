@@ -56,7 +56,16 @@ export default function UserDashboard() {
                 />
             </Box>
 
-            <Box sx={{ mr: 5, ml: open ? 35 : 5, marginBlock: 3, }}>
+            <Box
+                sx={(theme) => ({
+                    mr: 5,
+                    ml: open ? 35 : 5,
+                    marginBlock: 3,
+                    [theme.breakpoints.down("sm")]: {
+                        ml: 5,
+                    },
+                })}
+            >
                 {renderContent()}
             </Box>
         </Container>

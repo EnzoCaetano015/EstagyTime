@@ -18,7 +18,16 @@ const COLORS = ["#422680", "#8B83D7", "#A1A1AA"];
 
 export const CardGrafic = ({ label, subtitle, type, data }: CardGraficProps) => {
     return (
-        <Card sx={{ width: type === "pie" ? "50%" : (type === "line" || type === "bar") ? "100%" : "auto" }}>
+        <Card
+            sx={{
+                width:
+                    type === "pie"
+                        ? { xs: "100%", md: "50%" }
+                        : type === "line" || type === "bar"
+                            ? "100%"
+                            : "auto",
+            }}
+        >
 
             <CardContent>
 

@@ -133,7 +133,6 @@ export const TaskOption = () => {
                                         date={task.date}
                                         type={"Task"}
                                         color={task.color}
-                                        position={task.position}
                                         status={task.status}
                                     />
                                 </Box>
@@ -141,7 +140,7 @@ export const TaskOption = () => {
                                 <CustomIconButton
                                     icon={Ellipsis}
                                     options={[
-                                        { label: "Edit Task", onClick: openEditar},
+                                        { label: "Edit Task", onClick: openEditar },
                                         { label: "Delete Task", onClick: () => alert("delete"), isDanger: true }
                                     ]}
                                 />

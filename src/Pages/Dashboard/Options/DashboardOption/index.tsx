@@ -9,7 +9,7 @@ import { BriefcaseBusiness, ChartNoAxesCombined, Clock, SquareChartGantt, Square
 import { ActivityCard } from "../../../../components/ActivityCard";
 import { OptionsProps } from "../interface";
 
-export const DashboardContent = ({open}:OptionsProps) => {
+export const DashboardContent = ({ open }: OptionsProps) => {
 
     return (
         <>
@@ -163,7 +163,7 @@ export const DashboardContent = ({open}:OptionsProps) => {
     )
 }
 
-export const DashboardUserContent = ({open}:OptionsProps) => {
+export const DashboardUserContent = ({ open }: OptionsProps) => {
 
     const tasks = [
         { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
