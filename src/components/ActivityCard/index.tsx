@@ -24,6 +24,9 @@ export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask
                 overflowX: 'auto',
                 WebkitOverflowScrolling: 'touch' as const,
             },
+            '@media (max-width:600px)': {
+                height: 155,
+            },
         } as const
         : {};
 
