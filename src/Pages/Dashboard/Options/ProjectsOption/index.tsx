@@ -143,7 +143,7 @@ export const UserProjects = () => {
             <Styled.UserProjectsWrapper sx={{ mb: 3 }}>
                 <CardContent>
 
-                    <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Styled.HeaderStack>
 
                         <Box>
 
@@ -160,11 +160,12 @@ export const UserProjects = () => {
                             buttonStyle={"Purple"}
                             sx={{ paddingInline: 3, height: 30 }}
                         />
-                    </Stack>
+                    </Styled.HeaderStack>
 
-                    <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
+                    <Styled.InfoCardsBox>
 
                         <InfoCard
+                            sx={{ width: { xs: "90%" } }}
                             typeCard={"daily"}
                             title={"Tasks"}
                             info={"24"}
@@ -184,6 +185,7 @@ export const UserProjects = () => {
                         />
 
                         <InfoCard
+                            sx={{ width: { xs: "90%" } }}
                             typeCard={"daily"}
                             title={"Progress"}
                             info={"75%"}
@@ -203,6 +205,7 @@ export const UserProjects = () => {
                         />
 
                         <InfoCard
+                            sx={{ width: { xs: "90%" } }}
                             typeCard={"daily"}
                             title={"Time Spent"}
                             info={"65 hrs"}
@@ -221,7 +224,7 @@ export const UserProjects = () => {
                             }
                         />
 
-                    </Box>
+                    </Styled.InfoCardsBox>
                 </CardContent>
             </Styled.UserProjectsWrapper>
 
@@ -240,18 +243,33 @@ export const UserProjects = () => {
 
                         {tasks.map((task) => (
 
-                            <Stack direction={"row"} bgcolor={"#F9FAFB"} gap={2}>
+                            <Stack
+                                direction={"row"}
+                                bgcolor={"#F9FAFB"}
+                                gap={2}
+                                sx={{
+                                    '@media (max-width:425px)': {
+                                        overflowX: 'auto',
+                                        WebkitOverflowScrolling: 'touch',
+                                    },
+                                }}
+                            >
 
                                 <Box sx={{
-                                    width: "100%"
+                                    width: "100%",
+                                    '@media (max-width:425px)': {
+                                        height: 120,
+                                        display: "flex",
+                                        alignItems: "center"
+                                    },
                                 }}>
                                     <ActivityCard
                                         title={task.title}
                                         date={task.date}
                                         type={"Task"}
                                         color={task.color}
-                                        position={task.position}
                                         status={task.status}
+                                        scroll={false}
                                     />
                                 </Box>
 

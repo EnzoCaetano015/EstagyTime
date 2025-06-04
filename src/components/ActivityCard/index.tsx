@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, SxProps, Theme, Typography } from "@mui/material";
 import { LucideIcon } from "lucide-react";
 import CustomChip from "../Chip";
 
@@ -13,16 +13,19 @@ interface ActivityCardProps {
     status?: "In Progress" | "Completed" | "Not Started"
     color?: string; // Task
     type: "Task" | "Time";
+    scroll?: boolean;
 }
 
-export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask, status, color, type, }: ActivityCardProps) => {
+export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask, status, color, type, scroll = true }: ActivityCardProps) => {
 
-    const containerStyles = {
-        '@media (max-width:425px)': {
-            overflowX: 'auto',
-            WebkitOverflowScrolling: 'touch' as const,
-        },
-    } as const;
+    const containerStyles: SxProps<Theme> = scroll
+        ? {
+            '@media (max-width:425px)': {
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch' as const,
+            },
+        } as const
+        : {};
 
     if (type === "Task") {
         return (
@@ -36,7 +39,7 @@ export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask
                         bgcolor: "#F9FAFB",
                         paddingInline: 2,
                         borderRadius: 2,
-                        '@media (max-width:425px)': { minWidth: '425px' },
+                        ...(scroll && { '@media (max-width:425px)': { minWidth: '425px' } }),
                     }}
                 >
                     <Stack direction="row" gap={2} alignItems="center">
@@ -67,7 +70,7 @@ export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask
                     bgcolor: "#F9FAFB",
                     paddingInline: 2,
                     borderRadius: 2,
-                    '@media (max-width:425px)': { minWidth: '425px' },
+                    ...(scroll && { '@media (max-width:425px)': { minWidth: '425px' } }),
                 }}
             >
                 <Box>

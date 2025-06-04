@@ -36,7 +36,7 @@ export const TaskOption = () => {
             <Styled.TaskMenu>
                 <CardContent>
 
-                    <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Styled.HeaderStack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
 
                         <Box>
 
@@ -67,9 +67,9 @@ export const TaskOption = () => {
 
                         </Stack>
 
-                    </Stack>
+                    </Styled.HeaderStack>
 
-                    <Stack direction={"row"} justifyContent={"end"} gap={2}>
+                    <Styled.FiltersStack direction={"row"} justifyContent={"end"} gap={2}>
 
                         <CustomSelect
                             title={""}
@@ -110,7 +110,7 @@ export const TaskOption = () => {
                             ]}
                             sx={{ width: 200 }}
                         />
-                    </Stack>
+                    </Styled.FiltersStack>
 
                 </CardContent>
             </Styled.TaskMenu>
@@ -123,10 +123,25 @@ export const TaskOption = () => {
 
                         {tasks.map((task) => (
 
-                            <Stack direction={"row"} bgcolor={"#F9FAFB"} gap={2}>
+                            <Stack
+                                direction={"row"}
+                                bgcolor={"#F9FAFB"}
+                                gap={2}
+                                sx={{
+                                    '@media (max-width:425px)': {
+                                        overflowX: 'auto',
+                                        WebkitOverflowScrolling: 'touch',
+                                    },
+                                }}
+                            >
 
                                 <Box sx={{
-                                    width: "100%"
+                                    width: "100%",
+                                    '@media (max-width:425px)': {
+                                        height: 120,
+                                        display: "flex",
+                                        alignItems: "center"
+                                    },
                                 }}>
                                     <ActivityCard
                                         title={task.title}
@@ -134,6 +149,7 @@ export const TaskOption = () => {
                                         type={"Task"}
                                         color={task.color}
                                         status={task.status}
+                                        scroll={false}
                                     />
                                 </Box>
 
