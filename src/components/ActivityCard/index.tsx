@@ -81,8 +81,11 @@ export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask
                         alignItems="center"
                         gap={1}
                     >
-                        {Icon && <Icon size={15} color="#422680" strokeWidth={3} />}
-                        {title}
+                        {Icon && (
+                            <Box sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
+                                <Icon size={15} color="#422680" strokeWidth={3} />
+                            </Box>
+                        )}                        {title}
                     </Typography>
                     <Typography variant="subtitle1" color="text.secondary">
                         {date} • {qtdTask} task
