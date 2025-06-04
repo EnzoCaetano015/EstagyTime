@@ -294,22 +294,28 @@ export const DashboardUserContent = ({ open }: OptionsProps) => {
 
 
                             ].map((task) => (
-                                <Box sx={{
-                                    width: "100%",
-                                    '@media (max-width:600px)': {
-                                        height: 155,
-                                        display: "flex",
-                                        alignItems: "center"
-                                    },
-                                }}>
-                                    <ActivityCard
-                                        title={task.title}
-                                        date={task.date}
-                                        type={"Time"}
-                                        qtdTask={task.qtdTask}
-                                        hours={task.hours}
-                                    />
-                                </Box>
+                                <Stack
+                                    direction={"row"}
+                                    bgcolor={"#F9FAFB"}
+                                    gap={2}
+                                >
+                                    <Box sx={{
+                                        width: "100%",
+                                        '@media (max-width:600px)': {
+                                            height: 155,
+                                            display: "flex",
+                                            alignItems: "center"
+                                        },
+                                    }}>
+                                        <ActivityCard
+                                            title={task.title}
+                                            date={task.date}
+                                            type={"Time"}
+                                            qtdTask={task.qtdTask}
+                                            hours={task.hours}
+                                        />
+                                    </Box>
+                                </Stack>
 
                             ))}
 
