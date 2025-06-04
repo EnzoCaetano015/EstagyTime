@@ -314,6 +314,7 @@ export const DashboardUserContent = ({ open }: OptionsProps) => {
                                         },
                                     }}>
                                         <ActivityCard
+                                            icon={Clock}
                                             title={task.title}
                                             date={task.date}
                                             type={"Time"}
