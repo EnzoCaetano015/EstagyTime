@@ -248,7 +248,7 @@ export const UserProjects = () => {
                                 bgcolor={"#F9FAFB"}
                                 gap={2}
                                 sx={{
-                                    '@media (max-width:425px)': {
+                                    '@media (max-width:600px)': {
                                         overflowX: 'auto',
                                         WebkitOverflowScrolling: 'touch',
                                     },
@@ -257,8 +257,8 @@ export const UserProjects = () => {
 
                                 <Box sx={{
                                     width: "100%",
-                                    '@media (max-width:425px)': {
-                                        height: 120,
+                                    '@media (max-width:600px)': {
+                                        height: 155,
                                         display: "flex",
                                         alignItems: "center"
                                     },

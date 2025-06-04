@@ -137,8 +137,8 @@ export const TaskOption = () => {
 
                                 <Box sx={{
                                     width: "100%",
-                                    '@media (max-width:425px)': {
-                                        height: 120,
+                                    '@media (max-width:600px)': {
+                                        height: 155,
                                         display: "flex",
                                         alignItems: "center"
                                     },
