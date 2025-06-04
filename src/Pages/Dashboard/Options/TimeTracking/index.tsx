@@ -188,15 +188,23 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
                         ].map((task) => (
 
-                            <ActivityCard
-                                icon={Clock}
-                                title={task.title}
-                                date={task.date}
-                                type={"Time"}
-                                qtdTask={task.qtdTask}
-                                hours={task.hours}
-                            />
-
+                            <Box sx={{
+                                width: "100%",
+                                '@media (max-width:600px)': {
+                                    height: 155,
+                                    display: "flex",
+                                    alignItems: "center"
+                                },
+                            }}>
+                                <ActivityCard
+                                    icon={Clock}
+                                    title={task.title}
+                                    date={task.date}
+                                    type={"Time"}
+                                    qtdTask={task.qtdTask}
+                                    hours={task.hours}
+                                />
+                            </Box>
                         ))}
 
                     </Stack>

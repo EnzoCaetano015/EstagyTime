@@ -20,7 +20,7 @@ export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask
 
     const containerStyles: SxProps<Theme> = scroll
         ? {
-            '@media (max-width:600px)': {
+            '@media (max-width:425px)': {
                 overflowX: 'auto',
                 WebkitOverflowScrolling: 'touch' as const,
             },

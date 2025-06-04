@@ -248,7 +248,7 @@ export const UserProjects = () => {
                                 bgcolor={"#F9FAFB"}
                                 gap={2}
                                 sx={{
-                                    '@media (max-width:600px)': {
+                                    '@media (max-width:425px)': {
                                         overflowX: 'auto',
                                         WebkitOverflowScrolling: 'touch',
                                     },
