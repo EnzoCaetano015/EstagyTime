@@ -1,4 +1,4 @@
-import { Box, Divider, Drawer, Stack, Typography } from "@mui/material"
+import { Box, Divider, Drawer, Stack, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { DrawerProps as MuiDrawerProps } from "@mui/material"
 import { CONFIRMAR_POR_MODO, SUBTITULO_POR_MODO, TITULO_POR_MODO } from "./index.utils"
 import { Clock, X } from "lucide-react"
@@ -26,14 +26,17 @@ export const CustomDrawer = ({
     onSave,
     ...props
 }: CustomDrawerProps) => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const drawerWidth = isSmallScreen ? 300 : largura;
     return (
         <Drawer
             sx={{
-                width: largura,
+                width: drawerWidth,
                 flexShrink: 0,
                 "& .MuiDrawer-paper": {
-                    width: largura,
-                    display: "flex",         
+                    width: drawerWidth,
+                    display: "flex",
                     flexDirection: "column",
                 },
             }}
