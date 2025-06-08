@@ -7,6 +7,7 @@ import { ActivityCard } from "../../../../components/ActivityCard"
 import CustomIconButton from "../../../../components/IconButton"
 import { TaskDrawer } from "./Drawer/drawer"
 import { useTaskDrawer } from "./Drawer/drawer.hook"
+import { AddItem } from "../../../../components/Modals/add_Item"
 
 export const TaskOption = () => {
 
@@ -17,7 +18,10 @@ export const TaskOption = () => {
         openEditar,
         handleClose,
         handleSave,
+        isModalOpen,
+        closeModal,
     } = useTaskDrawer();
+
 
     const tasks = [
         { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
@@ -193,6 +197,10 @@ export const TaskOption = () => {
                 modo={modo}
                 onClose={handleClose}
                 onSave={handleSave}
+            />
+            <AddItem
+                open={isModalOpen}
+                close={closeModal}
             />
         </>
     )
