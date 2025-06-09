@@ -1,13 +1,19 @@
-// drawer.hook.ts
 import { useState } from "react";
+import { modalsProps } from "../../../../../components/Modals/modals.type";
 
 type DrawerModo = "ADICIONAR" | "EDITAR";
 
+// tipos de modal segundo seu modalsProps
+type ModalType = modalsProps["modalType"];
+
 export const useTaskDrawer = () => {
+  // Controle do Drawer
   const [open, setOpen] = useState(false);
   const [modo, setModo] = useState<DrawerModo>("ADICIONAR");
 
-  const [isModalOpen, setModalOpen] = useState(false);
+  // Controle do Modal
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<ModalType>("add");
 
   const openAdicionar = () => {
     setModo("ADICIONAR");
@@ -25,9 +31,14 @@ export const useTaskDrawer = () => {
 
   const handleSave = () => {
     setOpen(false);
+
+    // escolhe qual modal abrir
     if (modo === "ADICIONAR") {
-      setModalOpen(true);
+      setModalType("add");
+    } else if (modo === "EDITAR") {
+      setModalType("update");
     }
+    setModalOpen(true);
   };
 
   const closeModal = () => {
@@ -35,13 +46,17 @@ export const useTaskDrawer = () => {
   };
 
   return {
+    // Drawer API
     open,
     modo,
     openAdicionar,
     openEditar,
     handleClose,
     handleSave,
-    isModalOpen,
+
+    // Modal API
+    modalOpen,
+    modalType,
     closeModal,
   };
 };

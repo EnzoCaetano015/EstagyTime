@@ -4,7 +4,7 @@ import Button from "../../Button"
 import * as Styled from "../modals.styled"
 import { modalsProps } from "../modals.type"
 
-export const AddItem = ({ open, close }: modalsProps) => {
+export const AddItem = ({ open, close, modalType }: modalsProps) => {
     return (
 
         <Modal
@@ -20,7 +20,7 @@ export const AddItem = ({ open, close }: modalsProps) => {
             sx={{ zIndex: (theme) => theme.zIndex.modal }}
         >
 
-            <Styled.ModalWrapper>
+            <Styled.ModalWrapper modalType={modalType}>
 
                 <Stack className="TitleWrapper">
                     <Box className="iconBox"><AlarmClockCheck size={24} color="#fff" /></Box>

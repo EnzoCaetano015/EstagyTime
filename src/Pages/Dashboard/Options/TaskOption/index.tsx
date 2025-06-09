@@ -8,6 +8,10 @@ import CustomIconButton from "../../../../components/IconButton"
 import { TaskDrawer } from "./Drawer/drawer"
 import { useTaskDrawer } from "./Drawer/drawer.hook"
 import { AddItem } from "../../../../components/Modals/add_Item"
+import { UpdateItem } from "../../../../components/Modals/update_item"
+import { DeleteItemOK } from "../../../../components/Modals/delete_item/succefull"
+import { useTaskOption } from "./taskOption.hook"
+import { DeleteItem } from "../../../../components/Modals/delete_item/warning"
 
 export const TaskOption = () => {
 
@@ -18,9 +22,20 @@ export const TaskOption = () => {
         openEditar,
         handleClose,
         handleSave,
-        isModalOpen,
+        modalOpen,
+        modalType,
         closeModal,
     } = useTaskDrawer();
+
+
+    const {
+        warningOpen,
+        successOpen,
+        openWarning,
+        closeWarning,
+        confirmWarning,
+        closeSuccess,
+    } = useTaskOption();
 
 
     const tasks = [
@@ -161,7 +176,13 @@ export const TaskOption = () => {
                                     icon={Ellipsis}
                                     options={[
                                         { label: "Edit Task", onClick: openEditar },
-                                        { label: "Delete Task", onClick: () => alert("delete"), isDanger: true }
+                                        {
+                                            label: "Delete Task",
+                                            onClick: () => openWarning(() => {
+                                                console.log("executando delete...");
+                                            }),
+                                            isDanger: true,
+                                        },
                                     ]}
                                 />
 
@@ -198,10 +219,39 @@ export const TaskOption = () => {
                 onClose={handleClose}
                 onSave={handleSave}
             />
-            <AddItem
-                open={isModalOpen}
-                close={closeModal}
-            />
+            {modalType === "add" && (
+                <AddItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="add"
+                    actionClose={() => { }}
+                />)}
+            {modalType === "update" && (
+                <UpdateItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="update"
+                    actionClose={() => { }}
+                />
+            )}
+
+            {/* modal de delete */}
+            {warningOpen && (
+                <DeleteItem
+                    open={warningOpen}
+                    close={closeWarning}
+                    modalType="warning"
+                    actionClose={confirmWarning}
+                />
+            )}
+            {successOpen && (
+                <DeleteItemOK
+                    open={successOpen}
+                    close={closeSuccess}
+                    modalType="delete"
+                    actionClose={() => { }}
+                />
+            )}
         </>
     )
 }

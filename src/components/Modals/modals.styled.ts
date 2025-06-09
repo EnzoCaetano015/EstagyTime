@@ -1,6 +1,9 @@
 import { Stack, styled } from "@mui/material";
+import { modalsProps } from "./modals.type";
 
-export const ModalWrapper = styled(Stack)(({ theme }) => ({
+export const ModalWrapper = styled(Stack, {
+  shouldForwardProp: (prop) => prop != "modalType",
+})<{ modalType: modalsProps["modalType"] }>(({ theme, modalType }) => ({
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -20,7 +23,12 @@ export const ModalWrapper = styled(Stack)(({ theme }) => ({
   },
 
   ".iconBox": {
-    backgroundColor: "#10B981",
+    backgroundColor:
+      modalType === "delete" || modalType === "error"
+        ? "red"
+        : modalType === "warning"
+        ? "#F29727"
+        : "#10B981",
     borderRadius: "50%",
     padding: theme.spacing(1),
     display: "flex",
