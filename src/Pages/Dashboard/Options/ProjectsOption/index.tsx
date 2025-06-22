@@ -9,6 +9,11 @@ import { ActivityCard } from "../../../../components/ActivityCard"
 import CustomIconButton from "../../../../components/IconButton"
 import { useProjetcsDrawer } from "./Drawer/drawer.hook"
 import { ProjetcsDrawer } from "./Drawer/drawer"
+import { useProjetcsOption } from "./projectOptions.hook"
+import { AddItem } from "../../../../components/Modals/add_Item"
+import { UpdateItem } from "../../../../components/Modals/update_item"
+import { DeleteItem } from "../../../../components/Modals/delete_item/warning"
+import { DeleteItemOK } from "../../../../components/Modals/delete_item/succefull"
 
 
 export const AdminProjects = ({ open }: OptionsProps) => {
@@ -19,6 +24,9 @@ export const AdminProjects = ({ open }: OptionsProps) => {
         openEditar,
         handleClose,
         handleSave,
+        modalOpen,
+        modalType,
+        closeModal,
     } = useProjetcsDrawer();
 
     return (
@@ -117,6 +125,21 @@ export const AdminProjects = ({ open }: OptionsProps) => {
                 onClose={handleClose}
                 onSave={handleSave}
             />
+            {modalType === "add" && (
+                <AddItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="add"
+                    actionClose={() => { }}
+                />)}
+            {modalType === "update" && (
+                <UpdateItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="update"
+                    actionClose={() => { }}
+                />
+            )}
         </>
     )
 }
@@ -130,7 +153,19 @@ export const UserProjects = () => {
         openEditar,
         handleClose,
         handleSave,
+        modalOpen,
+        modalType,
+        closeModal,
     } = useProjetcsDrawer();
+
+    const {
+        warningOpen,
+        successOpen,
+        openWarning,
+        closeWarning,
+        confirmWarning,
+        closeSuccess,
+    } = useProjetcsOption()
 
     const tasks = [
         { color: "#F29727", title: "Design Homepage Mockup", position: "Design ", date: "2023-07-15", status: "In Progress" },
@@ -277,7 +312,11 @@ export const UserProjects = () => {
                                     icon={Ellipsis}
                                     options={[
                                         { label: "Edit Task", onClick: openEditar },
-                                        { label: "Delete Task", onClick: () => alert("delete"), isDanger: true }
+                                        {
+                                            label: "Delete Task",
+                                            onClick: () => openWarning(() => { }),
+                                            isDanger: true,
+                                        },
                                     ]}
                                 />
 
@@ -296,6 +335,40 @@ export const UserProjects = () => {
                 onClose={handleClose}
                 onSave={handleSave}
             />
+
+            {modalType === "add" && (
+                <AddItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="add"
+                    actionClose={() => { }}
+                />)}
+            {modalType === "update" && (
+                <UpdateItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="update"
+                    actionClose={() => { }}
+                />
+            )}
+
+            {/* modal de delete */}
+            {warningOpen && (
+                <DeleteItem
+                    open={warningOpen}
+                    close={closeWarning}
+                    modalType="warning"
+                    actionClose={confirmWarning}
+                />
+            )}
+            {successOpen && (
+                <DeleteItemOK
+                    open={successOpen}
+                    close={closeSuccess}
+                    modalType="delete"
+                    actionClose={() => { }}
+                />
+            )}
         </>
     )
 }

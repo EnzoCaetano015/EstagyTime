@@ -7,6 +7,11 @@ import CustomIconButton from "../../../../components/IconButton"
 import { useColaboratorDrawer } from "./Drawer/drawer.hook"
 import { ColaboratorDrawer } from "./Drawer/drawer"
 import { OptionsProps } from "../interface"
+import { useColaboratorOption } from "./collaboratorsOption.hook"
+import { AddItem } from "../../../../components/Modals/add_Item"
+import { UpdateItem } from "../../../../components/Modals/update_item"
+import { DeleteItem } from "../../../../components/Modals/delete_item/warning"
+import { DeleteItemOK } from "../../../../components/Modals/delete_item/succefull"
 
 const collaborators = [
     {
@@ -80,7 +85,19 @@ export const Collaborators = ({ open }: OptionsProps) => {
         openEditar,
         handleClose,
         handleSave,
+        modalOpen,
+        modalType,
+        closeModal,
     } = useColaboratorDrawer();
+
+    const {
+        warningOpen,
+        successOpen,
+        openWarning,
+        closeWarning,
+        confirmWarning,
+        closeSuccess,
+    } = useColaboratorOption();
 
     return (
         <>
@@ -266,7 +283,10 @@ export const Collaborators = ({ open }: OptionsProps) => {
                                         icon={Ellipsis}
                                         options={[
                                             { label: "Edit Collaborator", onClick: openEditar },
-                                            { label: "Deactivate", onClick: () => alert("Deactivate"), isDanger: true }
+                                            {
+                                                label: "Deactivate", onClick: () => openWarning(() => { }),
+                                                isDanger: true,
+                                            }
                                         ]}
                                     />
 
@@ -316,6 +336,40 @@ export const Collaborators = ({ open }: OptionsProps) => {
                 onClose={handleClose}
                 onSave={handleSave}
             />
+
+            {modalType === "add" && (
+                <AddItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="add"
+                    actionClose={() => { }}
+                />)}
+            {modalType === "update" && (
+                <UpdateItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="update"
+                    actionClose={() => { }}
+                />
+            )}
+
+            {/* modal de delete */}
+            {warningOpen && (
+                <DeleteItem
+                    open={warningOpen}
+                    close={closeWarning}
+                    modalType="warning"
+                    actionClose={confirmWarning}
+                />
+            )}
+            {successOpen && (
+                <DeleteItemOK
+                    open={successOpen}
+                    close={closeSuccess}
+                    modalType="delete"
+                    actionClose={() => { }}
+                />
+            )}
 
         </>
     )

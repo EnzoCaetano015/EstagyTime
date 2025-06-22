@@ -178,9 +178,7 @@ export const TaskOption = () => {
                                         { label: "Edit Task", onClick: openEditar },
                                         {
                                             label: "Delete Task",
-                                            onClick: () => openWarning(() => {
-                                                console.log("executando delete...");
-                                            }),
+                                            onClick: () => openWarning(() => {}),
                                             isDanger: true,
                                         },
                                     ]}
