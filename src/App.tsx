@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Rotas from './Routes/Routes';
+import Routes from './Routes';
 
 const theme = createTheme({
   typography: {
@@ -10,8 +10,8 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Rotas/>
-    </ThemeProvider>  
+      <Routes />
+    </ThemeProvider>
   )
 }
 

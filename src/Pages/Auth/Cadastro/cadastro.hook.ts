@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui";
 
 export const useCadastro = () => {

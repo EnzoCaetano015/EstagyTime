@@ -3,7 +3,6 @@ import * as Styled from "./projectOptions.styled"
 import Button from "../../../../components/Button"
 import { Ellipsis, Plus } from "lucide-react"
 import ProgressBar from "../../../../components/ProgressBar"
-import { OptionsProps } from "../interface"
 import InfoCard from "../../../../components/InfoCard"
 import { ActivityCard } from "../../../../components/ActivityCard"
 import CustomIconButton from "../../../../components/IconButton"
@@ -16,7 +15,7 @@ import { DeleteItem } from "../../../../components/Modals/delete_item/warning"
 import { DeleteItemOK } from "../../../../components/Modals/delete_item/succefull"
 
 
-export const AdminProjects = ({ open }: OptionsProps) => {
+export const AdminProjects = () => {
     const {
         openD,
         modo,
@@ -35,7 +34,7 @@ export const AdminProjects = ({ open }: OptionsProps) => {
 
                 <CardContent>
 
-                    <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+                    <Styled.HeaderStack sx={{ gap: 2 }}>
 
                         <Box>
                             <Typography variant="h4" fontWeight={600}>Projects Overview</Typography>
@@ -51,36 +50,31 @@ export const AdminProjects = ({ open }: OptionsProps) => {
                             sx={{ paddingInline: 1, height: 30 }}
                         />
 
-                    </Stack>
+                    </Styled.HeaderStack>
 
-                    <Styled.ProjectsGrid open={open}>
+                    <Styled.ProjectsGrid>
                         {[
                             { title: "Website Redesign", tasks: 24, tasksCompleted: 18, percentage: 75 },
                             { title: "Mobile App Development", tasks: 36, tasksCompleted: 12, percentage: 33 },
                             { title: "CRM Integration", tasks: 18, tasksCompleted: 5, percentage: 28 },
 
                         ].map((project) => (
-                            <Card sx={{ bgcolor: "#F9FAFB", maxWidth: 400, m: 2 }}>
+                            <Card sx={{ bgcolor: "#F9FAFB", m: 2, flex: 1 }}>
 
                                 <CardContent sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
 
-                                    <Stack direction={"row"} justifyContent={"space-between"} >
+                                    <Stack direction={"row"} justifyContent={"space-between"}>
 
                                         <Typography variant="h5" fontWeight={600}>{project.title}</Typography>
                                         <Typography variant="h6" fontWeight={600}>{project.percentage}%</Typography>
 
                                     </Stack>
 
-                                    <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
 
-                                        <Stack direction={"row"} alignItems={"center"} gap={2}>
+                                    <Stack direction={"row"} alignItems={"center"} gap={2}>
 
-                                            <Chip label={`${project.tasks} Tasks`} variant="outlined" sx={{ fontWeight: 600 }} />
-                                            <Typography variant="subtitle1" color="text.secondary">{project.tasksCompleted} completed</Typography>
-
-                                        </Stack>
-
-                                        <Typography>Complete</Typography>
+                                        <Chip label={`${project.tasks} Tasks`} variant="outlined" sx={{ fontWeight: 600 }} />
+                                        <Typography variant="subtitle1" color="text.secondary">{project.tasksCompleted} completed</Typography>
 
                                     </Stack>
 
@@ -89,19 +83,13 @@ export const AdminProjects = ({ open }: OptionsProps) => {
                                     <Stack direction={"row"} justifyContent={"end"} gap={1} mt={1}>
 
                                         <Button
-                                            label={"View Details"}
-                                            onClick={() => alert('view')}
-                                            buttonStyle={"Black"}
-                                            sx={{ paddingInline: 1, height: 30 }}
-                                        />
-                                        <Button
                                             label={"Menage Tasks"}
                                             onClick={() => alert('menage')}
                                             buttonStyle={"Black"}
                                             sx={{ paddingInline: 1, height: 30 }}
                                         />
                                         <Button
-                                            label={"Edit Project"}
+                                            label={"Edit"}
                                             onClick={openEditar}
                                             buttonStyle={"Black"}
                                             sx={{ paddingInline: 1, height: 30 }}

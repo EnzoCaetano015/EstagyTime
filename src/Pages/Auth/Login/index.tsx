@@ -54,7 +54,7 @@ export default function Login() {
 
             <Button
                 label={"Sign in"}
-                onClick={() => navigate("/CompanySelection")}
+                onClick={() => navigate("/Auth/CompanySelection")}
                 buttonStyle="Purple"
                 sx={{ width: "100%", height: 35 }}
             />

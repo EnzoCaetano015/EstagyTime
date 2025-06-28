@@ -1,20 +1,13 @@
 import { Box, Card, Stack, styled } from "@mui/material";
 
-interface ResponsiveProps {
-  open: boolean;
-}
-
 export const ProjectWrapper = styled(Card)(() => ({}));
 
 export const UserProjectsWrapper = styled(Card)(() => ({}));
 
-export const ProjectsGrid = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "open",
-})<ResponsiveProps>(({ theme, open }) => ({
-  display: "grid",
-  gridTemplateColumns: open ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
+export const ProjectsGrid = styled(Box)(({ theme }) => ({
+  display: "flex",
 
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     display: "flex",
     flexDirection: "column",
   },

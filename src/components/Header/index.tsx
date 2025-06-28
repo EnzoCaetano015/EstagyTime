@@ -1,18 +1,18 @@
-import { ArrowLeft } from "lucide-react"
-import { useNavigate } from "react-router-dom"
-import TickingClock from "../../Hook/TickingClock"
+import { ArrowLeft, LogOut } from "lucide-react";
+import TickingClock from "../../Hook/TickingClock";
 import { motion } from "framer-motion";
 import { slideInVariant } from "../../utils/Motion";
-import * as Styled from "./header.styled"
+import * as Styled from "./header.styled";
 import { Box, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router";
 
 export interface HeaderProps {
-  button?: boolean
+  Backbutton?: boolean;
+  LogOutButton?: boolean;
 }
 
-export default function Header({ button = true }: HeaderProps) {
-
-  const navigate = useNavigate()
+export default function Header({ Backbutton = true, LogOutButton = false }: HeaderProps) {
+  const navigate = useNavigate();
 
   return (
     <Styled.Header>
@@ -23,24 +23,33 @@ export default function Header({ button = true }: HeaderProps) {
         viewport={{ once: true }}
       >
         <Stack className={"logoContainer"}>
-
           <Box className={"logoIcon"}>
             <TickingClock intervalTime={1000} size={20} color="#fff" />
           </Box>
 
-          <Typography  className={button ? "showTitle" : "hideTitle"} variant="h1" sx={{ fontSize: "25px", color: "#422680", fontWeight: "bold" }}>
+          <Typography
+            className={Backbutton ? "showTitle" : "hideTitle"}
+            variant="h1"
+            sx={{ fontSize: "25px", color: "#422680", fontWeight: "bold" }}
+          >
             Stagy<span style={{ color: "#000" }}>Time</span>
           </Typography>
-
         </Stack>
-        {button ? (
-          <button className={"backButton"} onClick={() => { navigate('/Home') }}>
-            <ArrowLeft size={15} /> Back to Home
-          </button>
-        ) : (
-          <></>
-        )}
-      </motion.div >
+
+        <Stack direction="row" spacing={2}>
+          {Backbutton && (
+            <button className={"backButton"} onClick={() => navigate("/Home")}>
+              <ArrowLeft size={15} /> Back to Home
+            </button>
+          )}
+
+          {LogOutButton && (
+            <button className={"logoutButton"} onClick={() => navigate("/Auth/Login")}>
+              <LogOut size={15} /> Log out
+            </button>
+          )}
+        </Stack>
+      </motion.div>
     </Styled.Header>
-  )
+  );
 }

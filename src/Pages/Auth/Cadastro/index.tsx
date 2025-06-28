@@ -80,7 +80,7 @@ export default function Cadastro() {
             <Stack alignItems={"center"}>
                 <Button
                     label={"Create account"}
-                    onClick={() => navigate("/CompanySelection")}
+                    onClick={() => navigate("/Auth/CompanySelection")}
                     buttonStyle="Purple"
                     sx={{ width: "100%", height: 35 }}
                 />

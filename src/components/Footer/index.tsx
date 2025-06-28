@@ -1,9 +1,9 @@
 import { fadeInVariant } from "../../utils/Motion";
 import Button from "../Button";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import * as Styled from "./footer.styled"
+import { useNavigate } from "react-router";
 
 interface FooterLPProps {
     title: string;
@@ -51,7 +51,7 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
                         >
                             <Button
                                 label={"Start Free Trial"}
-                                onClick={() => navigate("/Auth")}
+                                onClick={() => navigate("/Auth/Login")}
                                 buttonStyle="White"
                                 sx={{ width: 120, height: 35 }}
                             />

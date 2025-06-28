@@ -60,7 +60,7 @@ export default function Home() {
                             <Button
                                 label={"Get Started"}
                                 icon={<ChevronRight size={18} />}
-                                onClick={() => navigate("/Auth")}
+                                onClick={() => navigate("/Auth/Login")}
                                 buttonStyle="Purple"
                                 sx={{ width: 120, height: 35 }}
                             />

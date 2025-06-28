@@ -19,6 +19,7 @@ import { useAuthPage } from "./AuthPage.hook";
 export default function AuthPage() {
 
       const { customStyles } = useAuthPage();
+      
 
     return (
         <Container>

@@ -1,16 +1,16 @@
-import { Stack, TextField, Typography, InputAdornment, Button, Box, Divider, List, ListItemIcon, ListItemText, Avatar, ListItemButton, useTheme, useMediaQuery, Drawer } from "@mui/material"
+import { Stack, TextField, Typography, InputAdornment, Button, Box, Divider, List, ListItemIcon, ListItemText, Avatar, ListItemButton, useTheme, useMediaQuery, Drawer, Collapse } from "@mui/material"
 import { slideInVariant } from "../../utils/Motion"
 import * as Styled from "./menuDashboard.styled"
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui"
-import { Bell, PanelLeft, SearchIcon, Clock, ClipboardList, Folder, Building, BarChart3, Briefcase, Users, Settings, Ellipsis, LogOut } from "lucide-react"
+import { Bell, PanelLeft, SearchIcon, Clock, ClipboardList, Folder, Building, BarChart3, Briefcase, Users, Settings, Ellipsis, LogOut, Building2, CircleUserRound, ChevronDown, ChevronRight } from "lucide-react"
 import TickingClock from "../../Hook/TickingClock"
 import CustomIconButton from "../IconButton"
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router"
+import { useState } from "react"
 
 interface SidebarProps {
     open: boolean;
     type: boolean;
-    setCurrentScreen: (screen: string) => void;
     mobileOpen: boolean;
     onCloseMobile: () => void;
 }
@@ -74,10 +74,18 @@ export const MenuDashboard = ({ type, setOpen, setMobileOpen }: MenuDashboardPro
     );
 };
 
-export const Sidebar = ({ open, type, setCurrentScreen, mobileOpen, onCloseMobile }: SidebarProps) => {
+export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps) => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const [openProjects, setOpenProjects] = useState(true);
+
+    const mockProjects = [
+        { id: "website", name: "Website Redesign" },
+        { id: "mobile", name: "Mobile App Development" },
+        { id: "crm", name: "CRM Integration" },
+    ];
+
     const navigate = useNavigate()
 
     const sidebarContent = (
@@ -117,12 +125,12 @@ export const Sidebar = ({ open, type, setCurrentScreen, mobileOpen, onCloseMobil
                     <>
                         <List>
                             {[
-                                { icon: <BarChart3 size={15} />, label: "Dashboard" },
-                                { icon: <Users size={15} />, label: "Collaborators" },
-                                { icon: <Briefcase size={15} />, label: "Projects" },
-                                { icon: <Settings size={15} />, label: "Settings" },
+                                { icon: <BarChart3 size={15} />, label: "Dashboard", path: "/DashBoard/CompanyDashboard/Metrics" },
+                                { icon: <Users size={15} />, label: "Collaborators", path: "/DashBoard/CompanyDashboard/Collaborators" },
+                                { icon: <Briefcase size={15} />, label: "Projects", path: "/DashBoard/CompanyDashboard/Projects" },
+                                { icon: <Settings size={15} />, label: "Settings", path: "/DashBoard/CompanyDashboard/Settings" },
                             ].map((item, i) => (
-                                <ListItemButton key={i} onClick={() => setCurrentScreen(item.label)}>
+                                <ListItemButton key={i} onClick={() => navigate(item.path)}>
                                     <ListItemIcon>{item.icon}</ListItemIcon>
                                     {open && <ListItemText primary={item.label} />}
                                 </ListItemButton>
@@ -133,30 +141,39 @@ export const Sidebar = ({ open, type, setCurrentScreen, mobileOpen, onCloseMobil
                     <>
                         <List>
                             {[
-                                { icon: <BarChart3 size={15} />, label: "Dashboard" },
-                                { icon: <Clock size={15} />, label: "Time Tracking" },
-                                { icon: <ClipboardList size={15} />, label: "Tasks" },
+                                { icon: <BarChart3 size={15} />, label: "Dashboard", path: "/DashBoard/MyDashboard/Metrics" },
+                                { icon: <Clock size={15} />, label: "Time Tracking", path: "/DashBoard/MyDashboard/Time-Tracking" },
+                                { icon: <ClipboardList size={15} />, label: "Tasks", path: "/DashBoard/MyDashboard/Tasks" },
                             ].map((item, i) => (
-                                <ListItemButton key={i} onClick={() => setCurrentScreen(item.label)}>
+                                <ListItemButton key={i} onClick={() => navigate(item.path)}>
                                     <ListItemIcon>{item.icon}</ListItemIcon>
                                     {open && <ListItemText primary={item.label} />}
                                 </ListItemButton>
                             ))}
-                        </List>
-
-                        <Typography variant="subtitle1" color="text.secondary" sx={{ paddingInline: 2 }}>Projects</Typography>
-
-                        <List>
-                            {[
-                                { icon: <Folder size={15} />, label: "Website Redesign", value: "website" },
-                                { icon: <Folder size={15} />, label: "Mobile App Development", value: "mobile" },
-                                { icon: <Folder size={15} />, label: "CRM Integration", value: "crm" },
-                            ].map((project, i) => (
-                                <ListItemButton key={i} onClick={() => setCurrentScreen(project.value)}>
-                                    <ListItemIcon>{project.icon}</ListItemIcon>
-                                    {open && <ListItemText primary={project.label} />}
+                            <List>
+                                <ListItemButton onClick={() => setOpenProjects(!openProjects)}>
+                                    <ListItemIcon>
+                                        <Folder size={15} />
+                                    </ListItemIcon>
+                                    {open && <ListItemText primary="Projects" />}
+                                    {open && (openProjects ? <ChevronDown size={15} /> : <ChevronRight size={15} />)}
                                 </ListItemButton>
-                            ))}
+
+                                <Collapse in={openProjects} timeout="auto" unmountOnExit>
+                                    {mockProjects.map((project, i) => (
+                                        <ListItemButton
+                                            key={i}
+                                            sx={{ pl: 4 }}
+                                            onClick={() => navigate(`/DashBoard/MyDashboard/Projects`)}
+                                        >
+                                            <ListItemIcon>
+                                                <Folder size={15} />
+                                            </ListItemIcon>
+                                            {open && <ListItemText primary={project.name} />}
+                                        </ListItemButton>
+                                    ))}
+                                </Collapse>
+                            </List>
                         </List>
                     </>
                 )}
@@ -184,13 +201,14 @@ export const Sidebar = ({ open, type, setCurrentScreen, mobileOpen, onCloseMobil
                         options={
                             type
                                 ? [
-                                    { icon: <Settings size={15} />, label: "Settings", onClick: () => alert('settings') },
-                                    { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/CompanySelection"), isDanger: true }
+                                    { icon: <Settings size={15} />, label: "Settings", onClick: () => alert("settings") },
+                                    { icon: <CircleUserRound size={15} />, label: "Trocar conta", onClick: () => navigate("/Auth/CompanySelection") },
+                                    { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/Auth/Login"), isDanger: true }
                                 ]
                                 : [
-                                    { icon: <Settings size={15} />, label: "Settings", onClick: () => alert('settings') },
-                                    { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/CompanySelection"), isDanger: true },
-
+                                    { icon: <Settings size={15} />, label: "Settings", onClick: () => alert("settings") },
+                                    { icon: <Building2 size={15} />, label: "Trocar conta", onClick: () => navigate("/Auth/CompanySelection") },
+                                    { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/Auth/Login"), isDanger: true }
                                 ]
                         }
                     />

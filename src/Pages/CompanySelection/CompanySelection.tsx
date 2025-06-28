@@ -26,7 +26,7 @@ export default function CompanySelection() {
 
     return (
         <Container>
-            <Header button={false} />
+            <Header Backbutton={false} LogOutButton />
             <Stack sx={{ alignItems: "center", p: "2rem 1rem" }}>
 
                 <Stack sx={{ alignItems: "center", width: "100%" }}>
@@ -81,7 +81,7 @@ export default function CompanySelection() {
                                             <Button
                                                 icon={<ChevronRight />}
                                                 label={"Continue"}
-                                                onClick={() => navigate("/MyDashboard")}
+                                                onClick={() => navigate("/DashBoard/MyDashboard")}
                                                 buttonStyle={"Purple"}
                                                 sx={{ width: "100%", height: 35, mt: 2 }}
                                             />
@@ -119,7 +119,7 @@ export default function CompanySelection() {
                                             <Button
                                                 icon={<ChevronRight />}
                                                 label={"Access Company Dashboard"}
-                                                onClick={() => navigate("/CompanyDashboard")}
+                                                onClick={() => navigate("/DashBoard/CompanyDashboard")}
                                                 buttonStyle={"Purple"}
                                                 sx={{ width: "100%", height: 35, mt: 2 }}
                                             />

@@ -1,7 +1,7 @@
 import { useCustomSelectStyles } from "../../Hook/Mui/StyleMui";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { SxProps } from "@mui/material";
+import { useNavigate } from "react-router";
 
 type CardConfigKey = "enter" | "myCompany" | "create";
 
