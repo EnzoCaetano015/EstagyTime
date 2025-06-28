@@ -5,8 +5,9 @@ export const ProjectWrapper = styled(Card)(() => ({}));
 export const UserProjectsWrapper = styled(Card)(() => ({}));
 
 export const ProjectsGrid = styled(Box)(({ theme }) => ({
-  display: "flex",
-
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+ gap: theme.spacing(3),
   [theme.breakpoints.down("lg")]: {
     display: "flex",
     flexDirection: "column",

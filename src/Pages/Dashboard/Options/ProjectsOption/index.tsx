@@ -57,6 +57,8 @@ export const AdminProjects = () => {
                             { title: "Website Redesign", tasks: 24, tasksCompleted: 18, percentage: 75 },
                             { title: "Mobile App Development", tasks: 36, tasksCompleted: 12, percentage: 33 },
                             { title: "CRM Integration", tasks: 18, tasksCompleted: 5, percentage: 28 },
+                            { title: "CRM Integration", tasks: 18, tasksCompleted: 5, percentage: 28 },
+                            { title: "CRM Integration", tasks: 18, tasksCompleted: 5, percentage: 28 },
 
                         ].map((project) => (
                             <Card sx={{ bgcolor: "#F9FAFB", m: 2, flex: 1 }}>
