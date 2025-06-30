@@ -1,7 +1,7 @@
-import { CardContent, Stack, Typography, Box, Card, Chip } from "@mui/material"
+import { CardContent, Stack, Typography, Box, Card, Chip, TextField, InputAdornment } from "@mui/material"
 import * as Styled from "./projectOptions.styled"
 import Button from "../../../../components/Button"
-import { Ellipsis, Plus } from "lucide-react"
+import { Ellipsis, Plus, SearchIcon } from "lucide-react"
 import ProgressBar from "../../../../components/ProgressBar"
 import InfoCard from "../../../../components/InfoCard"
 import { ActivityCard } from "../../../../components/ActivityCard"
@@ -14,6 +14,7 @@ import { UpdateItem } from "../../../../components/Modals/update_item"
 import { DeleteItem } from "../../../../components/Modals/delete_item/warning"
 import { DeleteItemOK } from "../../../../components/Modals/delete_item/succefull"
 import { useNavigate } from "react-router"
+import CustomSelect from "../../../../components/Select"
 
 
 export const AdminProjects = () => {
@@ -41,8 +42,8 @@ export const AdminProjects = () => {
                     <Styled.HeaderStack sx={{ gap: 2 }}>
 
                         <Box>
-                            <Typography variant="h4" fontWeight={600}>Projects Overview</Typography>
-                            <Typography variant="subtitle1" color="text.secondary">Manage and monitor all company projects</Typography>
+                            <Typography variant="h4" fontWeight={600}>Visão Geral dos Projetos</Typography>
+                            <Typography variant="subtitle1" color="text.secondary">Gerenciar e monitorar todos os projetos da empresa</Typography>
                         </Box>
 
                         <Button
@@ -80,7 +81,7 @@ export const AdminProjects = () => {
                                     <Stack direction={"row"} alignItems={"center"} gap={2}>
 
                                         <Chip label={`${project.tasks} Tasks`} variant="outlined" sx={{ fontWeight: 600 }} />
-                                        <Typography variant="subtitle1" color="text.secondary">{project.tasksCompleted} completed</Typography>
+                                        <Typography variant="subtitle1" color="text.secondary">{project.tasksCompleted} concluídas</Typography>
 
                                     </Stack>
 
@@ -89,13 +90,13 @@ export const AdminProjects = () => {
                                     <Stack direction={"row"} justifyContent={"end"} gap={1} mt={1}>
 
                                         <Button
-                                            label={"Menage Tasks"}
+                                            label={"Gerenciar tarefas"}
                                             onClick={() => navigate('/DashBoard/CompanyDashboard/MenageTask')}
                                             buttonStyle={"Black"}
                                             sx={{ paddingInline: 1, height: 30 }}
                                         />
                                         <Button
-                                            label={"Edit"}
+                                            label={"Editar"}
                                             onClick={openEditar}
                                             buttonStyle={"Black"}
                                             sx={{ paddingInline: 1, height: 30 }}
@@ -159,6 +160,7 @@ export const UserProjects = () => {
         closeWarning,
         confirmWarning,
         closeSuccess,
+        customStyles
     } = useProjetcsOption()
 
     const tasks = [
@@ -169,160 +171,256 @@ export const UserProjects = () => {
 
     return (
         <>
-            <Styled.UserProjectsWrapper sx={{ mb: 3 }}>
-                <CardContent>
+            <Stack gap={4}>
+                <Styled.UserProjectsWrapper>
+                    <CardContent>
 
-                    <Styled.HeaderStack>
+                        <Styled.HeaderStack>
+
+                            <Box>
+
+                                <Typography variant="h4" sx={{ fontWeight: 600 }}>Nome do Projeto</Typography>
+                                <Typography variant="subtitle1" color="text.secondary" mb={2}>Visão geral e progresso do projeto</Typography>
+
+                            </Box>
+
+                            <Button
+                                icon={<Plus size={15} />}
+                                iconPosition="right"
+                                label={"Add Task"}
+                                onClick={openAdicionar}
+                                buttonStyle={"Purple"}
+                                sx={{ paddingInline: 3, height: 30 }}
+                            />
+                        </Styled.HeaderStack>
+
+                        <Styled.InfoCardsBox>
+
+                            <InfoCard
+                                sx={{ width: { xs: "90%" } }}
+                                typeCard={"daily"}
+                                title={"Tarefas"}
+                                info={"24"}
+                                description={"18 de 24 concluídas"}
+                                children={
+                                    <ProgressBar
+                                        neutral={true}
+                                        value={24}
+                                        sx={{
+                                            '&.MuiLinearProgress-root': {
+                                                backgroundColor: "#fff"
+                                            },
+                                        }}
+                                    />
+                                }
+                            />
+
+
+                            <InfoCard
+                                sx={{ width: { xs: "90%" } }}
+                                typeCard={"daily"}
+                                title={"Progresso"}
+                                info={"75%"}
+                                description={"25% restante"}
+                                children={
+                                    <ProgressBar
+                                        neutral={true}
+                                        value={75}
+                                        sx={{
+                                            '&.MuiLinearProgress-root': {
+                                                backgroundColor: "#fff"
+                                            },
+                                        }}
+                                    />
+                                }
+                            />
+
+
+                            <InfoCard
+                                sx={{ width: { xs: "90%" } }}
+                                typeCard={"daily"}
+                                title={"Tempo Gasto"}
+                                info={"65 hrs"}
+                                description={"+5 hrs acima da estimativa"}
+                                children={
+                                    <ProgressBar
+                                        neutral={true}
+                                        value={30}
+                                        sx={{
+                                            '&.MuiLinearProgress-root': {
+                                                backgroundColor: "#fff"
+                                            },
+                                        }}
+                                    />
+                                }
+                            />
+
+
+                        </Styled.InfoCardsBox>
+                    </CardContent>
+                </Styled.UserProjectsWrapper>
+
+                <Styled.UserProjectsWrapper>
+
+                    <CardContent>
+
+                        <Stack gap={2} className="filter">
+
+                            <TextField
+                                variant="outlined"
+                                placeholder="Search..."
+                                size="small"
+                                fullWidth
+                                sx={customStyles}
+                                className="searchField"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <SearchIcon size={15} />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                            />
+                            <Stack gap={2} className="filterSelects" justifyContent={"center"}>
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"Dificuldade"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "all", label: "Todas" },
+                                        { value: "low", label: "Baixa" },
+                                        { value: "medium", label: "Média" },
+                                        { value: "high", label: "Alta" },
+                                    ]}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
+                                />
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"todas as tarefas"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "0", label: "user 0" },
+                                        { value: "1", label: "user 1" },
+                                        { value: "2", label: "user 2" },
+                                        { value: "3", label: "user 3" },
+                                    ]}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
+                                />
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"Projeto"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "all", label: "Todos" },
+                                        { value: "redesign", label: "Website Redesign" },
+                                        { value: "mobile", label: "Mobile App Development" },
+                                        { value: "crm", label: "CRM Integration" },
+                                    ]}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
+                                />
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"Setor"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "all", label: "Todos" },
+                                        { value: "dev", label: "Development" },
+                                        { value: "dsg", label: "Design" },
+                                        { value: "mk", label: "Marketing" },
+                                        { value: "qa", label: "QA" },
+                                    ]}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
+                                />
+                            </Stack>
+                        </Stack>
+
+                    </CardContent>
+
+                </Styled.UserProjectsWrapper>
+
+                <Styled.UserProjectsWrapper>
+
+                    <CardContent>
 
                         <Box>
 
-                            <Typography variant="h4" sx={{ fontWeight: 600 }}>Nome do Projeto</Typography>
-                            <Typography variant="subtitle1" color="text.secondary" mb={2}>Project overview and progress</Typography>
+                            <Typography variant="h4" sx={{ fontWeight: 600 }}>Tarefas do Projeto</Typography>
+                            <Typography variant="subtitle1" color="text.secondary" mb={2}>Tarefas do projeto</Typography>
 
                         </Box>
 
-                        <Button
-                            icon={<Plus size={15} />}
-                            iconPosition="right"
-                            label={"Add Task"}
-                            onClick={openAdicionar}
-                            buttonStyle={"Purple"}
-                            sx={{ paddingInline: 3, height: 30 }}
-                        />
-                    </Styled.HeaderStack>
+                        <Stack gap={1}>
 
-                    <Styled.InfoCardsBox>
+                            {tasks.map((task) => (
 
-                        <InfoCard
-                            sx={{ width: { xs: "90%" } }}
-                            typeCard={"daily"}
-                            title={"Tasks"}
-                            info={"24"}
-                            description={"18 of 24 completed"}
-                            children={
-                                <ProgressBar
-                                    neutral={true}
-                                    value={24}
+                                <Stack
+                                    direction={"row"}
+                                    bgcolor={"#F9FAFB"}
+                                    gap={2}
                                     sx={{
-                                        '&.MuiLinearProgress-root': {
-                                            backgroundColor: "#fff"
+                                        '@media (max-width:425px)': {
+                                            overflowX: 'auto',
+                                            WebkitOverflowScrolling: 'touch',
                                         },
-
                                     }}
-                                />
-                            }
-                        />
+                                >
 
-                        <InfoCard
-                            sx={{ width: { xs: "90%" } }}
-                            typeCard={"daily"}
-                            title={"Progress"}
-                            info={"75%"}
-                            description={"25% remaining"}
-                            children={
-                                <ProgressBar
-                                    neutral={true}
-                                    value={75}
-                                    sx={{
-                                        '&.MuiLinearProgress-root': {
-                                            backgroundColor: "#fff"
+                                    <Box sx={{
+                                        width: "100%",
+                                        '@media (max-width:600px)': {
+                                            height: 155,
+                                            display: "flex",
+                                            alignItems: "center"
                                         },
+                                    }}>
+                                        <ActivityCard
+                                            title={task.title}
+                                            date={task.date}
+                                            type={"Task"}
+                                            color={task.color}
+                                            status={task.status}
+                                            scroll={false}
+                                        />
+                                    </Box>
 
-                                    }}
-                                />
-                            }
-                        />
-
-                        <InfoCard
-                            sx={{ width: { xs: "90%" } }}
-                            typeCard={"daily"}
-                            title={"Time Spent"}
-                            info={"65 hrs"}
-                            description={"+5 hrs from estimate"}
-                            children={
-                                <ProgressBar
-                                    neutral={true}
-                                    value={30}
-                                    sx={{
-                                        '&.MuiLinearProgress-root': {
-                                            backgroundColor: "#fff"
-                                        },
-
-                                    }}
-                                />
-                            }
-                        />
-
-                    </Styled.InfoCardsBox>
-                </CardContent>
-            </Styled.UserProjectsWrapper>
-
-            <Styled.UserProjectsWrapper>
-
-                <CardContent>
-
-                    <Box>
-
-                        <Typography variant="h4" sx={{ fontWeight: 600 }}>Project Tasks</Typography>
-                        <Typography variant="subtitle1" color="text.secondary" mb={2}>Tasks for Project Name</Typography>
-
-                    </Box>
-
-                    <Stack gap={1}>
-
-                        {tasks.map((task) => (
-
-                            <Stack
-                                direction={"row"}
-                                bgcolor={"#F9FAFB"}
-                                gap={2}
-                                sx={{
-                                    '@media (max-width:425px)': {
-                                        overflowX: 'auto',
-                                        WebkitOverflowScrolling: 'touch',
-                                    },
-                                }}
-                            >
-
-                                <Box sx={{
-                                    width: "100%",
-                                    '@media (max-width:600px)': {
-                                        height: 155,
-                                        display: "flex",
-                                        alignItems: "center"
-                                    },
-                                }}>
-                                    <ActivityCard
-                                        title={task.title}
-                                        date={task.date}
-                                        type={"Task"}
-                                        color={task.color}
-                                        status={task.status}
-                                        scroll={false}
+                                    <CustomIconButton
+                                        icon={Ellipsis}
+                                        options={[
+                                            { label: "Edit Task", onClick: openEditar },
+                                            {
+                                                label: "Delete Task",
+                                                onClick: () => openWarning(() => { }),
+                                                isDanger: true,
+                                            },
+                                        ]}
                                     />
-                                </Box>
 
-                                <CustomIconButton
-                                    icon={Ellipsis}
-                                    options={[
-                                        { label: "Edit Task", onClick: openEditar },
-                                        {
-                                            label: "Delete Task",
-                                            onClick: () => openWarning(() => { }),
-                                            isDanger: true,
-                                        },
-                                    ]}
-                                />
+                                </Stack>
 
-                            </Stack>
+                            ))}
 
-                        ))}
+                        </Stack>
 
-                    </Stack>
+                    </CardContent>
 
-                </CardContent>
-
-            </Styled.UserProjectsWrapper>
+                </Styled.UserProjectsWrapper>
+            </Stack>
             <ProjetcsDrawer
                 openD={openD}
                 modo={modo}

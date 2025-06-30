@@ -1,8 +1,12 @@
 import { useState, useCallback } from "react";
+import { useCustomSelectStyles } from "../../../../Hook/Mui/StyleMui";
 
 type DeleteAction = () => void;
 
 export function useProjetcsOption() {
+
+  const customStyles = useCustomSelectStyles();
+
   const [warningOpen, setWarningOpen] = useState(false);
   const [successOpen, setSuccessOpen] = useState(false);
   const [deleteAction, setDeleteAction] = useState<DeleteAction | null>(null);
@@ -34,5 +38,6 @@ export function useProjetcsOption() {
     closeWarning,
     confirmWarning,
     closeSuccess,
+    customStyles
   };
 }

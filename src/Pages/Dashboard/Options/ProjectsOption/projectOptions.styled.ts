@@ -2,12 +2,36 @@ import { Box, Card, Stack, styled } from "@mui/material";
 
 export const ProjectWrapper = styled(Card)(() => ({}));
 
-export const UserProjectsWrapper = styled(Card)(() => ({}));
+export const UserProjectsWrapper = styled(Card)(({ theme }) => ({
+  ".filter": {
+    flexDirection: "row",
+    alignItems: "end",
+  },
+
+  ".filterSelects": {
+    flexDirection: "row",
+    alignItems: "end",
+  },
+
+  [theme.breakpoints.down("md")]: {
+    ".filter": {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+
+    ".filterSelects": {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  },
+}));
 
 export const ProjectsGrid = styled(Box)(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
- gap: theme.spacing(3),
+  gap: theme.spacing(3),
   [theme.breakpoints.down("lg")]: {
     display: "flex",
     flexDirection: "column",

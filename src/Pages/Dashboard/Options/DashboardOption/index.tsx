@@ -16,40 +16,42 @@ export const DashboardContent = ({ open }: OptionsProps) => {
             <Styled.InfoCardsWrapper open={open}>
 
                 <InfoCard
-                    title="Total Hours This Week"
+                    title="Horas Totais Nesta Semana"
                     icon={Clock}
-                    info="1,680"
-                    description="1,680 / 1,800 hours"
+                    info="1.680"
+                    description="1.680 / 1.800 horas"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={<ProgressBar neutral={true} value={50} />}
                 />
 
+
                 <InfoCard
-                    title="Active Collaborators"
+                    title="Colaboradores Ativos"
                     icon={Users}
                     info="42"
-                    description="42 / 45 total"
+                    description="42 / 45 no total"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={<ProgressBar neutral={true} value={90} />}
                 />
 
+
                 <InfoCard
-                    title="Tasks Completed"
+                    title="Tarefas Concluídas"
                     icon={SquareChartGantt}
                     info="96"
-                    description="96 / 120 tasks"
+                    description="96 / 120 tarefas"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={<ProgressBar neutral={true} value={30} />}
                 />
 
                 <InfoCard
-                    title="Average Efficiency"
+                    title="Eficiência Média"
                     icon={ChartNoAxesCombined}
                     info="87%"
-                    description="Good performance"
+                    description="Bom desempenho"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={<ProgressBar neutral={true} value={10} />}
@@ -60,40 +62,42 @@ export const DashboardContent = ({ open }: OptionsProps) => {
             <Styled.GraficWrapper sx={{ mt: 4 }} open={open}>
 
                 <CardGrafic
-                    label="Weekly Hours"
-                    subtitle="Total hours worked vs. target"
+                    label="Horas Semanais"
+                    subtitle="Total de horas trabalhadas vs. meta"
                     type="bar"
                     data={[
-                        { name: "Week 1", worked: 1400, target: 1500 },
-                        { name: "Week 2", worked: 1450, target: 1500 },
-                        { name: "Week 3", worked: 1390, target: 1500 },
-                        { name: "Week 4", worked: 1550, target: 1500 },
+                        { name: "Semana 1", worked: 1400, target: 1500 },
+                        { name: "Semana 2", worked: 1450, target: 1500 },
+                        { name: "Semana 3", worked: 1390, target: 1500 },
+                        { name: "Semana 4", worked: 1550, target: 1500 },
                     ]}
                 />
 
+
                 <CardGrafic
-                    label="Task Completion"
-                    subtitle="Tasks completed vs. assigned"
+                    label="Conclusão de Tarefas"
+                    subtitle="Tarefas concluídas vs. atribuídas"
                     type="bar"
                     data={[
-                        { name: "Week 1", worked: 1400, target: 1500 },
-                        { name: "Week 2", worked: 1450, target: 1500 },
-                        { name: "Week 3", worked: 1390, target: 1500 },
-                        { name: "Week 4", worked: 1550, target: 1500 },
+                        { name: "Semana 1", worked: 1400, target: 1500 },
+                        { name: "Semana 2", worked: 1450, target: 1500 },
+                        { name: "Semana 3", worked: 1390, target: 1500 },
+                        { name: "Semana 4", worked: 1550, target: 1500 },
                     ]}
                 />
+
             </Styled.GraficWrapper>
 
             <Styled.GraficWrapper sx={{ mt: 4 }} open={open}>
 
                 <CardGrafic
-                    label="Department Distribution"
-                    subtitle="Collaborators by department"
+                    label="Distribuição por Departamento"
+                    subtitle="Colaboradores por departamento"
                     type="pie"
                     data={[
-                        { name: "Completed", value: 58 },
-                        { name: "In Progress", value: 25 },
-                        { name: "Not Started", value: 17 },
+                        { name: "Concluído", value: 58 },
+                        { name: "Em Andamento", value: 25 },
+                        { name: "Não Iniciado", value: 17 },
                     ]}
                 />
 
@@ -102,11 +106,11 @@ export const DashboardContent = ({ open }: OptionsProps) => {
                     <CardContent>
 
                         <Stack direction={"row"} justifyContent={"space-between"}>
-                            <Typography variant="h4" sx={{ fontWeight: 600 }}>Top Performers</Typography>
+                            <Typography variant="h4" sx={{ fontWeight: 600 }}>Melhores desempenhos</Typography>
                             <Button label={"View All"} onClick={() => alert('oi')} buttonStyle="Black" sx={{ paddingInline: 1 }} />
                         </Stack>
 
-                        <Typography variant="subtitle1" color="text.secondary" mb={2}>Collaborators with highest efficiency</Typography>
+                        <Typography variant="subtitle1" color="text.secondary" mb={2}>Colaboradores com maior eficiência</Typography>
 
                         <Stack gap={1}>
                             {[
@@ -145,7 +149,7 @@ export const DashboardContent = ({ open }: OptionsProps) => {
                                             {item.percentage}%
                                         </Typography>
                                         <Typography variant="body2" color="text.secondary" fontSize={12}>
-                                            {item.task} tasks completed
+                                            {item.task} tarefas concluídas
                                         </Typography>
                                     </Box>
                                 </Box>
@@ -176,71 +180,76 @@ export const DashboardUserContent = ({ open }: OptionsProps) => {
             <Styled.InfoCardsWrapper open={open}>
 
                 <InfoCard
-                    title="Total Hours This Week"
+                    title="Horas Totais Nesta Semana"
                     icon={Clock}
                     info="37.5"
-                    description="37.5 / 40 hours"
+                    description="37.5 / 40 horas"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={<ProgressBar neutral={true} value={50} />}
                 />
 
+
                 <InfoCard
-                    title="Tasks Completed"
+                    title="Tarefas Concluídas"
                     icon={SquareCheckBig}
                     info="35"
-                    description="35 / 60 total"
+                    description="35 / 60 no total"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={<ProgressBar neutral={true} value={90} />}
                 />
 
+
                 <InfoCard
-                    title="Efficiency Score"
+                    title="Índice de Eficiência"
                     icon={SquareChartGantt}
                     info="87%"
-                    description="performance"
+                    description="desempenho"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={<ProgressBar neutral={true} value={30} />}
                 />
 
+
                 <InfoCard
-                    title="Active Projects"
+                    title="Projetos Ativos"
                     icon={BriefcaseBusiness}
                     info="3"
-                    description="3 active projects"
+                    description="3 projetos ativos"
                     typeCard="daily"
                     sx={{ bgcolor: "#fff" }}
                     children={""}
                 />
+
 
             </Styled.InfoCardsWrapper>
 
             <Styled.GraficWrapper sx={{ mt: 4 }} open={open}>
 
                 <CardGrafic
-                    label="Performance Overview"
-                    subtitle="Your task completion and efficiency over time"
+                    label="Visão Geral de Desempenho"
+                    subtitle="Sua conclusão de tarefas e eficiência ao longo do tempo"
                     type="line"
                     data={[
-                        { name: "Week 1", tasks: 12, hours: 35, efficiency: 85 },
-                        { name: "Week 2", tasks: 14, hours: 38, efficiency: 87 },
-                        { name: "Week 3", tasks: 11, hours: 34, efficiency: 82 },
-                        { name: "Week 4", tasks: 17, hours: 39, efficiency: 90 },
-                        { name: "Week 5", tasks: 18, hours: 37, efficiency: 95 },
-                        { name: "Week 6", tasks: 16, hours: 36, efficiency: 89 },
+                        { name: "Semana 1", tasks: 12, hours: 35, efficiency: 85 },
+                        { name: "Semana 2", tasks: 14, hours: 38, efficiency: 87 },
+                        { name: "Semana 3", tasks: 11, hours: 34, efficiency: 82 },
+                        { name: "Semana 4", tasks: 17, hours: 39, efficiency: 90 },
+                        { name: "Semana 5", tasks: 18, hours: 37, efficiency: 95 },
+                        { name: "Semana 6", tasks: 16, hours: 36, efficiency: 89 },
                     ]}
                 />
 
+
                 <CardGrafic
-                    label="Task Distribution"
-                    subtitle="Current status of your tasks"
+                    label="Distribuição de Tarefas"
+                    subtitle="Status atual das suas tarefas"
                     type="pie"
                     data={[
-                        { name: "Completed", value: 58 },
-                        { name: "In Progress", value: 25 },
-                        { name: "Not Started", value: 17 },
+                        { name: "Concluídas", value: 58 },
+                        { name: "Em Andamento", value: 25 },
+                        { name: "Não Iniciadas", value: 17 },
                     ]}
                 />
 
@@ -252,12 +261,12 @@ export const DashboardUserContent = ({ open }: OptionsProps) => {
 
                     <CardContent>
 
-                        <Typography variant="h4" sx={{ fontWeight: 600 }}>Recent Activity</Typography>
-                        <Typography variant="subtitle1" color="text.secondary" mb={2}>Your latest tasks and time entries</Typography>
+                        <Typography variant="h4" sx={{ fontWeight: 600 }}>Atividade recente</Typography>
+                        <Typography variant="subtitle1" color="text.secondary" mb={2}>Suas últimas tarefas e pontos</Typography>
 
                         <Stack gap={1} mb={5}>
 
-                            <Typography variant="h5" sx={{ fontWeight: 600 }}>Recent Tasks</Typography>
+                            <Typography variant="h5" sx={{ fontWeight: 600 }}>Tarefas recentes</Typography>
 
                             {tasks.map((task) => (
 
@@ -290,7 +299,7 @@ export const DashboardUserContent = ({ open }: OptionsProps) => {
 
                         <Stack gap={1}>
 
-                            <Typography variant="h5" sx={{ fontWeight: 600 }}>Recent Time Entries</Typography>
+                            <Typography variant="h5" sx={{ fontWeight: 600 }}>Pontos recentes</Typography>
 
                             {[
 

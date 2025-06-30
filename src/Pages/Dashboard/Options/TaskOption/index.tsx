@@ -1,7 +1,7 @@
 import { Box, CardContent, InputAdornment, Stack, TextField, Typography } from "@mui/material"
 import * as Styled from "./taskOption.styled"
 import Button from "../../../../components/Button"
-import { ArrowLeft, Ellipsis, Filter, Plus, SearchIcon } from "lucide-react"
+import { ArrowLeft, Ellipsis, Plus, SearchIcon } from "lucide-react"
 import CustomSelect from "../../../../components/Select"
 import { ActivityCard } from "../../../../components/ActivityCard"
 import CustomIconButton from "../../../../components/IconButton"
@@ -62,32 +62,19 @@ export const TaskOption = () => {
 
                         <Box>
 
-                            <Typography variant="h4" sx={{ fontWeight: 600 }}>Tasks</Typography>
-                            <Typography variant="subtitle1" color="text.secondary" mb={2}>Menage and track your tasks</Typography>
+                            <Typography variant="h4" sx={{ fontWeight: 600 }}>Tarefas</Typography>
+                            <Typography variant="subtitle1" color="text.secondary" mb={2}>Gerencie e acompanhe suas tarefas</Typography>
 
                         </Box>
 
-                        <Stack direction={"row"} gap={1}>
-
-                            <Button
-                                icon={<Filter size={15} />}
-                                iconPosition="right"
-                                label={"Filter"}
-                                onClick={() => { }}
-                                buttonStyle={"Black"}
-                                sx={{ paddingInline: 1, height: 30 }}
-                            />
-
-                            <Button
-                                icon={<Plus size={15} />}
-                                iconPosition="right"
-                                label={"New Task"}
-                                onClick={openAdicionar}
-                                buttonStyle={"Purple"}
-                                sx={{ paddingInline: 3, height: 30 }}
-                            />
-
-                        </Stack>
+                        <Button
+                            icon={<Plus size={15} />}
+                            iconPosition="right"
+                            label={"Nova tarefa"}
+                            onClick={openAdicionar}
+                            buttonStyle={"Purple"}
+                            sx={{ paddingInline: 3, height: 30 }}
+                        />
 
                     </Styled.HeaderStack>
 
@@ -95,42 +82,42 @@ export const TaskOption = () => {
 
                         <CustomSelect
                             title={""}
-                            label={"Project"}
+                            label={"Projeto"}
                             displayEmpty
                             options={[
-                                { value: "all", label: "All Projects" },
+                                { value: "all", label: "Todos" },
                                 { value: "redesign", label: "Website Redesign" },
                                 { value: "mobile", label: "Mobile App Development" },
                                 { value: "crm", label: "CRM Integration" },
                             ]}
-                            sx={{ width: 200 }}
+                            sx={{ width: 200, height: 35, }}
                         />
 
                         <CustomSelect
                             title={""}
-                            label={"Priority"}
+                            label={"Dificuldade"}
                             displayEmpty
                             options={[
-                                { value: "all", label: "All Priorities" },
-                                { value: "low", label: "Low" },
-                                { value: "medium", label: "Medium" },
-                                { value: "high", label: "High" },
+                                { value: "all", label: "Todas" },
+                                { value: "low", label: "Baixa" },
+                                { value: "medium", label: "Média" },
+                                { value: "high", label: "Alta" },
                             ]}
-                            sx={{ width: 200 }}
+                            sx={{ width: 200, height: 35 }}
                         />
 
                         <CustomSelect
                             title={""}
-                            label={"Sector"}
+                            label={"Setor"}
                             displayEmpty
                             options={[
-                                { value: "all", label: "All Sectors" },
+                                { value: "all", label: "Todos" },
                                 { value: "dev", label: "Development" },
                                 { value: "dsg", label: "Design" },
                                 { value: "mk", label: "Marketing" },
                                 { value: "qa", label: "QA" },
                             ]}
-                            sx={{ width: 200 }}
+                            sx={{ width: 200, height: 35, }}
                         />
                     </Styled.FiltersStack>
 
@@ -178,9 +165,9 @@ export const TaskOption = () => {
                                 <CustomIconButton
                                     icon={Ellipsis}
                                     options={[
-                                        { label: "Edit Task", onClick: openEditar },
+                                        { label: "Editar", onClick: openEditar },
                                         {
-                                            label: "Delete Task",
+                                            label: "Deletar",
                                             onClick: () => openWarning(() => { }),
                                             isDanger: true,
                                         },
@@ -196,14 +183,14 @@ export const TaskOption = () => {
                     <Stack direction={"row"} mt={2} gap={1}>
 
                         <Button
-                            label={"Previous"}
+                            label={"Anterior"}
                             onClick={() => alert('previus')}
                             buttonStyle={"Black"}
                             sx={{ paddingInline: 1, height: 30 }}
                         />
 
                         <Button
-                            label={"Next"}
+                            label={"Próximo"}
                             onClick={() => alert('next')}
                             buttonStyle={"Black"}
                             sx={{ paddingInline: 1, height: 30 }}
@@ -285,7 +272,7 @@ export const MenageTask = () => {
                         icon={<ArrowLeft size={15} />}
                         iconPosition="right"
                         label={"Voltar"}
-                        onClick={()=>{navigate("/DashBoard/CompanyDashboard/Projects")}}
+                        onClick={() => { navigate("/DashBoard/CompanyDashboard/Projects") }}
                         buttonStyle={"Black"}
                         sx={{ paddingInline: 1, height: 30 }}
                     />
@@ -299,7 +286,7 @@ export const MenageTask = () => {
 
                                 <Stack>
                                     <Typography sx={{ fontSize: 25, fontWeight: 600 }}>Website Redesign</Typography>
-                                    <Typography variant="subtitle1">18 of 24 tasks finalizada</Typography>
+                                    <Typography variant="subtitle1">18 de 24 tarefas finalizada</Typography>
                                 </Stack>
                                 <Stack>
 
@@ -326,11 +313,11 @@ export const MenageTask = () => {
 
                     <CardContent>
 
-                        <Stack direction={"row"} gap={2} alignItems={"end"}>
+                        <Stack gap={2} className="filter">
 
                             <TextField
                                 variant="outlined"
-                                placeholder="Search..."
+                                placeholder="Pesquisar..."
                                 size="small"
                                 fullWidth
                                 sx={customStyles}
@@ -343,7 +330,7 @@ export const MenageTask = () => {
                                     ),
                                 }}
                             />
-                            <Stack direction={"row"} gap={2}>
+                            <Stack gap={2} className="filterSelects" justifyContent={"center"}>
 
                                 <CustomSelect
                                     title={""}
@@ -355,7 +342,10 @@ export const MenageTask = () => {
                                         { value: "medium", label: "Média" },
                                         { value: "high", label: "Alta" },
                                     ]}
-                                    sx={{ width: 200, height: 35 }}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
                                 />
 
                                 <CustomSelect
@@ -368,7 +358,43 @@ export const MenageTask = () => {
                                         { value: "2", label: "user 2" },
                                         { value: "3", label: "user 3" },
                                     ]}
-                                    sx={{ width: 200, height: 35, }}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
+                                />
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"Projeto"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "all", label: "Todos" },
+                                        { value: "redesign", label: "Website Redesign" },
+                                        { value: "mobile", label: "Mobile App Development" },
+                                        { value: "crm", label: "CRM Integration" },
+                                    ]}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
+                                />
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"Setor"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "all", label: "Todos" },
+                                        { value: "dev", label: "Development" },
+                                        { value: "dsg", label: "Design" },
+                                        { value: "mk", label: "Marketing" },
+                                        { value: "qa", label: "QA" },
+                                    ]}
+                                    sx={{
+                                        width: { xs: 200, sm: 300, md: 100, lg: 200 },
+                                        height: 35,
+                                    }}
                                 />
                             </Stack>
                         </Stack>

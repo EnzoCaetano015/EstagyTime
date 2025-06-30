@@ -49,7 +49,7 @@ export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask
                                 {title}
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary">
-                                {position} • Due {date}
+                                {position}-Finalizada {date}
                             </Typography>
                         </Box>
                     </Stack>
@@ -97,7 +97,7 @@ export const ActivityCard = ({ icon: Icon, title, position, date, hours, qtdTask
                         {hours} hrs
                     </Typography>
                     <Typography variant="subtitle1" color="text.secondary">
-                        {hours} hrs from target
+                        {hours} hrs para a meta
                     </Typography>
                 </Box>
             </Stack>

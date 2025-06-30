@@ -38,8 +38,8 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
                 <CardContent>
 
-                    <Typography variant="h4" sx={{ fontWeight: 600 }}>Time Tracker</Typography>
-                    <Typography variant="subtitle1" color="text.secondary" mb={2}>Track your work hours for tasks and projects</Typography>
+                    <Typography variant="h4" sx={{ fontWeight: 600 }}>Rastreador de tempo</Typography>
+                    <Typography variant="subtitle1" color="text.secondary" mb={2}>Acompanhe suas horas de trabalho para tarefas e projetos</Typography>
 
                     <Stack className="timerWrapper" gap={2}>
 
@@ -49,7 +49,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
                         <Stack flex={1} gap={2} >
                             <CustomSelect
-                                title={"Project"}
+                                title={"Projetos"}
                                 label={""}
                                 initialValue="Company Website"
                                 options={[
@@ -61,8 +61,8 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                             />
 
                             <CustomSelect
-                                title={"Task"}
-                                label={"Task Selection"}
+                                title={"Tarefa"}
+                                label={"Seleção de Tarefas"}
                                 displayEmpty={true}
                                 options={[
                                     { value: "development", label: "Web Development" },
@@ -76,10 +76,10 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                             />
 
                             <Box>
-                                <Typography variant="subtitle2" color="text.secondary" sx={{ pb: 1 }}>Description</Typography>
+                                <Typography variant="subtitle2" color="text.secondary" sx={{ pb: 1 }}>Descrição</Typography>
                                 <TextField
                                     type="text"
-                                    placeholder="What are you working on?"
+                                    placeholder="No que você está trabalhando?"
                                     fullWidth
                                     size="small"
                                     sx={customStyles}
@@ -91,13 +91,13 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                             <Stack direction={"row"} gap={1}>
 
                                 <CustomSelect
-                                    title={"Priority"}
+                                    title={"Dificuldade"}
                                     label={""}
                                     initialValue="low"
                                     options={[
-                                        { value: "low", label: "Low" },
-                                        { value: "medium", label: "Medium" },
-                                        { value: "high", label: "High" },
+                                        { value: "low", label: "Baixa" },
+                                        { value: "medium", label: "Média" },
+                                        { value: "high", label: "Alta" },
                                     ]}
                                     sx={{
                                         width: !open ? 300 : 200,
@@ -112,7 +112,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                 />
 
                                 <CustomSelect
-                                    title={"Sector"}
+                                    title={"Setor"}
                                     label={""}
                                     initialValue="dev"
                                     options={[
@@ -151,13 +151,13 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                         <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
 
                             <Box>
-                                <Typography variant="h4" sx={{ fontWeight: 600 }}>Time Logs</Typography>
-                                <Typography variant="subtitle1" color="text.secondary" mb={2}>Your recent time entries</Typography>
+                                <Typography variant="h4" sx={{ fontWeight: 600 }}>Registros de tempo</Typography>
+                                <Typography variant="subtitle1" color="text.secondary" mb={2}>Seus pontos recentes</Typography>
                             </Box>
 
                             <Stack direction={"row"} gap={1}>
                                 <Button
-                                    label={"Filter"}
+                                    label={"Filtar"}
                                     icon={<Funnel size={15} />}
                                     iconPosition="right"
                                     onClick={() => alert('filter')}
@@ -166,7 +166,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                 />
 
                                 <Button
-                                    label={"Export"}
+                                    label={"Exportar"}
                                     onClick={() => alert('Export')}
                                     buttonStyle={"Black"}
                                     sx={{ paddingInline: 1, height: 30 }}
@@ -218,13 +218,13 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
 
                         <Box>
-                            <Typography fontWeight={600} variant="subtitle1">Total Hours: 53 hrs</Typography>
-                            <Typography variant="subtitle2">Weekly target: 40 hrs</Typography>
+                            <Typography fontWeight={600} variant="subtitle1">Total de horas: 53 hrs</Typography>
+                            <Typography variant="subtitle2">Meta semanal: 40 hrs</Typography>
                         </Box>
 
 
                         <Button
-                            label={"View All Logs"}
+                            label={"Todos os registros"}
                             onClick={() => alert('view')}
                             buttonStyle={"FullBlack"}
                             sx={{ paddingInline: 1, height: 30 }}
@@ -240,8 +240,8 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
                 <CardContent>
 
-                    <Typography variant="h4" sx={{ fontWeight: 600 }}>Monthly Summary</Typography>
-                    <Typography variant="subtitle1" color="text.secondary" mb={2}>Your hours for July 2023</Typography>
+                    <Typography variant="h4" sx={{ fontWeight: 600 }}>Resumo Mensal</Typography>
+                    <Typography variant="subtitle1" color="text.secondary" mb={2}>Seu horário para julho de 2023</Typography>
 
                     <Stack direction={"row"} gap={2}>
 
@@ -271,7 +271,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
                                             <Title color="purple" text={`${Math.round(monthlyProgress)}%`} />
 
-                                            <Subtitle color="grey" text="Completed" />
+                                            <Subtitle color="grey" text="Concluído" />
 
                                         </Stack>
 
@@ -297,12 +297,12 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                     <Stack className="progressStatus">
 
                                         <Box sx={{ textAlign: "center" }}>
-                                            <Subtitle color="grey" text="Hours Worked" />
+                                            <Subtitle color="grey" text="Horas trabalhadas" />
                                             <SmallTitle color="purple" text={`${hoursThisMonth}`} />
                                         </Box>
 
                                         <Box sx={{ textAlign: "center" }}>
-                                            <Subtitle color="grey" text="Hours Remaining" />
+                                            <Subtitle color="grey" text="Horas restantes" />
                                             <SmallTitle color="purple" text={`${hoursRemaining}`} />
                                         </Box>
 
@@ -312,15 +312,16 @@ export const TimeTracking = ({ open }: OptionsProps) => {
 
                             <Card sx={{ p: "20px", }}>
 
-                                <SmallTitle color="black" text="Daily Breakdown" bold={true} />
+                                <SmallTitle color="black" text="Análise diária" bold={true} />
 
                                 <Stack gap={1} mt={1}>
                                     {[
-                                        { day: "Monday", date: "June 5", hours: 8.5, color: "green" },
-                                        { day: "Tuesday", date: "June 6", hours: 7.75, color: "green" },
-                                        { day: "Wednesday", date: "June 7", hours: 8, color: "green" },
-                                        { day: "Thursday", date: "June 8", hours: 6.5, color: "yellow" },
-                                        { day: "Friday", date: "June 9", hours: 4.25, color: "red" },
+                                        { day: "Segunda-feira", date: "5 de Junho", hours: 8.5, color: "green" },
+                                        { day: "Terça-feira", date: "6 de Junho", hours: 7.75, color: "green" },
+                                        { day: "Quarta-feira", date: "7 de Junho", hours: 8, color: "green" },
+                                        { day: "Quinta-feira", date: "8 de Junho", hours: 6.5, color: "yellow" },
+                                        { day: "Sexta-feira", date: "9 de Junho", hours: 4.25, color: "red" },
+
 
                                     ].map((item, index) => (
 
@@ -353,7 +354,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                 <Stack className={"weeklySummary"}>
 
                                     <Typography variant="subtitle2">
-                                        Weekly Summary
+                                       Resumo Semanal
                                     </Typography>
 
                                     <Stack className={"weeklySummaryContent"}>
@@ -363,7 +364,7 @@ export const TimeTracking = ({ open }: OptionsProps) => {
                                         </Typography>
 
                                         <Typography variant="body2">
-                                            87.5% of target
+                                            87,5% da meta
                                         </Typography>
 
                                     </Stack>

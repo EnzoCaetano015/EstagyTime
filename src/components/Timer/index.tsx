@@ -50,7 +50,7 @@ const Timer = () => {
 
             <Box className={"timerDisplay"}>
                 {timerState === "idle" ? "00 : 00 : 00" : formatTime(time)}
-                <Typography>Today: {data} </Typography>
+                <Typography>Hoje: {data} </Typography>
             </Box>
 
             <Stack sx={{ gap: 1.5, alignItems:"center", justifyContent: "center" }}>
@@ -64,7 +64,7 @@ const Timer = () => {
                         color: timerState === "running" ? "#6B7280" : "#fff",
                     }}
                 >
-                    <Play size={15} /> Start
+                    <Play size={15} /> Começar
                 </ButtonBase>
 
                 <ButtonBase
@@ -91,7 +91,7 @@ const Timer = () => {
                         color: "#fff",
                     }}
                 >
-                    <Square size={15} /> Finish
+                    <Square size={15} /> Encerrar
                 </ButtonBase>
 
             </Stack>

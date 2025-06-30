@@ -8,8 +8,8 @@ export const Settings = () => {
 
                 <CardContent>
 
-                    <Typography variant="h4" fontWeight={600}>Company Settings</Typography>
-                    <Typography variant="subtitle1" color="text.secondary">Manage your company configuration</Typography>
+                    <Typography variant="h4" fontWeight={600}>Configurações da empresa</Typography>
+                    <Typography variant="subtitle1" color="text.secondary">Gerencie a configuração da sua empresa</Typography>
 
                 </CardContent>
 

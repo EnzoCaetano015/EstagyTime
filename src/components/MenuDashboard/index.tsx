@@ -47,7 +47,7 @@ export const MenuDashboard = ({ type, setOpen, setMobileOpen }: MenuDashboardPro
                     <PanelLeft size={15} />
                 </Button>
 
-                <Typography variant="h5">{!type ? "Company Dashboard" : "My Dashboard"}</Typography>
+                <Typography variant="h5">{!type ? "Dashboard da empresa" : "Meu Dashboard"}</Typography>
             </Stack>
 
             <Stack className="content">
@@ -110,25 +110,24 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
 
                 {open && (
                     <Box sx={{ px: 2, mb: 2 }}>
-                        <Typography variant="subtitle1" color="text.secondary"><Building size={10} /> Company</Typography>
+                        <Typography variant="subtitle1" color="text.secondary"><Building size={10} /> Empresa</Typography>
                         <Typography fontWeight={600} variant="h6">TechInnovate Solutions</Typography>
-                        <Typography variant="caption">{!type ? "Code: TECHINV2023" : "CNPJ: 12.345.678/0001-90"}</Typography><br />
+                        <Typography variant="caption">{!type ? "Código: TECHINV2023" : "CNPJ: 12.345.678/0001-90"}</Typography><br />
 
-                        <Typography variant="caption" sx={{ paddingRight: "60%" }}>Team Size:</Typography>
-                        <Typography variant="caption">45 users</Typography>
+                        <Typography variant="caption" sx={{ paddingRight: "60%" }}>Tamanho da equipe:</Typography>
+                        <Typography variant="caption">45 usuários</Typography>
                     </Box>
                 )}
 
                 <Divider />
-                <Typography variant="subtitle1" color="text.secondary" sx={{ p: "8px 16px 0px" }}>Navigation</Typography>
+                <Typography variant="subtitle1" color="text.secondary" sx={{ p: "8px 16px 0px" }}>Navegação</Typography>
                 {!type ? (
                     <>
                         <List>
                             {[
                                 { icon: <BarChart3 size={15} />, label: "Dashboard", path: "/DashBoard/CompanyDashboard/Metrics" },
-                                { icon: <Users size={15} />, label: "Collaborators", path: "/DashBoard/CompanyDashboard/Collaborators" },
-                                { icon: <Briefcase size={15} />, label: "Projects", path: "/DashBoard/CompanyDashboard/Projects" },
-                                { icon: <Settings size={15} />, label: "Settings", path: "/DashBoard/CompanyDashboard/Settings" },
+                                { icon: <Users size={15} />, label: "Contribuidores", path: "/DashBoard/CompanyDashboard/Collaborators" },
+                                { icon: <Briefcase size={15} />, label: "Projetos", path: "/DashBoard/CompanyDashboard/Projects" },
                             ].map((item, i) => (
                                 <ListItemButton key={i} onClick={() => navigate(item.path)}>
                                     <ListItemIcon>{item.icon}</ListItemIcon>
@@ -142,8 +141,8 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
                         <List>
                             {[
                                 { icon: <BarChart3 size={15} />, label: "Dashboard", path: "/DashBoard/MyDashboard/Metrics" },
-                                { icon: <Clock size={15} />, label: "Time Tracking", path: "/DashBoard/MyDashboard/Time-Tracking" },
-                                { icon: <ClipboardList size={15} />, label: "Tasks", path: "/DashBoard/MyDashboard/Tasks" },
+                                { icon: <Clock size={15} />, label: "Controle de tempo", path: "/DashBoard/MyDashboard/Time-Tracking" },
+                                { icon: <ClipboardList size={15} />, label: "Tarefas", path: "/DashBoard/MyDashboard/Tasks" },
                             ].map((item, i) => (
                                 <ListItemButton key={i} onClick={() => navigate(item.path)}>
                                     <ListItemIcon>{item.icon}</ListItemIcon>
@@ -155,7 +154,7 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
                                     <ListItemIcon>
                                         <Folder size={15} />
                                     </ListItemIcon>
-                                    {open && <ListItemText primary="Projects" />}
+                                    {open && <ListItemText primary="Projetos" />}
                                     {open && (openProjects ? <ChevronDown size={15} /> : <ChevronRight size={15} />)}
                                 </ListItemButton>
 
@@ -191,7 +190,7 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
 
                         <Box>
                             <Typography variant="body2">User Teste</Typography>
-                            <Typography variant="caption" color="text.secondary">Position</Typography>
+                            <Typography variant="caption" color="text.secondary">Função</Typography>
                         </Box>
 
                     </Stack>
@@ -201,12 +200,12 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
                         options={
                             type
                                 ? [
-                                    { icon: <Settings size={15} />, label: "Settings", onClick: () => alert("settings") },
+                                    { icon: <Settings size={15} />, label: "Configurações", onClick: () => alert("settings") },
                                     { icon: <CircleUserRound size={15} />, label: "Trocar conta", onClick: () => navigate("/Auth/CompanySelection") },
                                     { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/Auth/Login"), isDanger: true }
                                 ]
                                 : [
-                                    { icon: <Settings size={15} />, label: "Settings", onClick: () => alert("settings") },
+                                    { icon: <Settings size={15} />, label: "Configurações", onClick: () => alert("settings") },
                                     { icon: <Building2 size={15} />, label: "Trocar conta", onClick: () => navigate("/Auth/CompanySelection") },
                                     { icon: <LogOut size={15} />, label: "Log out", onClick: () => navigate("/Auth/Login"), isDanger: true }
                                 ]
