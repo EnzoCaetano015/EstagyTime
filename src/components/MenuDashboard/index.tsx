@@ -80,6 +80,13 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [openProjects, setOpenProjects] = useState(true);
 
+    const handleNavigation = (path: string) => {
+        navigate(path);
+        if (isMobile) {
+            onCloseMobile();
+        }
+    };
+
     const mockProjects = [
         { id: "website", name: "Website Redesign" },
         { id: "mobile", name: "Mobile App Development" },
@@ -129,7 +136,7 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
                                 { icon: <Users size={15} />, label: "Contribuidores", path: "/DashBoard/CompanyDashboard/Collaborators" },
                                 { icon: <Briefcase size={15} />, label: "Projetos", path: "/DashBoard/CompanyDashboard/Projects" },
                             ].map((item, i) => (
-                                <ListItemButton key={i} onClick={() => navigate(item.path)}>
+                                <ListItemButton key={i} onClick={() => handleNavigation(item.path)}>
                                     <ListItemIcon>{item.icon}</ListItemIcon>
                                     {open && <ListItemText primary={item.label} />}
                                 </ListItemButton>
@@ -144,7 +151,7 @@ export const Sidebar = ({ open, type, mobileOpen, onCloseMobile }: SidebarProps)
                                 { icon: <Clock size={15} />, label: "Controle de tempo", path: "/DashBoard/MyDashboard/Time-Tracking" },
                                 { icon: <ClipboardList size={15} />, label: "Tarefas", path: "/DashBoard/MyDashboard/Tasks" },
                             ].map((item, i) => (
-                                <ListItemButton key={i} onClick={() => navigate(item.path)}>
+                                <ListItemButton key={i} onClick={() => handleNavigation(item.path)}>
                                     <ListItemIcon>{item.icon}</ListItemIcon>
                                     {open && <ListItemText primary={item.label} />}
                                 </ListItemButton>
