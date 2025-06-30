@@ -10,7 +10,7 @@ export default function Splash() {
   return (
     <>
       <Container>
-        <Loading text={"Intern work hours management\nmade simple"} />
+        <Loading text={"Gestão de horas de trabalho de\nestagiários simplificada"} />
       </Container>
       <Footer
         title={""}

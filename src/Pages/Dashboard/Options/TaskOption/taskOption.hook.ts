@@ -1,5 +1,7 @@
 // taskOption.hook.ts
 import { useState, useCallback } from "react";
+import { useCustomSelectStyles } from "../../../../Hook/Mui/StyleMui";
+import { useNavigate } from "react-router";
 
 type DeleteAction = () => void;
 
@@ -10,6 +12,10 @@ export function useTaskOption() {
   const [successOpen, setSuccessOpen] = useState(false);
   // guardamos a ação real de delete para executar no confirm
   const [deleteAction, setDeleteAction] = useState<DeleteAction | null>(null);
+
+  const customStyles = useCustomSelectStyles();
+
+  const navigate = useNavigate()
 
   // chama quando o usuário clica em “Delete Task”
   const openWarning = useCallback((action: DeleteAction) => {
@@ -42,5 +48,7 @@ export function useTaskOption() {
     closeWarning,
     confirmWarning,
     closeSuccess,
+    customStyles,
+    navigate
   };
 }

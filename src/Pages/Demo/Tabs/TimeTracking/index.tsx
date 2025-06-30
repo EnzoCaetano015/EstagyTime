@@ -11,16 +11,16 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 
 
-import { useCustomSelectStyles } from "../../../Hook/Mui/StyleMui"
+import { useCustomSelectStyles } from "../../../../Hook/Mui/StyleMui"
 
 import { motion } from "framer-motion";
-import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
+import { fadeInVariant, slideInVariant } from "../../../../utils/Motion";
 
-import { DemoCard as StyledCard } from "../Demo.styled"
+import { DemoCard as StyledCard } from "../../Demo.styled"
 import * as Styled from "./timeTrack.styled"
 import { Box, Stack } from "@mui/material";
-import CustomSelect from "../../../components/Select";
-import TimeSpent from "../../../components/TimeSpent";
+import CustomSelect from "../../../../components/Select";
+import TimeSpent from "../../../../components/TimeSpent";
 
 
 export default function TimeTracking() {
@@ -44,10 +44,10 @@ export default function TimeTracking() {
 
                 >
                     <Typography variant="h1" className={"cardTitle"}>
-                        Time Tracking Demo
+                        Demonstração de controle de tempo
                     </Typography>
                     <Typography className={"cardDescription"}>
-                        Track your work hours and assign time to specific tasks.
+                        Acompanhe suas horas de trabalho e atribua tempo para tarefas específicas.
                     </Typography>
 
                 </motion.div>
@@ -63,7 +63,7 @@ export default function TimeTracking() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
-                            Daily Hours
+                            Horário Diário
                         </motion.h1 >
 
                         <Styled.TaskBox
@@ -78,7 +78,7 @@ export default function TimeTracking() {
                                 <Stack>
 
                                     <Typography variant="subtitle2" sx={{ color: "#6B7280" }} >
-                                        Hours worked today
+                                        Horas trabalhadas hoje
                                     </Typography>
 
                                     <Typography component={"span"} sx={{ fontSize: "25px", fontWeight: "bold", color: "#422680" }} >
@@ -96,7 +96,7 @@ export default function TimeTracking() {
                             <Box sx={{ pt: "5px", borderTop: "1px solid #e5e7eb" }}>
 
                                 <Typography variant="subtitle2" sx={{ color: "#6B7280" }} >
-                                    Daily progress (8 hours target)
+                                    Progresso diário (meta de 8 horas)
                                 </Typography>
 
                                 <Box className={"progressContainer"}>
@@ -129,7 +129,7 @@ export default function TimeTracking() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
-                            Task Selection
+                            Seleção de Tarefas
                         </motion.h1 >
 
                         <Styled.TaskBox
@@ -140,7 +140,7 @@ export default function TimeTracking() {
                         >
                             <CustomSelect
                                 title={""}
-                                label={"Task Selection"}
+                                label={"Seleção de Tarefas"}
                                 displayEmpty={true}
                                 options={[
                                     { value: "development", label: "Web Development" },
@@ -156,7 +156,7 @@ export default function TimeTracking() {
 
 
                                 <CustomSelect
-                                    title={"Project"}
+                                    title={"Projetos"}
                                     label={""}
                                     initialValue="Company Website"
                                     options={[
@@ -167,13 +167,14 @@ export default function TimeTracking() {
                                 />
 
                                 <CustomSelect
-                                    title={"Priority"}
-                                    label={""}
-                                    initialValue="low"
+                                    title={"Dificuldade"}
+                                    label={"Dificuldade"}
+                                    displayEmpty
                                     options={[
-                                        { value: "low", label: "Low" },
-                                        { value: "medium", label: "Medium" },
-                                        { value: "high", label: "High" },
+                                        { value: "all", label: "Todas" },
+                                        { value: "low", label: "Baixa" },
+                                        { value: "medium", label: "Média" },
+                                        { value: "high", label: "Alta" },
                                     ]}
                                 />
 
@@ -191,7 +192,7 @@ export default function TimeTracking() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
-                            Time Spent
+                            Tempo gasto
                         </motion.h1>
 
                         <Styled.TaskBox
@@ -203,7 +204,7 @@ export default function TimeTracking() {
 
                             <Box>
                                 <Typography variant="subtitle2" sx={{ color: "#6B7280" }}>
-                                    Time Format
+                                    Formato de hora
                                 </Typography>
 
                                 <RadioGroup
@@ -212,9 +213,9 @@ export default function TimeTracking() {
                                     value={timeFormat}
                                     onChange={(_event, value) => setTimeFormat(value as "hours" | "days" | "dates")}
                                 >
-                                    <FormControlLabel value="hours" control={<Radio />} label="Hours" />
-                                    <FormControlLabel value="days" control={<Radio />} label="Days" />
-                                    <FormControlLabel value="dates" control={<Radio />} label="Date Range" />
+                                    <FormControlLabel value="hours" control={<Radio />} label="Horas" />
+                                    <FormControlLabel value="days" control={<Radio />} label="Dias" />
+                                    <FormControlLabel value="dates" control={<Radio />} label="Período" />
                                 </RadioGroup>
                             </Box>
 

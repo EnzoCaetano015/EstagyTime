@@ -1,14 +1,16 @@
 import Typography from "@mui/material/Typography";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { motion } from "framer-motion";
-import { fadeInVariant, slideInVariant } from "../../../utils/Motion";
-import { DemoCard as StyledCard } from "../Demo.styled"
+
+import { DemoCard as StyledCard } from "../../Demo.styled"
 import * as Styled from "./dashboard.styled"
 import { Box, Card, Stack } from "@mui/material";
-import CustomSelect from "../../../components/Select";
-import InfoCard from "../../../components/InfoCard";
-import { SmallTitle } from "../../../components/Text";
-import ProgressBar from "../../../components/ProgressBar";
+import { fadeInVariant, slideInVariant } from "../../../../utils/Motion";
+import CustomSelect from "../../../../components/Select";
+import InfoCard from "../../../../components/InfoCard";
+import { SmallTitle } from "../../../../components/Text";
+import ProgressBar from "../../../../components/ProgressBar";
+
 
 const performanceData = [
     { name: "Week 1", tasks: 5, hours: 35, efficiency: 85 },
@@ -40,11 +42,11 @@ export default function Dashboard() {
                     <Box sx={{ flex: 1 }}>
 
                         <Typography variant="h1" className={"cardTitle"}>
-                            Performance Dashboard
+                            Dashboard  de desempenho
                         </Typography>
 
                         <Typography className={"cardDescription"}>
-                            Track your productivity and efficiency over time.
+                            Acompanhe sua produtividade e eficiência ao longo do tempo.
                         </Typography>
 
                     </Box>
@@ -54,10 +56,10 @@ export default function Dashboard() {
                         label={""}
                         initialValue="week"
                         options={[
-                            { value: "week", label: "Weekly" },
-                            { value: "month", label: "Monthly" },
-                            { value: "semester", label: "Semester" },
-                            { value: "year", label: "Yearly" },
+                            { value: "week", label: "Semanal" },
+                            { value: "month", label: "Mensal" },
+                            { value: "semester", label: "Semestral" },
+                            { value: "year", label: "Anual" },
                         ]}
                     />
 
@@ -74,9 +76,9 @@ export default function Dashboard() {
                             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
                             <InfoCard
-                                title="Tasks Completed"
-                                info="76 Tasks"
-                                description="↑ 12% from last period"
+                                title="Tarefas Concluídas"
+                                info="76 Tarefas"
+                                description="12% em relação ao período anterior"
                                 typeCard="completed"
                             />
 
@@ -90,11 +92,12 @@ export default function Dashboard() {
                         >
 
                             <InfoCard
-                                title="Avg. Time per Task"
+                                title="Tempo Médio por Tarefa"
                                 info="3.2 hrs"
-                                description="↓ 8% from last period"
+                                description="8% em relação ao período anterior"
                                 typeCard="completed"
                             />
+
 
                         </motion.div>
 
@@ -106,11 +109,12 @@ export default function Dashboard() {
                         >
 
                             <InfoCard
-                                title=">Efficiency Score"
+                                title="Índice de Eficiência"
                                 info="87%"
-                                description="↑ 5% from last period"
+                                description="5% em relação ao período anterior"
                                 typeCard="completed"
                             />
+
 
                         </motion.div>
 
@@ -123,11 +127,12 @@ export default function Dashboard() {
                         >
 
                             <InfoCard
-                                title="On-time Completion"
+                                title="Conclusão no Prazo"
                                 info="92%"
-                                description="↑ 3% from last period"
+                                description="3% em relação ao período anterior"
                                 typeCard="completed"
                             />
+
 
                         </motion.div>
 
@@ -142,7 +147,7 @@ export default function Dashboard() {
                         sx={{ p: "20px" }}
                     >
 
-                        <SmallTitle color="black" text="Performance Trendss" bold={true} />
+                        <SmallTitle color="black" text="Gráfico de desempenho" bold={true} />
 
                         <Box sx={{ height: 330, p: 2 }}>
 
@@ -178,7 +183,7 @@ export default function Dashboard() {
                             sx={{ width: "100%", p: "20px" }}
 
                         >
-                            <SmallTitle color="black" text="Task Breakdown" bold={true} />
+                            <SmallTitle color="black" text="Divisão de tarefas" bold={true} />
 
                             <Stack gap={3} mt={1}>
 
@@ -222,16 +227,17 @@ export default function Dashboard() {
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             sx={{ width: "100%", p: "20px" }}
                         >
-                            <SmallTitle color="black" text="Productivity by Day" bold={true} />
+                            <SmallTitle color="black" text="Produtividade por dia" bold={true} />
 
                             <Stack gap={3} mt={1}>
 
                                 {[
-                                    { day: "Monday", efficiency: 92, hours: 8.5 },
-                                    { day: "Tuesday", efficiency: 88, hours: 7.8 },
-                                    { day: "Wednesday", efficiency: 85, hours: 8.2 },
-                                    { day: "Thursday", efficiency: 78, hours: 6.5 },
-                                    { day: "Friday", efficiency: 82, hours: 7.0 },
+                                    { day: "Segunda-feira", efficiency: 92, hours: 8.5 },
+                                    { day: "Terça-feira", efficiency: 88, hours: 7.8 },
+                                    { day: "Quarta-feira", efficiency: 85, hours: 8.2 },
+                                    { day: "Quinta-feira", efficiency: 78, hours: 6.5 },
+                                    { day: "Sexta-feira", efficiency: 82, hours: 7.0 },
+
 
                                 ].map((item, index) => (
 
@@ -258,11 +264,11 @@ export default function Dashboard() {
                             <Stack className={"weeklySummary"}>
 
                                 <Typography variant="subtitle2" >
-                                    Weekly Average
+                                    Média Semanal
                                 </Typography>
 
                                 <Typography variant="body2" >
-                                    85% efficiency
+                                    85% eficiência
                                 </Typography>
 
                             </Stack>

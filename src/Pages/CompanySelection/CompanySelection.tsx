@@ -5,12 +5,12 @@ import Header from "../../components/Header";
 import { fadeUpVariant, slideInVariant } from "../../utils/Motion";
 import { BigTitle } from "../../components/Text";
 import CustomTabs from "../../components/Tab";
-import CardCompanySelection from "./CardCompanySelection";
-import { Building, ChevronRight, Dot, Info, Plus, Users } from "lucide-react";
+import { Building, Dot, Info, LogIn, Plus, Users } from "lucide-react";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import * as Styled from "./CompanySelection.styled"
 import { useCompanySelection } from "./CompanySelection.hook";
+import CardCompanySelection from "./components";
 
 export default function CompanySelection() {
 
@@ -38,10 +38,10 @@ export default function CompanySelection() {
                     >
                         <Box textAlign="center" mb={4}>
 
-                            <BigTitle color="purple" text="Welcome to StagyTime" />
+                            <BigTitle color="purple" text="Bem-vindo ao StagyTime" />
 
                             <Typography variant="body2" color="#6b7280" fontSize={13}>
-                                Choose how you want to access the platform
+                                Escolha como deseja acessar a plataforma
                             </Typography>
 
                         </Box>
@@ -59,28 +59,28 @@ export default function CompanySelection() {
                             tabs={[
                                 {
                                     value: "enter",
-                                    label: "Enter in a Company",
+                                    label: "Colaborador",
                                     content:
                                         <CardCompanySelection
                                             icon={Users}
-                                            title={"Join as a Collaborator"}
-                                            subtitle={"Enter your company code to access your time tracking dashboard"}
+                                            title={"Entre como um colaborador"}
+                                            subtitle={"Digite o código da sua empresa para acessar o seu dashboard de controle de tempo"}
                                         >
 
-                                            <Typography variant="h5">Company Code</Typography>
+                                            <Typography variant="h5">Código da Empresa</Typography>
 
                                             <TextField
-                                                placeholder="Enter the code provided by your company"
+                                                placeholder="Digite o código fornecido pela sua empresa"
                                                 fullWidth
                                                 size="small"
                                                 sx={customStyles}
                                             />
 
-                                            <Typography variant="subtitle1">This code was provided by your company administrator</Typography>
+                                            <Typography variant="subtitle1">Este código foi fornecido pelo administrador da sua empresa</Typography>
 
                                             <Button
-                                                icon={<ChevronRight />}
-                                                label={"Continue"}
+                                                icon={<LogIn size={18}/>}
+                                                label={"Acesse seu Dashboard"}
                                                 onClick={() => navigate("/DashBoard/MyDashboard")}
                                                 buttonStyle={"Purple"}
                                                 sx={{ width: "100%", height: 35, mt: 2 }}
@@ -91,16 +91,16 @@ export default function CompanySelection() {
 
                                 {
                                     value: "myCompany",
-                                    label: "My Company",
+                                    label: "Minha empresa",
                                     content:
                                         <CardCompanySelection
                                             icon={Building}
-                                            title={"Access as Administrator"}
-                                            subtitle={"Enter your company ID and admin code to manage your organization"}
+                                            title={"Acesso como Administrador"}
+                                            subtitle={"Insira o ID da sua empresa e o código de administrador para gerenciar sua organização"}
                                         >
                                             {[
-                                                { fieldTitle: "Company ID", fieldLabel: "Enter your company ID", fieldInfo: "" },
-                                                { fieldTitle: "Administrator Code", fieldLabel: "Enter your administrator code", fieldInfo: "This is the special code provided to company administrators" },
+                                                { fieldTitle: "ID da empresa", fieldLabel: "Insira o ID da sua empresa", fieldInfo: "" },
+                                                { fieldTitle: "Código do Administrador", fieldLabel: "Digite seu código de administrador", fieldInfo: "Este é o código especial fornecido aos administradores da empresa" },
                                             ].map((item) => (
                                                 <>
                                                     <Typography variant="h5">{item.fieldTitle}</Typography>
@@ -117,8 +117,8 @@ export default function CompanySelection() {
                                                 </>
                                             ))}
                                             <Button
-                                                icon={<ChevronRight />}
-                                                label={"Access Company Dashboard"}
+                                                icon={<LogIn size={18} />}
+                                                label={"Acesse o Dashboard da empresa"}
                                                 onClick={() => navigate("/DashBoard/CompanyDashboard")}
                                                 buttonStyle={"Purple"}
                                                 sx={{ width: "100%", height: 35, mt: 2 }}
@@ -129,21 +129,21 @@ export default function CompanySelection() {
 
                                 {
                                     value: "create",
-                                    label: "Create Company",
+                                    label: "Criar empresa",
                                     content:
                                         <CardCompanySelection
                                             icon={Plus}
-                                            title={"Create a New Company"}
-                                            subtitle={"Set up your organization on StagyTime"}
+                                            title={"Crie uma nova empresa"}
+                                            subtitle={"Configure sua organização no StagyTime"}
                                         >
                                             {[
-                                                { fieldTitle: "Company Name", fieldLabel: "Enter your company name", fieldInfo: "" },
+                                                { fieldTitle: "Nome da empresa", fieldLabel: "Digite o nome da sua empresa", fieldInfo: "" },
 
-                                                { fieldTitle: "CNPJ", fieldLabel: "Enter your company CNPJ", fieldInfo: "Brazilian company identification number (format: XX.XXX.XXX/XXXX-XX)" },
+                                                { fieldTitle: "CNPJ", fieldLabel: "Informe o CNPJ da sua empresa", fieldInfo: "Número de identificação da empresa (formato: XX.XXX.XXX/XXXX-XX)" },
 
-                                                { fieldTitle: "Administrator Access Code", fieldLabel: "Create an administrator access code", fieldInfo: "This code will be used by administrators to access the company dashboard" },
+                                                { fieldTitle: "Código de acesso do administrador", fieldLabel: "Crie um código de acesso de administrador", fieldInfo: "Este código será usado pelos administradores para acessar o painel da empresa" },
 
-                                                { fieldTitle: "User Access Code", fieldLabel: "Create an user access code", fieldInfo: "This code will be shared with collaborators to join your company" },
+                                                { fieldTitle: "Código de acesso do usuário", fieldLabel: "Crie um código de acesso do usuário", fieldInfo: "Este código será compartilhado com os colaboradores para que eles se juntem à sua empresa" },
 
                                             ].map((item) => (
                                                 <>
@@ -160,12 +160,12 @@ export default function CompanySelection() {
                                                 </>
                                             ))}
                                             <Box>
-                                                <Typography variant="h5">Private Company <Info size={10} /></Typography>
+                                                <Typography variant="h5">Empresa privada <Info size={10} /></Typography>
                                                 <Switch defaultChecked sx={customStyles} />
                                             </Box>
                                             <Button
-                                                icon={<ChevronRight />}
-                                                label={"Create Company"}
+                                                icon={<Plus size={18} />}
+                                                label={"Criar empresa"}
                                                 onClick={() => alert("click")}
                                                 buttonStyle={"Purple"}
                                                 sx={{ width: "100%", height: 35, mt: 2 }}

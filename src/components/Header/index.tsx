@@ -39,7 +39,7 @@ export default function Header({ Backbutton = true, LogOutButton = false }: Head
         <Stack direction="row" spacing={2}>
           {Backbutton && (
             <button className={"backButton"} onClick={() => navigate("/Home")}>
-              <ArrowLeft size={15} /> Back to Home
+              <ArrowLeft size={15} /> Voltar para Home
             </button>
           )}
 

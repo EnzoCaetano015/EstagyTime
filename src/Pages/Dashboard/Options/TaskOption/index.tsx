@@ -1,17 +1,20 @@
-import { Box, CardContent, Stack, Typography } from "@mui/material"
+import { Box, CardContent, InputAdornment, Stack, TextField, Typography } from "@mui/material"
 import * as Styled from "./taskOption.styled"
 import Button from "../../../../components/Button"
-import { Ellipsis, Filter, Plus } from "lucide-react"
+import { ArrowLeft, Ellipsis, Filter, Plus, SearchIcon } from "lucide-react"
 import CustomSelect from "../../../../components/Select"
 import { ActivityCard } from "../../../../components/ActivityCard"
 import CustomIconButton from "../../../../components/IconButton"
-import { TaskDrawer } from "./Drawer/drawer"
-import { useTaskDrawer } from "./Drawer/drawer.hook"
+
 import { AddItem } from "../../../../components/Modals/add_Item"
 import { UpdateItem } from "../../../../components/Modals/update_item"
 import { DeleteItemOK } from "../../../../components/Modals/delete_item/succefull"
 import { useTaskOption } from "./taskOption.hook"
 import { DeleteItem } from "../../../../components/Modals/delete_item/warning"
+import ProgressBar from "../../../../components/ProgressBar"
+import TaskTable from "./components/TaskTable"
+import { useTaskDrawer } from "./components/Drawer/drawer.hook"
+import { TaskDrawer } from "./components/Drawer/drawer"
 
 export const TaskOption = () => {
 
@@ -178,7 +181,7 @@ export const TaskOption = () => {
                                         { label: "Edit Task", onClick: openEditar },
                                         {
                                             label: "Delete Task",
-                                            onClick: () => openWarning(() => {}),
+                                            onClick: () => openWarning(() => { }),
                                             isDanger: true,
                                         },
                                     ]}
@@ -247,6 +250,154 @@ export const TaskOption = () => {
                     open={successOpen}
                     close={closeSuccess}
                     modalType="delete"
+                    actionClose={() => { }}
+                />
+            )}
+        </>
+    )
+}
+
+
+export const MenageTask = () => {
+
+    const {
+        open,
+        modo,
+        openAdicionar,
+        handleClose,
+        handleSave,
+        modalOpen,
+        modalType,
+        closeModal,
+    } = useTaskDrawer();
+
+    const {
+        customStyles,
+        navigate
+    } = useTaskOption();
+
+    return (
+        <>
+            <Stack gap={4}>
+
+                <Stack direction="row" justifyContent="flex-start">
+                    <Button
+                        icon={<ArrowLeft size={15} />}
+                        iconPosition="right"
+                        label={"Voltar"}
+                        onClick={()=>{navigate("/DashBoard/CompanyDashboard/Projects")}}
+                        buttonStyle={"Black"}
+                        sx={{ paddingInline: 1, height: 30 }}
+                    />
+                </Stack>
+
+                <Styled.TaskRWrapper>
+                    <CardContent>
+                        <Stack gap={2}>
+
+                            <Stack direction={"row"} justifyContent={"space-between"}>
+
+                                <Stack>
+                                    <Typography sx={{ fontSize: 25, fontWeight: 600 }}>Website Redesign</Typography>
+                                    <Typography variant="subtitle1">18 of 24 tasks finalizada</Typography>
+                                </Stack>
+                                <Stack>
+
+                                    <Typography variant="h4" fontWeight={600}>75%</Typography>
+                                </Stack>
+                            </Stack>
+                            <ProgressBar value={20} neutral sx={{ height: 10 }} />
+                            <Stack direction="row" justifyContent="flex-end">
+                                <Button
+                                    icon={<Plus size={15} />}
+                                    iconPosition="right"
+                                    label={"Adicionar"}
+                                    onClick={openAdicionar}
+                                    buttonStyle={"Purple"}
+                                    sx={{ paddingInline: 1, height: 30 }}
+                                />
+                            </Stack>
+                        </Stack>
+                    </CardContent>
+
+                </Styled.TaskRWrapper>
+
+                <Styled.TaskRWrapper>
+
+                    <CardContent>
+
+                        <Stack direction={"row"} gap={2} alignItems={"end"}>
+
+                            <TextField
+                                variant="outlined"
+                                placeholder="Search..."
+                                size="small"
+                                fullWidth
+                                sx={customStyles}
+                                className="searchField"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <SearchIcon size={15} />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                            />
+                            <Stack direction={"row"} gap={2}>
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"Dificuldade"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "all", label: "Todas" },
+                                        { value: "low", label: "Baixa" },
+                                        { value: "medium", label: "Média" },
+                                        { value: "high", label: "Alta" },
+                                    ]}
+                                    sx={{ width: 200, height: 35 }}
+                                />
+
+                                <CustomSelect
+                                    title={""}
+                                    label={"todas as tarefas"}
+                                    displayEmpty
+                                    options={[
+                                        { value: "0", label: "user 0" },
+                                        { value: "1", label: "user 1" },
+                                        { value: "2", label: "user 2" },
+                                        { value: "3", label: "user 3" },
+                                    ]}
+                                    sx={{ width: 200, height: 35, }}
+                                />
+                            </Stack>
+                        </Stack>
+
+                    </CardContent>
+
+                </Styled.TaskRWrapper>
+
+                <Styled.TaskRWrapper>
+
+                    <Stack gap={1}>
+
+                        <TaskTable />
+
+                    </Stack>
+                </Styled.TaskRWrapper>
+
+            </Stack>
+            <TaskDrawer
+                open={open}
+                modo={modo}
+                onClose={handleClose}
+                onSave={handleSave}
+            />
+            {modalType === "add" && (
+                <AddItem
+                    open={modalOpen}
+                    close={closeModal}
+                    modalType="add"
                     actionClose={() => { }}
                 />
             )}

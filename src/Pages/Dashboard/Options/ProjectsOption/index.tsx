@@ -13,9 +13,13 @@ import { AddItem } from "../../../../components/Modals/add_Item"
 import { UpdateItem } from "../../../../components/Modals/update_item"
 import { DeleteItem } from "../../../../components/Modals/delete_item/warning"
 import { DeleteItemOK } from "../../../../components/Modals/delete_item/succefull"
+import { useNavigate } from "react-router"
 
 
 export const AdminProjects = () => {
+
+    const navigate = useNavigate()
+
     const {
         openD,
         modo,
@@ -86,7 +90,7 @@ export const AdminProjects = () => {
 
                                         <Button
                                             label={"Menage Tasks"}
-                                            onClick={() => alert('menage')}
+                                            onClick={() => navigate('/DashBoard/CompanyDashboard/MenageTask')}
                                             buttonStyle={"Black"}
                                             sx={{ paddingInline: 1, height: 30 }}
                                         />

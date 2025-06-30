@@ -35,7 +35,7 @@ export default function TimeSpent({ timeFormat }: TimeSpentProps) {
 
                     <Box sx={{ position: "relative" }}>
 
-                        <Typography variant="subtitle2" sx={{ color: "#6B7280" }} >Start Date</Typography>
+                        <Typography variant="subtitle2" sx={{ color: "#6B7280" }} >Data de início</Typography>
 
                         <Box sx={{ position: "relative" }}>
                             <TextField sx={customStyles} fullWidth id="start-date" type="date" />
@@ -45,7 +45,7 @@ export default function TimeSpent({ timeFormat }: TimeSpentProps) {
 
                     <Box sx={{ position: "relative" }}>
 
-                        <Typography variant="subtitle2" sx={{ color: "#6B7280" }} >End Date</Typography>
+                        <Typography variant="subtitle2" sx={{ color: "#6B7280" }} >Data de término</Typography>
 
                         <Box sx={{ position: "relative" }}>
                             <TextField sx={customStyles} fullWidth id="end-date" type="date" />

@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Stack, TextField, Typography } from "@mui/material"
 import * as Styled from "./timeTracking.styled"
-import * as Styles from "../../../Demo/HoursControl/hoursControl.styled"
+import * as Styles from "../../../Demo/Tabs/HoursControl/hoursControl.styled"
 import Timer from "../../../../components/Timer"
 import CustomSelect from "../../../../components/Select"
 import { useCustomSelectStyles } from "../../../../Hook/Mui/StyleMui"

@@ -7,9 +7,9 @@ import {
     Stack,
 } from "@mui/material";
 
-import Button from "../../../components/Button";
-import PasswordField from "../../../components/Fields/PassWord";
 import { useCadastro } from "./cadastro.hook";
+import PasswordField from "../../../../components/Fields/PassWord";
+import Button from "../../../../components/Button";
 
 export default function Cadastro() {
 
@@ -20,7 +20,7 @@ export default function Cadastro() {
             <Box display="grid" gridTemplateColumns="1fr 1fr" gap={2} mb={2}>
                 <Box>
                     <Typography variant="body2" component="label" fontSize={12} fontWeight="600">
-                        First name
+                        Primeiro nome
                     </Typography>
                     <TextField
                         id="first-name"
@@ -32,7 +32,7 @@ export default function Cadastro() {
                 </Box>
                 <Box>
                     <Typography variant="body2" component="label" fontSize={12} fontWeight="600">
-                        Last name
+                        Sobrenome
                     </Typography>
                     <TextField
                         id="last-name"
@@ -58,9 +58,9 @@ export default function Cadastro() {
                 />
             </Box>
 
-            <PasswordField eyeButton={true} forget={false} title={"Password"} passwordStrength={true} />
+            <PasswordField eyeButton={true} forget={false} title={"Senha"} passwordStrength={true} />
 
-            <PasswordField eyeButton={true} forget={false} title={"Confirm Password"} passwordStrength={false} />
+            <PasswordField eyeButton={true} forget={false} title={"Confirme sua senha"} passwordStrength={false} />
 
             <Box display="flex" alignItems="center" justifyContent="start" mb={1}>
 
@@ -72,14 +72,14 @@ export default function Cadastro() {
                     component="label"
                     htmlFor="remember"
                 >
-                    I agree to the <a href="" style={{ fontSize: 12 }} >Terms of Service</a> and <a href="" style={{ fontSize: 12 }}>Privacy Policy</a>
+                    Eu concordo com os <a href="" style={{ fontSize: 12 }} >Termos de Serviço</a> e com a <a href="" style={{ fontSize: 12 }}>política de Privacidade</a>
                 </Typography>
 
             </Box>
 
             <Stack alignItems={"center"}>
                 <Button
-                    label={"Create account"}
+                    label={"Criar uma conta"}
                     onClick={() => navigate("/Auth/CompanySelection")}
                     buttonStyle="Purple"
                     sx={{ width: "100%", height: 35 }}
@@ -89,7 +89,7 @@ export default function Cadastro() {
             <Box marginBlock={2} display="flex" justifyContent="center" alignItems="center">
                 <Divider sx={{ flex: 1, marginRight: 2 }} />
                 <Typography variant="body2" fontSize={12}>
-                    Or continue with
+                    Ou continue com
                 </Typography>
                 <Divider sx={{ flex: 1, marginLeft: 2 }} />
             </Box>

@@ -7,13 +7,13 @@ import {
 import Header from "../../components/Header";
 import { fadeUpVariant } from "../../utils/Motion";
 import { motion } from "framer-motion";
-import Login from "./Login";
-import Cadastro from "./Cadastro";
 import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
 import * as Styled from "./AuthPage.styled"
 import { BigTitle } from "../../components/Text";
 import { useAuthPage } from "./AuthPage.hook";
+import Login from "./Tabs/Login";
+import Cadastro from "./Tabs/Cadastro";
 
 
 export default function AuthPage() {
@@ -36,7 +36,7 @@ export default function AuthPage() {
                         >
                             <Box textAlign="center" mb={4}>
 
-                                <BigTitle color="purple" text="Welcome to StagyTime" />
+                                <BigTitle color="purple" text="Bem-vindo ao StagyTime" />
 
                                 <Typography variant="body2" color="#6b7280" fontSize={13}>
                                     Sign in to your account or create a new one
@@ -63,7 +63,7 @@ export default function AuthPage() {
                         >
                             <CustomTabs
                                 tabs={[
-                                    { value: "register", label: "Register", content: <Cadastro /> },
+                                    { value: "register", label: "Cadastre-se", content: <Cadastro /> },
                                     { value: "login", label: "Login", content: <Login /> },
                                 ]}
                                 customStyles={{ ...customStyles, }}

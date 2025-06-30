@@ -11,7 +11,7 @@ import {
   UserProjects,
 } from "../Pages/Dashboard/Options/ProjectsOption";
 import { Settings } from "../Pages/Dashboard/Options/SettingsOption";
-import { TaskOption } from "../Pages/Dashboard/Options/TaskOption";
+import { MenageTask, TaskOption } from "../Pages/Dashboard/Options/TaskOption";
 import { TimeTracking } from "../Pages/Dashboard/Options/TimeTracking";
 import UserDashboard from "../Pages/Dashboard/userDashboard";
 import DemoPage from "../Pages/Demo/Demo";
@@ -33,6 +33,7 @@ export const Pages = {
     DashboardContent,
     Collaborators,
     AdminProjects,
+    MenageTask,
     Settings,
   },
   Site: {

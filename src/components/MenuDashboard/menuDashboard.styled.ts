@@ -47,7 +47,7 @@ export const Menu = styled(motion.header)(({theme}) => ({
     }
 }))
 
-export const SideBar = styled(motion.div)(() => ({
+export const SideBar = styled(motion.div)(({theme}) => ({
     backgroundColor: "#fff",
     height: "100vh",
     borderRight: "1px solid #e5e7eb",
@@ -58,6 +58,7 @@ export const SideBar = styled(motion.div)(() => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+
 
     ".logoContainer": {
         flexDirection: "row",
@@ -79,6 +80,10 @@ export const SideBar = styled(motion.div)(() => ({
     '& .MuiListItemIcon-root': {
         minWidth: "25px",
     },
+
+    [theme.breakpoints.down('md')]:{
+     justifyContent: "space-around",
+    }
 
     
 }))

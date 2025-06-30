@@ -18,37 +18,39 @@ export const useCompanySelection = () => {
     }
   > = {
     enter: {
-      textlist: "Collaborator Access",
+      textlist: "Acesso do Colaborador",
       iconList: <></>,
       listTopic: [
-        "Track your work hours",
-        "Manage your assigned tasks",
-        "View your performance metrics",
-        "Access projects you're part of",
+        "Registre suas horas de trabalho",
+        "Gerencie suas tarefas atribuídas",
+        "Visualize suas métricas de desempenho",
+        "Acesse os projetos dos quais participa",
       ],
       sx: { bgcolor: "#EFF6FF", border: "0.5px #738CD9 solid", color: "#4E63D9" },
     },
     myCompany: {
-      textlist: "Administrator Access",
+      textlist: "Acesso do Administrador",
       iconList: <></>,
       listTopic: [
-        "View company-wide metrics and reports",
-        "Manage all collaborators and their access",
-        "Track time and performance across the organization",
-        "Create and assign projects and tasks",
+        "Visualize métricas e relatórios de toda a empresa",
+        "Gerencie todos os colaboradores e seus acessos",
+        "Acompanhe tempo e desempenho em toda a organização",
+        "Crie e atribua projetos e tarefas",
       ],
+
       sx: { bgcolor: "#FAF5FF", border: "0.5px #A36CD9 solid", color: "#8D41D9" },
     },
     create: {
-      textlist: "Create Your Own Company",
+      textlist: "Crie sua Própria Empresa",
       iconList: <></>,
       listTopic: [
-        "Set up your organization structure",
-        "Invite and manage collaborators",
-        "Create projects and assign tasks",
-        "Track time and performance across your organization",
-        "Generate reports and analytics",
+        "Configure a estrutura da sua organização",
+        "Convide e gerencie colaboradores",
+        "Crie projetos e atribua tarefas",
+        "Acompanhe tempo e desempenho em toda a organização",
+        "Gere relatórios e análises",
       ],
+
       sx: { bgcolor: "#F1FDF4", border: "0.5px #68A672 solid", color: "#3E8C49" },
     },
   };

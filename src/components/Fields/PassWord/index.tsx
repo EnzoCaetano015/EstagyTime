@@ -37,9 +37,9 @@ export default function PasswordField({eyeButton,title,forget,passwordStrength =
   };
 
   const getStrengthLabel = () => {
-    if (strength < 3) return "Weak password";
-    if (strength < 5) return "Good password";
-    return "Strong password";
+    if (strength < 3) return "Senha fraca";
+    if (strength < 5) return "Boa senha";
+    return "Senha forte";
   };
 
   return (
@@ -54,7 +54,7 @@ export default function PasswordField({eyeButton,title,forget,passwordStrength =
         >
           {title}
         </Typography>
-        <Styled.Link>{forget ? "Forgot password?" : ""}</Styled.Link>
+        <Styled.Link>{forget ? "Esqueceu sua senha?" : ""}</Styled.Link>
       </Box>
 
       <Box position="relative">

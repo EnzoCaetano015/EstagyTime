@@ -50,13 +50,13 @@ function Footer({ title, description, text, text2, icon, simple }: FooterLPProps
                             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                         >
                             <Button
-                                label={"Start Free Trial"}
+                                label={"Comece grátis"}
                                 onClick={() => navigate("/Auth/Login")}
                                 buttonStyle="White"
                                 sx={{ width: 120, height: 35 }}
                             />
                             <Button
-                                label={"Schedule Demo"}
+                                label={"Demonstração"}
                                 onClick={() => navigate("/Demo")}
                                 buttonStyle="White"
                                 sx={{ width: 120, height: 35 }}

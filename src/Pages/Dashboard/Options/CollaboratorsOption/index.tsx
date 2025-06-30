@@ -1,7 +1,7 @@
 import { CardContent, Stack, Typography, Box, Table, TableHead, Avatar, Chip, TableBody, TableCell, TableRow, TableFooter } from "@mui/material"
 import * as Styled from "./collaboratorsOption.styled"
 import Button from "../../../../components/Button"
-import { Download, Ellipsis, Funnel, Plus } from "lucide-react"
+import { Download, Ellipsis, Plus } from "lucide-react"
 import CustomSelect from "../../../../components/Select"
 import CustomIconButton from "../../../../components/IconButton"
 import { useColaboratorDrawer } from "./Drawer/drawer.hook"
@@ -103,74 +103,62 @@ export const Collaborators = ({ open }: OptionsProps) => {
         <>
             <Styled.FilterWrapper>
 
-                <CardContent>
+                <CardContent className="HeaderCard">
 
-                    <Stack mb={2} direction={"row"}>
+                    <Stack mb={2} direction={"row"} gap={2}>
 
                         <Box>
-                            <Typography variant="h4" fontWeight={600}>Collaborators</Typography>
-                            <Typography variant="subtitle1" color="text.secondary">Manage and monitor your team members</Typography>
+                            <Typography variant="h4" fontWeight={600}>Colaboradores</Typography>
+                            <Typography variant="subtitle1" color="text.secondary">Gerencie e monitore os membros da sua equipe</Typography>
                         </Box>
 
-                        <Stack gap={1} direction={"row"}>
 
-                            <Button
-                                label={"Filter"}
-                                icon={<Funnel size={15} />}
-                                iconPosition="right"
-                                onClick={() => alert('filter')}
-                                buttonStyle={"Black"}
-                                sx={{ paddingInline: 1, height: 30 }}
-                            />
-
-                            <Button
-                                label={"Add Collaborator"}
-                                icon={<Plus size={15} />}
-                                iconPosition="right"
-                                onClick={openAdicionar}
-                                buttonStyle={"Purple"}
-                                sx={{ paddingInline: open ? 0.5 : 3, height: 30 }}
-                            />
-
-                        </Stack>
+                        <Button
+                            label={"Adicionar"}
+                            icon={<Plus size={15} />}
+                            iconPosition="right"
+                            onClick={openAdicionar}
+                            buttonStyle={"Purple"}
+                            sx={{ paddingInline: open ? 0.5 : 3, height: 30 }}
+                        />
 
                     </Stack>
 
-                    <Stack gap={3} alignItems={"end"} direction={"row"}>
+                    <Stack gap={3} alignItems={"end"} direction={"row"} className="actions">
 
-                        <Stack gap={1}>
+                        <Stack gap={1} className="SelectWrapper">
 
                             <CustomSelect
-                                title={"Department"}
+                                title={"Departamento"}
                                 label={""}
                                 initialValue="All"
                                 options={[
-                                    { value: "All", label: "All Departments" },
+                                    { value: "All", label: "Todos" },
                                     { value: "dev", label: "Developer" },
                                     { value: "design", label: "Design" },
                                     { value: "marketing", label: "Marketing" },
                                     { value: "QA", label: "QA" },
                                     { value: "management", label: "Management" },
                                 ]}
-                                sx={{ width: open ? 150 : 250, height: 35 }}
+                                sx={{ width: open ? 200 : 250, height: 35, textAlign: { xs: "center",  sm: "initial" } }}
                             />
 
                             <CustomSelect
-                                title={"Sort By"}
+                                title={"Ordenar por"}
                                 label={""}
                                 initialValue="name"
                                 options={[
-                                    { value: "name", label: "Name" },
-                                    { value: "hours", label: "Hours Worked" },
-                                    { value: "task", label: "Tasks Completed" },
-                                    { value: "eficiency", label: "Eficiency" }
+                                    { value: "name", label: "Nome" },
+                                    { value: "hours", label: "Horas Trabalhadas" },
+                                    { value: "task", label: "Tasks Finalizadas" },
+                                    { value: "eficiency", label: "Eficiência" }
                                 ]}
-                                sx={{ width: open ? 150 : 250, height: 35 }}
+                                sx={{ width: open ? 200 : 250, height: 35, textAlign: { xs: "center", sm: "initial" } }}
                             />
                         </Stack>
 
                         <Box>
-                            <Typography sx={{ color: "#6B7280", fontSize: 10.5 }}>Export Data</Typography>
+                            <Typography sx={{ color: "#6B7280", fontSize: 10.5 }}>Exportar Dados</Typography>
 
                             <Stack gap={1} className="exportBox">
                                 <Button
@@ -207,13 +195,13 @@ export const Collaborators = ({ open }: OptionsProps) => {
 
                         <TableRow>
 
-                            <TableCell>Name</TableCell>
-                            <TableCell>Role</TableCell>
-                            <TableCell>Department</TableCell>
-                            <TableCell>Hours This Week</TableCell>
-                            <TableCell>Tasks Completed</TableCell>
-                            <TableCell>Efficiency</TableCell>
-                            <TableCell>Actions</TableCell>
+                            <TableCell>Nome</TableCell>
+                            <TableCell>Função</TableCell>
+                            <TableCell>Departamento</TableCell>
+                            <TableCell>Horas Semanais</TableCell>
+                            <TableCell>Tasks finalizadas</TableCell>
+                            <TableCell>Eficiência</TableCell>
+                            <TableCell>Ações</TableCell>
 
                         </TableRow>
 
@@ -282,9 +270,9 @@ export const Collaborators = ({ open }: OptionsProps) => {
                                     <CustomIconButton
                                         icon={Ellipsis}
                                         options={[
-                                            { label: "Edit Collaborator", onClick: openEditar },
+                                            { label: "Editar", onClick: openEditar },
                                             {
-                                                label: "Deactivate", onClick: () => openWarning(() => { }),
+                                                label: "Desativar", onClick: () => openWarning(() => { }),
                                                 isDanger: true,
                                             }
                                         ]}
@@ -307,14 +295,14 @@ export const Collaborators = ({ open }: OptionsProps) => {
                                 >
 
                                     <Button
-                                        label={"Previous"}
+                                        label={"Anterior"}
                                         onClick={() => alert('previus')}
                                         buttonStyle={"Black"}
                                         sx={{ paddingInline: 1, height: 30 }}
                                     />
 
                                     <Button
-                                        label={"Next"}
+                                        label={"Próximo"}
                                         onClick={() => alert('next')}
                                         buttonStyle={"Black"}
                                         sx={{ paddingInline: 1, height: 30 }}

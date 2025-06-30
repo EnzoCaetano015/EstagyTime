@@ -95,6 +95,10 @@ const routes = createBrowserRouter([
                                 path: "Settings",
                                 element: <Pages.AdminDash.Settings />,
                             },
+                            {
+                                path: "MenageTask",
+                                element: <Pages.AdminDash.MenageTask/>
+                            }
                         ],
                     },
                 ],

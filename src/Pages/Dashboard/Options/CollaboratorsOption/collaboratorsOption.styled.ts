@@ -7,6 +7,10 @@ interface ResponsiveProps {
 export const FilterWrapper = styled(Card)(({ theme }) => ({
   marginBottom: 30,
 
+  ".HeaderCard": {
+    flexDirection: "row",
+  },
+
   "& div": {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -22,6 +26,24 @@ export const FilterWrapper = styled(Card)(({ theme }) => ({
       flexDirection: "column",
       alignItems: "flex-start",
     },
+
+    ".HeaderCard": {
+      flexDirection: "column",
+    },
+
+    ".SelectWrapper": {
+      flexDirection: "column",
+    },
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    "& div": {
+      flexDirection: "column",
+      justifyContent: "center",
+    },
+    ".actions": {
+      alignItems: "center",
+    },
   },
 }));
 
@@ -33,7 +55,7 @@ export const Table = styled(Card, {
   ...(open && {
     [theme.breakpoints.down("md")]: {
       overflowX: "auto",
-      WebkitOverflowScrolling: "touch", 
+      WebkitOverflowScrolling: "touch",
     },
   }),
 }));

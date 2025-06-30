@@ -7,9 +7,10 @@ import {
     Stack,
 } from "@mui/material";
 
-import Button from "../../../components/Button";
-import PasswordField from "../../../components/Fields/PassWord";
+
 import { useLogin } from "./login.hook";
+import PasswordField from "../../../../components/Fields/PassWord";
+import Button from "../../../../components/Button";
 
 export default function Login() {
 
@@ -35,7 +36,7 @@ export default function Login() {
                 </Box>
             </Box>
 
-            <PasswordField eyeButton={true} forget={true} title={"Password"} />
+            <PasswordField eyeButton={true} forget={true} title={"SenhaSenha"} />
 
             <Box display="flex" alignItems="center" justifyContent="start" mb={1}>
 
@@ -47,13 +48,13 @@ export default function Login() {
                     component="label"
                     htmlFor="remember"
                 >
-                    Remember me for 30 days
+                    Continuar logado
                 </Typography>
 
             </Box>
 
             <Button
-                label={"Sign in"}
+                label={"Entrar"}
                 onClick={() => navigate("/Auth/CompanySelection")}
                 buttonStyle="Purple"
                 sx={{ width: "100%", height: 35 }}
@@ -64,7 +65,7 @@ export default function Login() {
                 <Divider sx={{ flex: 1, marginRight: 2 }} />
 
                 <Typography variant="body2" fontSize={12}>
-                    Or continue with
+                    Ou continue com
                 </Typography>
 
                 <Divider sx={{ flex: 1, marginLeft: 2 }} />

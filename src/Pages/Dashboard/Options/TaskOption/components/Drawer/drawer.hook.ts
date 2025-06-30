@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { modalsProps } from "../../../../../components/Modals/modals.type";
+import { modalsProps } from "../../../../../../components/Modals/modals.type";
 
 type DrawerModo = "ADICIONAR" | "EDITAR";
 

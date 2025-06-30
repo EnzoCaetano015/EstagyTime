@@ -36,7 +36,7 @@ export default function Home() {
                                 color: "#422680"
                             }}
                         >
-                            Simplify Intern<span style={{ color: "#000" }}> Time Tracking</span>
+                            Simplifique<span style={{ color: "#000" }}> o controle de tempo</span>
                         </Typography>
 
                         <Typography
@@ -46,7 +46,7 @@ export default function Home() {
                                 color: "#666"
                             }}
                         >
-                            StagyTime helps organizations efficiently track, manage, and optimize intern work hours with minimal effort.
+                            O StagyTime ajuda as organizações a monitorar, gerenciar e otimizar eficientemente as horas de trabalho dos estagiários com o mínimo de esforço.
                         </Typography>
 
                         <Stack
@@ -58,14 +58,14 @@ export default function Home() {
                             sx={{ flexDirection: "row", gap: 2, }}
                         >
                             <Button
-                                label={"Get Started"}
+                                label={"Comece"}
                                 icon={<ChevronRight size={18} />}
                                 onClick={() => navigate("/Auth/Login")}
                                 buttonStyle="Purple"
                                 sx={{ width: 120, height: 35 }}
                             />
                             <Button
-                                label={"Learn More"}
+                                label={"Leia mais"}
                                 onClick={() => navigate("/LearnMore")}
                                 buttonStyle="White"
                                 sx={{ width: 120, height: 35 }}
@@ -99,7 +99,7 @@ export default function Home() {
 
                     <Title
                         color="purple"
-                        text="What StagyTime Offers"
+                        text="O que o StagyTime oferece"
                         initial={fadeUpVariant.hidden}
                         whileInView={fadeUpVariant.visible}
                         viewport={{ once: true }}
@@ -119,7 +119,15 @@ export default function Home() {
                             viewport={{ once: true }}
 
                         >
-                            <Card icon={<Clock color="#422680" />} title={"Time Tracking"} text={"Simple clock-in/out system for interns to record their work hours accurately."} isList={false} textlist={""} listTopic={[]} listIcon={undefined} />
+                            <Card
+                                icon={<Clock color="#422680" />}
+                                title={"Controle de Tempo"}
+                                text={"Sistema simples de entrada/saída para estagiários registrarem suas horas de trabalho com precisão."}
+                                isList={false}
+                                textlist={""}
+                                listTopic={[]}
+                                listIcon={undefined}
+                            />
 
                         </motion.div>
 
@@ -135,7 +143,15 @@ export default function Home() {
                             viewport={{ once: true }}
 
                         >
-                            <Card icon={<BarChart3 color="#422680" />} title={"Reporting"} text={"Generate detailed reports on work hours, projects, and productivity metrics."} isList={false} textlist={""} listTopic={[]} listIcon={undefined} />
+                            <Card
+                                icon={<BarChart3 color="#422680" />}
+                                title={"Relatórios"}
+                                text={"Gere relatórios detalhados sobre horas de trabalho, projetos e métricas de produtividade."}
+                                isList={false}
+                                textlist={""}
+                                listTopic={[]}
+                                listIcon={undefined}
+                            />
 
                         </motion.div>
 
@@ -145,7 +161,14 @@ export default function Home() {
                             viewport={{ once: true }}
 
                         >
-                            <Card icon={<Users color="#422680" />} title={"Intern Management"} text={"Easily manage intern profiles, assignments, and performance tracking."} isList={false} textlist={""} listTopic={[]} listIcon={undefined} />
+                            <Card icon={<Users color="#422680" />}
+                                title={"Gestão de Estagiários"}
+                                text={"Gerencie facilmente perfis de estagiários, atribuições e acompanhamento de desempenho."}
+                                isList={false}
+                                textlist={""}
+                                listTopic={[]}
+                                listIcon={undefined}
+                            />
 
                         </motion.div>
 
@@ -156,7 +179,7 @@ export default function Home() {
 
                     <Title
                         color="purple"
-                        text="How StagyTime Works"
+                        text="Como funciona o StagyTime"
                         initial={fadeUpVariant.hidden}
                         whileInView={fadeUpVariant.visible}
                         viewport={{ once: true }}
@@ -182,9 +205,9 @@ export default function Home() {
                                 viewport={{ once: true }}
                                 gap={2}
                             >
-                                <Typography variant="h3" color="#333" fontSize={16} fontWeight={"Bold"}>Register</Typography>
+                                <Typography variant="h3" color="#333" fontSize={16} fontWeight={"Bold"}>Registrar</Typography>
 
-                                <Typography>Create accounts for admins and interns</Typography>
+                                <Typography>Crie contas para administradores e estagiários</Typography>
 
                             </Stack>
                         </Box>
@@ -207,9 +230,9 @@ export default function Home() {
                                 viewport={{ once: true }}
                                 gap={2}
                             >
-                                <Typography variant="h3" color="#333" fontSize={16} fontWeight={"Bold"}>Track Time</Typography>
+                                <Typography variant="h3" color="#333" fontSize={16} fontWeight={"Bold"}>Monitorar o tempo</Typography>
 
-                                <Typography>Interns log their work hours daily</Typography>
+                                <Typography>Os estagiários registram suas horas de trabalho diariamente</Typography>
 
                             </Stack>
 
@@ -235,7 +258,7 @@ export default function Home() {
                             >
                                 <Typography variant="h3" color="#333" fontSize={16} fontWeight={"Bold"}>Monitor</Typography>
 
-                                <Typography>Supervisors review and approve hours</Typography>
+                                <Typography>Os supervisores revisam e aprovam as horas</Typography>
 
                             </Stack>
 
@@ -258,9 +281,9 @@ export default function Home() {
                                 viewport={{ once: true }}
                                 gap={2}
                             >
-                                <Typography variant="h3" color="#333" fontSize={16} fontWeight={"Bold"}>Report</Typography>
+                                <Typography variant="h3" color="#333" fontSize={16} fontWeight={"Bold"}>Relatório</Typography>
 
-                                <Typography>Insights and performance reports</Typography>
+                                <Typography>Insights e relatórios de desempenho</Typography>
 
                             </Stack>
 
@@ -270,10 +293,11 @@ export default function Home() {
                 </Styled.Information>
 
                 <Footer
-                    text={" No credit card required"}
+                    text={" Não é necessário cartão de crédito"}
                     icon={<CheckCircle size={12} />}
-                    description={"Join organizations that trust StagyTime to managetheir intern programs efficiently."} title={"Ready to Streamline Your Intern Management?"}
-                    text2={"14-day free trial"}
+                    description={"Junte-se a organizações que confiam na StagyTime para gerenciar seus programas de estágio com eficiência"}
+                    title={"Pronto para otimizar sua gestão de estagiários?"}
+                    text2={" teste gratuito"}
                     simple={false}
                 />
             </Container>

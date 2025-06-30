@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
-import TimeTracking from "./TimeTracking/index";
-import HoursControl from "./HoursControl/index";
-import Dashboard from "./Dashboard/index";
+import TimeTracking from "./Tabs/TimeTracking/index";
+import HoursControl from "./Tabs/HoursControl/index";
 import { fadeInVariant, fadeUpVariant, slideInVariant } from "../../utils/Motion";
 import CustomTabs from "../../components/Tab";
 import Container from "../../components/Container";
 import { Typography } from "@mui/material";
 import * as Styled from "./Demo.styled"
 import { useDemoPage } from "./Demo.hook";
+import Dashboard from "./Tabs/Dashboard";
 
 export default function DemoPage() {
 
     const { customStyles } = useDemoPage();
-    
+
     return (
         <Container>
 
@@ -28,11 +28,11 @@ export default function DemoPage() {
                 >
 
                     <Typography variant="h1" className={"Title"}>
-                        Interactive Demo
+                        Demonstração interativa
                     </Typography>
 
                     <Typography className={"Subtitle"}>
-                        Experience the key features of StagyTime and see how it can transform your intern management process.
+                        Conheça os principais recursos do StagyTime e veja como ele pode transformar seu processo de gerenciamento de estágios..
                     </Typography>
 
                     <motion.div
@@ -56,9 +56,9 @@ export default function DemoPage() {
 
                     <CustomTabs
                         tabs={[
-                            { value: "time-tracking", label: "Time Tracking", content: <TimeTracking /> },
-                            { value: "hours-control", label: "Hours Control", content: <HoursControl /> },
-                            { value: "performance", label: "Performance Dashboard", content: <Dashboard /> },
+                            { value: "time-tracking", label: "controle de tempo", content: <TimeTracking /> },
+                            { value: "hours-control", label: "Controle de horas", content: <HoursControl /> },
+                            { value: "performance", label: "Dashboard de desempenho", content: <Dashboard /> },
                         ]}
                         customStyles={{ ...customStyles, fontSize: 13, fontWeight: "600", }}
                     />
