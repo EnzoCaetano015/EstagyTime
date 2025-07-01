@@ -36,7 +36,7 @@ export default function Login() {
                 </Box>
             </Box>
 
-            <PasswordField eyeButton={true} forget={true} title={"SenhaSenha"} />
+            <PasswordField eyeButton={true} forget={true} title={"Senha"} />
 
             <Box display="flex" alignItems="center" justifyContent="start" mb={1}>
 
